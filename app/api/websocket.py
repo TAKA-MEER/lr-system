@@ -81,13 +81,13 @@ async def ws_bt(
             loop = asyncio.get_event_loop()
             rms = await loop.run_in_executor(None, transcriber.get_rms, data)
             session.speaker_detector.add_bt_rms(rms)
-            logger.debug(f"[BT] RMS={rms:.0f}")
+            logger.info(f"[BT] RMS={rms:.0f} threshold={session.speaker_detector.threshold:.0f}")
 
             # ブラウザにRMSを返す（音量バー表示用）
             await websocket.send_json({"type": "rms", "value": rms})
 
-    except WebSocketDisconnect:
-        logger.info(f"[BT] 切断: {session_id}")
+    except WebSocketDisconnect as e:
+        logger.info(f"[BT] 切断: {session_id} code={e.code}")
         session.bt_ws = None
     except Exception as e:
         logger.error(f"[BT] 例外: {e}")
@@ -109,21 +109,25 @@ async def ws_internal(
     transcriber = websocket.app.state.transcriber
     cfg = websocket.app.state.config
 
+    vad_filter = cfg["stt"].get("vad_enabled", True)
     vad_params = {
         "min_silence_duration_ms": cfg["stt"]["vad_min_silence_ms"],
         "speech_pad_ms": cfg["stt"]["vad_speech_pad_ms"],
         "threshold": cfg["stt"]["vad_threshold"],
     }
 
-    logger.info(f"[Internal] 接続: {session_id}")
+    logger.info(f"[Internal] 接続: {session_id} vad_filter={vad_filter}")
     chunk_start = time.time()
+    chunk_count = 0
 
     try:
         async for data in websocket.iter_bytes():
             if not data:
                 continue
 
+            chunk_count += 1
             chunk_end = time.time()
+            logger.info(f"[Internal] チャンク#{chunk_count}受信 size={len(data)} interval={chunk_end-chunk_start:.1f}s")
 
             # 話者判定（BTマイクのRMS履歴を参照）
             speaker = session.speaker_detector.get_speaker(chunk_start, chunk_end)
@@ -131,11 +135,12 @@ async def ws_internal(
             # 文字起こし（スレッドプールで実行してイベントループをブロックしない）
             loop = asyncio.get_event_loop()
             text = await loop.run_in_executor(
-                None, transcriber.transcribe_bytes, data, vad_params
+                None, transcriber.transcribe_bytes, data, vad_filter, vad_params
             )
             chunk_start = chunk_end
 
             if not text:
+                logger.info(f"[Internal] チャンク#{chunk_count}: 認識結果なし（空文字）")
                 continue
 
             # セッションに保存
@@ -148,15 +153,17 @@ async def ws_internal(
             logger.info(f"[{speaker}] {text[:60]}")
 
             # ブラウザに送信
+            logger.info(f"[Internal] チャンク#{chunk_count}: send_json前")
             await websocket.send_json({
                 "type": "transcript",
                 "speaker": speaker,
                 "text": text,
                 "timestamp": chunk_end,
             })
+            logger.info(f"[Internal] チャンク#{chunk_count}: send_json完了")
 
-    except WebSocketDisconnect:
-        logger.info(f"[Internal] 切断: {session_id}")
+    except WebSocketDisconnect as e:
+        logger.info(f"[Internal] 切断: {session_id} code={e.code}")
         session.internal_ws = None
     except Exception as e:
         logger.error(f"[Internal] 例外: {e}")

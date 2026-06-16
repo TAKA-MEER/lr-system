@@ -18,12 +18,23 @@ class SpeakerDetector:
 
     BTマイクに音声あり → our_side が話している
     BTマイクが無音     → client が話している
+
+    シングルトン: 全WebSocket接続で同一インスタンスを共有
     """
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
 
     def __init__(self, threshold: float = 800.0, window_seconds: float = 10.0):
+        if hasattr(self, '_initialized'):
+            return
         self.threshold = threshold
         self.window_seconds = window_seconds
         self._history: deque[RMSRecord] = deque()
+        self._initialized = True
 
     def add_bt_rms(self, rms: float):
         """BTマイクのRMS値を記録する"""
@@ -46,14 +57,14 @@ class SpeakerDetector:
             if self._history:
                 latest = self._history[-1]
                 speaker = "our_side" if latest.rms > self.threshold else "client"
-                logger.debug(f"履歴なし、直近RMS={latest.rms:.0f} → {speaker}")
+                logger.info(f"話者判定(履歴なし): 直近RMS={latest.rms:.0f} threshold={self.threshold:.0f} history={len(self._history)} → {speaker}")
                 return speaker
-            logger.debug("BTマイク履歴なし → client")
+            logger.info(f"話者判定: BT履歴なし history=0 → client")
             return "client"
 
         max_rms = max(r.rms for r in records)
         speaker = "our_side" if max_rms > self.threshold else "client"
-        logger.debug(f"maxRMS={max_rms:.0f} / threshold={self.threshold} → {speaker}")
+        logger.info(f"話者判定: maxRMS={max_rms:.0f} threshold={self.threshold:.0f} records={len(records)} → {speaker}")
         return speaker
 
     def update_threshold(self, new_threshold: float):

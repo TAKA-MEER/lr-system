@@ -202,15 +202,17 @@ minutes-app  | Application startup complete.
 
 ```yaml
 stt:
-  model_size: large-v3   # large-v3（高精度）/ medium（高速）/ small（最速）
-  chunk_seconds: 5       # 文字起こしの処理間隔（秒）
+  model_size: large-v3        # large-v3（高精度）/ medium（高速）/ small（最速）
+  chunk_seconds: 5            # 文字起こしの処理間隔（秒）
+  vad_enabled: false          # VADフィルター（falseで無効化）
+  vad_threshold: 0.05         # VAD閾値
 
 speaker:
-  bt_rms_threshold: 800  # BTマイクの話者判定閾値（初期値）
+  bt_rms_threshold: 800       # BTマイクの話者判定閾値（初期値）
 
 llm:
-  model: qwen2.5:7b      # 使用するLLMモデル
-  chunk_chars: 2000      # LLMに一度に渡すテキストの長さ
+  model: qwen2.5:7b           # 使用するLLMモデル
+  chunk_chars: 2000           # LLMに一度に渡すテキストの長さ
 ```
 
 設定変更後の再起動：
@@ -249,7 +251,8 @@ BTイヤホンが録音デバイスとして認識されていません。
 ### 文字起こしが空になる / 精度が低い
 
 - マイクがPCから離れすぎていないか確認する
-- `settings.yaml` の `vad_threshold` を下げる（デフォルト `0.3` → `0.2`）
+- 設定を変更する場合は `docker compose restart minutes-app` で反映する
+- VADを有効にしている場合は `vad_threshold` を下げるか、`vad_enabled: false` で無効化する
 - モデルを `large-v3` に設定しているか確認する（`medium` や `small` は精度が下がる）
 
 ### 議事録生成でエラーが出る
@@ -365,16 +368,19 @@ subprocess.run([
 ### VAD（音声区間検出）フィルター
 
 工場ノイズ対策として faster-whisper 内蔵の Silero-VAD を使用します。
+ただし、スピーカー出力をマイクで再度拾う構成ではVADが無音と誤判定するため、現在は無効化（`vad_enabled: false`）が推奨設定です。
 
 ```yaml
 # settings.yaml
 stt:
-  vad_threshold: 0.3         # 低いほど小さな音も拾う（0.1〜0.9）
-  vad_min_silence_ms: 300    # この時間以上の無音を区切りとみなす
-  vad_speech_pad_ms: 300     # 発話区間の前後にパディングを追加
+  vad_enabled: false           # false でVADを完全に無効化
+  vad_threshold: 0.05          # 無効化時の値（影響なし）
+  vad_min_silence_ms: 300      # この時間以上の無音を区切りとみなす
+  vad_speech_pad_ms: 300       # 発話区間の前後にパディングを追加
 ```
 
-工場ノイズが大きい場合は `vad_threshold` を `0.4`〜`0.5` に上げると  
+VADを有効にする場合は `vad_enabled: true` に変更し、`vad_threshold` を調整します。
+工場ノイズが大きい場合は `vad_threshold` を `0.4`〜`0.5` に上げると
 ノイズを音声と誤認識しにくくなります。
 
 ---
@@ -414,6 +420,20 @@ SpeakerDetector.get_speaker(start_time=10.0, end_time=15.0)
 BTマイクのRMS履歴から T=10.0〜15.0 のレコードを取り出す
   ↓
 その中の最大RMSが閾値を超えていれば our_side、超えていなければ client
+```
+
+### SpeakerDetector のシングルトン共有
+
+`SpeakerDetector` はプロセス内で1つのインスタンスのみ存在するシングルトンです。
+BTウィンドウ（`ws_bt`）とメインウィンドウ（`ws_internal`）は
+この同一インスタンスを介してRMS履歴を共有します。
+
+```
+ws_bt（BTウィンドウ）
+  └─ add_bt_rms(rms) ─┐
+                       ├── SpeakerDetector（シングルトン）── _history
+ws_internal（メイン）   │
+  └─ get_speaker() ────┘
 ```
 
 ### RMS履歴の管理
@@ -747,12 +767,13 @@ docker compose logs --tail=100 minutes-app
 ### 主なログメッセージと意味
 
 | ログメッセージ | 意味 |
-|---|---|
+|---|---|---|
 | `STTモデルの初期化完了` | faster-whisperが正常にGPUにロードされた |
 | `新規セッション: a3f9b2c` | ブラウザが初めてWebSocketに接続した |
 | `[BT] 接続: a3f9b2c` | BTウィンドウが接続された |
 | `[Internal] 接続: a3f9b2c` | メインウィンドウが接続された |
-| `[BT] RMS=1240.0` | BTマイクの音量値（DEBUG レベル）|
+| `[BT] RMS=1240.0` | BTマイクの音量値（INFO レベル）|
+| `話者判定: maxRMS=... → our_side` | 話者判定結果 |
 | `[our_side] 測定値は...` | 文字起こし結果と話者ラベル |
 | `Stage1 [1/3] 完了` | LLMのチャンク処理進捗 |
 | `docx 生成完了` | 議事録ファイルが正常に生成された |

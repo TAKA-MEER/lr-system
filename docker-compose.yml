@@ -5,6 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
+      - ./app:/app
       - ./output:/output
       - ./models:/models
     environment:
@@ -14,6 +15,7 @@ services:
     depends_on:
       - minutes-ollama
     restart: unless-stopped
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
     deploy:
       resources:
         reservations:

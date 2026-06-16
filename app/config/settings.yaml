@@ -4,7 +4,8 @@ stt:
   compute_type: float16
   language: ja
   chunk_seconds: 5            # 文字起こしチャンク長（秒）
-  vad_threshold: 0.3
+  vad_enabled: false       # true: VAD有効（ノイズ除去） / false: VAD無効（小さな音も拾う）
+  vad_threshold: 0.05
   vad_min_silence_ms: 300
   vad_speech_pad_ms: 300
 
