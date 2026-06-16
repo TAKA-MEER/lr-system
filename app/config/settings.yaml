@@ -1,0 +1,21 @@
+stt:
+  model_size: large-v3        # large-v3 / medium / small
+  device: cuda
+  compute_type: float16
+  language: ja
+  chunk_seconds: 5            # 文字起こしチャンク長（秒）
+  vad_threshold: 0.3
+  vad_min_silence_ms: 300
+  vad_speech_pad_ms: 300
+
+speaker:
+  bt_rms_threshold: 800.0     # BTマイク有音判定閾値（実測でチューニング）
+  history_window_seconds: 10.0
+
+llm:
+  model: qwen2.5:7b
+  max_tokens: 4096
+  chunk_chars: 2000           # Stage1チャンクの文字数
+
+output:
+  dir: /output

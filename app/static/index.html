@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立会試験 議事録システム</title>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a;
+  --border: #2a2d3a; --accent: #4f8ef7; --accent-dim: #1e3a6e;
+  --green: #3dd68c; --green-dim: #0f3d24;
+  --red: #f75f5f; --red-dim: #3d0f0f;
+  --yellow: #f7c94f; --text: #e8eaf0; --muted: #7a7e94;
+  --our: #4f8ef7; --client: #f7944f;
+  --mono: 'Consolas','Courier New',monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
+
+/* ── Layout ── */
+.layout-main { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+.layout-bt   { max-width: 420px; margin: 0 auto; padding: 24px 16px; }
+
+/* ── Sidebar ── */
+.sidebar {
+  background: var(--surface); border-right: 1px solid var(--border);
+  padding: 20px 16px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto;
+}
+.sidebar h1 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.role-badge {
+  padding: 8px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+}
+.role-badge.internal { background: var(--green-dim); color: var(--green); }
+.role-badge.bt       { background: var(--accent-dim); color: var(--accent); }
+
+/* ── Main panel ── */
+.main-panel { display: flex; flex-direction: column; overflow: hidden; }
+.topbar {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 12px 20px; display: flex; align-items: center; gap: 12px;
+}
+.topbar h2 { font-size: 0.9rem; font-weight: 500; flex: 1; }
+
+/* ── Cards ── */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.field-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+input[type=text], select {
+  width: 100%; padding: 8px 10px; background: var(--bg); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; outline: none;
+}
+input[type=text]:focus, select:focus { border-color: var(--accent); }
+.tags-input { display: flex; gap: 6px; flex-wrap: wrap; }
+.tags-input input { flex: 1; min-width: 120px; }
+
+/* ── Buttons ── */
+button { padding: 9px 18px; border: none; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: opacity .15s; }
+button:disabled { opacity: .3; cursor: not-allowed; }
+.btn-primary  { background: var(--accent); color: #fff; }
+.btn-danger   { background: var(--red); color: #fff; }
+.btn-success  { background: var(--green); color: #111; }
+.btn-ghost    { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-row      { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ── Meter ── */
+.meter-bar { width: 100%; height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
+.meter-fill { height: 100%; width: 0%; border-radius: 4px; transition: width .07s ease; }
+.fill-bt       { background: var(--accent); }
+.fill-internal { background: var(--green); }
+
+/* ── Status dot ── */
+.status-row { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: background .2s; }
+.dot.on    { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.dot.err   { background: var(--red);   box-shadow: 0 0 6px var(--red); }
+.dot.pulse { animation: pulse 1.2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* ── Transcript ── */
+.transcript-area { flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+.transcript-empty { color: var(--muted); font-size: 0.85rem; text-align: center; margin-top: 40px; }
+.seg { display: flex; flex-direction: column; gap: 3px; padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--border); }
+.seg.our_side { border-left-color: var(--our); background: #0f1e3a; }
+.seg.client   { border-left-color: var(--client); background: #2a1a0a; }
+.seg-speaker  { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.seg.our_side .seg-speaker { color: var(--our); }
+.seg.client   .seg-speaker { color: var(--client); }
+.seg-text     { font-size: 0.88rem; line-height: 1.6; }
+
+/* ── Bottom bar ── */
+.bottombar {
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 12px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.generate-status { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); }
+
+/* ── Session ID ── */
+.session-id-row { display: flex; gap: 6px; align-items: center; }
+.session-id-row input { font-family: var(--mono); font-size: 0.8rem; }
+.session-id-row button { padding: 7px 12px; font-size: 0.75rem; }
+
+/* ── Threshold slider ── */
+.slider-row { display: flex; gap: 10px; align-items: center; }
+.slider-row input[type=range] { flex: 1; accent-color: var(--accent); }
+.slider-val { font-family: var(--mono); font-size: 0.8rem; color: var(--text); min-width: 48px; }
+
+/* ── BT page ── */
+.bt-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.recording-indicator { text-align: center; font-size: 2rem; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+// ================================================================
+// 定数・状態
+// ================================================================
+const params  = new URLSearchParams(location.search);
+const ROLE    = params.get('role') || 'internal'; // 'bt' | 'internal'
+const SESSION = params.get('session') || generateId();
+
+function generateId() {
+  return Math.random().toString(36).slice(2, 9);
+}
+
+// URLにsessionパラメータがなければ付与してリロード（internal役のみ）
+if (ROLE === 'internal' && !params.get('session')) {
+  const url = new URL(location.href);
+  url.searchParams.set('session', SESSION);
+  history.replaceState(null, '', url);
+}
+
+let ws        = null;
+let recorder  = null;
+let animId    = null;
+let audioCtx  = null;
+let analyser  = null;
+let isRec     = false;
+let generatedFile = null;
+
+// ================================================================
+// レンダリング
+// ================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  if (ROLE === 'bt') renderBt();
+  else renderInternal();
+});
+
+// ----------------------------------------------------------------
+// BT ページ
+// ----------------------------------------------------------------
+function renderBt() {
+  document.getElementById('root').innerHTML = `
+    <div class="layout-bt">
+      <div class="bt-card">
+        <div class="role-badge bt">🎧 BTイヤホン — OUR_SIDE</div>
+        <div>
+          <div class="field-label">セッション ID</div>
+          <div class="session-id-row">
+            <input type="text" id="inpSession" value="${SESSION}" placeholder="セッションID">
+          </div>
+        </div>
+        <div>
+          <div class="field-label">マイクデバイス</div>
+          <select id="selMic"><option value="">— マイク一覧を取得 —</option></select>
+        </div>
+        <div>
+          <div class="field-label">音量レベル (BTマイク)</div>
+          <div class="meter-bar"><div class="meter-fill fill-bt" id="meter"></div></div>
+        </div>
+        <div class="status-row"><div class="dot" id="dot"></div><span id="statusTxt">未接続</span></div>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="getMics()">🔍 マイク一覧を取得</button>
+          <button class="btn-primary" id="btnStart" onclick="startBt()" disabled>▶ 録音開始</button>
+          <button class="btn-danger"  id="btnStop"  onclick="stopRec()"  disabled>■ 停止</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+async function startBt() {
+  const sid    = document.getElementById('inpSession').value.trim();
+  const devId  = document.getElementById('selMic').value;
+  await startRecord(devId, sid, 'bt');
+}
+
+// ----------------------------------------------------------------
+// Internal ページ
+// ----------------------------------------------------------------
+function renderInternal() {
+  const btUrl = `${location.origin}${location.pathname}?role=bt&session=${SESSION}`;
+  document.getElementById('root').innerHTML = `
+    <div class="layout-main">
+      <!-- サイドバー -->
+      <div class="sidebar">
+        <h1>立会試験 議事録システム</h1>
+        <div class="role-badge internal">🖥 内蔵マイク — 両者</div>
+
+        <!-- セッションID -->
+        <div class="card">
+          <div class="field-label">セッション ID</div>
+          <div class="session-id-row">
+            <input type="text" id="inpSession" value="${SESSION}" readonly>
+            <button class="btn-ghost" onclick="copySession()">📋</button>
+          </div>
+          <div style="margin-top:10px">
+            <button class="btn-ghost" style="width:100%;font-size:0.78rem" onclick="openBtWindow()">🎧 BTウィンドウを開く</button>
+          </div>
+        </div>
+
+        <!-- マイク設定 -->
+        <div class="card">
+          <div class="field-label">マイクデバイス</div>
+          <select id="selMic"><option value="">— マイク一覧を取得 —</option></select>
+          <div style="margin-top:10px">
+            <button class="btn-ghost" style="width:100%" onclick="getMics()">🔍 マイク一覧を取得</button>
+          </div>
+          <div style="margin-top:12px">
+            <div class="field-label">音量レベル</div>
+            <div class="meter-bar"><div class="meter-fill fill-internal" id="meter"></div></div>
+          </div>
+          <div class="status-row" style="margin-top:8px"><div class="dot" id="dot"></div><span id="statusTxt">未接続</span></div>
+        </div>
+
+        <!-- 試験情報 -->
+        <div class="card">
+          <div class="field-label">試験名</div>
+          <input type="text" id="inpTrial" placeholder="○○立会試験">
+          <div class="field-label" style="margin-top:10px">場所</div>
+          <input type="text" id="inpLocation" placeholder="第1試験室">
+          <div class="field-label" style="margin-top:10px">相手方参加者（カンマ区切り）</div>
+          <input type="text" id="inpClient" placeholder="山田 太郎, 鈴木 一郎">
+          <div class="field-label" style="margin-top:10px">自社参加者（カンマ区切り）</div>
+          <input type="text" id="inpOur" placeholder="田中 花子">
+        </div>
+
+        <!-- 話者判定閾値 -->
+        <div class="card">
+          <div class="field-label">BTマイク 音量閾値（話者判定）</div>
+          <div class="slider-row">
+            <input type="range" id="slider" min="100" max="3000" value="800"
+              oninput="document.getElementById('sliderVal').textContent=this.value;updateThreshold(this.value)">
+            <span class="slider-val" id="sliderVal">800</span>
+          </div>
+          <div style="font-size:0.73rem;color:var(--muted);margin-top:6px">
+            BTマイクがこの値を超えたら our_side と判定
+          </div>
+        </div>
+
+        <!-- 録音コントロール -->
+        <div class="btn-row">
+          <button class="btn-primary" id="btnStart" onclick="startInternal()" disabled style="flex:1">▶ 録音開始</button>
+          <button class="btn-danger"  id="btnStop"  onclick="stopRec()"  disabled style="flex:1">■ 停止</button>
+        </div>
+      </div>
+
+      <!-- メインパネル -->
+      <div class="main-panel">
+        <div class="topbar">
+          <h2>リアルタイム 文字起こし</h2>
+          <span style="font-size:0.78rem;color:var(--muted)">
+            <span style="color:var(--our)">■ our_side</span> &nbsp;
+            <span style="color:var(--client)">■ client</span>
+          </span>
+        </div>
+
+        <div class="transcript-area" id="transcriptArea">
+          <div class="transcript-empty" id="emptyMsg">録音を開始すると文字起こしがここに表示されます</div>
+        </div>
+
+        <div class="bottombar">
+          <button class="btn-success" id="btnGenerate" onclick="generateMinutes()" disabled>📄 議事録を生成</button>
+          <button class="btn-ghost"   id="btnDownload" onclick="downloadMinutes()" disabled>⬇ ダウンロード</button>
+          <span class="generate-status" id="genStatus"></span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function copySession() {
+  navigator.clipboard.writeText(SESSION);
+}
+
+function openBtWindow() {
+  const btUrl = `${location.origin}${location.pathname}?role=bt&session=${SESSION}`;
+  window.open(btUrl, '_blank');
+}
+
+async function startInternal() {
+  const devId = document.getElementById('selMic').value;
+  // 試験情報をサーバーに登録
+  await saveMeta();
+  await startRecord(devId, SESSION, 'internal');
+}
+
+async function saveMeta() {
+  const toArr = (s) => s.split(',').map(v => v.trim()).filter(Boolean);
+  await fetch('/api/session/meta', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      session_id: SESSION,
+      trial_name:       document.getElementById('inpTrial').value,
+      location:         document.getElementById('inpLocation').value,
+      client_attendees: toArr(document.getElementById('inpClient').value),
+      our_attendees:    toArr(document.getElementById('inpOur').value),
+    })
+  });
+}
+
+function updateThreshold(val) {
+  fetch('/api/speaker/threshold', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ session_id: SESSION, threshold: parseFloat(val) })
+  });
+}
+
+function addTranscriptEntry(speaker, text) {
+  const area = document.getElementById('transcriptArea');
+  const empty = document.getElementById('emptyMsg');
+  if (empty) empty.remove();
+
+  const label = speaker === 'our_side' ? '自社 (our_side)' : '相手方 (client)';
+  const seg = document.createElement('div');
+  seg.className = `seg ${speaker}`;
+  seg.innerHTML = `<div class="seg-speaker">${label}</div><div class="seg-text">${escHtml(text)}</div>`;
+  area.appendChild(seg);
+  area.scrollTop = area.scrollHeight;
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function generateMinutes() {
+  document.getElementById('genStatus').textContent = '議事録を生成中...';
+  document.getElementById('btnGenerate').disabled = true;
+  try {
+    const resp = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ session_id: SESSION })
+    });
+    const data = await resp.json();
+    if (data.status === 'ok') {
+      generatedFile = data.filename;
+      document.getElementById('genStatus').textContent = `✅ 生成完了: ${data.filename}`;
+      document.getElementById('btnDownload').disabled = false;
+    }
+  } catch (e) {
+    document.getElementById('genStatus').textContent = `❌ エラー: ${e.message}`;
+  } finally {
+    document.getElementById('btnGenerate').disabled = false;
+  }
+}
+
+function downloadMinutes() {
+  if (generatedFile) {
+    window.open(`/api/download/${encodeURIComponent(generatedFile)}`, '_blank');
+  }
+}
+
+// ================================================================
+// 共通: マイク取得・録音
+// ================================================================
+
+async function getMics() {
+  try {
+    const tmp = await navigator.mediaDevices.getUserMedia({ audio: true });
+    tmp.getTracks().forEach(t => t.stop());
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    const inputs  = devices.filter(d => d.kind === 'audioinput');
+    const sel = document.getElementById('selMic');
+    sel.innerHTML = '';
+    inputs.forEach((d, i) => {
+      const opt = document.createElement('option');
+      opt.value = d.deviceId || 'default';
+      opt.textContent = d.label || `マイク ${i+1}`;
+      sel.appendChild(opt);
+    });
+    document.getElementById('btnStart').disabled = false;
+  } catch (e) {
+    alert('マイク権限エラー: ' + e.message);
+  }
+}
+
+async function startRecord(deviceId, sessionId, role) {
+  const wsProto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const wsUrl   = `${wsProto}//${location.host}/ws/audio/${role}?session_id=${sessionId}`;
+
+  // リセット
+  await fetch(`/api/session/reset?session_id=${sessionId}`, { method: 'POST' });
+
+  ws = new WebSocket(wsUrl);
+  ws.binaryType = 'arraybuffer';
+
+  ws.onopen = async () => {
+    // マイクストリーム取得
+    const constraints = { audio: deviceId && deviceId !== 'default'
+      ? { deviceId: { exact: deviceId }, echoCancellation: false, noiseSuppression: false }
+      : { echoCancellation: false, noiseSuppression: false }
+    };
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+      // 音量メーター
+      audioCtx  = new AudioContext();
+      const src = audioCtx.createMediaStreamSource(stream);
+      analyser  = audioCtx.createAnalyser();
+      analyser.fftSize = 256;
+      src.connect(analyser);
+      startMeter(role);
+
+      // MediaRecorder（5秒チャンク）
+      recorder = new MediaRecorder(stream, { mimeType: 'audio/webm;codecs=opus' });
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0 && ws.readyState === WebSocket.OPEN) {
+          e.data.arrayBuffer().then(buf => ws.send(buf));
+        }
+      };
+      recorder.start(5000); // 5秒ごとにチャンク送信
+      isRec = true;
+
+      setDot('on');
+      setStatus('録音中');
+      document.getElementById('btnStart').disabled = true;
+      document.getElementById('btnStop').disabled  = false;
+      if (ROLE === 'internal') {
+        document.getElementById('btnGenerate').disabled = false;
+      }
+    } catch (e) {
+      setDot('err');
+      setStatus('マイクエラー: ' + e.message);
+    }
+  };
+
+  ws.onmessage = (e) => {
+    if (typeof e.data !== 'string') return;
+    try {
+      const msg = JSON.parse(e.data);
+      if (msg.type === 'transcript' && ROLE === 'internal') {
+        addTranscriptEntry(msg.speaker, msg.text);
+      }
+      if (msg.type === 'rms' && ROLE === 'bt') {
+        const pct = Math.min(100, (msg.value / 2000) * 100);
+        document.getElementById('meter').style.width = pct + '%';
+      }
+    } catch {}
+  };
+
+  ws.onclose = () => { if (isRec) setStatus('接続が切れました'); };
+  ws.onerror = () => { setDot('err'); setStatus('WebSocketエラー'); };
+}
+
+function stopRec() {
+  if (recorder && recorder.state !== 'inactive') recorder.stop();
+  if (ws) ws.close();
+  if (animId) cancelAnimationFrame(animId);
+  if (audioCtx) audioCtx.close();
+  recorder = ws = audioCtx = analyser = animId = null;
+  isRec = false;
+
+  document.getElementById('meter').style.width = '0%';
+  setDot('');
+  setStatus('停止');
+  document.getElementById('btnStart').disabled = false;
+  document.getElementById('btnStop').disabled  = true;
+}
+
+function startMeter(role) {
+  const buf  = new Uint8Array(analyser.frequencyBinCount);
+  const fill = document.getElementById('meter');
+  function tick() {
+    analyser.getByteFrequencyData(buf);
+    const vol = Math.min(100, (buf.reduce((a,b)=>a+b,0) / buf.length) * 2.5);
+    fill.style.width = vol + '%';
+    // internal役の場合はサーバーから返ってくるのでここでは表示のみ
+    animId = requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+function setDot(cls) {
+  const d = document.getElementById('dot');
+  d.className = 'dot' + (cls ? ' ' + cls : '');
+  if (cls === 'on') d.classList.add('pulse');
+}
+
+function setStatus(msg) {
+  document.getElementById('statusTxt').textContent = msg;
+}
+</script>
+</body>
+</html>
