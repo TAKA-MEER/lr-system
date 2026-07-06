@@ -1,0 +1,37 @@
+# 立会試験シミュレーション用の設定
+system:
+  # Windows + Docker DesktopではPythonのasyncio(Proactorイベントループ)が"localhost"を
+  # IPv6(::1)優先で解決し、フォワーディングされていないため接続がタイムアウトすることがある。
+  # 127.0.0.1を直接指定して回避する。
+  base_http_url: "http://127.0.0.1:8000"
+  ws_scheme: "ws"
+  host_for_ws: "127.0.0.1:8000"
+  compose_dir: ".."          # docker-compose.yml のある場所(lr-system直下)、testing/からの相対パス
+  compose_service: "minutes-app"
+
+voicevox:
+  base_url: "http://localhost:50021"
+  container_name: "voicevox-tts"
+  image: "voicevox/voicevox_engine:cpu-ubuntu20.04-latest"
+  port: 50021
+
+audio:
+  sample_rate: 48000          # webm/opusエンコード時のサンプルレート
+  channels: 1
+  opus_bitrate: "32k"
+  turn_gap_seconds: [0.4, 0.9]   # 発話ターン間の間隔(ランダム範囲)
+
+injection:
+  chunk_interval_seconds: 5.0
+  chunk_jitter_seconds: 0.2
+  bt_start_offset_seconds: [2.0, 5.0]   # BT窓がinternal窓より先に開始するオフセット範囲
+  quiescence_poll_seconds: 2.0
+  quiescence_stable_rounds: 2
+  quiescence_timeout_seconds: 60
+
+paths:
+  script: "scenario/script_v1.yaml"
+  expected: "scenario/expected_minutes_v1.yaml"
+  voice_map: "tts/voice_map.yaml"
+  audio_dir: "results/audio"        # 生成音声の保存先(使い回す)
+  results_dir: "results"

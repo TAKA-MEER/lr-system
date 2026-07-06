@@ -1,0 +1,17 @@
+# script_v1.yaml の話者名 → VOICEVOX speaker_id(style id) の対応表
+# speaker_id は voicevox_engine の /speakers エンドポイントで確認したもの。
+# speedScale等は必要に応じてvoicevox_client.py側で微調整する。
+
+voices:
+  "山田 隆":
+    speaker_id: 13    # 青山龍星 / ノーマル (client, 落ち着いた男性)
+    speedScale: 1.0
+  "佐藤 健二":
+    speaker_id: 11    # 玄野武宏 / ノーマル (client, 男性)
+    speedScale: 1.0
+  "田中 誠":
+    speaker_id: 21    # 剣崎雌雄 / ノーマル (our_side, BT装着=立会責任者)
+    speedScale: 1.0
+  "鈴木 舞":
+    speaker_id: 9     # 波音リツ / ノーマル (our_side, 女性)
+    speedScale: 1.05
