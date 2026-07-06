@@ -9,6 +9,8 @@ import numpy as np
 import torch
 from faster_whisper import WhisperModel
 
+from stt.ebml_utils import find_first_cluster_offset
+
 logger = logging.getLogger(__name__)
 
 
@@ -19,15 +21,31 @@ class Transcriber:
         device: str = "cuda",
         compute_type: str = "float16",
     ):
-        logger.info(f"faster-whisper [{model_size}] をロード中...")
-        self.model = WhisperModel(model_size, device=device, compute_type=compute_type)
+        self._model_size = model_size
         self._device = device
+        self._compute_type = compute_type
+        self.model: WhisperModel | None = None
         self._webm_header: bytes | None = None  # 最初のチャンクのWebMヘッダー
-        logger.info("faster-whisper ロード完了")
+        self._load()
 
     # ------------------------------------------------------------------
     # 公開メソッド
     # ------------------------------------------------------------------
+
+    @property
+    def is_loaded(self) -> bool:
+        return self.model is not None
+
+    def load(self):
+        """STTモデルをVRAMにロードする（次回録音開始前に呼ぶ）。既にロード済みなら何もしない。"""
+        if self.is_loaded:
+            return
+        self._load()
+
+    def _load(self):
+        logger.info(f"faster-whisper [{self._model_size}] をロード中...")
+        self.model = WhisperModel(self._model_size, device=self._device, compute_type=self._compute_type)
+        logger.info("faster-whisper ロード完了")
 
     def transcribe_bytes(self, audio_bytes: bytes, vad_filter: bool = True, vad_params: dict | None = None) -> str:
         """WebM/Opus バイト列を日本語テキストに変換して返す"""
@@ -83,8 +101,10 @@ class Transcriber:
             return 0.0
 
     def unload(self):
-        """VRAMを解放する（LLM処理前に呼ぶ）"""
-        del self.model
+        """VRAMを解放する（LLM処理前に呼ぶ）。既に未ロードなら何もしない。"""
+        if not self.is_loaded:
+            return
+        self.model = None
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
         logger.info("STTモデルをVRAMから解放しました")
@@ -120,8 +140,17 @@ class Transcriber:
                 return None
 
             # 最初の成功時にWebMヘッダーを保存
+            # 注意: 単純に先頭Nバイトを切り出すと、最初のCluster(音声フレーム)の一部まで
+            # ヘッダーとして保存してしまい、2個目以降の全チャンクにその音声が重複して
+            # 前置される(=文字起こしに重複した断片が混入する)。EBML構造を辿って
+            # 最初のCluster開始位置(=音声フレームを含まない真のヘッダー終端)を正確に求める。
             if not self._webm_header:
-                self._webm_header = audio_bytes[:5120]
+                cluster_offset = find_first_cluster_offset(audio_bytes)
+                if cluster_offset is not None:
+                    self._webm_header = audio_bytes[:cluster_offset]
+                else:
+                    logger.warning("EBML解析失敗。フォールバックとして先頭5120バイトを使用")
+                    self._webm_header = audio_bytes[:5120]
                 logger.info(f"WebMヘッダーを保存: {len(self._webm_header)} bytes")
 
             return result.stdout

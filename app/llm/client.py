@@ -8,14 +8,16 @@ class OllamaClient:
     def __init__(self, base_url: str = "http://localhost:11434"):
         self.base_url = base_url.rstrip("/")
 
-    async def chat(self, model: str, prompt: str, max_tokens: int = 4096) -> str:
+    async def chat(self, model: str, prompt: str, max_tokens: int = 4096, temperature: float = 0.2) -> str:
         """Ollama /api/generate を呼んでテキストを返す"""
         url = f"{self.base_url}/api/generate"
         payload = {
             "model": model,
             "prompt": prompt,
             "stream": False,
-            "options": {"num_predict": max_tokens},
+            "think": False,  # thinking対応モデル(qwen3系等)でも思考ブロックを出力させず、
+                             # 素直にJSONだけを出力させる(トークン上限到達によるJSON途中切れを防ぐ)
+            "options": {"num_predict": max_tokens, "temperature": temperature},
         }
         async with httpx.AsyncClient(timeout=300.0) as client:
             try:

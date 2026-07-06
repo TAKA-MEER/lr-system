@@ -14,9 +14,10 @@ speaker:
   history_window_seconds: 10.0
 
 llm:
-  model: qwen2.5:7b
+  model: qwen3.5:9b
   max_tokens: 4096
   chunk_chars: 2000           # Stage1チャンクの文字数
+  temperature: 0.2            # 低めにしてJSON出力のフォーマット逸脱・解析失敗を減らす
 
 output:
   dir: /output

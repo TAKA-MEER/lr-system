@@ -3,8 +3,7 @@ import os
 import time
 from pathlib import Path
 
-import torch
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
@@ -44,9 +43,17 @@ class ThresholdRequest(BaseModel):
 # ------------------------------------------------------------------
 
 @router.post("/session/reset")
-async def session_reset(session_id: str):
-    """録音開始前にセッションをリセットする"""
+async def session_reset(session_id: str, request: Request):
+    """録音開始前にセッションをリセットする。
+    VRAM管理: 前回生成で保持されたままのOllamaモデルを解放し、STTモデルを再ロードする
+    （両方が同時にVRAMへ乗る瞬間を作らないよう、この順序で行う）。"""
     reset_session(session_id)
+
+    cfg = request.app.state.config
+    ollama = OllamaClient(base_url=os.environ.get("OLLAMA_HOST", "http://localhost:11434"))
+    await ollama.unload_model(cfg["llm"]["model"])
+    request.app.state.transcriber.load()
+
     return {"status": "ok", "session_id": session_id}
 
 
@@ -83,25 +90,21 @@ async def get_transcript(session_id: str):
 
 
 @router.post("/generate")
-async def generate_minutes(req: GenerateRequest, app=None):
+async def generate_minutes(req: GenerateRequest, request: Request):
     """
     議事録を生成してdocxファイルパスを返す。
     STTモデルを解放してからLLMをロードする（VRAM管理）。
     """
-    from fastapi import Request
     session = get_session(req.session_id)
     if not session:
         raise HTTPException(404, "セッションが存在しません")
     if not session.transcript:
         raise HTTPException(400, "文字起こしデータがありません")
 
-    # ---- VRAM管理: STT解放 → LLMロード ----
-    # transcriber は app.state 経由で取得する必要があるが、
-    # ここでは設計上 app.state にアクセスしにくいため
-    # generate エンドポイントは Depends(get_app) パターンを使う
-    # → Phase2では手動でtorch.cuda.empty_cache() を呼ぶ
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    # ---- VRAM管理: STT解放 ----
+    # Ollamaは初回チャットリクエスト時に自動でモデルをロードするため、
+    # 明示的なロード処理は不要（次のollama.chat()呼び出しがロードを兼ねる）。
+    request.app.state.transcriber.unload()
 
     # ---- テキスト生成 ----
     full_text = "\n".join(
@@ -116,6 +119,7 @@ async def generate_minutes(req: GenerateRequest, app=None):
     ollama = OllamaClient(base_url=os.environ.get("OLLAMA_HOST", "http://localhost:11434"))
     model = cfg["llm"]["model"]
     chunk_chars = cfg["llm"]["chunk_chars"]
+    temperature = cfg["llm"].get("temperature", 0.2)
 
     # Stage 1: チャンクごとに要点JSON抽出
     chunks = split_transcript(full_text, max_chars=chunk_chars)
@@ -123,21 +127,34 @@ async def generate_minutes(req: GenerateRequest, app=None):
     summaries = []
     for i, chunk in enumerate(chunks):
         prompt = build_stage1_prompt(chunk)
-        result = await ollama.chat(model=model, prompt=prompt)
+        result = await ollama.chat(model=model, prompt=prompt, temperature=temperature)
         summaries.append(result)
         logger.info(f"  Stage1 [{i+1}/{len(chunks)}] 完了")
 
     # Stage 2: 要点JSONを統合して最終議事録JSON生成
     logger.info("Stage2: 最終議事録を生成中...")
     stage2_prompt = build_stage2_prompt(summaries, session.meta)
-    minutes_json_str = await ollama.chat(model=model, prompt=stage2_prompt)
+    minutes_json_str = await ollama.chat(model=model, prompt=stage2_prompt, temperature=temperature)
 
     import json
+    import re
+
+    def _extract_json(raw: str) -> str:
+        # ```json ... ``` のようなコードフェンスで囲われる場合があるため除去する
+        m = re.search(r"```(?:json)?\s*([\s\S]*?)```", raw)
+        if m:
+            return m.group(1).strip()
+        # 前後に説明文が付与された場合に備え、最初の{から最後の}までを抜き出す
+        start, end = raw.find("{"), raw.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            return raw[start : end + 1]
+        return raw.strip()
+
     try:
-        minutes_json = json.loads(minutes_json_str)
+        minutes_json = json.loads(_extract_json(minutes_json_str))
     except json.JSONDecodeError:
         # JSON解析失敗時はフォールバック
-        logger.warning("JSON解析失敗。フォールバック構造を使用")
+        logger.warning(f"JSON解析失敗。フォールバック構造を使用。raw={minutes_json_str[:2000]!r}")
         minutes_json = {
             "trial_name": session.meta.get("trial_name", ""),
             "date": session.meta.get("date", ""),
