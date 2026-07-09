@@ -30,6 +30,7 @@
 14. [ファイル構成と各ファイルの役割](#14-ファイル構成と各ファイルの役割)
 15. [議事録フォーマットの変更方法](#15-議事録フォーマットの変更方法)
 16. [ログの見方と問題診断](#16-ログの見方と問題診断)
+17. [既知の制限事項](#17-既知の制限事項)
 
 ---
 
@@ -42,7 +43,7 @@
 | 項目 | 要件 |
 |------|------|
 | OS | Windows 10/11 |
-| GPU | NVIDIA RTX 3060 Laptop（VRAM 6GB）以上 |
+| GPU | VRAM 8GB以上 |
 | RAM | 16GB以上推奨（WSL2に12GB割り当て） |
 | ストレージ | 20GB以上の空き（モデルファイル込み） |
 | ソフトウェア | Docker Desktop（WSL2バックエンド）、NVIDIAドライバー最新版 |
@@ -89,7 +90,7 @@ docker compose up --build
 ```
 
 **初回起動時の注意**  
-Ollamaコンテナが `qwen2.5:7b`（約4.4GB）を自動ダウンロードします。  
+Ollamaコンテナが `qwen3.5:9b`（約6.6GB）を自動ダウンロードします。  
 インターネット接続のある環境で実行してください。完了後はオフライン環境でも動作します。  
 ダウンロードには10〜30分程度かかります。
 
@@ -211,8 +212,9 @@ speaker:
   bt_rms_threshold: 800       # BTマイクの話者判定閾値（初期値）
 
 llm:
-  model: qwen2.5:7b           # 使用するLLMモデル
+  model: qwen3.5:9b           # 使用するLLMモデル
   chunk_chars: 2000           # LLMに一度に渡すテキストの長さ
+  temperature: 0.2            # 低めに設定しJSON出力の解析失敗を減らす
 ```
 
 設定変更後の再起動：
@@ -558,25 +560,28 @@ statusの判定基準:
 
 ## 12. VRAM管理
 
-RTX 3060 Laptop の VRAM は 6GB のため、STT と LLM を同時にロードできません。  
-以下の順序で逐次管理しています。
+VRAM 8GB程度のGPUを前提とし、STT と LLM を同時にはロードしない設計にしています。  
+以下の順序で逐次管理しています（`app/api/routes.py` の `generate_minutes` / `session_reset` で実装）。
 
 ```
 試験中（録音中）
-  └─ faster-whisper large-v3 が常駐（~3GB使用）
+  └─ faster-whisper large-v3 が常駐（実測 ~1.8GB使用）
   └─ Ollama はモデル未ロード状態
 
 「議事録を生成」ボタン押下
-  └─ 1. faster-whisper のモデルをメモリから削除
-  └─ 2. torch.cuda.empty_cache() でVRAMを解放
-  └─ 3. Ollama へ HTTP リクエスト（Ollamaが qwen2.5:7b をロード ~4.4GB）
-  └─ 4. LLM処理（Stage1 × N + Stage2 × 1）
-  └─ 5. 処理完了後、Ollama はモデルを保持（次回生成が速くなる）
+  └─ 1. request.app.state.transcriber.unload() でSTTモデルをメモリから削除
+  └─      （内部で torch.cuda.empty_cache() も実行）
+  └─ 2. Ollama へ HTTP リクエスト（Ollamaが qwen3.5:9b をロード ~6.6GB）
+  └─ 3. LLM処理（Stage1 × N + Stage2 × 1）
+  └─ 4. 処理完了後、Ollama はモデルを保持（次回生成が速くなる）
 
-次回録音開始時
-  └─ Ollamaにアンロードを指示（OLLAMA_MAX_LOADED_MODELS=1 で自動管理）
-  └─ faster-whisper を再ロード
+次回録音開始時（session/reset時）
+  └─ 1. OllamaClient.unload_model() で明示的にアンロードを指示（keep_alive=0）
+  └─ 2. request.app.state.transcriber.load() でSTTを再ロード（未ロード時のみ）
 ```
+
+STTとLLMが同時にVRAMへ乗る瞬間を作らないよう、必ず「片方を解放してからもう片方をロードする」順序を守っています。  
+実測では、生成中のVRAM使用量は約6GB前後（残り2GB程度）に収まります。
 
 ### VRAM使用量の確認
 
@@ -676,7 +681,8 @@ minutes-system/
 │   │
 │   ├── stt/
 │   │   ├── transcriber.py     faster-whisper ラッパー・ffmpeg変換
-│   │   └── speaker.py         BTマイクRMSによる話者判定
+│   │   ├── speaker.py         BTマイクRMSによる話者判定
+│   │   └── ebml_utils.py      WebMヘッダーの正確な切り出し（EBML解析）
 │   │
 │   ├── llm/
 │   │   ├── client.py          Ollama HTTP クライアント
@@ -692,7 +698,7 @@ minutes-system/
 │
 ├── ollama/
 │   ├── Dockerfile             ollama/ollamaベースイメージ
-│   └── entrypoint.sh          起動時にqwen2.5:7bを自動pull
+│   └── entrypoint.sh          起動時にqwen3.5:9bを自動pull
 │
 ├── output/                    生成済み議事録の保存先（ホストと共有）
 └── models/                    HuggingFaceキャッシュ（将来のモデル追加用）
@@ -803,3 +809,15 @@ environment:
 | `Connection refused` (Ollama) | Ollamaコンテナが未起動 | `docker compose up minutes-ollama` |
 | `JSONDecodeError` | LLMがJSON以外を返した | プロンプトの末尾に「JSONのみ出力」の指示を強化する |
 | `WebSocket切断` | 録音中にPCがスリープした | スリープ設定を無効にして再録音 |
+
+---
+
+## 17. 既知の制限事項
+
+配電盤立会試験を模した音声によるシミュレーション検証（`testing/`ディレクトリ、詳細は `testing/CHANGELOG.md` を参照）で判明している、現時点で未対応の制限事項です。
+
+- **実際の工場環境（雑音・複数人の同時発言）はまだ検証していない**：これまでの検証はクリアな合成音声のみで行っており、`vad_enabled: false` はスピーカー再生した音声をマイクで拾う検証方式に起因する設定です（[9. 音声処理パイプライン](#9-音声処理パイプライン)参照）。実機での生録音では事情が異なる可能性があります。
+- **BTイヤホンを自社側1名しか装着していない場合、話者判定の精度に限界がある**：装着していない自社側の発話者は `client` と誤判定されうる。
+- **5秒ごとの音声区切りにより、文の途中で区切られる認識誤りが残る**：チャンク間でオーバーラップさせて文脈を補う改善余地がある。
+- **長時間試験でのコンテキストウィンドウ制約は未検証**：Stage2はStage1の全チャンクの要点を1回のAI呼び出しにまとめて渡す設計のため、試験時間が長くなり要点チャンク数が大幅に増えると、AIの処理可能な情報量（`num_ctx`、現状は明示的に拡張していない）を超える可能性がある。
+- **依存ライブラリ経由の軽微な外部通信が1件ある**：`faster-whisper`が依存する`huggingface_hub`のエージェントハーネス検出機能により、起動時に`huggingface.co`への通信が発生する。`docker-compose.yml`の`minutes-app`環境変数に`HF_HUB_OFFLINE=1`を追加すると無効化できる（未適用）。
