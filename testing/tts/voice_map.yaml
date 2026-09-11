@@ -1,6 +1,8 @@
 # script_v1.yaml の話者名 → VOICEVOX speaker_id(style id) の対応表
 # speaker_id は voicevox_engine の /speakers エンドポイントで確認したもの。
 # speedScale等は必要に応じてvoicevox_client.py側で微調整する。
+#
+# クレジット表記・各キャラクターの利用規約は ../CREDITS.md を参照(VOICEVOX利用規約により必須)。
 
 voices:
   "山田 隆":
