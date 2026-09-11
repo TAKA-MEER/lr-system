@@ -1,0 +1,105 @@
+# script_endurance.yaml に対応する評価用の正解データ(人手作成)
+# evaluate/minutes_metrics.py がこれを基に生成された議事録docx/JSONの再現率・正確性を採点する。
+# speaker_turn_summary は evaluate/speaker_metrics.py では使用されない(timeline.json の
+# is_bt_wearer を直接参照するため)。参考情報としてのみ記載する。
+
+meta:
+  trial_name_keywords: ["配電盤", "SWB-3100", "立会試験"]
+  location_keywords: ["高圧試験室"]
+  client_attendees: ["山田", "佐藤"]
+  our_attendees: ["田中", "鈴木"]
+
+discussions:
+  - id: d1
+    topic_keywords: ["外観", "塗装", "ムラ"]
+    client_request_keywords: ["塗装", "ムラ"]
+    our_response_keywords: ["再塗装", "出荷前"]
+    expected_status: "合意済み"
+
+  - id: d2
+    topic_keywords: ["絶縁抵抗", "A盤", "受電盤"]
+    client_request_keywords: ["3.2メグオーム", "規格", "下限"]
+    our_response_keywords: ["湿度", "規格", "問題ない"]
+    expected_status: "合意済み"
+    note: "台本では前半(ターン26-32)で「継続協議」となるが、休憩後のターン90-95で「合意済み」に上書きされる。Stage1チャンク数が大幅に増える環境でもStage2統合ルール(最終合意状態を優先)が機能するかの検証ポイント。最終出力は合意済みであるべき。"
+
+  - id: d3
+    topic_keywords: ["絶縁抵抗", "B盤", "配電盤"]
+    client_request_keywords: []
+    our_response_keywords: ["12.5メグオーム", "余裕", "規格"]
+    expected_status: "合意済み"
+    note: "A盤絶縁抵抗(d2)と混同されず、別項目として認識できるかの検証ポイント。"
+
+  - id: d4
+    topic_keywords: ["耐電圧"]
+    client_request_keywords: []
+    our_response_keywords: ["合格", "異常"]
+    expected_status: "合意済み"
+
+  - id: d5
+    topic_keywords: ["シーケンス", "投入", "遮断"]
+    client_request_keywords: []
+    our_response_keywords: ["正常", "問題ありません"]
+    expected_status: "合意済み"
+
+  - id: d6
+    topic_keywords: ["インターロック", "扉", "非常停止"]
+    client_request_keywords: ["非常停止", "インターロック", "確認"]
+    our_response_keywords: ["遮断", "阻止", "ロック"]
+    expected_status: "合意済み"
+
+  - id: d7
+    topic_keywords: ["保護継電器", "過電流", "地絡"]
+    client_request_keywords: []
+    our_response_keywords: ["整定", "正常", "合格"]
+    expected_status: "合意済み"
+
+  - id: d8
+    topic_keywords: ["温度上昇", "巻線"]
+    client_request_keywords: []
+    our_response_keywords: ["39度", "規格", "余裕"]
+    expected_status: "合意済み"
+
+  - id: d9
+    topic_keywords: ["表示灯", "色"]
+    client_request_keywords: ["緑色", "仕様"]
+    our_response_keywords: ["交換", "白色"]
+    expected_status: "合意済み"
+
+  - id: d10
+    topic_keywords: ["銘板", "型式", "誤記"]
+    client_request_keywords: ["SWB-3010D", "型式", "誤記"]
+    our_response_keywords: ["再発行", "貼り替え"]
+    expected_status: "合意済み"
+
+  - id: d11
+    topic_keywords: ["完成図書", "取扱説明書"]
+    client_request_keywords: ["完成図書", "いつ"]
+    our_response_keywords: ["校正中", "送付"]
+    expected_status: "合意済み"
+
+action_items:
+  - id: a1
+    content_keywords: ["表示灯", "交換", "緑"]
+    owner: "our_side"
+    deadline_keywords: ["7月10日", "7/10"]
+
+  - id: a2
+    content_keywords: ["銘板", "再発行", "貼り替え"]
+    owner: "our_side"
+    deadline_keywords: ["8月20日", "8/20", "出荷日"]
+
+  - id: a3
+    content_keywords: ["完成図書", "送付"]
+    owner: "our_side"
+    deadline_keywords: ["7月25日", "7/25"]
+
+status_conflict_check:
+  description: "A盤絶縁抵抗の話題(d2)は台本前半で「継続協議」、休憩後に「合意済み」に変わる。最終議事録では必ず「合意済み」になっているべき。B盤絶縁抵抗(d3)と取り違えないよう、topic_keywordsは「A盤」表記に絞っている(LLMが「A版」表記を使うこともあるため両方を許容)。"
+  topic_keywords: ["A盤", "A版"]
+  expected_final_status: "合意済み"
+
+speaker_turn_summary:
+  bt_wearer: "田中 誠"
+  non_bt_our_side_speaker: "鈴木 舞"
+  note: "評価は timeline.json の is_bt_wearer を直接参照するため、ここに個別ターン番号は列挙しない。"

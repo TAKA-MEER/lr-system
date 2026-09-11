@@ -5,7 +5,11 @@ scenario/script_v1.yaml, scenario/expected_minutes_v1.yaml, results/audio/timeli
 
 使い方:
     .venv/Scripts/python.exe evaluate/run_eval.py <run_id>
+    .venv/Scripts/python.exe evaluate/run_eval.py endurance_01 \
+        --script scenario/script_endurance.yaml --expected scenario/expected_minutes_endurance.yaml \
+        --audio-dir results/audio_endurance
 """
+import argparse
 import json
 import subprocess
 import sys
@@ -44,16 +48,20 @@ def check_stage2_fallback_in_logs(since_iso: str, container_name: str = "minutes
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("使い方: run_eval.py <run_id>")
-        sys.exit(1)
-    run_id = sys.argv[1]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("run_id")
+    parser.add_argument("--script", default=None, help="台本yamlのパス(省略時はconfig.yamlのpaths.script)")
+    parser.add_argument("--expected", default=None, help="正解データyamlのパス(省略時はconfig.yamlのpaths.expected)")
+    parser.add_argument("--audio-dir", default=None, help="timeline.jsonの場所(省略時はconfig.yamlのpaths.audio_dir)")
+    args = parser.parse_args()
+    run_id = args.run_id
 
     cfg = load_yaml(TESTING_DIR / "config.yaml")
     run_dir = TESTING_DIR / cfg["paths"]["results_dir"] / run_id
-    script = load_yaml(TESTING_DIR / cfg["paths"]["script"])
-    expected = load_yaml(TESTING_DIR / cfg["paths"]["expected"])
-    timeline = json.loads((TESTING_DIR / cfg["paths"]["audio_dir"] / "timeline.json").read_text(encoding="utf-8"))
+    script = load_yaml(TESTING_DIR / (args.script or cfg["paths"]["script"]))
+    expected = load_yaml(TESTING_DIR / (args.expected or cfg["paths"]["expected"]))
+    audio_dir = TESTING_DIR / (args.audio_dir or cfg["paths"]["audio_dir"])
+    timeline = json.loads((audio_dir / "timeline.json").read_text(encoding="utf-8"))
 
     run_info = json.loads((run_dir / "run_info.json").read_text(encoding="utf-8"))
     transcript = json.loads((run_dir / "transcript.json").read_text(encoding="utf-8"))

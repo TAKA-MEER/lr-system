@@ -120,6 +120,7 @@ async def generate_minutes(req: GenerateRequest, request: Request):
     model = cfg["llm"]["model"]
     chunk_chars = cfg["llm"]["chunk_chars"]
     temperature = cfg["llm"].get("temperature", 0.2)
+    num_ctx = cfg["llm"].get("num_ctx", 32768)
 
     # Stage 1: チャンクごとに要点JSON抽出
     chunks = split_transcript(full_text, max_chars=chunk_chars)
@@ -127,14 +128,14 @@ async def generate_minutes(req: GenerateRequest, request: Request):
     summaries = []
     for i, chunk in enumerate(chunks):
         prompt = build_stage1_prompt(chunk)
-        result = await ollama.chat(model=model, prompt=prompt, temperature=temperature)
+        result = await ollama.chat(model=model, prompt=prompt, temperature=temperature, num_ctx=num_ctx)
         summaries.append(result)
         logger.info(f"  Stage1 [{i+1}/{len(chunks)}] 完了")
 
     # Stage 2: 要点JSONを統合して最終議事録JSON生成
     logger.info("Stage2: 最終議事録を生成中...")
     stage2_prompt = build_stage2_prompt(summaries, session.meta)
-    minutes_json_str = await ollama.chat(model=model, prompt=stage2_prompt, temperature=temperature)
+    minutes_json_str = await ollama.chat(model=model, prompt=stage2_prompt, temperature=temperature, num_ctx=num_ctx)
 
     import json
     import re

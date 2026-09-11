@@ -12,6 +12,7 @@ services:
       - OLLAMA_HOST=http://minutes-ollama:11434
       - HF_HOME=/models
       - CUDA_VISIBLE_DEVICES=0
+      - HF_HUB_OFFLINE=1
     depends_on:
       - minutes-ollama
     restart: unless-stopped

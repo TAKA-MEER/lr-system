@@ -8,7 +8,13 @@ internal_mix.wav (両話者混合) と bt_mix.wav (BTイヤホン装着者の発
 
 使い方:
     .venv/Scripts/python.exe tts/generate_audio.py
+    .venv/Scripts/python.exe tts/generate_audio.py --script scenario/script_endurance.yaml --audio-dir results/audio_endurance
+
+台本のターンに任意で wait_seconds を指定すると、そのターンの発話直後(通常のturn_gap_secondsに
+加えて)に指定秒数分の無音を internal_mix / bt_mix 両方に挿入する。計測待ち・機器セットアップ・
+休憩など、実際の立会試験で発生する無音区間を表現するためのもの。
 """
+import argparse
 import io
 import json
 import random
@@ -31,14 +37,21 @@ def load_yaml(path: Path) -> dict:
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--script", default=None, help="台本yamlのパス(config.yamlからの相対、省略時はconfig.yamlのpaths.scriptを使用)")
+    parser.add_argument("--audio-dir", default=None, help="出力先ディレクトリ(config.yamlからの相対、省略時はconfig.yamlのpaths.audio_dirを使用)")
+    args = parser.parse_args()
+
     cfg = load_yaml(TESTING_DIR / "config.yaml")
-    script = load_yaml(TESTING_DIR / cfg["paths"]["script"])
+    script_path = args.script or cfg["paths"]["script"]
+    script = load_yaml(TESTING_DIR / script_path)
     voice_map = load_yaml(TESTING_DIR / cfg["paths"]["voice_map"])["voices"]
 
     bt_wearer = script["meta"]["bt_wearer"]
     gap_lo, gap_hi = cfg["audio"]["turn_gap_seconds"]
 
-    out_dir = TESTING_DIR / cfg["paths"]["audio_dir"]
+    audio_dir = args.audio_dir or cfg["paths"]["audio_dir"]
+    out_dir = TESTING_DIR / audio_dir
     out_dir.mkdir(parents=True, exist_ok=True)
 
     client = VoicevoxClient(base_url=cfg["voicevox"]["base_url"])
@@ -87,9 +100,10 @@ def main():
         )
 
         gap = random.uniform(gap_lo, gap_hi)
-        cursor += duration + gap
+        wait_seconds = float(turn.get("wait_seconds", 0) or 0)
+        cursor += duration + gap + wait_seconds
         if i < len(turns) - 1:
-            silence = np.zeros(int(gap * samplerate), dtype="float32")
+            silence = np.zeros(int((gap + wait_seconds) * samplerate), dtype="float32")
             internal_chunks.append(silence)
             bt_chunks.append(silence)
 

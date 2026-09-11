@@ -9,6 +9,7 @@ def mux_to_single_webm(
     sample_rate: int = 48000,
     bitrate: str = "32k",
     cluster_time_limit_ms: int = 5000,
+    timeout: float = 600.0,
 ) -> None:
     cmd = [
         "ffmpeg", "-y",
@@ -22,7 +23,7 @@ def mux_to_single_webm(
         "-live", "1",
         str(out_webm_path),
     ]
-    result = subprocess.run(cmd, capture_output=True, timeout=120)
+    result = subprocess.run(cmd, capture_output=True, timeout=timeout)
     if result.returncode != 0:
         raise RuntimeError(f"ffmpeg失敗: {result.stderr.decode(errors='replace')[:2000]}")
 

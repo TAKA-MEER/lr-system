@@ -14,3 +14,9 @@
 | iter6c_qwen3_8b_repeat | 0.151 | 0.745 | 0.857 | 1.000 | False | 0 |
 | iter7_qwen3_5_9b | 0.151 | 0.660 | 1.000 | 1.000 | True | 0 |
 | iter7b_qwen3_5_9b_repeat | 0.151 | 0.604 | 1.000 | 1.000 | True | 0 |
+| smoke_harness_check | 0.151 | 0.811 | 1.000 | 1.000 | False | 0 |
+| endurance_01 | 3.938 | 0.968 | 0.000 | 0.000 | False | 1 |
+| smoke_after_fix | 0.149 | 0.755 | 1.000 | 1.000 | True | 0 |
+| endurance_02 | 0.203 | 0.739 | 1.000 | 1.000 | False | 0 |
+| smoke_after_prompt_fix | 0.149 | 0.745 | 1.000 | 1.000 | True | 0 |
+| endurance_03 | 0.174 | 0.746 | 1.000 | 1.000 | False | 0 |

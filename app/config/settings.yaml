@@ -4,7 +4,14 @@ stt:
   compute_type: float16
   language: ja
   chunk_seconds: 5            # 文字起こしチャンク長（秒）
-  vad_enabled: false       # true: VAD有効（ノイズ除去） / false: VAD無効（小さな音も拾う）
+  vad_enabled: true        # true: VAD有効（無音区間をスキップ） / false: VAD無効（小さな音も拾う）
+                            # 3時間耐久試験(testing/CHANGELOG.md参照)で、vad_enabled=falseだと
+                            # 計測待ち等の無音区間でfaster-whisperが同一フレーズを繰り返し
+                            # ハルシネーションし、文字起こしの9割近くがゴミセグメントになる
+                            # 不具合が判明したため、trueに変更した。スピーカー再生した音声を
+                            # マイクで拾う検証方式では小さな音をVADが無音と誤判定するおそれが
+                            # あるため、その場合はvad_thresholdを下げる（例: 0.02〜0.03）か、
+                            # 短時間試験に限りfalseに戻すことを検討する。
   vad_threshold: 0.05
   vad_min_silence_ms: 300
   vad_speech_pad_ms: 300
@@ -18,6 +25,10 @@ llm:
   max_tokens: 4096
   chunk_chars: 2000           # Stage1チャンクの文字数
   temperature: 0.2            # 低めにしてJSON出力のフォーマット逸脱・解析失敗を減らす
+  num_ctx: 32768               # Ollamaへの明示的なコンテキスト長指定。未指定だとOllamaの既定値
+                                # (数千トークン程度)が使われ、3時間耐久試験でStage2プロンプトが
+                                # 5000トークンを超えた際に入力だけで既定値を超過し、出力がほぼ
+                                # 生成されずJSON解析に失敗する不具合が判明した(testing/CHANGELOG.md参照)。
 
 output:
   dir: /output

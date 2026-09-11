@@ -13,15 +13,20 @@
 
 使い方:
     .venv/Scripts/python.exe inject/run_injection.py [--run-id NAME] [--skip-restart]
+    .venv/Scripts/python.exe inject/run_injection.py --run-id endurance_01 \
+        --script scenario/script_endurance.yaml --expected scenario/expected_minutes_endurance.yaml \
+        --audio-dir results/audio_endurance
 """
 import argparse
 import asyncio
+import csv
 import json
 import logging
 import random
 import string
 import subprocess
 import sys
+import threading
 import time
 from datetime import datetime
 from pathlib import Path
@@ -35,6 +40,77 @@ from ws_injector import prepare_chunks, run_injection_ws
 TESTING_DIR = Path(__file__).resolve().parent.parent
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("run_injection")
+
+GENERATE_TIMEOUT_SECONDS = 3600.0  # 長時間試験ではStage1チャンク数が多く、逐次LLM呼び出しの
+                                    # 総時間が既定の600秒を超えうるため大きめに確保する
+
+
+# ------------------------------------------------------------------
+# リソース監視(VRAM/CPU/メモリの時系列記録)
+# ------------------------------------------------------------------
+
+def _docker_stats_row(container_name: str) -> dict | None:
+    try:
+        result = subprocess.run(
+            ["docker", "stats", "--no-stream", "--format", "{{.CPUPerc}}\t{{.MemUsage}}", container_name],
+            capture_output=True, timeout=15,
+        )
+        if result.returncode != 0:
+            return None
+        line = result.stdout.decode(errors="replace").strip()
+        if not line:
+            return None
+        cpu_perc, mem_usage = line.split("\t", 1)
+        return {"cpu_percent": cpu_perc.strip(), "mem_usage": mem_usage.strip()}
+    except Exception:
+        return None
+
+
+def _nvidia_smi_row() -> dict | None:
+    # shutil.which("nvidia-smi") はWindows環境で見つからないことがある(PATHEXT解決の問題)が、
+    # subprocess.run自体はOSのPATH解決で普通に成功することがあるため、whichでは事前判定しない。
+    try:
+        result = subprocess.run(
+            ["nvidia-smi", "--query-gpu=memory.used,memory.total", "--format=csv,noheader,nounits"],
+            capture_output=True, timeout=15,
+        )
+        if result.returncode != 0:
+            return None
+        line = result.stdout.decode(errors="replace").strip().splitlines()[0]
+        used, total = [v.strip() for v in line.split(",")]
+        return {"vram_used_mib": used, "vram_total_mib": total}
+    except Exception:
+        return None
+
+
+def monitor_resources(run_dir: Path, container_names: list[str], stop_event: threading.Event, interval_sec: float = 60.0):
+    """run_injection.py の実行中(注入〜/api/generate完了まで)、コンテナのCPU/メモリと
+    GPU VRAM使用量を一定間隔でポーリングし、resource_timeline.csv に時系列で記録する。
+    数時間規模の試験でVRAM/メモリの単調増加(リーク傾向)がないかを事後判定するためのもの。"""
+    csv_path = run_dir / "resource_timeline.csv"
+    fieldnames = ["elapsed_sec", "timestamp"]
+    for name in container_names:
+        fieldnames += [f"{name}_cpu_percent", f"{name}_mem_usage"]
+    fieldnames += ["vram_used_mib", "vram_total_mib"]
+
+    start = time.time()
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        f.flush()
+        while not stop_event.is_set():
+            row = {"elapsed_sec": round(time.time() - start, 1), "timestamp": datetime.now().isoformat()}
+            for name in container_names:
+                stats = _docker_stats_row(name) or {}
+                row[f"{name}_cpu_percent"] = stats.get("cpu_percent", "")
+                row[f"{name}_mem_usage"] = stats.get("mem_usage", "")
+            gpu = _nvidia_smi_row() or {}
+            row["vram_used_mib"] = gpu.get("vram_used_mib", "")
+            row["vram_total_mib"] = gpu.get("vram_total_mib", "")
+            writer.writerow(row)
+            f.flush()
+            stop_event.wait(interval_sec)
+    logger.info(f"リソース監視を終了しました: {csv_path}")
 
 
 def load_yaml(path: Path) -> dict:
@@ -115,16 +191,19 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", default=None)
     parser.add_argument("--skip-restart", action="store_true", help="デバッグ用: コンテナ再起動をスキップ")
+    parser.add_argument("--script", default=None, help="台本yamlのパス(省略時はconfig.yamlのpaths.script)")
+    parser.add_argument("--audio-dir", default=None, help="音声(internal_mix.wav/bt_mix.wav)の場所(省略時はconfig.yamlのpaths.audio_dir)")
+    parser.add_argument("--monitor-interval", type=float, default=60.0, help="リソース監視のポーリング間隔(秒)")
     args = parser.parse_args()
 
     cfg = load_yaml(TESTING_DIR / "config.yaml")
-    script = load_yaml(TESTING_DIR / cfg["paths"]["script"])
+    script = load_yaml(TESTING_DIR / (args.script or cfg["paths"]["script"]))
 
     run_id = args.run_id or datetime.now().strftime("%Y%m%d_%H%M%S")
     run_dir = TESTING_DIR / cfg["paths"]["results_dir"] / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
 
-    audio_dir = TESTING_DIR / cfg["paths"]["audio_dir"]
+    audio_dir = TESTING_DIR / (args.audio_dir or cfg["paths"]["audio_dir"])
     internal_wav = audio_dir / "internal_mix.wav"
     bt_wav = audio_dir / "bt_mix.wav"
     if not internal_wav.exists() or not bt_wav.exists():
@@ -134,6 +213,23 @@ def main():
     ws_host = cfg["system"]["host_for_ws"]
     ws_scheme = cfg["system"]["ws_scheme"]
 
+    stop_monitor = threading.Event()
+    monitor_thread = threading.Thread(
+        target=monitor_resources,
+        args=(run_dir, [cfg["system"]["compose_service"], "minutes-ollama"], stop_monitor, args.monitor_interval),
+        daemon=True,
+    )
+    monitor_thread.start()
+    logger.info(f"リソース監視を開始しました(間隔={args.monitor_interval}秒): {run_dir / 'resource_timeline.csv'}")
+
+    try:
+        _run(args, cfg, script, run_id, run_dir, audio_dir, internal_wav, bt_wav, base_url, ws_host, ws_scheme)
+    finally:
+        stop_monitor.set()
+        monitor_thread.join(timeout=args.monitor_interval + 15.0)
+
+
+def _run(args, cfg, script, run_id, run_dir, audio_dir, internal_wav, bt_wav, base_url, ws_host, ws_scheme):
     restart_epoch = time.time()
     if not args.skip_restart:
         unload_ollama_models_for_safety()
@@ -211,7 +307,7 @@ def main():
 
     logger.info("議事録生成を要求中(/api/generate)...")
     t1 = time.time()
-    with httpx.Client(timeout=600.0) as client:
+    with httpx.Client(timeout=GENERATE_TIMEOUT_SECONDS) as client:
         resp = client.post(f"{base_url}/api/generate", json={"session_id": session_id})
         resp.raise_for_status()
         gen_result = resp.json()
