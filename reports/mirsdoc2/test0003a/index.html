@@ -133,9 +133,10 @@
 <img src="./img/log_realtime.jpg" alt="minutes-appコンテナのリアルタイムログ" style="max-width:900px;width:100%;border:1px solid #999;"><br>
 <code>docker logs -f minutes-app</code>で取得した実際のログ。5秒チャンクごとに音声を受信し（[Internal] チャンク#N受信）、話者判定（stt.speaker）、faster-whisperによる文字起こし（stt.transcriber）が行われ、結果が話者ラベル付き（[our_side]/[client]）でブラウザへ送信されるまでの一連の流れが実際に動作していることを示す。</p>
 
-<p><b>Fig.3 生成された議事録（docx）の内容</b><br>
+<p><b>Fig.3 生成された議事録（docx→PDF変換）の内容</b><br>
 <img src="./img/minutes_output.jpg" alt="生成された議事録docxの内容" style="max-width:900px;width:100%;border:1px solid #999;"><br>
-同試験の音声注入・LLM処理完了後にダウンロードされた議事録docxの内容（試験情報、協議事項一覧、アクションアイテム一覧）。文字起こしからLLMによる構造化を経て、実際に議事録が自動生成されることを示す。</p>
+同試験の音声注入・LLM処理完了後にダウンロードされた議事録docx（試験情報、協議事項一覧、アクションアイテム一覧）。文字起こしからLLMによる構造化を経て、実際に議事録が自動生成されることを示す。docxファイルはPDFに変換して<a href="./img/minutes_20260911.pdf">こちら</a>に掲載している（全3ページ、閲覧環境によっては下に埋め込み表示される）。</p>
+<embed src="./img/minutes_20260911.pdf" type="application/pdf" style="width:100%;max-width:900px;height:600px;border:1px solid #999;">
 
 <h2>6. KPI以外の実用性に関する確認</h2>
 <ul>
