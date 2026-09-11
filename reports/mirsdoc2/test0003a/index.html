@@ -1,0 +1,169 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MIRS2602-TEST-0003 - 資料作成(議事録)PoC検証</title>
+<link rel=stylesheet href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/style.css" type="text/css">
+<link rel="icon" href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<table class="table010">
+<tr>
+<th>名称</th>
+<td class="title">MIRS2602 資料作成(議事録)PoC検証</td>
+</tr>
+<tr>
+<th>番号</th>
+<td class="title">MIRS2602-TEST-0003</td>
+</tr>
+</table>
+<br>
+
+<table class="table010">
+<tr>
+<th>版数</th>
+<th>最終更新日</th>
+<th>作成</th>
+<th>承認</th>
+<th>改訂記事</th>
+</tr>
+
+<tr>
+<td>A01</td>
+<td>2026.09.11</td>
+<td>森　匠未</td>
+<td></td>
+<td>初版</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>1. 目的</h2>
+<p><a href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/dsgn/dsgn0001a/index.html">MIRS2602-DSGN-0001（企画・基本設計）</a>で立てたPoC計画のうち、音声文字起こし・議事録自動生成に関する仮説・KPIが成立するかを検証する。本資料は、配電盤出荷前立会試験を模した音声シミュレーション試験（LRシステムリポジトリ<code>testing/</code>配下、詳細は<code>testing/CHANGELOG.md</code>参照）の結果を、資料作成(議事録)PoCの検証結果としてまとめたものである。</p>
+<p>実際の工場・立会試験環境での実施が困難であったため、TTS合成音声によるWebSocket直接注入方式でのシミュレーションにより代替検証を行った（詳細は「3. 検証方法」）。</p>
+
+<h2>2. 検証対象KPI</h2>
+<h3>2.1 MIRS2602-DSGN-0001由来のKPI</h3>
+<p>MIRS2602-DSGN-0001「3.2 検証内容（仮説）」および「3.5 成功基準(KPI)」のうち、音声文字起こし・議事録生成に該当する項目を対象とする。</p>
+<ul>
+<li>音声を文字起こしして、議事録に自動反映できるか（仮説）</li>
+<li>文字起こし精度80%以上（KPI）</li>
+</ul>
+<p>なお、DSGN-0001「3.5 成功基準(KPI)」には「エクセルの見出し行を理解して対応する箇所に移動できる」というKPIも記載されているが、これは配電盤の測定値を成績書へ入力する別機能を想定したものであり、議事録作成を担う本機能の対象範囲外である。エクセルへの入力に関する検証は本資料の対象外とする。</p>
+
+<h3>2.2 追加KPI（本検証で新たに定義）</h3>
+<p>DSGN-0001のKPI（文字起こし精度80%以上）のみでは、生成される議事録が実務で使える水準かどうかを判断するには不足していると考え、開発・検証を進める中で以下を追加のKPIとして定義し、検証対象に加えた。</p>
+<ul>
+<li>協議事項の再現率100%（発言された協議事項を漏れなく議事録に反映できるか）</li>
+<li>アクションアイテムの再現率100%（期限・担当を伴う対応事項を漏れなく抽出できるか）</li>
+<li>会議中に結論が変化した事項について、最終的な結論を正しく反映できること（状態矛盾解消）</li>
+<li>3時間規模の長時間試験でも安定して動作すること（コンテキストウィンドウ制約・ハルシネーション等、長時間特有の不具合が発生しないこと）</li>
+<li>VRAM 8GB級GPUでSTTとLLMを同時運用できること（ハードウェア制約適合性）</li>
+<li>ローカル完結・外部への意図しないデータ送信が無いこと（守秘性要件）</li>
+</ul>
+
+<h2>3. 検証方法</h2>
+<p>Claude Codeによって自律的に試験と評価、考察、改善を繰り返し、KPIの達成を目指した。</p>
+<table class="table010">
+<tr><th>方式</th><td>サーバー無改造のPython直結WebSocket音声注入（<code>testing/inject/run_injection.py</code>）。VOICEVOXによるTTS合成音声（<code>testing/tts/generate_audio.py</code>）を用いて立会試験の対話を再現した。</td></tr>
+<tr><th>短時間シナリオ</th><td><code>script_v1.yaml</code>（配電盤 出荷前立会試験、約8.8分、意図的な状態矛盾および話者誤判定要因を含む）を12回実行し、STT・LLM処理を反復改善した。</td></tr>
+<tr><th>長時間シナリオ（3時間耐久試験）</th><td><code>script_endurance.yaml</code>（受変電設備用配電盤A盤・B盤2面、139ターン、実測約3時間、計測待ち等の無音区間を含む）を3回実行した。</td></tr>
+<tr><th>評価方法</th><td><code>testing/evaluate/run_eval.py</code>により、正解データ（<code>expected_minutes_*.yaml</code>）と生成結果を自動比較。STT文字誤り率(CER)、話者判定精度、協議事項再現率、アクション再現率、状態矛盾解消可否、Stage2 JSON解析失敗回数を算出した。</td></tr>
+</table>
+<p>全実行結果の推移は<code>testing/results/comparison.md</code>に記録されている。</p>
+
+<h2>4. KPI別の検証結果</h2>
+<table class="table010" style="width:100%;margin-left:0;margin-right:auto">
+<tr><th>区分</th><th>KPI</th><th>結果</th><th>根拠</th></tr>
+<tr>
+<td>DSGN-0001</td>
+<td>文字起こし精度80%以上</td>
+<td>達成</td>
+<td>STT文字誤り率(CER)は短時間シナリオ最終確認（smoke_after_prompt_fix）で0.149（精度約85.1%）、3時間耐久試験最終実行（endurance_03）で0.174（精度約82.6%）であり、いずれもKPI(80%以上)を満たした。改善前のbaseline_01では0.316（精度約68.4%）であり、WebMヘッダー切り出し処理の修正（iter4）により大幅に改善した。</td>
+</tr>
+<tr>
+<td>追加</td>
+<td>協議事項の再現率100%</td>
+<td>達成</td>
+<td>短時間シナリオ最終確認（smoke_after_prompt_fix）で7/7（100%）、3時間耐久試験最終実行（endurance_03）で11/11（100%）を達成。採用モデル（qwen3.5:9b）での複数回実行で安定して100%を維持している。</td>
+</tr>
+<tr>
+<td>追加</td>
+<td>アクションアイテムの再現率100%</td>
+<td>達成</td>
+<td>短時間シナリオ・3時間耐久試験（endurance_03）のいずれも3/3（100%）を達成。owner正確性も100%を確認した（deadline表記は「自社」→「自社側」等の表現ゆれによる不一致のみで、内容自体の誤りではない）。</td>
+</tr>
+<tr>
+<td>追加</td>
+<td>状態矛盾解消（会議中に変化した結論を正しく反映）</td>
+<td>概ね達成</td>
+<td>短時間シナリオでは採用構成（qwen3.5:9b）にて2回連続成功。3時間耐久試験でも最終実行（endurance_03）で対象箇所（A盤絶縁抵抗: 継続協議→合意済み）の状態矛盾解消を確認し、協議事項の状態正確性は0.909（10/11）まで改善した（初回endurance_01実行時点ではStage1/Stage2の話題統合ロジックの不具合により0.455）。残る1件はtemperature設定下でも生じる実行ごとの変動範囲内と判断している。</td>
+</tr>
+<tr>
+<td>追加</td>
+<td>3時間規模の長時間試験での安定動作</td>
+<td>達成</td>
+<td>3時間規模の耐久試験を計3回フル実行し、最終実行（endurance_03）でCER 0.174、協議事項・アクションアイテム再現率100%を確認した。この過程で短時間試験では顕在化しなかった3件の重大な不具合（STTハルシネーション、Stage2コンテキストウィンドウ超過、話題統合ロジックの誤り）を発見し、いずれも修正・再検証済み（詳細は「6. KPI以外の実用性に関する確認」参照）。</td>
+</tr>
+<tr>
+<td>追加</td>
+<td>VRAM 8GB級GPUでSTT・LLMを同時運用できること</td>
+<td>達成</td>
+<td>STT（faster-whisper large-v3）とLLM（qwen3.5:9b、Ollama）を同時ロードしない逐次管理方式により、生成中のVRAM使用量は5732〜6309MiB（上限8188MiB中）で推移。3回のフル実行を通じて単調増加（リークの兆候）は見られなかった。</td>
+</tr>
+<tr>
+<td>追加</td>
+<td>ローカル完結・外部への意図しないデータ送信が無いこと</td>
+<td>達成</td>
+<td>依存ライブラリ（huggingface_hub）経由で意図しない外部通信（huggingface.co）が発生していたことを検証中に検出し、環境変数<code>HF_HUB_OFFLINE=1</code>により遮断した。</td>
+</tr>
+</table>
+
+<h2>5. 実行の様子</h2>
+<p>2026年9月11日、上記の検証環境（Docker Desktop + RTX 4060 Ti 8GB）で実際に起動し、短時間シナリオ（<code>script_v1.yaml</code>）の音声注入試験を本資料作成時に改めて実行した際の様子を以下に示す。</p>
+
+<p><b>Fig.1 メイン画面（起動直後の状態）</b><br>
+<img src="./img/ui_idle.jpg" alt="LRシステム メイン画面" style="max-width:900px;width:100%;border:1px solid #999;"><br>
+ブラウザで<code>http://localhost:8000</code>を開いた直後の状態。左サイドバーに試験情報入力欄・マイク選択・BTマイク音量閾値、右側にリアルタイム文字起こし表示欄が確認できる。</p>
+
+<p><b>Fig.2 音声注入試験を実行中のサーバーログ</b><br>
+<img src="./img/log_realtime.jpg" alt="minutes-appコンテナのリアルタイムログ" style="max-width:900px;width:100%;border:1px solid #999;"><br>
+<code>docker logs -f minutes-app</code>で取得した実際のログ。5秒チャンクごとに音声を受信し（[Internal] チャンク#N受信）、話者判定（stt.speaker）、faster-whisperによる文字起こし（stt.transcriber）が行われ、結果が話者ラベル付き（[our_side]/[client]）でブラウザへ送信されるまでの一連の流れが実際に動作していることを示す。</p>
+
+<p><b>Fig.3 生成された議事録（docx）の内容</b><br>
+<img src="./img/minutes_output.jpg" alt="生成された議事録docxの内容" style="max-width:900px;width:100%;border:1px solid #999;"><br>
+同試験の音声注入・LLM処理完了後にダウンロードされた議事録docxの内容（試験情報、協議事項一覧、アクションアイテム一覧）。文字起こしからLLMによる構造化を経て、実際に議事録が自動生成されることを示す。</p>
+
+<h2>6. KPI以外の実用性に関する確認</h2>
+<ul>
+<li>VRAM 8GB級GPUを前提に、STT（faster-whisper large-v3）とLLM（qwen3.5:9b、Ollama）を同時ロードしない逐次管理方式で運用可能なことを確認した。生成中のVRAM使用量は実行を通じて5732〜6309MiB（上限8188MiB中）で推移し、3回のフル実行を通じて単調増加（リークの兆候）は見られなかった。</li>
+<li>3時間規模の長時間運用が可能なことを耐久試験（計3回のフル実行）で確認した。この過程で、短時間試験では顕在化しなかった3件の重大な不具合（無音区間でのSTTハルシネーション、LLM呼び出しのコンテキストウィンドウ超過、Stage1/Stage2の話題統合ロジックの誤り）を発見し、いずれも修正・再検証済みである。</li>
+<li>依存ライブラリ（huggingface_hub）経由で意図しない外部通信が発生していたことを検出し、環境変数（<code>HF_HUB_OFFLINE=1</code>）により遮断した。ローカル完結（外部ネットワーク非送信）というシステム要件に対する検証として実施した。</li>
+<li>LLMモデルの比較検証（qwen2.5:7b／qwen3:8b／qwen3.5:9b）を行い、qwen3:8bでは日付のハルシネーションと状態矛盾解消の失敗という重大な後退が確認されたため不採用とし、全指標で最良のqwen3.5:9bを採用モデルとして決定した。</li>
+</ul>
+
+<h2>7. 考察・今後の方針</h2>
+<p>DSGN-0001時点のKPI（文字起こし精度80%以上）だけでは、議事録の内容が実際に正しいか（協議事項・アクションアイテムの網羅性、結論の時系列的な正しさ）や、立会試験の実運用（数時間規模の長時間動作、ハードウェア制約、守秘性）に耐えられるかを判断できないと考え、「2.2 追加KPI」を新たに定義して検証を行った。結果として、DSGN-0001のKPIだけでは見えなかった3件の重大な不具合（STTハルシネーション、コンテキストウィンドウ超過、話題統合ロジックの誤り）を追加検証の過程で発見・修正することができた。</p>
+<p>これまでの検証はTTS合成音声によるクリアな音声のみで行っており、実際の工場環境（雑音・複数人の同時発言）はまだ検証できていない。今後は実際の立会試験環境での実証が必要である。</p>
+<p>BTイヤホンを自社側1名のみが装着する運用では、装着していない自社側発話者の発言がclient（相手方）と誤判定される制約が既知の限界として残っている。全自社側参加者へのBTイヤホン装着を運用ルールとするか、音声内容ベースの話者ダイアライゼーション（pyannote等）への変更を今後検討する。また、音声を5秒ごとに機械的に区切って文字起こしする設計に起因する文断片化がCER残存要因（約15〜17%）となっており、チャンク間オーバーラップ処理によるさらなる改善余地がある。</p>
+<p>出力形式については、現時点ではdocx（Word形式）で議事録を生成する方式としている。明電舎側からExcelファイルを指定されたため詳細フォーマットが確定した際に出力形式をExcelファイルに変更する。</p>
+
+<h2>8. 関連文書</h2>
+<ul>
+<li><a href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/dsgn/dsgn0001a/index.html">MIRS2602-DSGN-0001 企画・基本設計（PoC構想・KPI定義）</a></li>
+<li>LRシステムのソースコード・詳細な試験記録一式（GitHub、参照しなくても本文のみで内容を把握できるよう記載している）:<br>
+<a href="https://github.com/TAKA-MEER/lr-system">https://github.com/TAKA-MEER/lr-system</a>（<code>testing/CHANGELOG.md</code>: 調整記録、<code>testing/results/comparison.md</code>: 全実行結果比較表）</li>
+</ul>
+
+
+<br>
+<hr>
+<br>
+<address>
+<a href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/" target="_self">MIRS DATABASE</a>
+</address>
+
+</body>
+</html>
