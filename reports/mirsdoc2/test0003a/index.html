@@ -41,7 +41,7 @@
 <hr>
 
 <h2>1. 目的</h2>
-<p><a href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/dsgn/dsgn0001a/index.html">MIRS2602-DSGN-0001（企画・基本設計）</a>で立てたPoC計画のうち、音声文字起こし・議事録自動生成に関する仮説・KPIが成立するかを検証する。本資料は、配電盤出荷前立会試験を模した音声シミュレーション試験（LRシステムリポジトリ<code>testing/</code>配下、詳細は<code>testing/CHANGELOG.md</code>参照）の結果を、資料作成(議事録)PoCの検証結果としてまとめたものである。</p>
+<p><a href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/dsgn/dsgn0001a/index.html">MIRS2602-DSGN-0001（企画・基本設計）</a>で立てたPoC計画のうち、音声文字起こし・議事録自動生成に関する仮説・KPIが成立するかを検証する。本資料は、配電盤出荷前立会試験を模した音声シミュレーション試験（LRシステムリポジトリ<code><a href="https://github.com/TAKA-MEER/lr-system/tree/19d96f6d49b423b0ed8d129782243909a083f60d/testing">testing/</a></code>配下、詳細は<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/CHANGELOG.md">testing/CHANGELOG.md</a></code>参照）の結果を、資料作成(議事録)PoCの検証結果としてまとめたものである。</p>
 <p>実際の工場・立会試験環境での実施が困難であったため、TTS合成音声によるWebSocket直接注入方式でのシミュレーションにより代替検証を行った（詳細は「3. 検証方法」）。</p>
 
 <h2>2. 検証対象KPI</h2>
@@ -67,13 +67,13 @@
 <h2>3. 検証方法</h2>
 <p>Claude Codeによって自律的に試験と評価、考察、改善を繰り返し、KPIの達成を目指した。</p>
 <table class="table010">
-<tr><th>方式</th><td>サーバー無改造のPython直結WebSocket音声注入（<code>testing/inject/run_injection.py</code>）。VOICEVOXによるTTS合成音声（<code>testing/tts/generate_audio.py</code>）を用いて立会試験の対話を再現した。</td></tr>
-<tr><th>短時間シナリオ</th><td><code>script_v1.yaml</code>（配電盤 出荷前立会試験、約8.8分、意図的な状態矛盾および話者誤判定要因を含む）を12回実行し、STT・LLM処理を反復改善した。</td></tr>
-<tr><th>長時間シナリオ（3時間耐久試験）</th><td><code>script_endurance.yaml</code>（受変電設備用配電盤A盤・B盤2面、139ターン、実測約3時間、計測待ち等の無音区間を含む）を3回実行した。</td></tr>
-<tr><th>評価方法</th><td><code>testing/evaluate/run_eval.py</code>により、正解データ（<code>expected_minutes_*.yaml</code>）と生成結果を自動比較。STT文字誤り率(CER)、話者判定精度、協議事項再現率、アクション再現率、状態矛盾解消可否、Stage2 JSON解析失敗回数を算出した。</td></tr>
+<tr><th>方式</th><td>サーバー無改造のPython直結WebSocket音声注入（<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/inject/run_injection.py">testing/inject/run_injection.py</a></code>）。VOICEVOXによるTTS合成音声（<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/tts/generate_audio.py">testing/tts/generate_audio.py</a></code>）を用いて立会試験の対話を再現した。</td></tr>
+<tr><th>短時間シナリオ</th><td><code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/scenario/script_v1.yaml">script_v1.yaml</a></code>（配電盤 出荷前立会試験、約8.8分、意図的な状態矛盾および話者誤判定要因を含む）を12回実行し、STT・LLM処理を反復改善した。</td></tr>
+<tr><th>長時間シナリオ（3時間耐久試験）</th><td><code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/scenario/script_endurance.yaml">script_endurance.yaml</a></code>（受変電設備用配電盤A盤・B盤2面、139ターン、実測約3時間、計測待ち等の無音区間を含む）を3回実行した。</td></tr>
+<tr><th>評価方法</th><td><code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/evaluate/run_eval.py">testing/evaluate/run_eval.py</a></code>により、正解データ（<code><a href="https://github.com/TAKA-MEER/lr-system/tree/19d96f6d49b423b0ed8d129782243909a083f60d/testing/scenario">expected_minutes_*.yaml</a></code>）と生成結果を自動比較。STT文字誤り率(CER)、話者判定精度、協議事項再現率、アクション再現率、状態矛盾解消可否、Stage2 JSON解析失敗回数を算出した。</td></tr>
 </table>
-<p>全実行結果の推移は<code>testing/results/comparison.md</code>に記録されている。</p>
-<p style="font-size:90%;color:#555;">検証用の合成音声には VOICEVOX:青山龍星、VOICEVOX:玄野武宏、VOICEVOX:剣崎雌雄、VOICEVOX:波音リツ を使用した（各キャラクターの利用規約・クレジット表記の詳細は<code>testing/CREDITS.md</code>参照）。なお青山龍星は、企業が携わる形で利用する場合は音声ライブラリ提供元（ななはぴ）への事前確認が必要とされており、本資料を明電舎へ正式に提出する際は事前にこの点を確認すること。</p>
+<p>全実行結果の推移は<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/results/comparison.md">testing/results/comparison.md</a></code>に記録されている。</p>
+<p style="font-size:90%;color:#555;">検証用の合成音声には VOICEVOX:青山龍星、VOICEVOX:玄野武宏、VOICEVOX:剣崎雌雄、VOICEVOX:波音リツ を使用した（各キャラクターの利用規約・クレジット表記の詳細は<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/CREDITS.md">testing/CREDITS.md</a></code>参照）。なお青山龍星は、企業が携わる形で利用する場合は音声ライブラリ提供元（ななはぴ）への事前確認が必要とされており、本資料を明電舎へ正式に提出する際は事前にこの点を確認すること。</p>
 
 <h2>4. KPI別の検証結果</h2>
 <table class="table010" style="width:100%;margin-left:0;margin-right:auto">
@@ -123,7 +123,7 @@
 </table>
 
 <h2>5. 実行の様子</h2>
-<p>2026年9月11日、上記の検証環境（Docker Desktop + RTX 4060 Ti 8GB）で実際に起動し、短時間シナリオ（<code>script_v1.yaml</code>）の音声注入試験を本資料作成時に改めて実行した際の様子を以下に示す。</p>
+<p>2026年9月11日、上記の検証環境（Docker Desktop + RTX 4060 Ti 8GB）で実際に起動し、短時間シナリオ（<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/scenario/script_v1.yaml">script_v1.yaml</a></code>）の音声注入試験を本資料作成時に改めて実行した際の様子を以下に示す。</p>
 
 <p><b>Fig.1 メイン画面（起動直後の状態）</b><br>
 <img src="./img/ui_idle.jpg" alt="LRシステム メイン画面" style="max-width:900px;width:100%;border:1px solid #999;"><br>
@@ -155,7 +155,7 @@
 <ul>
 <li><a href="https://www2.denshi.numazu-ct.ac.jp/mirsdoc2/mirs2602/dsgn/dsgn0001a/index.html">MIRS2602-DSGN-0001 企画・基本設計（PoC構想・KPI定義）</a></li>
 <li>LRシステムのソースコード・詳細な試験記録一式（GitHub、参照しなくても本文のみで内容を把握できるよう記載している）:<br>
-<a href="https://github.com/TAKA-MEER/lr-system">https://github.com/TAKA-MEER/lr-system</a>（<code>testing/CHANGELOG.md</code>: 調整記録、<code>testing/results/comparison.md</code>: 全実行結果比較表）</li>
+<a href="https://github.com/TAKA-MEER/lr-system">https://github.com/TAKA-MEER/lr-system</a>（<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/CHANGELOG.md">testing/CHANGELOG.md</a></code>: 調整記録、<code><a href="https://github.com/TAKA-MEER/lr-system/blob/19d96f6d49b423b0ed8d129782243909a083f60d/testing/results/comparison.md">testing/results/comparison.md</a></code>: 全実行結果比較表）</li>
 </ul>
 
 
