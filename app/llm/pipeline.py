@@ -10,6 +10,7 @@ import time
 from llm.client import OllamaClient
 from llm.prompts import build_stage1_prompt, build_stage2_prompt
 from postprocess.chunker import split_transcript
+from postprocess.merge import merge_summaries
 
 logger = logging.getLogger(__name__)
 
@@ -136,9 +137,18 @@ async def build_minutes(full_text: str, meta: dict, llm_cfg: dict, ollama: Ollam
         logger.info(f"  Stage1 [{i+1}/{len(chunks)}] 完了")
     info["stage1_seconds"] = round(time.time() - t0, 1)
 
+    # Stage2の前にプログラムで同じ話題を名寄せし、LLMに渡す要点の数を減らす
+    stage2_inputs = summaries_raw
+    if llm_cfg.get("prog_merge", False) and summaries:
+        merged = merge_summaries(summaries)
+        info["stage1_topics_total"] = sum(len(s.get("discussions") or []) for s in summaries)
+        info["merged_topics"] = len(merged["discussions"])
+        logger.info(f"話題の名寄せ: {info['stage1_topics_total']}件 → {info['merged_topics']}件")
+        stage2_inputs = [json.dumps(merged, ensure_ascii=False)]
+
     # Stage 2: 要点JSONを統合して最終議事録JSON生成(解析できなければ1回だけやり直す)
     logger.info("Stage2: 最終議事録を生成中...")
-    stage2_prompt = build_stage2_prompt(summaries_raw, meta)
+    stage2_prompt = build_stage2_prompt(stage2_inputs, meta)
     info["stage2_prompt_chars"] = len(stage2_prompt)
     t0 = time.time()
     minutes_json = None
