@@ -1,5 +1,7 @@
+import asyncio
 import logging
 import os
+import re
 import time
 from pathlib import Path
 
@@ -7,14 +9,14 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from api.websocket import get_session, reset_session
+from api.websocket import any_recording, ensure_stt_loaded, get_or_create_session, get_session, reset_session
 from llm.client import OllamaClient
-from llm.prompts import build_stage1_prompt, build_stage2_prompt
-from postprocess.chunker import split_transcript
+from llm.pipeline import build_minutes
 from postprocess.formatter import generate_docx
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
+_generate_lock = asyncio.Lock()  # 議事録生成は同時に1つだけ(GPUを使うため)
 
 
 # ------------------------------------------------------------------
@@ -44,26 +46,25 @@ class ThresholdRequest(BaseModel):
 
 @router.post("/session/reset")
 async def session_reset(session_id: str, request: Request):
-    """録音開始前にセッションをリセットする。
-    VRAM管理: 前回生成で保持されたままのOllamaモデルを解放し、STTモデルを再ロードする
-    （両方が同時にVRAMへ乗る瞬間を作らないよう、この順序で行う）。"""
+    """新しい試験を始める前に文字起こしを消去する。
+    録音中(内蔵マイクがチャンクを送ってきている間)は消去しない。BT画面の開始や操作順の違いで
+    試験中の文字起こしが消えるのを防ぐため。試験情報(meta)は消さない。
+    VRAM管理: 前回生成で保持されたままのOllamaモデルを解放し、STTモデルを再ロードする。"""
+    session = get_session(session_id)
+    if session is not None and session.is_recording:
+        raise HTTPException(409, "録音中のため文字起こしを消去できません")
+    if _generate_lock.locked():
+        raise HTTPException(409, "議事録を生成中です。完了してから録音を開始してください")
     reset_session(session_id)
-
-    cfg = request.app.state.config
-    ollama = OllamaClient(base_url=os.environ.get("OLLAMA_HOST", "http://localhost:11434"))
-    await ollama.unload_model(cfg["llm"]["model"])
-    request.app.state.transcriber.load()
-
+    await ensure_stt_loaded(request.app)
     return {"status": "ok", "session_id": session_id}
 
 
 @router.post("/session/meta")
 async def set_meta(req: MetaRequest):
     """試験名・参加者情報を登録する"""
-    session = get_session(req.session_id)
-    if not session:
-        raise HTTPException(404, "セッションが存在しません")
-    session.meta = {
+    session = get_or_create_session(req.session_id)
+    session.set_meta({
         "trial_name": req.trial_name,
         "location": req.location,
         "date": time.strftime("%Y年%m月%d日"),
@@ -71,7 +72,7 @@ async def set_meta(req: MetaRequest):
             "client": req.client_attendees,
             "our_side": req.our_attendees,
         },
-    }
+    })
     return {"status": "ok"}
 
 
@@ -83,7 +84,7 @@ async def get_transcript(session_id: str):
         raise HTTPException(404, "セッションが存在しません")
     return {
         "segments": [
-            {"speaker": s.speaker, "text": s.text, "timestamp": s.timestamp}
+            {"speaker": s.speaker, "text": s.text, "timestamp": s.timestamp, "chunk_index": s.chunk_index}
             for s in session.transcript
         ]
     }
@@ -100,7 +101,26 @@ async def generate_minutes(req: GenerateRequest, request: Request):
         raise HTTPException(404, "セッションが存在しません")
     if not session.transcript:
         raise HTTPException(400, "文字起こしデータがありません")
+    # 録音停止の直後は、最後のチャンクの文字起こし・話者判定が終わるまで数秒かかるので待つ
+    for _ in range(24):
+        if not any_recording():
+            break
+        await asyncio.sleep(0.5)
+    else:
+        # 生成のためにSTTモデルをVRAMから外すと、録音中の文字起こしが止まってしまう
+        raise HTTPException(409, "録音中です。両方の画面で録音を停止してから議事録を生成してください")
+    if _generate_lock.locked():
+        raise HTTPException(409, "議事録を生成中です")
 
+    async with _generate_lock:
+        request.app.state.generating = True
+        try:
+            return await _generate(session, request)
+        finally:
+            request.app.state.generating = False
+
+
+async def _generate(session, request: Request):
     # ---- VRAM管理: STT解放 ----
     # Ollamaは初回チャットリクエスト時に自動でモデルをロードするため、
     # 明示的なロード処理は不要（次のollama.chat()呼び出しがロードを兼ねる）。
@@ -117,54 +137,12 @@ async def generate_minutes(req: GenerateRequest, request: Request):
         cfg = yaml.safe_load(f)
 
     ollama = OllamaClient(base_url=os.environ.get("OLLAMA_HOST", "http://localhost:11434"))
-    model = cfg["llm"]["model"]
-    chunk_chars = cfg["llm"]["chunk_chars"]
-    temperature = cfg["llm"].get("temperature", 0.2)
-    num_ctx = cfg["llm"].get("num_ctx", 32768)
-
-    # Stage 1: チャンクごとに要点JSON抽出
-    chunks = split_transcript(full_text, max_chars=chunk_chars)
-    logger.info(f"Stage1: {len(chunks)} チャンクを処理中...")
-    summaries = []
-    for i, chunk in enumerate(chunks):
-        prompt = build_stage1_prompt(chunk)
-        result = await ollama.chat(model=model, prompt=prompt, temperature=temperature, num_ctx=num_ctx)
-        summaries.append(result)
-        logger.info(f"  Stage1 [{i+1}/{len(chunks)}] 完了")
-
-    # Stage 2: 要点JSONを統合して最終議事録JSON生成
-    logger.info("Stage2: 最終議事録を生成中...")
-    stage2_prompt = build_stage2_prompt(summaries, session.meta)
-    minutes_json_str = await ollama.chat(model=model, prompt=stage2_prompt, temperature=temperature, num_ctx=num_ctx)
-
-    import json
-    import re
-
-    def _extract_json(raw: str) -> str:
-        # ```json ... ``` のようなコードフェンスで囲われる場合があるため除去する
-        m = re.search(r"```(?:json)?\s*([\s\S]*?)```", raw)
-        if m:
-            return m.group(1).strip()
-        # 前後に説明文が付与された場合に備え、最初の{から最後の}までを抜き出す
-        start, end = raw.find("{"), raw.rfind("}")
-        if start != -1 and end != -1 and end > start:
-            return raw[start : end + 1]
-        return raw.strip()
-
     try:
-        minutes_json = json.loads(_extract_json(minutes_json_str))
-    except json.JSONDecodeError:
-        # JSON解析失敗時はフォールバック
-        logger.warning(f"JSON解析失敗。フォールバック構造を使用。raw={minutes_json_str[:2000]!r}")
-        minutes_json = {
-            "trial_name": session.meta.get("trial_name", ""),
-            "date": session.meta.get("date", ""),
-            "location": session.meta.get("location", ""),
-            "attendees": session.meta.get("attendees", {"client": [], "our_side": []}),
-            "discussions": [],
-            "action_items": [],
-            "raw": minutes_json_str,
-        }
+        minutes_json, info = await build_minutes(full_text, session.meta, cfg["llm"], ollama)
+    except Exception as e:
+        logger.error(f"議事録生成に失敗: {type(e).__name__}: {e}")
+        raise HTTPException(502, f"議事録の生成に失敗しました(文字起こしは保存されています。再度お試しください): {type(e).__name__}")
+    logger.info(f"議事録生成の処理情報: {info}")
 
     # ---- docx生成 ----
     output_dir = Path(cfg["output"]["dir"])
@@ -175,7 +153,7 @@ async def generate_minutes(req: GenerateRequest, request: Request):
     generate_docx(minutes_json, str(output_path))
     logger.info(f"議事録を生成しました: {output_path}")
 
-    return {"status": "ok", "filename": filename}
+    return {"status": "ok", "filename": filename, "parse_ok": info.get("stage2_parse_ok", True)}
 
 
 @router.get("/download/{filename}")
@@ -184,6 +162,9 @@ async def download_minutes(filename: str):
     import yaml
     with open("config/settings.yaml") as f:
         cfg = yaml.safe_load(f)
+    # 出力フォルダ直下の .docx 以外は返さない(../ 等によるフォルダ外のファイル取得を防ぐ)
+    if not re.fullmatch(r"[^/\\]+\.docx", filename) or filename.startswith("."):
+        raise HTTPException(400, "不正なファイル名です")
     file_path = Path(cfg["output"]["dir"]) / filename
     if not file_path.exists():
         raise HTTPException(404, "ファイルが見つかりません")

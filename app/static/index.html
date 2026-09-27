@@ -289,7 +289,23 @@ function openBtWindow() {
 
 async function startInternal() {
   const devId = document.getElementById('selMic').value;
-  // 試験情報をサーバーに登録
+  // これまでの文字起こしがあれば、続きから録音するか新しい試験として始めるかを確認する
+  // (以前は録音開始のたびに文字起こしを消去しており、休憩後の再開やBT画面の開始順で前半が失われた)
+  const cur = await fetch(`/api/transcript/${SESSION}`).then(r => r.ok ? r.json() : { segments: [] }).catch(() => ({ segments: [] }));
+  if (cur.segments.length === 0 ||
+      !confirm(`これまでの文字起こし(${cur.segments.length}件)に続けて録音しますか?
+
+` +
+               `[OK] 続きから録音する
+[キャンセル] これまでの文字起こしを消去して、新しい試験として録音する`)) {
+    const r = await fetch(`/api/session/reset?session_id=${SESSION}`, { method: 'POST' });
+    if (!r.ok) {
+      setStatus('開始できません: ' + ((await r.json().catch(() => ({}))).detail || r.status));
+      return;
+    }
+    document.getElementById('transcriptArea').innerHTML = '';
+  }
+  // 試験情報をサーバーに登録(消去の後に登録する。以前は登録直後の消去で試験情報が失われていた)
   await saveMeta();
   await startRecord(devId, SESSION, 'internal');
 }
@@ -343,8 +359,10 @@ async function generateMinutes() {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ session_id: SESSION })
     });
-    const data = await resp.json();
-    if (data.status === 'ok') {
+    const data = await resp.json().catch(() => ({}));
+    if (!resp.ok) {
+      document.getElementById('genStatus').textContent = `❌ ${data.detail || ('エラー ' + resp.status)}`;
+    } else if (data.status === 'ok') {
       generatedFile = data.filename;
       document.getElementById('genStatus').textContent = `✅ 生成完了: ${data.filename}`;
       document.getElementById('btnDownload').disabled = false;
@@ -390,8 +408,8 @@ async function startRecord(deviceId, sessionId, role) {
   const wsProto = location.protocol === 'https:' ? 'wss:' : 'ws:';
   const wsUrl   = `${wsProto}//${location.host}/ws/audio/${role}?session_id=${sessionId}`;
 
-  // リセット
-  await fetch(`/api/session/reset?session_id=${sessionId}`, { method: 'POST' });
+  // 文字起こしの消去(新しい試験の開始)はメイン画面の startInternal でのみ行う。
+  // BT画面はセッションに音声を送るだけで、消去はしない。
 
   ws = new WebSocket(wsUrl);
   ws.binaryType = 'arraybuffer';
@@ -428,7 +446,8 @@ async function startRecord(deviceId, sessionId, role) {
       document.getElementById('btnStart').disabled = true;
       document.getElementById('btnStop').disabled  = false;
       if (ROLE === 'internal') {
-        document.getElementById('btnGenerate').disabled = false;
+        // 録音中の生成はできない(生成のために文字起こしのモデルをGPUから外すため)
+        document.getElementById('btnGenerate').disabled = true;
       }
     } catch (e) {
       setDot('err');
@@ -442,6 +461,9 @@ async function startRecord(deviceId, sessionId, role) {
       const msg = JSON.parse(e.data);
       if (msg.type === 'transcript' && ROLE === 'internal') {
         addTranscriptEntry(msg.speaker, msg.text);
+      }
+      if (msg.type === 'error') {
+        setStatus(msg.message);
       }
       if (msg.type === 'rms' && ROLE === 'bt') {
         const pct = Math.min(100, (msg.value / 2000) * 100);
@@ -467,6 +489,7 @@ function stopRec() {
   setStatus('停止');
   document.getElementById('btnStart').disabled = false;
   document.getElementById('btnStop').disabled  = true;
+  if (ROLE === 'internal') document.getElementById('btnGenerate').disabled = false;
 }
 
 function startMeter(role) {

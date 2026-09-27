@@ -1,0 +1,4 @@
+# C-8 題材の違い: 監視制御盤ソフトウェアFAT
+name: s_plc
+seed: 14
+domains: [plc]

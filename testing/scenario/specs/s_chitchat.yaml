@@ -1,0 +1,5 @@
+# C-7 雑談・脱線の混入(協議ブロック数の60%の雑談を挿入)
+name: s_chitchat
+seed: 16
+domains: [motor]
+chitchat: 0.6

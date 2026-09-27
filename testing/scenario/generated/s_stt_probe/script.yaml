@@ -1,0 +1,284 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  bt_wearers:
+  - 田中 誠
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+turns:
+- id: 1
+  speaker: 鈴木 舞
+  text: それでは時間になりましたので、閉鎖配電盤(型式 SWB-3300) 出荷前立会試験を始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 佐藤 健二
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 鈴木 舞
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 田中 誠
+  text: 続いて寸法の確認です。盤の幅は図面で800ミリ、公差はプラスマイナス2ミリです。
+  kind: block
+  block: sg_dimension
+- id: 5
+  speaker: 田中 誠
+  text: 実測は801.5ミリでした。公差の範囲に入っています。
+  kind: block
+  block: sg_dimension
+- id: 6
+  speaker: 佐藤 健二
+  text: 奥行きと高さも図面どおりでしたか。
+  kind: block
+  block: sg_dimension
+- id: 7
+  speaker: 田中 誠
+  text: はい、奥行き、高さとも図面どおりです。記録表にも記入しています。
+  kind: block
+  block: sg_dimension
+- id: 8
+  speaker: 佐藤 健二
+  text: 了解です。寸法は問題ありません。
+  kind: block
+  block: sg_dimension
+- id: 9
+  speaker: 鈴木 舞
+  text: 次に絶縁抵抗試験の結果です。主回路と大地間で3.2メガオームでした。
+  kind: block
+  block: sg_insulation
+- id: 10
+  speaker: 佐藤 健二
+  text: 判定基準の下限は2メガオームですよね。合格ではありますが、余裕が少なくないですか。
+  kind: block
+  block: sg_insulation
+- id: 11
+  speaker: 鈴木 舞
+  text: 本日は湿度が68パーセントと高く、その影響が出ていると考えています。
+  kind: block
+  block: sg_insulation
+- id: 12
+  speaker: 佐藤 健二
+  text: それなら乾燥させてから再測定してもらえますか。それまではこの項目は継続協議にしておきましょう。
+  kind: block
+  block: sg_insulation
+- id: 13
+  speaker: 鈴木 舞
+  text: 承知しました。除湿してから再測定します。
+  kind: block
+  block: sg_insulation
+- id: 14
+  speaker: 田中 誠
+  text: シーケンス動作試験です。遮断器の投入指令から表示灯の点灯まで0.8秒でした。
+  kind: block
+  block: sg_sequence
+- id: 15
+  speaker: 山田 隆
+  text: 当社の運用では0.5秒以内が望ましいと考えているんですが。
+  kind: block
+  block: sg_sequence
+- id: 16
+  speaker: 田中 誠
+  text: 仕様書には時間の規定がありませんが、補助リレーの設定変更で短くすることは可能です。
+  kind: block
+  block: sg_sequence
+- id: 17
+  speaker: 山田 隆
+  text: 要求値が仕様書に入っているか、社内で確認させてください。この件は保留でお願いします。
+  kind: block
+  block: sg_sequence
+- id: 18
+  speaker: 田中 誠
+  text: 承知しました。ご確認の結果をお待ちします。
+  kind: block
+  block: sg_sequence
+- id: 19
+  speaker: 田中 誠
+  text: 変圧比試験の結果です。一次66キロボルト、二次6.6キロボルトで、全タップの比誤差は最大0.2パーセントでした。
+  kind: block
+  block: tr_ratio
+- id: 20
+  speaker: 山田 隆
+  text: 規格の許容差はプラスマイナス0.5パーセントでしたね。
+  kind: block
+  block: tr_ratio
+- id: 21
+  speaker: 田中 誠
+  text: はい、すべてのタップで許容差内です。極性と角変位も確認済みです。
+  kind: block
+  block: tr_ratio
+- id: 22
+  speaker: 山田 隆
+  text: 了解しました。変圧比試験は合格とします。
+  kind: block
+  block: tr_ratio
+- id: 23
+  speaker: 田中 誠
+  text: 負荷損と短絡インピーダンスの測定です。インピーダンスは7.4パーセントで、仕様の7.5パーセントに対して許容差内です。
+  kind: block
+  block: tr_impedance
+- id: 24
+  speaker: 山田 隆
+  text: 負荷損の方は保証値以内ですか。
+  kind: block
+  block: tr_impedance
+- id: 25
+  speaker: 田中 誠
+  text: はい、保証値62キロワットに対して59.8キロワットでした。
+  kind: block
+  block: tr_impedance
+- id: 26
+  speaker: 山田 隆
+  text: 問題ないですね。合格です。
+  kind: block
+  block: tr_impedance
+- id: 27
+  speaker: 田中 誠
+  text: 騒音測定の結果は、変圧器から0.3メートルの位置の平均で68デシベルでした。
+  kind: block
+  block: tr_noise
+- id: 28
+  speaker: 山田 隆
+  text: 仕様は70デシベル以下ですから問題ないですね。暗騒音はどのくらいでしたか。
+  kind: block
+  block: tr_noise
+- id: 29
+  speaker: 田中 誠
+  text: 暗騒音は45デシベルで、補正は不要でした。
+  kind: block
+  block: tr_noise
+- id: 30
+  speaker: 山田 隆
+  text: 分かりました。騒音は合格です。
+  kind: block
+  block: tr_noise
+- id: 31
+  speaker: 鈴木 舞
+  text: 無負荷での騒音は82デシベルでした。
+  kind: block
+  block: mt_noise
+- id: 32
+  speaker: 佐藤 健二
+  text: 仕様では80デシベル以下ですよね。2デシベル超えています。
+  kind: block
+  block: mt_noise
+- id: 33
+  speaker: 鈴木 舞
+  text: 冷却ファンの風切り音が主な原因です。防音カバーを追加すれば仕様内に収まる見込みです。
+  kind: block
+  block: mt_noise
+- id: 34
+  speaker: 佐藤 健二
+  text: カバーを付けると保守がやりにくくなりますし、費用の負担も決めないといけません。継続協議にしましょう。
+  kind: block
+  block: mt_noise
+- id: 35
+  speaker: 鈴木 舞
+  text: 承知しました。カバーの構造案と費用を整理してご提案します。
+  kind: block
+  block: mt_noise
+- id: 36
+  speaker: 佐藤 健二
+  text: 現地のケーブルの取り回しを考えると、端子箱を右側から左側に変更してほしいのですが。
+  kind: block
+  block: mt_terminal_box
+- id: 37
+  speaker: 鈴木 舞
+  text: 設計変更は可能ですが、フレームの加工が必要になり、納期が2週間ほど延びます。
+  kind: block
+  block: mt_terminal_box
+- id: 38
+  speaker: 佐藤 健二
+  text: 納期が延びるのは困りますね。工事の工程と調整してみますので、継続協議にさせてください。
+  kind: block
+  block: mt_terminal_box
+- id: 39
+  speaker: 山田 隆
+  text: 予備品として、軸受を1セット追加で購入したいと考えています。
+  kind: block
+  block: mt_spare
+- id: 40
+  speaker: 田中 誠
+  text: 承知しました。10月16日までにお見積もりをお出しします。
+  kind: block
+  block: mt_spare
+- id: 41
+  speaker: 山田 隆
+  text: 見積もりを見てから発注するか決めます。継続協議でお願いします。
+  kind: block
+  block: mt_spare
+- id: 42
+  speaker: 山田 隆
+  text: 警報一覧の画面ですが、重故障は赤の点滅にしてもらえますか。今は軽故障と同じ表示で区別がつきにくいです。
+  kind: block
+  block: plc_alarm
+- id: 43
+  speaker: 鈴木 舞
+  text: 画面の設定変更で対応できます。10月8日までに修正版をお送りします。
+  kind: block
+  block: plc_alarm
+- id: 44
+  speaker: 山田 隆
+  text: ありがとうございます。それでお願いします。
+  kind: block
+  block: plc_alarm
+- id: 45
+  speaker: 山田 隆
+  text: トレンドデータの保存期間が30日になっていますが、水質の管理上、1年は残したいんです。
+  kind: block
+  block: plc_trend
+- id: 46
+  speaker: 田中 誠
+  text: 1年分を保存するにはストレージの増設が必要になります。
+  kind: block
+  block: plc_trend
+- id: 47
+  speaker: 山田 隆
+  text: 増設の費用と、外部に書き出す方法があるかも含めて検討したいので、継続協議でお願いします。
+  kind: block
+  block: plc_trend
+- id: 48
+  speaker: 田中 誠
+  text: 承知しました。両方の案を比較してお示しします。
+  kind: block
+  block: plc_trend
+- id: 49
+  speaker: 山田 隆
+  text: 監視画面の時計が、上位システムと3秒ずれていますね。
+  kind: block
+  block: plc_time_sync
+- id: 50
+  speaker: 田中 誠
+  text: 時刻同期の設定で、サーバーのアドレスが間違っていました。今修正しました。
+  kind: block
+  block: plc_time_sync
+- id: 51
+  speaker: 山田 隆
+  text: 今は一致していますね。了解しました。
+  kind: block
+  block: plc_time_sync
+- id: 52
+  speaker: 鈴木 舞
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 53
+  speaker: 山田 隆
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null

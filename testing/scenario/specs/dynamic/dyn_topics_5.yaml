@@ -1,0 +1,8 @@
+blocks_per_domain: 5
+domains:
+- switchgear
+- transformer
+- motor
+- plc
+name: dyn_topics_5
+seed: 105

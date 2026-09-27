@@ -123,6 +123,22 @@ def gen_session_id() -> str:
 
 
 def unload_ollama_models_for_safety(ollama_base_url: str = "http://127.0.0.1:11434"):
+    """注意: Windows側にも別のOllamaが11434番で動いている環境では、ホストの11434番は
+    コンテナのOllamaではない。そのためコンテナ内の ollama コマンドで停止する。"""
+    try:
+        r = subprocess.run(["docker", "exec", "minutes-ollama", "ollama", "ps"], capture_output=True, timeout=30)
+        for line in r.stdout.decode(errors="replace").splitlines()[1:]:
+            if line.strip():
+                name = line.split()[0]
+                logger.info(f"Ollamaモデル {name} を事前アンロード中(docker exec)...")
+                subprocess.run(["docker", "exec", "minutes-ollama", "ollama", "stop", name], capture_output=True, timeout=60)
+        return
+    except Exception as e:
+        logger.warning(f"docker exec でのアンロードに失敗、HTTPで再試行: {e}")
+    _unload_ollama_http(ollama_base_url)
+
+
+def _unload_ollama_http(ollama_base_url: str):
     """restart前に、Ollamaに現在ロードされているモデルを明示的にアンロードしておく。
     モデル切り替え直後などに旧モデルがVRAMに残ったまま新しいwhisperロードと重なり
     OOMになるのを防ぐ(モデル比較検証時の安全策)。"""
@@ -194,6 +210,12 @@ def main():
     parser.add_argument("--script", default=None, help="台本yamlのパス(省略時はconfig.yamlのpaths.script)")
     parser.add_argument("--audio-dir", default=None, help="音声(internal_mix.wav/bt_mix.wav)の場所(省略時はconfig.yamlのpaths.audio_dir)")
     parser.add_argument("--monitor-interval", type=float, default=60.0, help="リソース監視のポーリング間隔(秒)")
+    parser.add_argument("--speed", type=float, default=1.0,
+                        help="注入速度の倍率。2.0なら5秒分の音声を2.5秒ごとに送る(処理能力の余裕の確認用)")
+    parser.add_argument("--legacy-bt-timing", action="store_true",
+                        help="旧来の注入(BTとinternalが両方とも音声の先頭から送信=BTが開始遅れの分だけ早く届く)を再現する")
+    parser.add_argument("--bt-offset", type=float, default=None, help="BT窓を何秒先に開始するか(省略時はconfigの範囲からランダム)")
+    parser.add_argument("--no-generate", action="store_true", help="議事録生成を行わない(文字起こしのみの試験)")
     args = parser.parse_args()
 
     cfg = load_yaml(TESTING_DIR / "config.yaml")
@@ -272,25 +294,46 @@ def _run(args, cfg, script, run_id, run_dir, audio_dir, internal_wav, bt_wav, ba
     )
 
     bt_offset_lo, bt_offset_hi = cfg["injection"]["bt_start_offset_seconds"]
-    bt_start_offset = random.uniform(bt_offset_lo, bt_offset_hi)
+    bt_start_offset = args.bt_offset if args.bt_offset is not None else random.uniform(bt_offset_lo, bt_offset_hi)
     logger.info(f"BT窓を{bt_start_offset:.1f}秒先行して開始します(実運用の操作手順を模擬)")
+    if not args.legacy_bt_timing:
+        # 実運用では両マイクが同じ瞬間の音を拾うので、先に録音を始めたBT側の音声は、開始遅れの分だけ
+        # 前に無音が付いた形になる。旧来はこれを入れておらず、BTの音がinternalより早く届いていた。
+        import numpy as np
+        import soundfile as sf
+        x, sr = sf.read(bt_wav, dtype="float32")
+        padded = run_dir / "bt_aligned.wav"
+        sf.write(padded, np.concatenate([np.zeros(int(bt_start_offset * sr), dtype="float32"), x]), sr)
+        bt_chunks = prepare_chunks(
+            padded, run_dir, "bt",
+            sample_rate=cfg["audio"]["sample_rate"], bitrate=cfg["audio"]["opus_bitrate"],
+            cluster_time_limit_ms=int(cfg["injection"]["chunk_interval_seconds"] * 1000),
+        )
 
     internal_ws_url = f"{ws_scheme}://{ws_host}/ws/audio/internal?session_id={session_id}"
     bt_ws_url = f"{ws_scheme}://{ws_host}/ws/audio/bt?session_id={session_id}"
 
     t0 = time.time()
-    internal_start_wallclock = t0 + bt_start_offset
+    internal_start_wallclock = t0 + bt_start_offset / args.speed
+    timing: dict = {}
     asyncio.run(
         run_injection_ws(
             internal_ws_url=internal_ws_url,
             bt_ws_url=bt_ws_url,
             internal_chunks=internal_chunks,
             bt_chunks=bt_chunks,
-            interval=cfg["injection"]["chunk_interval_seconds"],
-            jitter=cfg["injection"]["chunk_jitter_seconds"],
-            bt_start_offset=bt_start_offset,
+            interval=cfg["injection"]["chunk_interval_seconds"] / args.speed,
+            jitter=cfg["injection"]["chunk_jitter_seconds"] / args.speed,
+            bt_start_offset=bt_start_offset / args.speed,
+            timing=timing,
         )
     )
+    lat = [timing["received"][k] - timing["sent"][k] for k in sorted(timing.get("received", {})) if k in timing["sent"]]
+    with open(run_dir / "latency.json", "w", encoding="utf-8") as f:
+        json.dump({"sent": timing.get("sent", {}), "received": timing.get("received", {}), "speed": args.speed}, f)
+    if lat:
+        import statistics
+        logger.info(f"文字起こし遅延(送信→表示): 中央値 {statistics.median(lat):.1f}s 最大 {max(lat):.1f}s 件数 {len(lat)}")
     injection_duration = time.time() - t0
     logger.info(f"音声注入完了 ({injection_duration:.1f}秒)")
 
@@ -305,6 +348,34 @@ def _run(args, cfg, script, run_id, run_dir, audio_dir, internal_wav, bt_wav, ba
         json.dump({"session_id": session_id, "segments": segments}, f, ensure_ascii=False, indent=2)
     logger.info(f"文字起こし segments={len(segments)} を保存しました")
 
+    generate_duration, filename = None, None
+    if args.no_generate:
+        logger.info("--no-generate のため議事録生成を省略")
+    else:
+        generate_duration, filename = _generate(base_url, session_id, run_dir)
+
+    run_info = {
+        "run_id": run_id,
+        "session_id": session_id,
+        "timestamp": datetime.now().isoformat(),
+        "injection_duration_sec": round(injection_duration, 1),
+        "generate_duration_sec": round(generate_duration, 1) if generate_duration else None,
+        "bt_start_offset_sec": round(bt_start_offset, 2),
+        "bt_timing": "legacy" if args.legacy_bt_timing else "aligned",
+        "speed": args.speed,
+        "internal_start_wallclock": internal_start_wallclock,
+        "restart_epoch": restart_epoch,
+        "num_segments": len(segments),
+        "filename": filename,
+    }
+    with open(run_dir / "run_info.json", "w", encoding="utf-8") as f:
+        json.dump(run_info, f, ensure_ascii=False, indent=2)
+
+    print(f"\n=== 完了: {run_dir} ===")
+    print(json.dumps(run_info, ensure_ascii=False, indent=2))
+
+
+def _generate(base_url: str, session_id: str, run_dir: Path):
     logger.info("議事録生成を要求中(/api/generate)...")
     t1 = time.time()
     with httpx.Client(timeout=GENERATE_TIMEOUT_SECONDS) as client:
@@ -320,24 +391,7 @@ def _run(args, cfg, script, run_id, run_dir, audio_dir, internal_wav, bt_wav, ba
         docx_path = run_dir / "minutes.docx"
         docx_path.write_bytes(resp.content)
         logger.info(f"議事録を保存しました: {docx_path}")
-
-    run_info = {
-        "run_id": run_id,
-        "session_id": session_id,
-        "timestamp": datetime.now().isoformat(),
-        "injection_duration_sec": round(injection_duration, 1),
-        "generate_duration_sec": round(generate_duration, 1),
-        "bt_start_offset_sec": round(bt_start_offset, 2),
-        "internal_start_wallclock": internal_start_wallclock,
-        "restart_epoch": restart_epoch,
-        "num_segments": len(segments),
-        "filename": filename,
-    }
-    with open(run_dir / "run_info.json", "w", encoding="utf-8") as f:
-        json.dump(run_info, f, ensure_ascii=False, indent=2)
-
-    print(f"\n=== 完了: {run_dir} ===")
-    print(json.dumps(run_info, ensure_ascii=False, indent=2))
+    return generate_duration, filename
 
 
 if __name__ == "__main__":

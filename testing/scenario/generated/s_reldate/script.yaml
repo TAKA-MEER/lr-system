@@ -1,0 +1,334 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  bt_wearers:
+  - 田中 誠
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+turns:
+- id: 1
+  speaker: 田中 誠
+  text: それでは時間になりましたので、閉鎖配電盤(型式 SWB-3300) 出荷前立会試験を始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 山田 隆
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 田中 誠
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 鈴木 舞
+  text: 続いて寸法の確認です。盤の幅は図面で800ミリ、公差はプラスマイナス2ミリです。
+  kind: block
+  block: sg_dimension
+- id: 5
+  speaker: 鈴木 舞
+  text: 実測は801.5ミリでした。公差の範囲に入っています。
+  kind: block
+  block: sg_dimension
+- id: 6
+  speaker: 山田 隆
+  text: 奥行きと高さも図面どおりでしたか。
+  kind: block
+  block: sg_dimension
+- id: 7
+  speaker: 鈴木 舞
+  text: はい、奥行き、高さとも図面どおりです。記録表にも記入しています。
+  kind: block
+  block: sg_dimension
+- id: 8
+  speaker: 山田 隆
+  text: 了解です。寸法は問題ありません。
+  kind: block
+  block: sg_dimension
+- id: 9
+  speaker: 田中 誠
+  text: 次に絶縁抵抗試験の結果です。主回路と大地間で3.2メガオームでした。
+  kind: block
+  block: sg_insulation
+- id: 10
+  speaker: 山田 隆
+  text: 判定基準の下限は2メガオームですよね。合格ではありますが、余裕が少なくないですか。
+  kind: block
+  block: sg_insulation
+- id: 11
+  speaker: 田中 誠
+  text: 本日は湿度が68パーセントと高く、その影響が出ていると考えています。
+  kind: block
+  block: sg_insulation
+- id: 12
+  speaker: 山田 隆
+  text: それなら乾燥させてから再測定してもらえますか。それまではこの項目は継続協議にしておきましょう。
+  kind: block
+  block: sg_insulation
+- id: 13
+  speaker: 田中 誠
+  text: 承知しました。除湿してから再測定します。
+  kind: block
+  block: sg_insulation
+- id: 14
+  speaker: 鈴木 舞
+  text: シーケンス動作試験です。遮断器の投入指令から表示灯の点灯まで0.8秒でした。
+  kind: block
+  block: sg_sequence
+- id: 15
+  speaker: 佐藤 健二
+  text: 当社の運用では0.5秒以内が望ましいと考えているんですが。
+  kind: block
+  block: sg_sequence
+- id: 16
+  speaker: 鈴木 舞
+  text: 仕様書には時間の規定がありませんが、補助リレーの設定変更で短くすることは可能です。
+  kind: block
+  block: sg_sequence
+- id: 17
+  speaker: 佐藤 健二
+  text: 要求値が仕様書に入っているか、社内で確認させてください。この件は保留でお願いします。
+  kind: block
+  block: sg_sequence
+- id: 18
+  speaker: 鈴木 舞
+  text: 承知しました。ご確認の結果をお待ちします。
+  kind: block
+  block: sg_sequence
+- id: 19
+  speaker: 山田 隆
+  text: 銘板を見ると定格電流が1200アンペアになっていますが、仕様は1250アンペアですよね。
+  kind: block
+  block: sg_nameplate
+- id: 20
+  speaker: 鈴木 舞
+  text: 申し訳ありません、銘板の誤記です。1250アンペアで作り直します。
+  kind: block
+  block: sg_nameplate
+- id: 21
+  speaker: 山田 隆
+  text: 出荷までに間に合いますか。
+  kind: block
+  block: sg_nameplate
+- id: 22
+  speaker: 鈴木 舞
+  text: 来週の金曜日までに再発行して取り付けます。取り付け後の写真もお送りします。
+  kind: block
+  block: sg_nameplate
+- id: 23
+  speaker: 山田 隆
+  text: それでお願いします。
+  kind: block
+  block: sg_nameplate
+- id: 24
+  speaker: 鈴木 舞
+  text: 先ほど継続協議になっていた絶縁抵抗の件ですが、除湿後に再測定したところ、45メガオームでした。
+  kind: resolve
+  block: sg_insulation
+- id: 25
+  speaker: 山田 隆
+  text: 45メガオームなら十分ですね。絶縁抵抗は合格で合意とします。
+  kind: resolve
+  block: sg_insulation
+- id: 26
+  speaker: 佐藤 健二
+  text: 完成図書ですが、海外の関連会社でも使うので英語版もいただけますか。
+  kind: block
+  block: sg_docs
+- id: 27
+  speaker: 田中 誠
+  text: 英語版は契約範囲外になりますので、翻訳費用が別途かかります。
+  kind: block
+  block: sg_docs
+- id: 28
+  speaker: 佐藤 健二
+  text: 費用次第ですね。まず見積もりをいただけますか。
+  kind: block
+  block: sg_docs
+- id: 29
+  speaker: 田中 誠
+  text: 今月末までにお見積もりを提出します。
+  kind: block
+  block: sg_docs
+- id: 30
+  speaker: 佐藤 健二
+  text: それを見てから決めます。この件は継続協議でお願いします。
+  kind: block
+  block: sg_docs
+- id: 31
+  speaker: 鈴木 舞
+  text: 保護継電器の動作試験です。過電流継電器の整定は5アンペア、動作時間0.3秒です。
+  kind: block
+  block: sg_relay
+- id: 32
+  speaker: 鈴木 舞
+  text: 試験電流を流したところ、動作時間は0.31秒でした。許容差はプラスマイナス5パーセントなので範囲内です。
+  kind: block
+  block: sg_relay
+- id: 33
+  speaker: 佐藤 健二
+  text: 3回測定した値ですか。
+  kind: block
+  block: sg_relay
+- id: 34
+  speaker: 鈴木 舞
+  text: はい、3回の平均です。ばらつきは0.01秒以内でした。
+  kind: block
+  block: sg_relay
+- id: 35
+  speaker: 佐藤 健二
+  text: 分かりました。継電器の動作試験は合格です。
+  kind: block
+  block: sg_relay
+- id: 36
+  speaker: 鈴木 舞
+  text: 入出力チェックの結果です。入力256点、出力128点をすべて確認しました。
+  kind: block
+  block: plc_io
+- id: 37
+  speaker: 鈴木 舞
+  text: そのうち入力の37番と38番の配線が入れ替わっていたので、修正して再確認済みです。
+  kind: block
+  block: plc_io
+- id: 38
+  speaker: 山田 隆
+  text: 修正後の確認は、私たちが立ち会った状態でもう一度見せてもらえますか。
+  kind: block
+  block: plc_io
+- id: 39
+  speaker: 鈴木 舞
+  text: はい、今から37番と38番を順に入れますので、画面をご覧ください。
+  kind: block
+  block: plc_io
+- id: 40
+  speaker: 山田 隆
+  text: 確認できました。入出力チェックは合格です。
+  kind: block
+  block: plc_io
+- id: 41
+  speaker: 山田 隆
+  text: 警報一覧の画面ですが、重故障は赤の点滅にしてもらえますか。今は軽故障と同じ表示で区別がつきにくいです。
+  kind: block
+  block: plc_alarm
+- id: 42
+  speaker: 鈴木 舞
+  text: 画面の設定変更で対応できます。2週間後までに修正版をお送りします。
+  kind: block
+  block: plc_alarm
+- id: 43
+  speaker: 山田 隆
+  text: ありがとうございます。それでお願いします。
+  kind: block
+  block: plc_alarm
+- id: 44
+  speaker: 田中 誠
+  text: 取水ポンプのインターロックです。水位低の信号を入れると、運転中のポンプが停止することを確認します。
+  kind: block
+  block: plc_pump_interlock
+- id: 45
+  speaker: 田中 誠
+  text: 信号を入れました。ポンプが停止し、画面にも水位低の警報が出ています。
+  kind: block
+  block: plc_pump_interlock
+- id: 46
+  speaker: 佐藤 健二
+  text: 復帰の手順も確認させてください。
+  kind: block
+  block: plc_pump_interlock
+- id: 47
+  speaker: 田中 誠
+  text: 水位が戻った後、画面から復帰操作をしないと再起動しない仕様です。
+  kind: block
+  block: plc_pump_interlock
+- id: 48
+  speaker: 佐藤 健二
+  text: 確認しました。問題ありません。
+  kind: block
+  block: plc_pump_interlock
+- id: 49
+  speaker: 田中 誠
+  text: CPUの二重化切替試験です。稼働系の電源を切って、待機系に切り替わるまでの時間を測ります。
+  kind: block
+  block: plc_redundancy
+- id: 50
+  speaker: 田中 誠
+  text: 切替時間は120ミリ秒でした。仕様は200ミリ秒以内です。
+  kind: block
+  block: plc_redundancy
+- id: 51
+  speaker: 佐藤 健二
+  text: 切替のときに出力が変化しないことも確認できましたか。
+  kind: block
+  block: plc_redundancy
+- id: 52
+  speaker: 田中 誠
+  text: はい、出力は保持されていました。
+  kind: block
+  block: plc_redundancy
+- id: 53
+  speaker: 佐藤 健二
+  text: 合格です。
+  kind: block
+  block: plc_redundancy
+- id: 54
+  speaker: 山田 隆
+  text: 操作権限がオペレーターと管理者の2段階ですが、保守員を加えて3段階にしたいです。
+  kind: block
+  block: plc_user_level
+- id: 55
+  speaker: 田中 誠
+  text: 対応できます。保守員の権限でできる操作の一覧をいただけますか。
+  kind: block
+  block: plc_user_level
+- id: 56
+  speaker: 山田 隆
+  text: 一覧は今週中に送ります。
+  kind: block
+  block: plc_user_level
+- id: 57
+  speaker: 田中 誠
+  text: ありがとうございます。一覧をいただいてから、次回の立会試験までに画面を改修します。
+  kind: block
+  block: plc_user_level
+- id: 58
+  speaker: 山田 隆
+  text: それでお願いします。
+  kind: block
+  block: plc_user_level
+- id: 59
+  speaker: 山田 隆
+  text: 取扱説明書ですが、画面操作の説明が全体的に不足していると思います。
+  kind: block
+  block: plc_manual
+- id: 60
+  speaker: 鈴木 舞
+  text: 具体的にどの画面の説明を追記すればよいか、ご指示いただけますか。
+  kind: block
+  block: plc_manual
+- id: 61
+  speaker: 山田 隆
+  text: 社内で運転員に聞いて一覧にします。それまでこの件は保留にしてください。
+  kind: block
+  block: plc_manual
+- id: 62
+  speaker: 鈴木 舞
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 63
+  speaker: 山田 隆
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null

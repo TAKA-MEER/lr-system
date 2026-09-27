@@ -1,0 +1,13 @@
+# 第2期試験(generate_audio_v2.py)用の話者→VOICEVOX声の対応表。
+# 企業が関わる利用で事前確認が必要な青山龍星は使わない。クレジット表記は ../CREDITS.md を参照。
+# speed: 話速(speedScale) / pitch: 声の高さ(pitchScale) / intonation: 抑揚(intonationScale) / gain: 音量倍率
+
+voices:
+  "山田 隆":   {speaker_id: 52, speed: 1.0}    # 雀松朱司 (client)
+  "佐藤 健二": {speaker_id: 11, speed: 1.05}   # 玄野武宏 (client)
+  "田中 誠":   {speaker_id: 21, speed: 1.0}    # 剣崎雌雄 (our_side, BT装着)
+  "鈴木 舞":   {speaker_id: 9,  speed: 1.05}   # 波音リツ (our_side)
+  "高橋 浩":   {speaker_id: 53, speed: 0.95}   # 麒ヶ島宗麟 (client)
+  "伊藤 恵":   {speaker_id: 14, speed: 1.0}    # 冥鳴ひまり (client)
+  "渡辺 大輔": {speaker_id: 12, speed: 1.1}    # 白上虎太郎 (our_side, BT装着 ※s_multi)
+  "小林 彩":   {speaker_id: 16, speed: 1.0}    # 九州そら (our_side)

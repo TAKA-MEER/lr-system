@@ -1,0 +1,6 @@
+# C-5 状態変化: 継続協議→合意済み の確定に加え、合意済み→撤回(継続協議に戻る)を3件
+name: s_status
+seed: 15
+domains: [switchgear, transformer]
+blocks_per_domain: 6
+retract: 3

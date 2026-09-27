@@ -1,0 +1,777 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: sg_appearance
+  topic_keywords:
+  - 塗装
+  - 外観
+  request_keywords:
+  - ムラ
+  - 塗装
+  response_keywords:
+  - 再塗装
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_dimension
+  topic_keywords:
+  - 寸法
+  request_keywords:
+  - 寸法
+  - 幅
+  response_keywords:
+  - '801.5'
+  - 公差
+  - 範囲
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '800'
+  - '801.5'
+- id: sg_insulation
+  topic_keywords:
+  - 絶縁抵抗
+  request_keywords:
+  - '3.2'
+  - 下限
+  - 余裕
+  response_keywords:
+  - 湿度
+  - 再測定
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '3.2'
+- id: sg_withstand
+  topic_keywords:
+  - 耐電圧
+  request_keywords: []
+  response_keywords:
+  - '2000'
+  - 異常
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '2000'
+- id: sg_interlock
+  topic_keywords:
+  - インターロック
+  request_keywords: []
+  response_keywords:
+  - 断路器
+  - 遮断器
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_nameplate
+  topic_keywords:
+  - 銘板
+  request_keywords:
+  - '1200'
+  - '1250'
+  - 定格電流
+  response_keywords:
+  - 再発行
+  - 作り直
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '1250'
+- id: sg_docs
+  topic_keywords:
+  - 完成図書
+  - 英語
+  request_keywords:
+  - 英語
+  response_keywords:
+  - 見積
+  - 費用
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: sg_relay
+  topic_keywords:
+  - 継電器
+  - 過電流
+  request_keywords: []
+  response_keywords:
+  - '0.31'
+  - '0.3'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.31'
+- id: tr_ratio
+  topic_keywords:
+  - 変圧比
+  request_keywords: []
+  response_keywords:
+  - '0.2'
+  - '0.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.2'
+- id: tr_noload
+  topic_keywords:
+  - 無負荷損
+  request_keywords:
+  - '8.4'
+  - 保証値
+  - 超過
+  response_keywords:
+  - 許容差
+  - JEC
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '8.4'
+  - '8.0'
+- id: tr_impedance
+  topic_keywords:
+  - インピーダンス
+  - 負荷損
+  request_keywords: []
+  response_keywords:
+  - '7.4'
+  - '7.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '7.4'
+- id: tr_temp
+  topic_keywords:
+  - 温度上昇
+  request_keywords:
+  - 余裕
+  - '63'
+  response_keywords:
+  - '52'
+  - '65'
+  expected_status: 保留
+  status_changed: false
+  values:
+  - '52'
+  - '63'
+- id: tr_oil_leak
+  topic_keywords:
+  - 油にじみ
+  - 油漏れ
+  - フランジ
+  - パッキン
+  request_keywords:
+  - にじみ
+  response_keywords:
+  - パッキン
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_noise
+  topic_keywords:
+  - 騒音
+  request_keywords: []
+  response_keywords:
+  - '68'
+  - '70'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '68'
+- id: tr_tap_counter
+  topic_keywords:
+  - タップ
+  - カウンター
+  - 動作回数
+  request_keywords:
+  - 表示
+  response_keywords:
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_dga
+  topic_keywords:
+  - 油中ガス
+  - 絶縁油
+  request_keywords:
+  - 分析
+  response_keywords:
+  - 外部
+  - 結果
+  expected_status: 保留
+  status_changed: false
+  values: []
+- id: mt_vibration
+  topic_keywords:
+  - 振動
+  request_keywords: []
+  response_keywords:
+  - '1.8'
+  - '2.8'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '1.8'
+- id: mt_noise
+  topic_keywords:
+  - 騒音
+  request_keywords:
+  - '82'
+  - '80'
+  - 超
+  response_keywords:
+  - 防音カバー
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '82'
+  - '80'
+- id: mt_efficiency
+  topic_keywords:
+  - 効率
+  request_keywords: []
+  response_keywords:
+  - '96.2'
+  - '96.0'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '96.2'
+- id: mt_winding_temp
+  topic_keywords:
+  - 温度上昇
+  - 巻線
+  request_keywords: []
+  response_keywords:
+  - '75'
+  - '80'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '75'
+- id: mt_bearing
+  topic_keywords:
+  - 軸受
+  request_keywords:
+  - 8度
+  - 高い
+  response_keywords:
+  - グリース
+  expected_status: 保留
+  status_changed: false
+  values: []
+- id: mt_terminal_box
+  topic_keywords:
+  - 端子箱
+  request_keywords:
+  - 左側
+  - 変更
+  response_keywords:
+  - 設計変更
+  - 2週間
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: mt_insulation
+  topic_keywords:
+  - 成極指数
+  - 絶縁
+  request_keywords: []
+  response_keywords:
+  - '3.1'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '3.1'
+- id: mt_spare
+  topic_keywords:
+  - 予備品
+  request_keywords:
+  - 軸受
+  - 追加
+  response_keywords:
+  - 見積
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_io
+  topic_keywords:
+  - 入出力
+  - I/O
+  - IO
+  - 配線
+  request_keywords: []
+  response_keywords:
+  - '37'
+  - '38'
+  - 入れ替
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '256'
+  - '128'
+- id: plc_alarm
+  topic_keywords:
+  - 警報
+  - 重故障
+  request_keywords:
+  - 点滅
+  - 赤
+  response_keywords:
+  - 変更
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_trend
+  topic_keywords:
+  - トレンド
+  - 保存期間
+  request_keywords:
+  - 1年
+  response_keywords:
+  - 30日
+  - ストレージ
+  - 増設
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '30'
+- id: plc_pump_interlock
+  topic_keywords:
+  - インターロック
+  - ポンプ
+  request_keywords: []
+  response_keywords:
+  - 水位
+  - 停止
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_modbus
+  topic_keywords:
+  - 通信
+  - タイムアウト
+  - Modbus
+  - モドバス
+  request_keywords:
+  - タイムアウト
+  response_keywords:
+  - 原因
+  - 調査
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_user_level
+  topic_keywords:
+  - 権限
+  request_keywords:
+  - 3段階
+  - 保守
+  response_keywords:
+  - 追加
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_time_sync
+  topic_keywords:
+  - 時刻
+  request_keywords:
+  - ずれ
+  - 3秒
+  response_keywords:
+  - 修正
+  - 設定
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_manual
+  topic_keywords:
+  - 取扱説明書
+  - 説明書
+  request_keywords:
+  - 不足
+  response_keywords:
+  - 追記
+  expected_status: 保留
+  status_changed: false
+  values: []
+action_items:
+- id: sg_appearance_action
+  content_keywords:
+  - 塗装
+  owner: our_side
+  deadline_text: 10月9日
+  deadline_accept:
+  - 10月9日
+- id: sg_nameplate_action
+  content_keywords:
+  - 銘板
+  owner: our_side
+  deadline_text: 10月16日
+  deadline_accept:
+  - 10月16日
+- id: sg_docs_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 10月14日
+  deadline_accept:
+  - 10月14日
+- id: tr_oil_leak_action
+  content_keywords:
+  - パッキン
+  owner: our_side
+  deadline_text: 10月12日
+  deadline_accept:
+  - 10月12日
+- id: tr_tap_counter_action
+  content_keywords:
+  - カウンター
+  owner: our_side
+  deadline_text: 10月20日
+  deadline_accept:
+  - 10月20日
+- id: tr_dga_action
+  content_keywords:
+  - 油中ガス
+  - 分析
+  owner: our_side
+  deadline_text: 10月21日
+  deadline_accept:
+  - 10月21日
+- id: mt_spare_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 10月16日
+  deadline_accept:
+  - 10月16日
+- id: plc_alarm_action
+  content_keywords:
+  - 警報
+  - 重故障
+  owner: our_side
+  deadline_text: 10月8日
+  deadline_accept:
+  - 10月8日
+- id: plc_modbus_action
+  content_keywords:
+  - 通信
+  - タイムアウト
+  - 調査
+  owner: our_side
+  deadline_text: 10月15日
+  deadline_accept:
+  - 10月15日
+- id: plc_user_level_action
+  content_keywords:
+  - 権限
+  owner: our_side
+  deadline_text: 10月22日
+  deadline_accept:
+  - 10月22日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 塗装
+- turn_id: 4
+  alts:
+  - ムラ
+- turn_id: 5
+  alts:
+  - 塗装
+- turn_id: 5
+  alts:
+  - ムラ
+- turn_id: 7
+  alts:
+  - 塗装
+- turn_id: 9
+  alts:
+  - 800ミリ
+  - 800mm
+- turn_id: 9
+  alts:
+  - プラスマイナス2
+  - ±2
+- turn_id: 10
+  alts:
+  - '801.5'
+- turn_id: 14
+  alts:
+  - 3.2メガオーム
+  - 3.2MΩ
+  - 3.2メグオーム
+- turn_id: 14
+  alts:
+  - 絶縁抵抗
+- turn_id: 19
+  alts:
+  - 2000ボルト
+  - 2000V
+  - 2,000ボルト
+- turn_id: 19
+  alts:
+  - 耐電圧
+- turn_id: 23
+  alts:
+  - 耐電圧
+- turn_id: 24
+  alts:
+  - インターロック
+- turn_id: 24
+  alts:
+  - 断路器
+- turn_id: 25
+  alts:
+  - 断路器
+- turn_id: 26
+  alts:
+  - 断路器
+- turn_id: 28
+  alts:
+  - インターロック
+- turn_id: 29
+  alts:
+  - 1200アンペア
+  - 1200A
+- turn_id: 29
+  alts:
+  - 1250アンペア
+  - 1250A
+- turn_id: 29
+  alts:
+  - 銘板
+- turn_id: 30
+  alts:
+  - 1250アンペア
+  - 1250A
+- turn_id: 30
+  alts:
+  - 銘板
+- turn_id: 36
+  alts:
+  - 完成図書
+- turn_id: 36
+  alts:
+  - 英語版
+- turn_id: 37
+  alts:
+  - 英語版
+- turn_id: 41
+  alts:
+  - 過電流継電器
+- turn_id: 41
+  alts:
+  - 5アンペア
+  - 5A
+- turn_id: 42
+  alts:
+  - 0.31秒
+- turn_id: 46
+  alts:
+  - 変圧比
+- turn_id: 46
+  alts:
+  - 0.2パーセント
+  - 0.2%
+- turn_id: 46
+  alts:
+  - 66キロボルト
+  - 66kV
+- turn_id: 49
+  alts:
+  - 変圧比
+- turn_id: 50
+  alts:
+  - 無負荷損
+- turn_id: 50
+  alts:
+  - 8.4キロワット
+  - 8.4kW
+- turn_id: 51
+  alts:
+  - 8.0キロワット
+  - 8.0kW
+  - 8キロワット
+- turn_id: 52
+  alts:
+  - 無負荷損
+- turn_id: 55
+  alts:
+  - インピーダンス
+- turn_id: 55
+  alts:
+  - 7.4パーセント
+  - 7.4%
+- turn_id: 59
+  alts:
+  - 温度上昇
+- turn_id: 59
+  alts:
+  - 52ケルビン
+  - 52K
+- turn_id: 59
+  alts:
+  - 63ケルビン
+  - 63K
+- turn_id: 67
+  alts:
+  - 放熱器
+- turn_id: 68
+  alts:
+  - パッキン
+- turn_id: 69
+  alts:
+  - パッキン
+- turn_id: 71
+  alts:
+  - 68デシベル
+  - 68dB
+- turn_id: 72
+  alts:
+  - 70デシベル
+  - 70dB
+- turn_id: 75
+  alts:
+  - 負荷時タップ切換器
+- turn_id: 75
+  alts:
+  - カウンター
+- turn_id: 76
+  alts:
+  - カウンター
+- turn_id: 80
+  alts:
+  - 油中ガス分析
+- turn_id: 80
+  alts:
+  - 絶縁油
+- turn_id: 84
+  alts:
+  - 1.8ミリメートル毎秒
+  - 1.8mm/s
+- turn_id: 86
+  alts:
+  - '2.8'
+- turn_id: 88
+  alts:
+  - 82デシベル
+  - 82dB
+- turn_id: 89
+  alts:
+  - 80デシベル
+  - 80dB
+- turn_id: 90
+  alts:
+  - 防音カバー
+- turn_id: 93
+  alts:
+  - 96.2パーセント
+  - 96.2%
+- turn_id: 94
+  alts:
+  - IE3
+- turn_id: 95
+  alts:
+  - IE3
+- turn_id: 97
+  alts:
+  - 75ケルビン
+  - 75K
+- turn_id: 98
+  alts:
+  - 80ケルビン
+  - 80K
+- turn_id: 100
+  alts:
+  - 軸受
+- turn_id: 101
+  alts:
+  - グリース
+- turn_id: 103
+  alts:
+  - 端子箱
+- turn_id: 108
+  alts:
+  - 成極指数
+- turn_id: 108
+  alts:
+  - '3.1'
+- turn_id: 112
+  alts:
+  - 予備品
+- turn_id: 115
+  alts:
+  - 256点
+- turn_id: 115
+  alts:
+  - 128点
+- turn_id: 116
+  alts:
+  - 37番
+  - '37'
+- turn_id: 118
+  alts:
+  - 37番
+  - '37'
+- turn_id: 120
+  alts:
+  - 重故障
+- turn_id: 120
+  alts:
+  - 点滅
+- turn_id: 123
+  alts:
+  - トレンド
+- turn_id: 123
+  alts:
+  - 30日
+- turn_id: 123
+  alts:
+  - 1年
+- turn_id: 124
+  alts:
+  - 1年
+- turn_id: 127
+  alts:
+  - インターロック
+- turn_id: 127
+  alts:
+  - 水位低
+- turn_id: 128
+  alts:
+  - 水位低
+- turn_id: 132
+  alts:
+  - タイムアウト
+- turn_id: 136
+  alts:
+  - 権限
+- turn_id: 136
+  alts:
+  - 3段階
+- turn_id: 137
+  alts:
+  - 権限
+- turn_id: 143
+  alts:
+  - 3秒
+- turn_id: 144
+  alts:
+  - 時刻同期
+- turn_id: 146
+  alts:
+  - 取扱説明書

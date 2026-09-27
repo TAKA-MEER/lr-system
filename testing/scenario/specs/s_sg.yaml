@@ -1,0 +1,4 @@
+# 配電盤(基準用)。L1のLLM試験・E2Eの基準条件
+name: s_sg
+seed: 11
+domains: [switchgear]

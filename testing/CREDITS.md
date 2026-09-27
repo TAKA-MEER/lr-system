@@ -42,3 +42,29 @@ VOICEVOX:青山龍星、VOICEVOX:玄野武宏、VOICEVOX:剣崎雌雄、VOICEVOX
 「企業が携わる形での利用」に該当するか（＝ななはぴへの事前確認が必要か）は資料の
 提出方法・用途によって判断が分かれるため、明電舎向けに本資料を正式に提出する前に、相談のうえ、必要であれば
 [ななはぴへの問い合わせフォーム](https://v.seventhh.com/contact/)で事前確認を取ること。
+
+## 第2期評価試験(TEST_PLAN_v2.md)で追加したキャラクター
+
+`tts/voice_map_v2.yaml`・`l1/stt_matrix.py`(声質比較)・`augment/make_babble.py`(周囲の話し声)で使用。
+いずれも [VOICEVOX/voicevox_vvm README](https://github.com/VOICEVOX/voicevox_vvm/blob/main/README.md)(2026年9月時点)
+で商用・非商用とも利用可とされているもの。第2期の音声では**青山龍星は使っていない**。
+No.7 は商用利用に事前承認が必要なため使わない。
+
+| VOICEVOXキャラクター | クレジット表記 | 利用規約 |
+|---|---|---|
+| 雀松朱司 | `VOICEVOX:雀松朱司` | https://www.virvoxproject.com/voicevoxの利用規約 |
+| 麒ヶ島宗麟 | `VOICEVOX:麒ヶ島宗麟` | https://www.virvoxproject.com/voicevoxの利用規約 |
+| 白上虎太郎 | `VOICEVOX:白上虎太郎` | https://www.virvoxproject.com/voicevoxの利用規約 |
+| 冥鳴ひまり | `VOICEVOX:冥鳴ひまり` | https://meimeihimari.wixsite.com/himari/terms-of-use |
+| 九州そら | `VOICEVOX:九州そら` | https://zunko.jp/con_ongen_kiyaku.html |
+| 四国めたん | `VOICEVOX:四国めたん` | https://zunko.jp/con_ongen_kiyaku.html |
+| 春日部つむぎ | `VOICEVOX:春日部つむぎ` | https://tsumugi-official.studio.site/rule |
+| ちび式じい | `VOICEVOX:ちび式じい` | https://docs.google.com/presentation/d/1AcD8zXkfzKFf2ertHwWRwJuQXjNnijMxhz7AJzEkaI4 |
+
+第2期の結果を資料で扱う場合のクレジット:
+
+```
+VOICEVOX:玄野武宏、VOICEVOX:剣崎雌雄、VOICEVOX:波音リツ、VOICEVOX:雀松朱司、VOICEVOX:麒ヶ島宗麟、
+VOICEVOX:白上虎太郎、VOICEVOX:冥鳴ひまり、VOICEVOX:九州そら、VOICEVOX:四国めたん、VOICEVOX:春日部つむぎ、
+VOICEVOX:ちび式じい
+```

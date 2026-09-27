@@ -1,0 +1,331 @@
+meta:
+  trial_name: 油入変圧器(型式 TR-5000 10MVA) 工場立会試験
+  location: 変圧器工場 大型試験場
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: tr_ratio
+  topic_keywords:
+  - 変圧比
+  request_keywords: []
+  response_keywords:
+  - '0.2'
+  - '0.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.2'
+- id: tr_noload
+  topic_keywords:
+  - 無負荷損
+  request_keywords:
+  - '8.4'
+  - 保証値
+  - 超過
+  response_keywords:
+  - 許容差
+  - JEC
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '8.4'
+  - '8.0'
+- id: tr_temp
+  topic_keywords:
+  - 温度上昇
+  request_keywords:
+  - 余裕
+  - '63'
+  response_keywords:
+  - '52'
+  - '65'
+  expected_status: 保留
+  status_changed: false
+  values:
+  - '52'
+  - '63'
+- id: tr_oil_leak
+  topic_keywords:
+  - 油にじみ
+  - 油漏れ
+  - フランジ
+  - パッキン
+  request_keywords:
+  - にじみ
+  response_keywords:
+  - パッキン
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_dga
+  topic_keywords:
+  - 油中ガス
+  - 絶縁油
+  request_keywords:
+  - 分析
+  response_keywords:
+  - 外部
+  - 結果
+  expected_status: 保留
+  status_changed: false
+  values: []
+- id: tr_paint
+  topic_keywords:
+  - 膜厚
+  request_keywords:
+  - '72'
+  - 補修
+  response_keywords:
+  - 補修
+  - '85'
+  expected_status: 継続協議
+  status_changed: true
+  values:
+  - '85'
+  - '72'
+- id: plc_alarm
+  topic_keywords:
+  - 警報
+  - 重故障
+  request_keywords:
+  - 点滅
+  - 赤
+  response_keywords:
+  - 変更
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_trend
+  topic_keywords:
+  - トレンド
+  - 保存期間
+  request_keywords:
+  - 1年
+  response_keywords:
+  - 30日
+  - ストレージ
+  - 増設
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '30'
+- id: plc_redundancy
+  topic_keywords:
+  - 二重化
+  - 切替
+  - CPU
+  request_keywords: []
+  response_keywords:
+  - '120'
+  - '200'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '120'
+  - '200'
+- id: plc_modbus
+  topic_keywords:
+  - 通信
+  - タイムアウト
+  - Modbus
+  - モドバス
+  request_keywords:
+  - タイムアウト
+  response_keywords:
+  - 原因
+  - 調査
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_user_level
+  topic_keywords:
+  - 権限
+  request_keywords:
+  - 3段階
+  - 保守
+  response_keywords:
+  - 追加
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_time_sync
+  topic_keywords:
+  - 時刻
+  request_keywords:
+  - ずれ
+  - 3秒
+  response_keywords:
+  - 修正
+  - 設定
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+action_items:
+- id: tr_oil_leak_action
+  content_keywords:
+  - パッキン
+  owner: our_side
+  deadline_text: 来週の金曜日
+  deadline_accept:
+  - 来週
+  - 金曜
+  - 10月9日
+  - 10/9
+- id: tr_dga_action
+  content_keywords:
+  - 油中ガス
+  - 分析
+  owner: our_side
+  deadline_text: 今月末
+  deadline_accept:
+  - 月末
+  - 10月31日
+  - 10/31
+- id: plc_alarm_action
+  content_keywords:
+  - 警報
+  - 重故障
+  owner: our_side
+  deadline_text: 10月8日
+  deadline_accept:
+  - 10月8日
+- id: plc_modbus_action
+  content_keywords:
+  - 通信
+  - タイムアウト
+  - 調査
+  owner: our_side
+  deadline_text: 10月15日
+  deadline_accept:
+  - 10月15日
+- id: plc_user_level_action
+  content_keywords:
+  - 権限
+  owner: our_side
+  deadline_text: 10月22日
+  deadline_accept:
+  - 10月22日
+chitchat_keywords:
+- 渋滞
+- 電話
+- 高速
+terms:
+- turn_id: 4
+  alts:
+  - 変圧比
+- turn_id: 4
+  alts:
+  - 0.2パーセント
+  - 0.2%
+- turn_id: 4
+  alts:
+  - 66キロボルト
+  - 66kV
+- turn_id: 7
+  alts:
+  - 変圧比
+- turn_id: 8
+  alts:
+  - 無負荷損
+- turn_id: 8
+  alts:
+  - 8.4キロワット
+  - 8.4kW
+- turn_id: 9
+  alts:
+  - 8.0キロワット
+  - 8.0kW
+  - 8キロワット
+- turn_id: 10
+  alts:
+  - 無負荷損
+- turn_id: 13
+  alts:
+  - 温度上昇
+- turn_id: 13
+  alts:
+  - 52ケルビン
+  - 52K
+- turn_id: 13
+  alts:
+  - 63ケルビン
+  - 63K
+- turn_id: 18
+  alts:
+  - 放熱器
+- turn_id: 19
+  alts:
+  - パッキン
+- turn_id: 20
+  alts:
+  - パッキン
+- turn_id: 22
+  alts:
+  - 油中ガス分析
+- turn_id: 22
+  alts:
+  - 絶縁油
+- turn_id: 29
+  alts:
+  - 膜厚
+- turn_id: 29
+  alts:
+  - 85ミクロン
+  - 85μm
+- turn_id: 30
+  alts:
+  - 72ミクロン
+  - 72μm
+- turn_id: 33
+  alts:
+  - 重故障
+- turn_id: 33
+  alts:
+  - 点滅
+- turn_id: 36
+  alts:
+  - トレンド
+- turn_id: 36
+  alts:
+  - 30日
+- turn_id: 36
+  alts:
+  - 1年
+- turn_id: 37
+  alts:
+  - 1年
+- turn_id: 42
+  alts:
+  - 二重化
+- turn_id: 43
+  alts:
+  - 120ミリ秒
+- turn_id: 43
+  alts:
+  - 200ミリ秒
+- turn_id: 49
+  alts:
+  - タイムアウト
+- turn_id: 58
+  alts:
+  - 権限
+- turn_id: 58
+  alts:
+  - 3段階
+- turn_id: 59
+  alts:
+  - 権限
+- turn_id: 63
+  alts:
+  - 3秒
+- turn_id: 64
+  alts:
+  - 時刻同期

@@ -1,0 +1,8 @@
+domains:
+- switchgear
+- transformer
+- motor
+- plc
+filler_chars: 10000
+name: dyn_long_10000
+seed: 200

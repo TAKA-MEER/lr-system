@@ -1,0 +1,243 @@
+meta:
+  trial_name: 高圧三相誘導電動機(型式 MX-750 750kW) 工場立会試験
+  location: 回転機工場 第3試験台
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  - 高橋 浩
+  - 伊藤 恵
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  - 渡辺 大輔
+  - 小林 彩
+  bt_wearers:
+  - 田中 誠
+  - 渡辺 大輔
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  高橋 浩: client
+  伊藤 恵: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+  渡辺 大輔: our_side
+  小林 彩: our_side
+turns:
+- id: 1
+  speaker: 鈴木 舞
+  text: それでは時間になりましたので、高圧三相誘導電動機(型式 MX-750 750kW) 工場立会試験を始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 伊藤 恵
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 鈴木 舞
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 渡辺 大輔
+  text: 振動測定の結果です。軸受部の振動速度は最大で1.8ミリメートル毎秒でした。
+  kind: block
+  block: mt_vibration
+- id: 5
+  speaker: 伊藤 恵
+  text: 判定値はいくつでしたか。
+  kind: block
+  block: mt_vibration
+- id: 6
+  speaker: 渡辺 大輔
+  text: 2.8ミリメートル毎秒以下です。負荷側、反負荷側とも判定値以内です。
+  kind: block
+  block: mt_vibration
+- id: 7
+  speaker: 伊藤 恵
+  text: 問題ありませんね。振動は合格です。
+  kind: block
+  block: mt_vibration
+- id: 8
+  speaker: 渡辺 大輔
+  text: 無負荷での騒音は82デシベルでした。
+  kind: block
+  block: mt_noise
+- id: 9
+  speaker: 伊藤 恵
+  text: 仕様では80デシベル以下ですよね。2デシベル超えています。
+  kind: block
+  block: mt_noise
+- id: 10
+  speaker: 渡辺 大輔
+  text: 冷却ファンの風切り音が主な原因です。防音カバーを追加すれば仕様内に収まる見込みです。
+  kind: block
+  block: mt_noise
+- id: 11
+  speaker: 伊藤 恵
+  text: カバーを付けると保守がやりにくくなりますし、費用の負担も決めないといけません。継続協議にしましょう。
+  kind: block
+  block: mt_noise
+- id: 12
+  speaker: 渡辺 大輔
+  text: 承知しました。カバーの構造案と費用を整理してご提案します。
+  kind: block
+  block: mt_noise
+- id: 13
+  speaker: 渡辺 大輔
+  text: 損失の測定から算出した効率は96.2パーセントでした。保証値は96.0パーセントです。
+  kind: block
+  block: mt_efficiency
+- id: 14
+  speaker: 佐藤 健二
+  text: IE3相当という条件も満たしていますか。
+  kind: block
+  block: mt_efficiency
+- id: 15
+  speaker: 渡辺 大輔
+  text: はい、IE3の効率値を上回っています。
+  kind: block
+  block: mt_efficiency
+- id: 16
+  speaker: 佐藤 健二
+  text: 了解しました。効率は合格です。
+  kind: block
+  block: mt_efficiency
+- id: 17
+  speaker: 渡辺 大輔
+  text: 温度上昇試験です。固定子巻線の温度上昇は抵抗法で75ケルビンでした。
+  kind: block
+  block: mt_winding_temp
+- id: 18
+  speaker: 渡辺 大輔
+  text: F種絶縁をB種の温度上昇で使う条件ですので、限度は80ケルビンです。
+  kind: block
+  block: mt_winding_temp
+- id: 19
+  speaker: 山田 隆
+  text: 5ケルビンの余裕ですね。了解しました。合格とします。
+  kind: block
+  block: mt_winding_temp
+- id: 20
+  speaker: 佐藤 健二
+  text: 反負荷側の軸受温度が、負荷側より8度ほど高いのが気になります。
+  kind: block
+  block: mt_bearing
+- id: 21
+  speaker: 鈴木 舞
+  text: グリースの封入量が多めだった可能性があります。量を確認して、明日もう一度運転してみます。
+  kind: block
+  block: mt_bearing
+- id: 22
+  speaker: 佐藤 健二
+  text: では明日の再試験の結果を見るまで、この件は保留にします。
+  kind: block
+  block: mt_bearing
+- id: 23
+  speaker: 鈴木 舞
+  text: 先ほどの騒音の件ですが、防音カバーは当社負担で、点検口付きの構造にするということでいかがでしょうか。
+  kind: resolve
+  block: mt_noise
+- id: 24
+  speaker: 佐藤 健二
+  text: 点検口があるなら保守も問題ないですね。騒音の件はそれで合意とします。
+  kind: resolve
+  block: mt_noise
+- id: 25
+  speaker: 渡辺 大輔
+  text: 拘束試験から求めた始動電流は、定格電流の6.2倍でした。仕様は6.5倍以下です。
+  kind: block
+  block: mt_starting
+- id: 26
+  speaker: 佐藤 健二
+  text: 始動トルクも仕様を満たしていますか。
+  kind: block
+  block: mt_starting
+- id: 27
+  speaker: 渡辺 大輔
+  text: はい、始動トルクは定格の85パーセントで、仕様の80パーセント以上を満たしています。
+  kind: block
+  block: mt_starting
+- id: 28
+  speaker: 佐藤 健二
+  text: 分かりました。合格です。
+  kind: block
+  block: mt_starting
+- id: 29
+  speaker: 佐藤 健二
+  text: 現地のケーブルの取り回しを考えると、端子箱を右側から左側に変更してほしいのですが。
+  kind: block
+  block: mt_terminal_box
+- id: 30
+  speaker: 小林 彩
+  text: 設計変更は可能ですが、フレームの加工が必要になり、納期が2週間ほど延びます。
+  kind: block
+  block: mt_terminal_box
+- id: 31
+  speaker: 佐藤 健二
+  text: 納期が延びるのは困りますね。工事の工程と調整してみますので、継続協議にさせてください。
+  kind: block
+  block: mt_terminal_box
+- id: 32
+  speaker: 渡辺 大輔
+  text: 巻線の絶縁抵抗と成極指数です。成極指数は3.1で、判定基準の2.0以上です。
+  kind: block
+  block: mt_insulation
+- id: 33
+  speaker: 佐藤 健二
+  text: 良好ですね。耐電圧試験も異常なしでしたか。
+  kind: block
+  block: mt_insulation
+- id: 34
+  speaker: 渡辺 大輔
+  text: はい、耐電圧も異常ありませんでした。
+  kind: block
+  block: mt_insulation
+- id: 35
+  speaker: 佐藤 健二
+  text: 了解です。
+  kind: block
+  block: mt_insulation
+- id: 36
+  speaker: 高橋 浩
+  text: 銘板の製造番号が、試験成績書の番号と一桁違っています。
+  kind: block
+  block: mt_nameplate
+- id: 37
+  speaker: 田中 誠
+  text: 確認しました。銘板の方が間違っています。10月13日までに再発行して交換します。
+  kind: block
+  block: mt_nameplate
+- id: 38
+  speaker: 高橋 浩
+  text: お願いします。
+  kind: block
+  block: mt_nameplate
+- id: 39
+  speaker: 高橋 浩
+  text: 予備品として、軸受を1セット追加で購入したいと考えています。
+  kind: block
+  block: mt_spare
+- id: 40
+  speaker: 小林 彩
+  text: 承知しました。10月16日までにお見積もりをお出しします。
+  kind: block
+  block: mt_spare
+- id: 41
+  speaker: 高橋 浩
+  text: 見積もりを見てから発注するか決めます。継続協議でお願いします。
+  kind: block
+  block: mt_spare
+- id: 42
+  speaker: 小林 彩
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 43
+  speaker: 佐藤 健二
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null

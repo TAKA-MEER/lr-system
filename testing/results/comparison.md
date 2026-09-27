@@ -20,3 +20,5 @@
 | endurance_02 | 0.203 | 0.739 | 1.000 | 1.000 | False | 0 |
 | smoke_after_prompt_fix | 0.149 | 0.745 | 1.000 | 1.000 | True | 0 |
 | endurance_03 | 0.174 | 0.746 | 1.000 | 1.000 | False | 0 |
+| v2_baseline | 0.149 | 0.745 | 1.000 | 1.000 | True | 0 |
+| v2/l2/base/v1_aligned | 0.149 | 0.755 | 1.000 | 1.000 | True | 0 |

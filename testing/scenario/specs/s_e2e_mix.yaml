@@ -1,0 +1,8 @@
+# L2 E2E代表シナリオ: 変圧器+制御盤、雑談・撤回・相対期限を少し含む、約15分
+name: s_e2e_mix
+seed: 19
+domains: [transformer, plc]
+blocks_per_domain: 6
+retract: 1
+chitchat: 0.2
+deadline_mode: mixed

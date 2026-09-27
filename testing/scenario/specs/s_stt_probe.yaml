@@ -1,0 +1,6 @@
+# L1 STT音響掃引用の素材(約6分)。各題材から3ブロックずつ、数値・型式を多く含む
+name: s_stt_probe
+seed: 20
+domains: [switchgear, transformer, motor, plc]
+blocks_per_domain: 3
+resolve: false

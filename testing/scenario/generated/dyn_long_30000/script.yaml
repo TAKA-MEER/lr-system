@@ -1,0 +1,7039 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  bt_wearers:
+  - 田中 誠
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+turns:
+- id: 1
+  speaker: 鈴木 舞
+  text: それでは時間になりましたので、閉鎖配電盤(型式 SWB-3300) 出荷前立会試験を始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 佐藤 健二
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 鈴木 舞
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 佐藤 健二
+  text: まず外観ですが、右側面の下のあたりに塗装のムラがありますね。光の当たり方で目立ちます。
+  kind: block
+  block: sg_appearance
+- id: 5
+  speaker: 田中 誠
+  text: ご指摘ありがとうございます。確かにムラがありますので、右側面は出荷前に再塗装いたします。
+  kind: block
+  block: sg_appearance
+- id: 6
+  speaker: 佐藤 健二
+  text: お願いします。いつ頃になりますか。
+  kind: block
+  block: sg_appearance
+- id: 7
+  speaker: 田中 誠
+  text: 10月9日までに再塗装を完了させて、写真でご報告します。
+  kind: block
+  block: sg_appearance
+- id: 8
+  speaker: 佐藤 健二
+  text: 分かりました。それで結構です。
+  kind: block
+  block: sg_appearance
+- id: 9
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が74.0、中央が49.0、C相が49.1です。
+  kind: filler
+  block: null
+- id: 10
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 11
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が72.7、B相が44.5、2番端子が67.8です。
+  kind: filler
+  block: null
+- id: 12
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 13
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が36.2、1番端子が73.7、中央が75.5です。
+  kind: filler
+  block: null
+- id: 14
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 15
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が86.6、出口側が44.1、C相が83.0です。
+  kind: filler
+  block: null
+- id: 16
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 17
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が69.9、1番端子が79.9、下部が80.6です。
+  kind: filler
+  block: null
+- id: 18
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 19
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が61.6、1番端子が71.3、A相が79.8です。
+  kind: filler
+  block: null
+- id: 20
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 21
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が35.1、入口側が29.2、2番端子が27.6です。
+  kind: filler
+  block: null
+- id: 22
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 23
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が15.9、下部が96.1、3番端子が32.9です。
+  kind: filler
+  block: null
+- id: 24
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 25
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が22.5、下部が28.1、A相が73.2です。
+  kind: filler
+  block: null
+- id: 26
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 27
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が20.5、中央が40.8、3番端子が97.1です。
+  kind: filler
+  block: null
+- id: 28
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 29
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が18.8、3番端子が12.8、2番端子が58.6です。
+  kind: filler
+  block: null
+- id: 30
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 31
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が96.5、1番端子が30.1、中央が14.1です。
+  kind: filler
+  block: null
+- id: 32
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 33
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が75.0、B相が96.2、2番端子が12.2です。
+  kind: filler
+  block: null
+- id: 34
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 35
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が22.8、A相が22.2、2番端子が11.0です。
+  kind: filler
+  block: null
+- id: 36
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 37
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が46.9、C相が29.9、A相が61.0です。
+  kind: filler
+  block: null
+- id: 38
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 39
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が93.6、1番端子が11.9、C相が49.2です。
+  kind: filler
+  block: null
+- id: 40
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 41
+  speaker: 田中 誠
+  text: 続いて寸法の確認です。盤の幅は図面で800ミリ、公差はプラスマイナス2ミリです。
+  kind: block
+  block: sg_dimension
+- id: 42
+  speaker: 田中 誠
+  text: 実測は801.5ミリでした。公差の範囲に入っています。
+  kind: block
+  block: sg_dimension
+- id: 43
+  speaker: 山田 隆
+  text: 奥行きと高さも図面どおりでしたか。
+  kind: block
+  block: sg_dimension
+- id: 44
+  speaker: 田中 誠
+  text: はい、奥行き、高さとも図面どおりです。記録表にも記入しています。
+  kind: block
+  block: sg_dimension
+- id: 45
+  speaker: 山田 隆
+  text: 了解です。寸法は問題ありません。
+  kind: block
+  block: sg_dimension
+- id: 46
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が84.2、B相が72.5、A相が17.6です。
+  kind: filler
+  block: null
+- id: 47
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 48
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が83.6、B相が13.5、上部が19.8です。
+  kind: filler
+  block: null
+- id: 49
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 50
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が73.4、下部が26.0、1番端子が17.6です。
+  kind: filler
+  block: null
+- id: 51
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 52
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が24.1、3番端子が67.1、上部が55.6です。
+  kind: filler
+  block: null
+- id: 53
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 54
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が95.1、下部が69.9、中央が72.7です。
+  kind: filler
+  block: null
+- id: 55
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 56
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が47.6、中央が70.2、C相が24.4です。
+  kind: filler
+  block: null
+- id: 57
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 58
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が92.9、出口側が23.8、A相が53.2です。
+  kind: filler
+  block: null
+- id: 59
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 60
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が23.2、C相が20.0、中央が57.0です。
+  kind: filler
+  block: null
+- id: 61
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 62
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が86.9、上部が13.6、下部が73.8です。
+  kind: filler
+  block: null
+- id: 63
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 64
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が38.7、C相が84.7、3番端子が57.0です。
+  kind: filler
+  block: null
+- id: 65
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 66
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が48.8、中央が57.4、入口側が25.2です。
+  kind: filler
+  block: null
+- id: 67
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 68
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が98.8、1番端子が44.1、C相が60.7です。
+  kind: filler
+  block: null
+- id: 69
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 70
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が18.7、出口側が11.7、C相が34.7です。
+  kind: filler
+  block: null
+- id: 71
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 72
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が95.3、下部が88.8、3番端子が18.3です。
+  kind: filler
+  block: null
+- id: 73
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 74
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が82.1、2番端子が91.1、下部が54.2です。
+  kind: filler
+  block: null
+- id: 75
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 76
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が81.9、入口側が67.8、3番端子が98.0です。
+  kind: filler
+  block: null
+- id: 77
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 78
+  speaker: 田中 誠
+  text: 次に絶縁抵抗試験の結果です。主回路と大地間で3.2メガオームでした。
+  kind: block
+  block: sg_insulation
+- id: 79
+  speaker: 佐藤 健二
+  text: 判定基準の下限は2メガオームですよね。合格ではありますが、余裕が少なくないですか。
+  kind: block
+  block: sg_insulation
+- id: 80
+  speaker: 田中 誠
+  text: 本日は湿度が68パーセントと高く、その影響が出ていると考えています。
+  kind: block
+  block: sg_insulation
+- id: 81
+  speaker: 佐藤 健二
+  text: それなら乾燥させてから再測定してもらえますか。それまではこの項目は継続協議にしておきましょう。
+  kind: block
+  block: sg_insulation
+- id: 82
+  speaker: 田中 誠
+  text: 承知しました。除湿してから再測定します。
+  kind: block
+  block: sg_insulation
+- id: 83
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が73.8、C相が59.3、3番端子が63.9です。
+  kind: filler
+  block: null
+- id: 84
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 85
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が33.9、入口側が55.3、下部が38.8です。
+  kind: filler
+  block: null
+- id: 86
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 87
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が81.9、入口側が63.8、3番端子が48.9です。
+  kind: filler
+  block: null
+- id: 88
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 89
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が28.6、下部が16.1、3番端子が55.5です。
+  kind: filler
+  block: null
+- id: 90
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 91
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が22.5、入口側が22.4、2番端子が31.0です。
+  kind: filler
+  block: null
+- id: 92
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 93
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が36.7、中央が54.3、A相が85.3です。
+  kind: filler
+  block: null
+- id: 94
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 95
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が68.9、B相が75.2、1番端子が39.0です。
+  kind: filler
+  block: null
+- id: 96
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 97
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が74.6、中央が42.3、A相が76.5です。
+  kind: filler
+  block: null
+- id: 98
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 99
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が53.1、中央が20.4、下部が83.8です。
+  kind: filler
+  block: null
+- id: 100
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 101
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が90.5、中央が65.4、1番端子が68.3です。
+  kind: filler
+  block: null
+- id: 102
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 103
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が88.1、2番端子が32.0、C相が75.6です。
+  kind: filler
+  block: null
+- id: 104
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 105
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が55.5、C相が77.8、出口側が79.9です。
+  kind: filler
+  block: null
+- id: 106
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 107
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が23.1、3番端子が95.7、入口側が28.7です。
+  kind: filler
+  block: null
+- id: 108
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 109
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が53.1、C相が29.1、1番端子が92.1です。
+  kind: filler
+  block: null
+- id: 110
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 111
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が21.0、1番端子が95.2、2番端子が25.8です。
+  kind: filler
+  block: null
+- id: 112
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 113
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が23.0、下部が90.9、上部が27.9です。
+  kind: filler
+  block: null
+- id: 114
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 115
+  speaker: 鈴木 舞
+  text: 耐電圧試験を行います。交流2000ボルトを1分間印加します。
+  kind: block
+  block: sg_withstand
+- id: 116
+  speaker: 鈴木 舞
+  text: 1分間経過しました。絶縁破壊やフラッシュオーバーなどの異常はありませんでした。
+  kind: block
+  block: sg_withstand
+- id: 117
+  speaker: 山田 隆
+  text: 漏れ電流の値はどうでしたか。
+  kind: block
+  block: sg_withstand
+- id: 118
+  speaker: 鈴木 舞
+  text: 漏れ電流は3.5ミリアンペアで、安定していました。
+  kind: block
+  block: sg_withstand
+- id: 119
+  speaker: 山田 隆
+  text: 問題ないですね。耐電圧試験は合格とします。
+  kind: block
+  block: sg_withstand
+- id: 120
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が20.2、1番端子が53.5、上部が92.1です。
+  kind: filler
+  block: null
+- id: 121
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 122
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が74.7、1番端子が79.3、A相が87.5です。
+  kind: filler
+  block: null
+- id: 123
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 124
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が81.5、中央が35.9、出口側が43.7です。
+  kind: filler
+  block: null
+- id: 125
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 126
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が30.6、C相が31.3、下部が93.3です。
+  kind: filler
+  block: null
+- id: 127
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 128
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が63.7、1番端子が83.6、出口側が81.2です。
+  kind: filler
+  block: null
+- id: 129
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 130
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が77.1、入口側が90.7、2番端子が70.7です。
+  kind: filler
+  block: null
+- id: 131
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 132
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が46.5、C相が87.3、2番端子が46.5です。
+  kind: filler
+  block: null
+- id: 133
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 134
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が96.1、3番端子が35.4、1番端子が35.0です。
+  kind: filler
+  block: null
+- id: 135
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 136
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が46.6、出口側が89.7、上部が53.0です。
+  kind: filler
+  block: null
+- id: 137
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 138
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が72.6、2番端子が93.7、1番端子が83.4です。
+  kind: filler
+  block: null
+- id: 139
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 140
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が55.4、2番端子が23.9、3番端子が72.3です。
+  kind: filler
+  block: null
+- id: 141
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 142
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が27.0、A相が88.5、下部が88.7です。
+  kind: filler
+  block: null
+- id: 143
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 144
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が50.7、B相が86.3、中央が16.9です。
+  kind: filler
+  block: null
+- id: 145
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 146
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が12.8、3番端子が73.4、入口側が18.9です。
+  kind: filler
+  block: null
+- id: 147
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 148
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が57.9、出口側が86.6、2番端子が98.9です。
+  kind: filler
+  block: null
+- id: 149
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 150
+  speaker: 田中 誠
+  text: シーケンス動作試験です。遮断器の投入指令から表示灯の点灯まで0.8秒でした。
+  kind: block
+  block: sg_sequence
+- id: 151
+  speaker: 佐藤 健二
+  text: 当社の運用では0.5秒以内が望ましいと考えているんですが。
+  kind: block
+  block: sg_sequence
+- id: 152
+  speaker: 田中 誠
+  text: 仕様書には時間の規定がありませんが、補助リレーの設定変更で短くすることは可能です。
+  kind: block
+  block: sg_sequence
+- id: 153
+  speaker: 佐藤 健二
+  text: 要求値が仕様書に入っているか、社内で確認させてください。この件は保留でお願いします。
+  kind: block
+  block: sg_sequence
+- id: 154
+  speaker: 田中 誠
+  text: 承知しました。ご確認の結果をお待ちします。
+  kind: block
+  block: sg_sequence
+- id: 155
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が61.6、上部が69.3、1番端子が51.4です。
+  kind: filler
+  block: null
+- id: 156
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 157
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が26.4、B相が93.1、3番端子が81.3です。
+  kind: filler
+  block: null
+- id: 158
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 159
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が69.9、上部が85.0、1番端子が49.1です。
+  kind: filler
+  block: null
+- id: 160
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 161
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が72.7、入口側が98.2、出口側が70.4です。
+  kind: filler
+  block: null
+- id: 162
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 163
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が20.1、C相が22.8、A相が69.3です。
+  kind: filler
+  block: null
+- id: 164
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 165
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が90.9、3番端子が16.2、上部が75.1です。
+  kind: filler
+  block: null
+- id: 166
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 167
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が39.9、中央が51.4、1番端子が66.5です。
+  kind: filler
+  block: null
+- id: 168
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 169
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が15.1、上部が20.5、中央が11.8です。
+  kind: filler
+  block: null
+- id: 170
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 171
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が32.5、2番端子が67.4、中央が68.5です。
+  kind: filler
+  block: null
+- id: 172
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 173
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が73.8、A相が76.3、2番端子が57.7です。
+  kind: filler
+  block: null
+- id: 174
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 175
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が33.7、上部が15.0、下部が64.2です。
+  kind: filler
+  block: null
+- id: 176
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 177
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が38.0、出口側が54.3、C相が51.4です。
+  kind: filler
+  block: null
+- id: 178
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 179
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が58.3、C相が76.0、上部が33.4です。
+  kind: filler
+  block: null
+- id: 180
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 181
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が42.6、下部が45.6、1番端子が25.4です。
+  kind: filler
+  block: null
+- id: 182
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 183
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が45.4、出口側が98.1、C相が31.5です。
+  kind: filler
+  block: null
+- id: 184
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 185
+  speaker: 田中 誠
+  text: インターロックの確認です。遮断器が投入状態のときに、断路器を操作できないことを確認します。
+  kind: block
+  block: sg_interlock
+- id: 186
+  speaker: 田中 誠
+  text: ご覧のとおり、断路器のハンドルはロックされて動きません。
+  kind: block
+  block: sg_interlock
+- id: 187
+  speaker: 山田 隆
+  text: 逆の条件、断路器が中間位置のときに遮断器が投入できないことも見せてください。
+  kind: block
+  block: sg_interlock
+- id: 188
+  speaker: 田中 誠
+  text: はい。中間位置では投入指令を出しても遮断器は動作しません。
+  kind: block
+  block: sg_interlock
+- id: 189
+  speaker: 山田 隆
+  text: 確認しました。インターロックは問題ありません。
+  kind: block
+  block: sg_interlock
+- id: 190
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が41.4、下部が22.4、B相が31.9です。
+  kind: filler
+  block: null
+- id: 191
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 192
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が50.2、B相が84.8、出口側が96.1です。
+  kind: filler
+  block: null
+- id: 193
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 194
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が24.8、出口側が67.8、B相が48.3です。
+  kind: filler
+  block: null
+- id: 195
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 196
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が83.6、中央が18.5、1番端子が56.0です。
+  kind: filler
+  block: null
+- id: 197
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 198
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が45.2、3番端子が21.6、入口側が23.7です。
+  kind: filler
+  block: null
+- id: 199
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 200
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が91.5、上部が78.3、A相が46.6です。
+  kind: filler
+  block: null
+- id: 201
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 202
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が73.6、3番端子が83.0、C相が44.3です。
+  kind: filler
+  block: null
+- id: 203
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 204
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が40.5、中央が38.4、C相が40.6です。
+  kind: filler
+  block: null
+- id: 205
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 206
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が25.5、入口側が77.4、C相が86.7です。
+  kind: filler
+  block: null
+- id: 207
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 208
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が68.5、A相が33.8、C相が74.2です。
+  kind: filler
+  block: null
+- id: 209
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 210
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が60.2、B相が15.6、出口側が11.6です。
+  kind: filler
+  block: null
+- id: 211
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 212
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が87.6、2番端子が26.8、中央が72.8です。
+  kind: filler
+  block: null
+- id: 213
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 214
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が88.9、入口側が93.8、出口側が28.1です。
+  kind: filler
+  block: null
+- id: 215
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 216
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が98.2、出口側が66.3、B相が63.4です。
+  kind: filler
+  block: null
+- id: 217
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 218
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が85.4、上部が23.3、2番端子が78.1です。
+  kind: filler
+  block: null
+- id: 219
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 220
+  speaker: 田中 誠
+  text: 先ほど継続協議になっていた絶縁抵抗の件ですが、除湿後に再測定したところ、45メガオームでした。
+  kind: resolve
+  block: sg_insulation
+- id: 221
+  speaker: 佐藤 健二
+  text: 45メガオームなら十分ですね。絶縁抵抗は合格で合意とします。
+  kind: resolve
+  block: sg_insulation
+- id: 222
+  speaker: 山田 隆
+  text: 銘板を見ると定格電流が1200アンペアになっていますが、仕様は1250アンペアですよね。
+  kind: block
+  block: sg_nameplate
+- id: 223
+  speaker: 田中 誠
+  text: 申し訳ありません、銘板の誤記です。1250アンペアで作り直します。
+  kind: block
+  block: sg_nameplate
+- id: 224
+  speaker: 山田 隆
+  text: 出荷までに間に合いますか。
+  kind: block
+  block: sg_nameplate
+- id: 225
+  speaker: 田中 誠
+  text: 10月16日までに再発行して取り付けます。取り付け後の写真もお送りします。
+  kind: block
+  block: sg_nameplate
+- id: 226
+  speaker: 山田 隆
+  text: それでお願いします。
+  kind: block
+  block: sg_nameplate
+- id: 227
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が44.3、出口側が19.3、1番端子が98.3です。
+  kind: filler
+  block: null
+- id: 228
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 229
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が90.3、B相が51.8、3番端子が30.2です。
+  kind: filler
+  block: null
+- id: 230
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 231
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が88.1、下部が13.8、中央が76.9です。
+  kind: filler
+  block: null
+- id: 232
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 233
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が78.6、下部が66.9、出口側が72.5です。
+  kind: filler
+  block: null
+- id: 234
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 235
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が95.3、上部が26.6、下部が84.9です。
+  kind: filler
+  block: null
+- id: 236
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 237
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が50.2、A相が28.2、入口側が29.6です。
+  kind: filler
+  block: null
+- id: 238
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 239
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が53.9、出口側が27.3、中央が72.6です。
+  kind: filler
+  block: null
+- id: 240
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 241
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が29.2、C相が51.0、入口側が43.4です。
+  kind: filler
+  block: null
+- id: 242
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 243
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が71.2、2番端子が75.4、出口側が59.6です。
+  kind: filler
+  block: null
+- id: 244
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 245
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が75.9、B相が45.5、3番端子が43.4です。
+  kind: filler
+  block: null
+- id: 246
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 247
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が98.0、1番端子が89.7、3番端子が74.0です。
+  kind: filler
+  block: null
+- id: 248
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 249
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が88.7、中央が71.2、入口側が67.2です。
+  kind: filler
+  block: null
+- id: 250
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 251
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が68.3、1番端子が81.7、上部が72.6です。
+  kind: filler
+  block: null
+- id: 252
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 253
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が61.1、C相が48.9、A相が70.1です。
+  kind: filler
+  block: null
+- id: 254
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 255
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が77.1、中央が95.0、1番端子が54.2です。
+  kind: filler
+  block: null
+- id: 256
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 257
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が90.4、A相が20.3、C相が50.2です。
+  kind: filler
+  block: null
+- id: 258
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 259
+  speaker: 山田 隆
+  text: 表示灯について一つ要望があります。軽故障の表示灯を赤から黄色に変えてもらえませんか。
+  kind: block
+  block: sg_lamp
+- id: 260
+  speaker: 山田 隆
+  text: 既設の盤と色を合わせたいんです。
+  kind: block
+  block: sg_lamp
+- id: 261
+  speaker: 田中 誠
+  text: レンズの交換だけで対応できますので、追加費用なしで変更いたします。
+  kind: block
+  block: sg_lamp
+- id: 262
+  speaker: 田中 誠
+  text: 10月23日までに交換を済ませます。
+  kind: block
+  block: sg_lamp
+- id: 263
+  speaker: 山田 隆
+  text: 助かります。よろしくお願いします。
+  kind: block
+  block: sg_lamp
+- id: 264
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が94.1、上部が73.7、入口側が88.7です。
+  kind: filler
+  block: null
+- id: 265
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 266
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が37.0、上部が87.7、1番端子が83.2です。
+  kind: filler
+  block: null
+- id: 267
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 268
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が92.1、入口側が75.2、2番端子が49.1です。
+  kind: filler
+  block: null
+- id: 269
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 270
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が15.0、中央が44.6、C相が19.5です。
+  kind: filler
+  block: null
+- id: 271
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 272
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が94.7、出口側が14.4、2番端子が27.4です。
+  kind: filler
+  block: null
+- id: 273
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 274
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が33.0、2番端子が16.0、下部が47.2です。
+  kind: filler
+  block: null
+- id: 275
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 276
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が29.8、出口側が36.7、A相が25.6です。
+  kind: filler
+  block: null
+- id: 277
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 278
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が13.3、1番端子が87.8、上部が68.0です。
+  kind: filler
+  block: null
+- id: 279
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 280
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が95.4、B相が95.6、下部が34.1です。
+  kind: filler
+  block: null
+- id: 281
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 282
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が13.0、C相が63.8、入口側が46.5です。
+  kind: filler
+  block: null
+- id: 283
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 284
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が80.6、3番端子が78.8、中央が92.6です。
+  kind: filler
+  block: null
+- id: 285
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 286
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が40.8、下部が12.1、1番端子が10.7です。
+  kind: filler
+  block: null
+- id: 287
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 288
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が77.4、入口側が15.7、出口側が96.4です。
+  kind: filler
+  block: null
+- id: 289
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 290
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が24.6、1番端子が78.9、B相が72.5です。
+  kind: filler
+  block: null
+- id: 291
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 292
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が12.2、下部が85.2、入口側が15.7です。
+  kind: filler
+  block: null
+- id: 293
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 294
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が60.8、出口側が33.7、下部が11.9です。
+  kind: filler
+  block: null
+- id: 295
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 296
+  speaker: 山田 隆
+  text: 完成図書ですが、海外の関連会社でも使うので英語版もいただけますか。
+  kind: block
+  block: sg_docs
+- id: 297
+  speaker: 鈴木 舞
+  text: 英語版は契約範囲外になりますので、翻訳費用が別途かかります。
+  kind: block
+  block: sg_docs
+- id: 298
+  speaker: 山田 隆
+  text: 費用次第ですね。まず見積もりをいただけますか。
+  kind: block
+  block: sg_docs
+- id: 299
+  speaker: 鈴木 舞
+  text: 10月14日までにお見積もりを提出します。
+  kind: block
+  block: sg_docs
+- id: 300
+  speaker: 山田 隆
+  text: それを見てから決めます。この件は継続協議でお願いします。
+  kind: block
+  block: sg_docs
+- id: 301
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が88.2、入口側が73.5、1番端子が55.1です。
+  kind: filler
+  block: null
+- id: 302
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 303
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が96.5、中央が26.7、B相が87.9です。
+  kind: filler
+  block: null
+- id: 304
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 305
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が75.3、C相が97.4、出口側が21.0です。
+  kind: filler
+  block: null
+- id: 306
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 307
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が25.2、入口側が28.8、上部が56.9です。
+  kind: filler
+  block: null
+- id: 308
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 309
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が60.1、上部が48.0、3番端子が61.2です。
+  kind: filler
+  block: null
+- id: 310
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 311
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が12.3、上部が10.8、3番端子が18.4です。
+  kind: filler
+  block: null
+- id: 312
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 313
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が60.6、上部が48.8、1番端子が94.8です。
+  kind: filler
+  block: null
+- id: 314
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 315
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が69.1、中央が34.2、出口側が98.7です。
+  kind: filler
+  block: null
+- id: 316
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 317
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が19.3、出口側が84.2、A相が34.2です。
+  kind: filler
+  block: null
+- id: 318
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 319
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が94.2、下部が62.3、A相が80.3です。
+  kind: filler
+  block: null
+- id: 320
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 321
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が49.8、入口側が14.7、出口側が50.5です。
+  kind: filler
+  block: null
+- id: 322
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 323
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が67.2、中央が43.4、B相が76.9です。
+  kind: filler
+  block: null
+- id: 324
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 325
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が86.8、2番端子が25.4、B相が60.2です。
+  kind: filler
+  block: null
+- id: 326
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 327
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が85.4、A相が96.4、C相が39.3です。
+  kind: filler
+  block: null
+- id: 328
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 329
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が75.7、C相が44.8、2番端子が86.5です。
+  kind: filler
+  block: null
+- id: 330
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 331
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が73.9、出口側が43.7、下部が60.1です。
+  kind: filler
+  block: null
+- id: 332
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 333
+  speaker: 田中 誠
+  text: 保護継電器の動作試験です。過電流継電器の整定は5アンペア、動作時間0.3秒です。
+  kind: block
+  block: sg_relay
+- id: 334
+  speaker: 田中 誠
+  text: 試験電流を流したところ、動作時間は0.31秒でした。許容差はプラスマイナス5パーセントなので範囲内です。
+  kind: block
+  block: sg_relay
+- id: 335
+  speaker: 佐藤 健二
+  text: 3回測定した値ですか。
+  kind: block
+  block: sg_relay
+- id: 336
+  speaker: 田中 誠
+  text: はい、3回の平均です。ばらつきは0.01秒以内でした。
+  kind: block
+  block: sg_relay
+- id: 337
+  speaker: 佐藤 健二
+  text: 分かりました。継電器の動作試験は合格です。
+  kind: block
+  block: sg_relay
+- id: 338
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が16.1、入口側が43.4、中央が63.5です。
+  kind: filler
+  block: null
+- id: 339
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 340
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が59.7、3番端子が75.4、B相が23.4です。
+  kind: filler
+  block: null
+- id: 341
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 342
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が18.8、中央が79.0、上部が13.0です。
+  kind: filler
+  block: null
+- id: 343
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 344
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が54.1、A相が16.3、入口側が20.5です。
+  kind: filler
+  block: null
+- id: 345
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 346
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が18.9、入口側が68.7、中央が67.6です。
+  kind: filler
+  block: null
+- id: 347
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 348
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が81.1、C相が96.0、1番端子が30.2です。
+  kind: filler
+  block: null
+- id: 349
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 350
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が53.5、B相が47.1、2番端子が79.6です。
+  kind: filler
+  block: null
+- id: 351
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 352
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が44.6、下部が10.4、3番端子が12.6です。
+  kind: filler
+  block: null
+- id: 353
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 354
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が41.8、B相が17.2、C相が27.1です。
+  kind: filler
+  block: null
+- id: 355
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 356
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が22.5、C相が55.5、B相が50.4です。
+  kind: filler
+  block: null
+- id: 357
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 358
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が39.6、中央が28.3、B相が90.6です。
+  kind: filler
+  block: null
+- id: 359
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 360
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が50.8、1番端子が31.6、出口側が87.6です。
+  kind: filler
+  block: null
+- id: 361
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 362
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が66.9、出口側が95.4、中央が24.6です。
+  kind: filler
+  block: null
+- id: 363
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 364
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が12.0、中央が39.6、2番端子が50.9です。
+  kind: filler
+  block: null
+- id: 365
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 366
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が12.6、C相が17.0、A相が28.4です。
+  kind: filler
+  block: null
+- id: 367
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 368
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が16.8、入口側が87.2、B相が33.0です。
+  kind: filler
+  block: null
+- id: 369
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 370
+  speaker: 鈴木 舞
+  text: 変圧比試験の結果です。一次66キロボルト、二次6.6キロボルトで、全タップの比誤差は最大0.2パーセントでした。
+  kind: block
+  block: tr_ratio
+- id: 371
+  speaker: 佐藤 健二
+  text: 規格の許容差はプラスマイナス0.5パーセントでしたね。
+  kind: block
+  block: tr_ratio
+- id: 372
+  speaker: 鈴木 舞
+  text: はい、すべてのタップで許容差内です。極性と角変位も確認済みです。
+  kind: block
+  block: tr_ratio
+- id: 373
+  speaker: 佐藤 健二
+  text: 了解しました。変圧比試験は合格とします。
+  kind: block
+  block: tr_ratio
+- id: 374
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が72.4、B相が67.4、3番端子が46.0です。
+  kind: filler
+  block: null
+- id: 375
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 376
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が92.0、2番端子が89.5、C相が73.5です。
+  kind: filler
+  block: null
+- id: 377
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 378
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が19.7、下部が56.9、3番端子が64.8です。
+  kind: filler
+  block: null
+- id: 379
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 380
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が93.1、上部が22.5、下部が36.1です。
+  kind: filler
+  block: null
+- id: 381
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 382
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が63.5、入口側が60.1、3番端子が98.6です。
+  kind: filler
+  block: null
+- id: 383
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 384
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が10.0、上部が91.9、下部が16.0です。
+  kind: filler
+  block: null
+- id: 385
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 386
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が55.0、A相が94.0、2番端子が61.9です。
+  kind: filler
+  block: null
+- id: 387
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 388
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が87.5、C相が51.9、中央が47.4です。
+  kind: filler
+  block: null
+- id: 389
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 390
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が71.6、3番端子が10.3、2番端子が41.8です。
+  kind: filler
+  block: null
+- id: 391
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 392
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が69.8、2番端子が25.2、上部が38.1です。
+  kind: filler
+  block: null
+- id: 393
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 394
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が77.9、中央が41.8、下部が41.4です。
+  kind: filler
+  block: null
+- id: 395
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 396
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が77.1、B相が68.3、2番端子が46.6です。
+  kind: filler
+  block: null
+- id: 397
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 398
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が84.6、下部が67.6、2番端子が97.3です。
+  kind: filler
+  block: null
+- id: 399
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 400
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が26.5、上部が13.2、入口側が68.8です。
+  kind: filler
+  block: null
+- id: 401
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 402
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が58.3、C相が86.1、2番端子が46.7です。
+  kind: filler
+  block: null
+- id: 403
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 404
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が54.1、3番端子が83.3、出口側が81.6です。
+  kind: filler
+  block: null
+- id: 405
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 406
+  speaker: 田中 誠
+  text: 無負荷損の測定値は8.4キロワットでした。
+  kind: block
+  block: tr_noload
+- id: 407
+  speaker: 佐藤 健二
+  text: 保証値は8.0キロワットですよね。5パーセント超えています。
+  kind: block
+  block: tr_noload
+- id: 408
+  speaker: 田中 誠
+  text: JECの規格では無負荷損の許容差はプラス15パーセントですので、規格上は合格です。
+  kind: block
+  block: tr_noload
+- id: 409
+  speaker: 佐藤 健二
+  text: ただ、契約上は保証値で評価することになっているはずです。契約書を確認するまで継続協議にさせてください。
+  kind: block
+  block: tr_noload
+- id: 410
+  speaker: 田中 誠
+  text: 承知しました。こちらでも契約の条項を確認します。
+  kind: block
+  block: tr_noload
+- id: 411
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が57.8、出口側が81.9、1番端子が53.2です。
+  kind: filler
+  block: null
+- id: 412
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 413
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が89.1、1番端子が60.1、中央が20.7です。
+  kind: filler
+  block: null
+- id: 414
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 415
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が56.1、B相が32.6、3番端子が98.0です。
+  kind: filler
+  block: null
+- id: 416
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 417
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が69.0、B相が61.8、C相が38.9です。
+  kind: filler
+  block: null
+- id: 418
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 419
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が16.0、下部が22.7、A相が12.7です。
+  kind: filler
+  block: null
+- id: 420
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 421
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が80.9、出口側が73.8、B相が94.3です。
+  kind: filler
+  block: null
+- id: 422
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 423
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が59.6、1番端子が50.8、出口側が90.7です。
+  kind: filler
+  block: null
+- id: 424
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 425
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が44.9、上部が68.9、A相が95.5です。
+  kind: filler
+  block: null
+- id: 426
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 427
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が98.9、A相が45.4、中央が95.0です。
+  kind: filler
+  block: null
+- id: 428
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 429
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が11.0、2番端子が58.2、1番端子が31.2です。
+  kind: filler
+  block: null
+- id: 430
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 431
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が10.7、中央が34.3、C相が50.9です。
+  kind: filler
+  block: null
+- id: 432
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 433
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が29.6、出口側が48.8、C相が15.7です。
+  kind: filler
+  block: null
+- id: 434
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 435
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が13.6、A相が81.5、上部が14.0です。
+  kind: filler
+  block: null
+- id: 436
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 437
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が67.9、1番端子が47.9、3番端子が18.4です。
+  kind: filler
+  block: null
+- id: 438
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 439
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が97.9、中央が61.1、A相が67.9です。
+  kind: filler
+  block: null
+- id: 440
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 441
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が47.9、上部が21.7、A相が67.1です。
+  kind: filler
+  block: null
+- id: 442
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 443
+  speaker: 鈴木 舞
+  text: 負荷損と短絡インピーダンスの測定です。インピーダンスは7.4パーセントで、仕様の7.5パーセントに対して許容差内です。
+  kind: block
+  block: tr_impedance
+- id: 444
+  speaker: 山田 隆
+  text: 負荷損の方は保証値以内ですか。
+  kind: block
+  block: tr_impedance
+- id: 445
+  speaker: 鈴木 舞
+  text: はい、保証値62キロワットに対して59.8キロワットでした。
+  kind: block
+  block: tr_impedance
+- id: 446
+  speaker: 山田 隆
+  text: 問題ないですね。合格です。
+  kind: block
+  block: tr_impedance
+- id: 447
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が48.0、2番端子が90.1、3番端子が13.9です。
+  kind: filler
+  block: null
+- id: 448
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 449
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が51.2、2番端子が58.6、B相が38.9です。
+  kind: filler
+  block: null
+- id: 450
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 451
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が25.0、C相が21.1、3番端子が73.3です。
+  kind: filler
+  block: null
+- id: 452
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 453
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が19.3、下部が38.9、中央が57.6です。
+  kind: filler
+  block: null
+- id: 454
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 455
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が46.9、1番端子が43.2、出口側が55.8です。
+  kind: filler
+  block: null
+- id: 456
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 457
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が29.2、出口側が11.4、入口側が11.4です。
+  kind: filler
+  block: null
+- id: 458
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 459
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が22.8、上部が46.2、出口側が42.6です。
+  kind: filler
+  block: null
+- id: 460
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 461
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が29.9、入口側が23.1、3番端子が84.8です。
+  kind: filler
+  block: null
+- id: 462
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 463
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が96.8、出口側が63.3、A相が66.2です。
+  kind: filler
+  block: null
+- id: 464
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 465
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が26.6、入口側が35.7、B相が28.1です。
+  kind: filler
+  block: null
+- id: 466
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 467
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が67.0、3番端子が60.3、C相が54.5です。
+  kind: filler
+  block: null
+- id: 468
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 469
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が51.9、中央が97.8、A相が26.2です。
+  kind: filler
+  block: null
+- id: 470
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 471
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が58.3、B相が32.0、上部が80.6です。
+  kind: filler
+  block: null
+- id: 472
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 473
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が96.7、入口側が80.7、出口側が95.7です。
+  kind: filler
+  block: null
+- id: 474
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 475
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が59.8、3番端子が23.0、2番端子が33.4です。
+  kind: filler
+  block: null
+- id: 476
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 477
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が29.8、上部が19.7、3番端子が70.5です。
+  kind: filler
+  block: null
+- id: 478
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 479
+  speaker: 鈴木 舞
+  text: 温度上昇試験の結果です。油の温度上昇は52ケルビン、巻線は63ケルビンでした。限度はそれぞれ55と65ケルビンです。
+  kind: block
+  block: tr_temp
+- id: 480
+  speaker: 山田 隆
+  text: 巻線の余裕が2ケルビンしかないですね。夏場の運転が心配です。
+  kind: block
+  block: tr_temp
+- id: 481
+  speaker: 鈴木 舞
+  text: 設置場所の周囲温度の条件は仕様に織り込み済みですので、夏季でも限度は超えない設計です。
+  kind: block
+  block: tr_temp
+- id: 482
+  speaker: 山田 隆
+  text: 運転部門の意見も聞きたいので、この項目は判断を保留させてください。
+  kind: block
+  block: tr_temp
+- id: 483
+  speaker: 鈴木 舞
+  text: 承知しました。計算書を追加でお送りします。
+  kind: block
+  block: tr_temp
+- id: 484
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が44.4、上部が85.3、1番端子が45.8です。
+  kind: filler
+  block: null
+- id: 485
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 486
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が23.1、上部が68.5、出口側が92.2です。
+  kind: filler
+  block: null
+- id: 487
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 488
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が84.0、入口側が62.2、B相が97.8です。
+  kind: filler
+  block: null
+- id: 489
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 490
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が79.3、C相が54.3、2番端子が29.3です。
+  kind: filler
+  block: null
+- id: 491
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 492
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が36.3、下部が50.4、2番端子が39.7です。
+  kind: filler
+  block: null
+- id: 493
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 494
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が23.4、C相が59.0、上部が17.6です。
+  kind: filler
+  block: null
+- id: 495
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 496
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が35.5、上部が42.0、A相が47.7です。
+  kind: filler
+  block: null
+- id: 497
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 498
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が11.6、入口側が72.5、上部が17.1です。
+  kind: filler
+  block: null
+- id: 499
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 500
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が56.5、C相が50.7、中央が52.7です。
+  kind: filler
+  block: null
+- id: 501
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 502
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が78.0、2番端子が38.0、上部が63.5です。
+  kind: filler
+  block: null
+- id: 503
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 504
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が24.1、上部が72.8、下部が78.8です。
+  kind: filler
+  block: null
+- id: 505
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 506
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が90.3、下部が51.2、3番端子が52.0です。
+  kind: filler
+  block: null
+- id: 507
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 508
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が20.9、B相が93.5、1番端子が29.3です。
+  kind: filler
+  block: null
+- id: 509
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 510
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が22.1、A相が61.6、2番端子が90.4です。
+  kind: filler
+  block: null
+- id: 511
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 512
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が49.1、2番端子が19.6、中央が30.7です。
+  kind: filler
+  block: null
+- id: 513
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 514
+  speaker: 佐藤 健二
+  text: 放熱器の下側のフランジから、少し油がにじんでいませんか。
+  kind: block
+  block: tr_oil_leak
+- id: 515
+  speaker: 田中 誠
+  text: 確認しました。パッキンの締め付け不足のようです。
+  kind: block
+  block: tr_oil_leak
+- id: 516
+  speaker: 田中 誠
+  text: パッキンを交換したうえで、10月12日までに油漏れ試験をやり直します。
+  kind: block
+  block: tr_oil_leak
+- id: 517
+  speaker: 佐藤 健二
+  text: やり直しの結果は書面でください。それで了承します。
+  kind: block
+  block: tr_oil_leak
+- id: 518
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が38.0、2番端子が58.5、中央が54.0です。
+  kind: filler
+  block: null
+- id: 519
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 520
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が75.2、A相が58.0、入口側が76.7です。
+  kind: filler
+  block: null
+- id: 521
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 522
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が73.1、3番端子が41.7、C相が56.1です。
+  kind: filler
+  block: null
+- id: 523
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 524
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が30.6、A相が16.2、中央が98.5です。
+  kind: filler
+  block: null
+- id: 525
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 526
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が87.3、中央が72.5、下部が94.1です。
+  kind: filler
+  block: null
+- id: 527
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 528
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が69.4、1番端子が68.3、C相が69.1です。
+  kind: filler
+  block: null
+- id: 529
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 530
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が93.2、1番端子が25.0、B相が92.6です。
+  kind: filler
+  block: null
+- id: 531
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 532
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が59.6、1番端子が28.0、C相が11.4です。
+  kind: filler
+  block: null
+- id: 533
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 534
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が98.7、A相が15.3、B相が59.5です。
+  kind: filler
+  block: null
+- id: 535
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 536
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が21.4、C相が80.3、出口側が63.9です。
+  kind: filler
+  block: null
+- id: 537
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 538
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が24.3、下部が71.5、C相が63.2です。
+  kind: filler
+  block: null
+- id: 539
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 540
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が40.7、下部が89.8、A相が48.8です。
+  kind: filler
+  block: null
+- id: 541
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 542
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が13.9、A相が57.4、2番端子が79.1です。
+  kind: filler
+  block: null
+- id: 543
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 544
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が72.4、中央が60.8、下部が50.3です。
+  kind: filler
+  block: null
+- id: 545
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 546
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が77.7、C相が39.1、3番端子が36.4です。
+  kind: filler
+  block: null
+- id: 547
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 548
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が78.7、2番端子が12.2、3番端子が39.1です。
+  kind: filler
+  block: null
+- id: 549
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 550
+  speaker: 山田 隆
+  text: 先ほどの無負荷損の件、本社に確認したところ、契約書に規格の許容差を適用すると書いてありました。
+  kind: resolve
+  block: tr_noload
+- id: 551
+  speaker: 山田 隆
+  text: なので8.4キロワットで問題ありません。無負荷損は合意とします。
+  kind: resolve
+  block: tr_noload
+- id: 552
+  speaker: 鈴木 舞
+  text: ありがとうございます。記録にもそのように残します。
+  kind: resolve
+  block: tr_noload
+- id: 553
+  speaker: 鈴木 舞
+  text: 騒音測定の結果は、変圧器から0.3メートルの位置の平均で68デシベルでした。
+  kind: block
+  block: tr_noise
+- id: 554
+  speaker: 佐藤 健二
+  text: 仕様は70デシベル以下ですから問題ないですね。暗騒音はどのくらいでしたか。
+  kind: block
+  block: tr_noise
+- id: 555
+  speaker: 鈴木 舞
+  text: 暗騒音は45デシベルで、補正は不要でした。
+  kind: block
+  block: tr_noise
+- id: 556
+  speaker: 佐藤 健二
+  text: 分かりました。騒音は合格です。
+  kind: block
+  block: tr_noise
+- id: 557
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が17.1、下部が89.6、出口側が51.5です。
+  kind: filler
+  block: null
+- id: 558
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 559
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が67.7、C相が61.3、1番端子が33.2です。
+  kind: filler
+  block: null
+- id: 560
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 561
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が88.9、B相が62.2、1番端子が54.7です。
+  kind: filler
+  block: null
+- id: 562
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 563
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が42.8、入口側が83.4、上部が95.8です。
+  kind: filler
+  block: null
+- id: 564
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 565
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が92.3、中央が64.4、1番端子が99.0です。
+  kind: filler
+  block: null
+- id: 566
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 567
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が97.5、A相が31.9、出口側が16.4です。
+  kind: filler
+  block: null
+- id: 568
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 569
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が49.8、3番端子が35.8、出口側が77.8です。
+  kind: filler
+  block: null
+- id: 570
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 571
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が96.3、入口側が57.3、B相が24.2です。
+  kind: filler
+  block: null
+- id: 572
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 573
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が98.3、C相が81.1、下部が75.3です。
+  kind: filler
+  block: null
+- id: 574
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 575
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が80.4、C相が18.2、A相が22.2です。
+  kind: filler
+  block: null
+- id: 576
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 577
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が98.6、1番端子が47.3、C相が43.4です。
+  kind: filler
+  block: null
+- id: 578
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 579
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が78.8、B相が90.8、入口側が98.9です。
+  kind: filler
+  block: null
+- id: 580
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 581
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が71.7、3番端子が24.4、上部が41.1です。
+  kind: filler
+  block: null
+- id: 582
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 583
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が53.6、出口側が22.6、中央が30.5です。
+  kind: filler
+  block: null
+- id: 584
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 585
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が74.4、1番端子が73.5、入口側が90.4です。
+  kind: filler
+  block: null
+- id: 586
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 587
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が39.9、中央が36.1、C相が70.8です。
+  kind: filler
+  block: null
+- id: 588
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 589
+  speaker: 佐藤 健二
+  text: 負荷時タップ切換器の動作回数カウンターですが、数字が一桁欠けて表示されていますね。
+  kind: block
+  block: tr_tap_counter
+- id: 590
+  speaker: 田中 誠
+  text: 表示部の不良です。カウンターを新品に交換します。
+  kind: block
+  block: tr_tap_counter
+- id: 591
+  speaker: 佐藤 健二
+  text: 交換はいつになりますか。
+  kind: block
+  block: tr_tap_counter
+- id: 592
+  speaker: 田中 誠
+  text: 部品の入手に時間がかかるので、10月20日までに交換します。
+  kind: block
+  block: tr_tap_counter
+- id: 593
+  speaker: 佐藤 健二
+  text: 了解です。
+  kind: block
+  block: tr_tap_counter
+- id: 594
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が14.9、3番端子が55.8、1番端子が40.8です。
+  kind: filler
+  block: null
+- id: 595
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 596
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が77.2、B相が66.0、下部が71.5です。
+  kind: filler
+  block: null
+- id: 597
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 598
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が90.6、B相が14.0、1番端子が30.0です。
+  kind: filler
+  block: null
+- id: 599
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 600
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が75.2、3番端子が24.5、B相が23.4です。
+  kind: filler
+  block: null
+- id: 601
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 602
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が32.1、C相が89.3、入口側が35.7です。
+  kind: filler
+  block: null
+- id: 603
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 604
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が82.6、3番端子が52.6、2番端子が20.4です。
+  kind: filler
+  block: null
+- id: 605
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 606
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が63.9、入口側が26.1、A相が98.9です。
+  kind: filler
+  block: null
+- id: 607
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 608
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が45.7、B相が19.6、入口側が89.4です。
+  kind: filler
+  block: null
+- id: 609
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 610
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が94.6、A相が70.7、2番端子が66.4です。
+  kind: filler
+  block: null
+- id: 611
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 612
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が38.3、下部が68.2、2番端子が76.5です。
+  kind: filler
+  block: null
+- id: 613
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 614
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が62.0、入口側が41.8、A相が73.4です。
+  kind: filler
+  block: null
+- id: 615
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 616
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が22.6、C相が98.7、下部が14.0です。
+  kind: filler
+  block: null
+- id: 617
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 618
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が21.8、1番端子が51.2、2番端子が41.0です。
+  kind: filler
+  block: null
+- id: 619
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 620
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が97.4、A相が95.6、中央が58.9です。
+  kind: filler
+  block: null
+- id: 621
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 622
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が96.5、2番端子が82.9、上部が47.9です。
+  kind: filler
+  block: null
+- id: 623
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 624
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が15.2、C相が34.4、2番端子が89.4です。
+  kind: filler
+  block: null
+- id: 625
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 626
+  speaker: 佐藤 健二
+  text: 温度上昇試験の前後で、絶縁油の油中ガス分析はやっていますか。
+  kind: block
+  block: tr_dga
+- id: 627
+  speaker: 田中 誠
+  text: はい、サンプルは採取済みです。外部の分析機関に出していますので、結果はまだです。
+  kind: block
+  block: tr_dga
+- id: 628
+  speaker: 田中 誠
+  text: 10月21日までに分析結果をお送りします。
+  kind: block
+  block: tr_dga
+- id: 629
+  speaker: 佐藤 健二
+  text: では結果を見るまで、この項目は保留にしておきます。
+  kind: block
+  block: tr_dga
+- id: 630
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が66.7、3番端子が62.2、A相が13.3です。
+  kind: filler
+  block: null
+- id: 631
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 632
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が13.0、B相が63.6、2番端子が89.9です。
+  kind: filler
+  block: null
+- id: 633
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 634
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が71.4、C相が75.9、中央が39.4です。
+  kind: filler
+  block: null
+- id: 635
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 636
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が22.2、中央が74.5、2番端子が19.4です。
+  kind: filler
+  block: null
+- id: 637
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 638
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が46.3、上部が64.2、下部が81.4です。
+  kind: filler
+  block: null
+- id: 639
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 640
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が65.7、出口側が14.4、2番端子が60.2です。
+  kind: filler
+  block: null
+- id: 641
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 642
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が81.5、3番端子が29.3、C相が92.3です。
+  kind: filler
+  block: null
+- id: 643
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 644
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が84.9、入口側が13.2、3番端子が94.1です。
+  kind: filler
+  block: null
+- id: 645
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 646
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が31.0、3番端子が20.2、B相が33.7です。
+  kind: filler
+  block: null
+- id: 647
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 648
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が56.7、2番端子が83.1、C相が38.6です。
+  kind: filler
+  block: null
+- id: 649
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 650
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が85.1、3番端子が48.6、2番端子が97.3です。
+  kind: filler
+  block: null
+- id: 651
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 652
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が73.2、2番端子が56.6、中央が27.3です。
+  kind: filler
+  block: null
+- id: 653
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 654
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が11.2、出口側が47.2、中央が75.5です。
+  kind: filler
+  block: null
+- id: 655
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 656
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が41.6、入口側が40.7、C相が94.2です。
+  kind: filler
+  block: null
+- id: 657
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 658
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が39.4、出口側が25.2、A相が91.6です。
+  kind: filler
+  block: null
+- id: 659
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 660
+  speaker: 田中 誠
+  text: 外装の塗装膜厚は平均85ミクロンで、仕様の80ミクロン以上を満たしています。
+  kind: block
+  block: tr_paint
+- id: 661
+  speaker: 佐藤 健二
+  text: 記録を見ると、タンクの角の1点だけ72ミクロンになっていますね。
+  kind: block
+  block: tr_paint
+- id: 662
+  speaker: 田中 誠
+  text: その箇所は出荷前に補修塗装して、再測定します。
+  kind: block
+  block: tr_paint
+- id: 663
+  speaker: 佐藤 健二
+  text: それで結構です。
+  kind: block
+  block: tr_paint
+- id: 664
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が57.8、入口側が90.2、下部が81.9です。
+  kind: filler
+  block: null
+- id: 665
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 666
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が67.6、C相が70.7、2番端子が89.9です。
+  kind: filler
+  block: null
+- id: 667
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 668
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が66.8、B相が95.5、下部が29.9です。
+  kind: filler
+  block: null
+- id: 669
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 670
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が27.2、C相が30.2、入口側が36.9です。
+  kind: filler
+  block: null
+- id: 671
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 672
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が37.9、中央が32.2、下部が45.3です。
+  kind: filler
+  block: null
+- id: 673
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 674
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が24.0、3番端子が15.2、C相が10.5です。
+  kind: filler
+  block: null
+- id: 675
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 676
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が76.5、3番端子が51.2、C相が31.8です。
+  kind: filler
+  block: null
+- id: 677
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 678
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が95.1、中央が11.4、B相が73.8です。
+  kind: filler
+  block: null
+- id: 679
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 680
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が33.2、上部が74.7、下部が49.6です。
+  kind: filler
+  block: null
+- id: 681
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 682
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が17.2、A相が21.7、3番端子が55.2です。
+  kind: filler
+  block: null
+- id: 683
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 684
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が90.7、上部が68.6、1番端子が13.0です。
+  kind: filler
+  block: null
+- id: 685
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 686
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が54.6、B相が37.7、C相が80.4です。
+  kind: filler
+  block: null
+- id: 687
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 688
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が33.9、2番端子が66.8、出口側が16.2です。
+  kind: filler
+  block: null
+- id: 689
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 690
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が55.6、C相が35.3、中央が79.7です。
+  kind: filler
+  block: null
+- id: 691
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 692
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が20.0、下部が17.4、C相が52.1です。
+  kind: filler
+  block: null
+- id: 693
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 694
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が48.3、2番端子が84.0、出口側が37.8です。
+  kind: filler
+  block: null
+- id: 695
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 696
+  speaker: 佐藤 健二
+  text: 付属品のダイヤル温度計ですが、目盛りが細かくて離れた位置から読みにくいです。
+  kind: block
+  block: tr_thermometer
+- id: 697
+  speaker: 鈴木 舞
+  text: 標準品を使っていますが、目盛り板の大きいタイプに変更することはできます。
+  kind: block
+  block: tr_thermometer
+- id: 698
+  speaker: 佐藤 健二
+  text: 変更した場合の納期への影響を教えてください。それを聞いてから決めたいので継続協議でお願いします。
+  kind: block
+  block: tr_thermometer
+- id: 699
+  speaker: 鈴木 舞
+  text: 分かりました。メーカーに確認します。
+  kind: block
+  block: tr_thermometer
+- id: 700
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が25.3、B相が97.5、1番端子が92.2です。
+  kind: filler
+  block: null
+- id: 701
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 702
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が41.1、入口側が84.0、C相が15.1です。
+  kind: filler
+  block: null
+- id: 703
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 704
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が93.3、中央が39.7、上部が98.9です。
+  kind: filler
+  block: null
+- id: 705
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 706
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が69.4、1番端子が90.7、3番端子が59.0です。
+  kind: filler
+  block: null
+- id: 707
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 708
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が49.8、上部が81.3、A相が61.5です。
+  kind: filler
+  block: null
+- id: 709
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 710
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が48.4、C相が23.8、A相が52.4です。
+  kind: filler
+  block: null
+- id: 711
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 712
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が26.1、1番端子が45.9、上部が92.1です。
+  kind: filler
+  block: null
+- id: 713
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 714
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が53.0、下部が69.9、上部が25.8です。
+  kind: filler
+  block: null
+- id: 715
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 716
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が14.6、上部が48.9、1番端子が27.5です。
+  kind: filler
+  block: null
+- id: 717
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 718
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が76.8、3番端子が94.4、1番端子が33.5です。
+  kind: filler
+  block: null
+- id: 719
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 720
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が68.6、出口側が22.3、1番端子が38.4です。
+  kind: filler
+  block: null
+- id: 721
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 722
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が28.4、3番端子が49.0、2番端子が70.9です。
+  kind: filler
+  block: null
+- id: 723
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 724
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が15.5、1番端子が27.2、B相が18.7です。
+  kind: filler
+  block: null
+- id: 725
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 726
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が41.9、入口側が11.7、3番端子が60.6です。
+  kind: filler
+  block: null
+- id: 727
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 728
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が13.8、1番端子が41.4、中央が31.8です。
+  kind: filler
+  block: null
+- id: 729
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 730
+  speaker: 田中 誠
+  text: 振動測定の結果です。軸受部の振動速度は最大で1.8ミリメートル毎秒でした。
+  kind: block
+  block: mt_vibration
+- id: 731
+  speaker: 山田 隆
+  text: 判定値はいくつでしたか。
+  kind: block
+  block: mt_vibration
+- id: 732
+  speaker: 田中 誠
+  text: 2.8ミリメートル毎秒以下です。負荷側、反負荷側とも判定値以内です。
+  kind: block
+  block: mt_vibration
+- id: 733
+  speaker: 山田 隆
+  text: 問題ありませんね。振動は合格です。
+  kind: block
+  block: mt_vibration
+- id: 734
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が45.1、入口側が32.9、下部が26.6です。
+  kind: filler
+  block: null
+- id: 735
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 736
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が77.7、A相が36.7、中央が64.3です。
+  kind: filler
+  block: null
+- id: 737
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 738
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が85.6、上部が42.2、B相が37.5です。
+  kind: filler
+  block: null
+- id: 739
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 740
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が58.0、B相が91.3、入口側が58.2です。
+  kind: filler
+  block: null
+- id: 741
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 742
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が33.6、入口側が13.5、下部が51.2です。
+  kind: filler
+  block: null
+- id: 743
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 744
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が98.4、入口側が56.1、中央が22.4です。
+  kind: filler
+  block: null
+- id: 745
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 746
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が12.9、上部が58.3、中央が74.9です。
+  kind: filler
+  block: null
+- id: 747
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 748
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が33.8、A相が23.2、上部が45.2です。
+  kind: filler
+  block: null
+- id: 749
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 750
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が53.9、下部が12.6、3番端子が12.0です。
+  kind: filler
+  block: null
+- id: 751
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 752
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が95.8、上部が16.3、B相が26.2です。
+  kind: filler
+  block: null
+- id: 753
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 754
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が73.4、下部が13.8、C相が65.2です。
+  kind: filler
+  block: null
+- id: 755
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 756
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が53.9、3番端子が17.9、1番端子が92.0です。
+  kind: filler
+  block: null
+- id: 757
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 758
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が28.5、上部が86.0、出口側が97.3です。
+  kind: filler
+  block: null
+- id: 759
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 760
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が43.1、中央が29.7、A相が51.8です。
+  kind: filler
+  block: null
+- id: 761
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 762
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が92.6、1番端子が58.2、入口側が65.5です。
+  kind: filler
+  block: null
+- id: 763
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 764
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が63.9、3番端子が70.4、C相が43.2です。
+  kind: filler
+  block: null
+- id: 765
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 766
+  speaker: 田中 誠
+  text: 無負荷での騒音は82デシベルでした。
+  kind: block
+  block: mt_noise
+- id: 767
+  speaker: 山田 隆
+  text: 仕様では80デシベル以下ですよね。2デシベル超えています。
+  kind: block
+  block: mt_noise
+- id: 768
+  speaker: 田中 誠
+  text: 冷却ファンの風切り音が主な原因です。防音カバーを追加すれば仕様内に収まる見込みです。
+  kind: block
+  block: mt_noise
+- id: 769
+  speaker: 山田 隆
+  text: カバーを付けると保守がやりにくくなりますし、費用の負担も決めないといけません。継続協議にしましょう。
+  kind: block
+  block: mt_noise
+- id: 770
+  speaker: 田中 誠
+  text: 承知しました。カバーの構造案と費用を整理してご提案します。
+  kind: block
+  block: mt_noise
+- id: 771
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が50.6、B相が75.2、上部が79.7です。
+  kind: filler
+  block: null
+- id: 772
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 773
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が66.5、A相が74.0、入口側が18.5です。
+  kind: filler
+  block: null
+- id: 774
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 775
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が27.2、2番端子が85.6、下部が66.3です。
+  kind: filler
+  block: null
+- id: 776
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 777
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が60.3、出口側が16.8、上部が21.4です。
+  kind: filler
+  block: null
+- id: 778
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 779
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が51.1、B相が10.1、出口側が80.2です。
+  kind: filler
+  block: null
+- id: 780
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 781
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が88.7、1番端子が92.6、入口側が94.6です。
+  kind: filler
+  block: null
+- id: 782
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 783
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が47.7、2番端子が23.8、1番端子が86.8です。
+  kind: filler
+  block: null
+- id: 784
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 785
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が80.3、3番端子が72.4、中央が41.6です。
+  kind: filler
+  block: null
+- id: 786
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 787
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が18.4、中央が52.4、C相が51.1です。
+  kind: filler
+  block: null
+- id: 788
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 789
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が53.0、上部が45.1、C相が54.5です。
+  kind: filler
+  block: null
+- id: 790
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 791
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が11.5、上部が23.2、3番端子が36.9です。
+  kind: filler
+  block: null
+- id: 792
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 793
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が59.6、中央が68.2、出口側が52.4です。
+  kind: filler
+  block: null
+- id: 794
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 795
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が80.8、3番端子が40.2、入口側が15.7です。
+  kind: filler
+  block: null
+- id: 796
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 797
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が72.0、C相が64.3、3番端子が26.6です。
+  kind: filler
+  block: null
+- id: 798
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 799
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が32.8、入口側が74.4、上部が58.8です。
+  kind: filler
+  block: null
+- id: 800
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 801
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が89.4、C相が44.9、A相が97.3です。
+  kind: filler
+  block: null
+- id: 802
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 803
+  speaker: 鈴木 舞
+  text: 損失の測定から算出した効率は96.2パーセントでした。保証値は96.0パーセントです。
+  kind: block
+  block: mt_efficiency
+- id: 804
+  speaker: 山田 隆
+  text: IE3相当という条件も満たしていますか。
+  kind: block
+  block: mt_efficiency
+- id: 805
+  speaker: 鈴木 舞
+  text: はい、IE3の効率値を上回っています。
+  kind: block
+  block: mt_efficiency
+- id: 806
+  speaker: 山田 隆
+  text: 了解しました。効率は合格です。
+  kind: block
+  block: mt_efficiency
+- id: 807
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が60.2、B相が80.1、C相が31.9です。
+  kind: filler
+  block: null
+- id: 808
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 809
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が86.9、中央が78.6、上部が32.3です。
+  kind: filler
+  block: null
+- id: 810
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 811
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が85.3、B相が12.2、C相が31.6です。
+  kind: filler
+  block: null
+- id: 812
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 813
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が36.7、A相が42.2、上部が85.0です。
+  kind: filler
+  block: null
+- id: 814
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 815
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が42.2、1番端子が40.9、3番端子が64.9です。
+  kind: filler
+  block: null
+- id: 816
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 817
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が56.6、A相が17.8、上部が81.1です。
+  kind: filler
+  block: null
+- id: 818
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 819
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が92.3、入口側が19.7、下部が65.3です。
+  kind: filler
+  block: null
+- id: 820
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 821
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が17.0、1番端子が13.4、入口側が95.4です。
+  kind: filler
+  block: null
+- id: 822
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 823
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が14.8、下部が31.2、中央が40.8です。
+  kind: filler
+  block: null
+- id: 824
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 825
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が13.4、上部が55.3、出口側が13.6です。
+  kind: filler
+  block: null
+- id: 826
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 827
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が49.6、2番端子が10.1、中央が37.9です。
+  kind: filler
+  block: null
+- id: 828
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 829
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が38.9、A相が34.2、入口側が90.7です。
+  kind: filler
+  block: null
+- id: 830
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 831
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が44.4、1番端子が15.9、B相が11.1です。
+  kind: filler
+  block: null
+- id: 832
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 833
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が13.1、C相が24.4、中央が74.9です。
+  kind: filler
+  block: null
+- id: 834
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 835
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が55.9、下部が89.8、上部が98.5です。
+  kind: filler
+  block: null
+- id: 836
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 837
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が70.4、B相が89.8、入口側が47.7です。
+  kind: filler
+  block: null
+- id: 838
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 839
+  speaker: 田中 誠
+  text: 温度上昇試験です。固定子巻線の温度上昇は抵抗法で75ケルビンでした。
+  kind: block
+  block: mt_winding_temp
+- id: 840
+  speaker: 田中 誠
+  text: F種絶縁をB種の温度上昇で使う条件ですので、限度は80ケルビンです。
+  kind: block
+  block: mt_winding_temp
+- id: 841
+  speaker: 山田 隆
+  text: 5ケルビンの余裕ですね。了解しました。合格とします。
+  kind: block
+  block: mt_winding_temp
+- id: 842
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が28.0、上部が33.1、中央が51.4です。
+  kind: filler
+  block: null
+- id: 843
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 844
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が44.3、下部が21.0、2番端子が58.9です。
+  kind: filler
+  block: null
+- id: 845
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 846
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が96.9、上部が31.8、B相が20.0です。
+  kind: filler
+  block: null
+- id: 847
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 848
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が52.1、B相が70.0、A相が30.2です。
+  kind: filler
+  block: null
+- id: 849
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 850
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が93.6、1番端子が62.4、上部が81.1です。
+  kind: filler
+  block: null
+- id: 851
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 852
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が39.2、C相が74.2、B相が35.8です。
+  kind: filler
+  block: null
+- id: 853
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 854
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が51.4、出口側が92.3、入口側が88.2です。
+  kind: filler
+  block: null
+- id: 855
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 856
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が19.5、A相が87.2、中央が48.8です。
+  kind: filler
+  block: null
+- id: 857
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 858
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が29.2、B相が50.8、3番端子が56.2です。
+  kind: filler
+  block: null
+- id: 859
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 860
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が65.4、下部が18.2、入口側が83.5です。
+  kind: filler
+  block: null
+- id: 861
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 862
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が84.6、B相が17.9、下部が54.0です。
+  kind: filler
+  block: null
+- id: 863
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 864
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が74.9、上部が12.5、下部が87.7です。
+  kind: filler
+  block: null
+- id: 865
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 866
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が42.0、中央が37.4、入口側が57.2です。
+  kind: filler
+  block: null
+- id: 867
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 868
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が18.6、上部が40.8、下部が51.1です。
+  kind: filler
+  block: null
+- id: 869
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 870
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が56.1、中央が26.7、上部が27.6です。
+  kind: filler
+  block: null
+- id: 871
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 872
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が98.3、出口側が78.5、1番端子が40.7です。
+  kind: filler
+  block: null
+- id: 873
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 874
+  speaker: 田中 誠
+  text: 先ほどの騒音の件ですが、防音カバーは当社負担で、点検口付きの構造にするということでいかがでしょうか。
+  kind: resolve
+  block: mt_noise
+- id: 875
+  speaker: 山田 隆
+  text: 点検口があるなら保守も問題ないですね。騒音の件はそれで合意とします。
+  kind: resolve
+  block: mt_noise
+- id: 876
+  speaker: 佐藤 健二
+  text: 反負荷側の軸受温度が、負荷側より8度ほど高いのが気になります。
+  kind: block
+  block: mt_bearing
+- id: 877
+  speaker: 田中 誠
+  text: グリースの封入量が多めだった可能性があります。量を確認して、明日もう一度運転してみます。
+  kind: block
+  block: mt_bearing
+- id: 878
+  speaker: 佐藤 健二
+  text: では明日の再試験の結果を見るまで、この件は保留にします。
+  kind: block
+  block: mt_bearing
+- id: 879
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が24.2、A相が55.5、中央が85.6です。
+  kind: filler
+  block: null
+- id: 880
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 881
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が79.7、2番端子が76.2、下部が61.3です。
+  kind: filler
+  block: null
+- id: 882
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 883
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が54.0、3番端子が47.6、下部が65.5です。
+  kind: filler
+  block: null
+- id: 884
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 885
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が72.1、下部が45.9、入口側が37.8です。
+  kind: filler
+  block: null
+- id: 886
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 887
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が44.2、3番端子が84.6、2番端子が40.0です。
+  kind: filler
+  block: null
+- id: 888
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 889
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が20.4、出口側が51.0、入口側が38.0です。
+  kind: filler
+  block: null
+- id: 890
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 891
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が70.4、A相が62.9、B相が95.3です。
+  kind: filler
+  block: null
+- id: 892
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 893
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が76.4、出口側が74.9、入口側が28.7です。
+  kind: filler
+  block: null
+- id: 894
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 895
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が40.8、1番端子が22.3、中央が61.8です。
+  kind: filler
+  block: null
+- id: 896
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 897
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が47.3、2番端子が90.7、上部が30.8です。
+  kind: filler
+  block: null
+- id: 898
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 899
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が94.6、中央が24.3、C相が67.0です。
+  kind: filler
+  block: null
+- id: 900
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 901
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が91.9、C相が59.6、入口側が76.8です。
+  kind: filler
+  block: null
+- id: 902
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 903
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が55.1、1番端子が63.5、3番端子が90.2です。
+  kind: filler
+  block: null
+- id: 904
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 905
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が36.9、下部が59.6、1番端子が64.2です。
+  kind: filler
+  block: null
+- id: 906
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 907
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が84.3、C相が20.4、1番端子が43.6です。
+  kind: filler
+  block: null
+- id: 908
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 909
+  speaker: 田中 誠
+  text: 拘束試験から求めた始動電流は、定格電流の6.2倍でした。仕様は6.5倍以下です。
+  kind: block
+  block: mt_starting
+- id: 910
+  speaker: 佐藤 健二
+  text: 始動トルクも仕様を満たしていますか。
+  kind: block
+  block: mt_starting
+- id: 911
+  speaker: 田中 誠
+  text: はい、始動トルクは定格の85パーセントで、仕様の80パーセント以上を満たしています。
+  kind: block
+  block: mt_starting
+- id: 912
+  speaker: 佐藤 健二
+  text: 分かりました。合格です。
+  kind: block
+  block: mt_starting
+- id: 913
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が13.2、B相が91.5、中央が86.2です。
+  kind: filler
+  block: null
+- id: 914
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 915
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が80.8、C相が73.1、入口側が70.7です。
+  kind: filler
+  block: null
+- id: 916
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 917
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が73.8、1番端子が42.2、B相が31.1です。
+  kind: filler
+  block: null
+- id: 918
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 919
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が68.1、入口側が23.2、B相が65.9です。
+  kind: filler
+  block: null
+- id: 920
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 921
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が55.3、C相が17.4、B相が69.6です。
+  kind: filler
+  block: null
+- id: 922
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 923
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が86.5、1番端子が10.7、2番端子が48.4です。
+  kind: filler
+  block: null
+- id: 924
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 925
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が46.0、下部が53.0、入口側が56.1です。
+  kind: filler
+  block: null
+- id: 926
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 927
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が55.9、B相が19.5、出口側が60.5です。
+  kind: filler
+  block: null
+- id: 928
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 929
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が24.1、上部が98.4、2番端子が87.9です。
+  kind: filler
+  block: null
+- id: 930
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 931
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が94.6、3番端子が85.9、出口側が72.9です。
+  kind: filler
+  block: null
+- id: 932
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 933
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が82.2、3番端子が63.6、中央が66.7です。
+  kind: filler
+  block: null
+- id: 934
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 935
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が81.1、出口側が54.6、中央が26.9です。
+  kind: filler
+  block: null
+- id: 936
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 937
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が31.8、3番端子が63.0、下部が44.1です。
+  kind: filler
+  block: null
+- id: 938
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 939
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が15.8、1番端子が58.8、3番端子が15.6です。
+  kind: filler
+  block: null
+- id: 940
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 941
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が55.4、下部が23.6、上部が14.8です。
+  kind: filler
+  block: null
+- id: 942
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 943
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が39.2、B相が73.7、中央が51.5です。
+  kind: filler
+  block: null
+- id: 944
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 945
+  speaker: 佐藤 健二
+  text: 現地のケーブルの取り回しを考えると、端子箱を右側から左側に変更してほしいのですが。
+  kind: block
+  block: mt_terminal_box
+- id: 946
+  speaker: 鈴木 舞
+  text: 設計変更は可能ですが、フレームの加工が必要になり、納期が2週間ほど延びます。
+  kind: block
+  block: mt_terminal_box
+- id: 947
+  speaker: 佐藤 健二
+  text: 納期が延びるのは困りますね。工事の工程と調整してみますので、継続協議にさせてください。
+  kind: block
+  block: mt_terminal_box
+- id: 948
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が88.3、出口側が35.3、中央が20.5です。
+  kind: filler
+  block: null
+- id: 949
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 950
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が48.9、1番端子が79.0、入口側が24.9です。
+  kind: filler
+  block: null
+- id: 951
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 952
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が47.3、出口側が19.5、C相が74.4です。
+  kind: filler
+  block: null
+- id: 953
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 954
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が24.5、B相が57.5、1番端子が89.4です。
+  kind: filler
+  block: null
+- id: 955
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 956
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が80.2、上部が37.3、2番端子が10.9です。
+  kind: filler
+  block: null
+- id: 957
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 958
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が46.0、1番端子が40.0、中央が16.0です。
+  kind: filler
+  block: null
+- id: 959
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 960
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が66.7、2番端子が21.3、下部が17.4です。
+  kind: filler
+  block: null
+- id: 961
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 962
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が28.8、出口側が15.8、A相が59.4です。
+  kind: filler
+  block: null
+- id: 963
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 964
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が69.2、A相が57.2、入口側が32.2です。
+  kind: filler
+  block: null
+- id: 965
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 966
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が28.2、B相が79.9、出口側が91.4です。
+  kind: filler
+  block: null
+- id: 967
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 968
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が54.6、2番端子が56.8、上部が78.9です。
+  kind: filler
+  block: null
+- id: 969
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 970
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が67.0、C相が97.9、2番端子が54.6です。
+  kind: filler
+  block: null
+- id: 971
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 972
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が84.6、2番端子が35.5、上部が57.0です。
+  kind: filler
+  block: null
+- id: 973
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 974
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が21.3、上部が73.9、1番端子が56.2です。
+  kind: filler
+  block: null
+- id: 975
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 976
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が28.5、3番端子が53.8、下部が37.6です。
+  kind: filler
+  block: null
+- id: 977
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 978
+  speaker: 鈴木 舞
+  text: 巻線の絶縁抵抗と成極指数です。成極指数は3.1で、判定基準の2.0以上です。
+  kind: block
+  block: mt_insulation
+- id: 979
+  speaker: 佐藤 健二
+  text: 良好ですね。耐電圧試験も異常なしでしたか。
+  kind: block
+  block: mt_insulation
+- id: 980
+  speaker: 鈴木 舞
+  text: はい、耐電圧も異常ありませんでした。
+  kind: block
+  block: mt_insulation
+- id: 981
+  speaker: 佐藤 健二
+  text: 了解です。
+  kind: block
+  block: mt_insulation
+- id: 982
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が83.0、3番端子が57.2、A相が33.3です。
+  kind: filler
+  block: null
+- id: 983
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 984
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が29.3、3番端子が25.6、A相が69.9です。
+  kind: filler
+  block: null
+- id: 985
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 986
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が46.0、B相が11.4、A相が68.1です。
+  kind: filler
+  block: null
+- id: 987
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 988
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が91.5、中央が56.5、2番端子が31.7です。
+  kind: filler
+  block: null
+- id: 989
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 990
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が75.2、3番端子が65.2、1番端子が12.6です。
+  kind: filler
+  block: null
+- id: 991
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 992
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が93.7、中央が48.4、1番端子が31.7です。
+  kind: filler
+  block: null
+- id: 993
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 994
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が81.7、下部が97.4、B相が45.9です。
+  kind: filler
+  block: null
+- id: 995
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 996
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が68.0、下部が63.5、入口側が59.5です。
+  kind: filler
+  block: null
+- id: 997
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 998
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が51.0、2番端子が44.2、A相が72.4です。
+  kind: filler
+  block: null
+- id: 999
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1000
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が26.7、上部が34.1、B相が70.1です。
+  kind: filler
+  block: null
+- id: 1001
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1002
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が85.7、A相が56.6、B相が79.1です。
+  kind: filler
+  block: null
+- id: 1003
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1004
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が87.3、A相が95.3、下部が60.5です。
+  kind: filler
+  block: null
+- id: 1005
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1006
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が72.8、C相が85.5、2番端子が85.2です。
+  kind: filler
+  block: null
+- id: 1007
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1008
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が57.8、入口側が55.5、1番端子が56.5です。
+  kind: filler
+  block: null
+- id: 1009
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1010
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が43.7、出口側が46.4、A相が48.2です。
+  kind: filler
+  block: null
+- id: 1011
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1012
+  speaker: 山田 隆
+  text: 銘板の製造番号が、試験成績書の番号と一桁違っています。
+  kind: block
+  block: mt_nameplate
+- id: 1013
+  speaker: 鈴木 舞
+  text: 確認しました。銘板の方が間違っています。10月13日までに再発行して交換します。
+  kind: block
+  block: mt_nameplate
+- id: 1014
+  speaker: 山田 隆
+  text: お願いします。
+  kind: block
+  block: mt_nameplate
+- id: 1015
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が12.8、中央が69.5、出口側が37.1です。
+  kind: filler
+  block: null
+- id: 1016
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1017
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が60.1、3番端子が39.7、入口側が10.1です。
+  kind: filler
+  block: null
+- id: 1018
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1019
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が70.1、A相が64.5、下部が46.0です。
+  kind: filler
+  block: null
+- id: 1020
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1021
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が23.5、2番端子が91.1、C相が81.9です。
+  kind: filler
+  block: null
+- id: 1022
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1023
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が70.0、A相が34.7、B相が55.6です。
+  kind: filler
+  block: null
+- id: 1024
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1025
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が27.3、A相が46.1、出口側が41.4です。
+  kind: filler
+  block: null
+- id: 1026
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1027
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が33.7、2番端子が67.8、1番端子が14.2です。
+  kind: filler
+  block: null
+- id: 1028
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1029
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が19.8、C相が72.1、3番端子が39.2です。
+  kind: filler
+  block: null
+- id: 1030
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1031
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が49.8、3番端子が35.0、出口側が65.1です。
+  kind: filler
+  block: null
+- id: 1032
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1033
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が51.1、中央が17.2、3番端子が82.3です。
+  kind: filler
+  block: null
+- id: 1034
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1035
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が53.1、入口側が76.4、下部が43.2です。
+  kind: filler
+  block: null
+- id: 1036
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1037
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が28.7、上部が83.4、C相が16.2です。
+  kind: filler
+  block: null
+- id: 1038
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1039
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が58.0、1番端子が72.8、2番端子が51.9です。
+  kind: filler
+  block: null
+- id: 1040
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1041
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が87.5、下部が70.1、中央が32.6です。
+  kind: filler
+  block: null
+- id: 1042
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1043
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が65.9、下部が25.3、入口側が72.7です。
+  kind: filler
+  block: null
+- id: 1044
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1045
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が16.8、3番端子が36.9、A相が97.3です。
+  kind: filler
+  block: null
+- id: 1046
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1047
+  speaker: 佐藤 健二
+  text: 予備品として、軸受を1セット追加で購入したいと考えています。
+  kind: block
+  block: mt_spare
+- id: 1048
+  speaker: 鈴木 舞
+  text: 承知しました。10月16日までにお見積もりをお出しします。
+  kind: block
+  block: mt_spare
+- id: 1049
+  speaker: 佐藤 健二
+  text: 見積もりを見てから発注するか決めます。継続協議でお願いします。
+  kind: block
+  block: mt_spare
+- id: 1050
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が88.3、B相が85.3、上部が12.8です。
+  kind: filler
+  block: null
+- id: 1051
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1052
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が17.8、C相が49.2、A相が18.8です。
+  kind: filler
+  block: null
+- id: 1053
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1054
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が17.0、B相が27.8、出口側が36.8です。
+  kind: filler
+  block: null
+- id: 1055
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1056
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が56.7、B相が30.6、2番端子が87.5です。
+  kind: filler
+  block: null
+- id: 1057
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1058
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が71.7、B相が16.2、C相が29.7です。
+  kind: filler
+  block: null
+- id: 1059
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1060
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が88.0、入口側が44.3、A相が43.3です。
+  kind: filler
+  block: null
+- id: 1061
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1062
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が21.0、3番端子が13.6、上部が75.7です。
+  kind: filler
+  block: null
+- id: 1063
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1064
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が62.3、C相が61.0、上部が39.1です。
+  kind: filler
+  block: null
+- id: 1065
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1066
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が33.5、2番端子が69.4、A相が15.8です。
+  kind: filler
+  block: null
+- id: 1067
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1068
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が79.0、下部が84.2、中央が93.3です。
+  kind: filler
+  block: null
+- id: 1069
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1070
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が55.1、2番端子が84.0、上部が51.9です。
+  kind: filler
+  block: null
+- id: 1071
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1072
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が89.3、1番端子が16.0、B相が25.4です。
+  kind: filler
+  block: null
+- id: 1073
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1074
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が98.1、A相が13.3、下部が37.0です。
+  kind: filler
+  block: null
+- id: 1075
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1076
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が86.9、下部が28.8、B相が50.3です。
+  kind: filler
+  block: null
+- id: 1077
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1078
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が96.7、A相が46.2、1番端子が41.9です。
+  kind: filler
+  block: null
+- id: 1079
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1080
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が79.0、上部が28.0、B相が30.9です。
+  kind: filler
+  block: null
+- id: 1081
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1082
+  speaker: 鈴木 舞
+  text: 入出力チェックの結果です。入力256点、出力128点をすべて確認しました。
+  kind: block
+  block: plc_io
+- id: 1083
+  speaker: 鈴木 舞
+  text: そのうち入力の37番と38番の配線が入れ替わっていたので、修正して再確認済みです。
+  kind: block
+  block: plc_io
+- id: 1084
+  speaker: 佐藤 健二
+  text: 修正後の確認は、私たちが立ち会った状態でもう一度見せてもらえますか。
+  kind: block
+  block: plc_io
+- id: 1085
+  speaker: 鈴木 舞
+  text: はい、今から37番と38番を順に入れますので、画面をご覧ください。
+  kind: block
+  block: plc_io
+- id: 1086
+  speaker: 佐藤 健二
+  text: 確認できました。入出力チェックは合格です。
+  kind: block
+  block: plc_io
+- id: 1087
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が15.7、A相が86.2、3番端子が29.5です。
+  kind: filler
+  block: null
+- id: 1088
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1089
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が30.0、上部が37.1、A相が76.6です。
+  kind: filler
+  block: null
+- id: 1090
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1091
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が65.9、出口側が72.1、B相が46.4です。
+  kind: filler
+  block: null
+- id: 1092
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1093
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が58.9、A相が19.2、3番端子が14.1です。
+  kind: filler
+  block: null
+- id: 1094
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1095
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が11.7、下部が30.5、1番端子が75.1です。
+  kind: filler
+  block: null
+- id: 1096
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1097
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が55.3、C相が31.5、3番端子が90.3です。
+  kind: filler
+  block: null
+- id: 1098
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1099
+  speaker: 田中 誠
+  text: 測定値を読み上げます。B相が96.0、中央が23.5、上部が43.1です。
+  kind: filler
+  block: null
+- id: 1100
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1101
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が27.4、出口側が18.5、C相が70.9です。
+  kind: filler
+  block: null
+- id: 1102
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1103
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が79.9、C相が92.4、2番端子が60.8です。
+  kind: filler
+  block: null
+- id: 1104
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1105
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が53.9、A相が60.7、入口側が35.2です。
+  kind: filler
+  block: null
+- id: 1106
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1107
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が40.0、入口側が50.5、3番端子が53.8です。
+  kind: filler
+  block: null
+- id: 1108
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1109
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が83.0、中央が96.7、下部が20.3です。
+  kind: filler
+  block: null
+- id: 1110
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1111
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が85.5、入口側が63.3、上部が58.4です。
+  kind: filler
+  block: null
+- id: 1112
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1113
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が69.9、上部が33.5、2番端子が32.3です。
+  kind: filler
+  block: null
+- id: 1114
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1115
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が47.0、中央が80.6、1番端子が63.5です。
+  kind: filler
+  block: null
+- id: 1116
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1117
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が56.9、B相が31.9、C相が71.5です。
+  kind: filler
+  block: null
+- id: 1118
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1119
+  speaker: 山田 隆
+  text: 警報一覧の画面ですが、重故障は赤の点滅にしてもらえますか。今は軽故障と同じ表示で区別がつきにくいです。
+  kind: block
+  block: plc_alarm
+- id: 1120
+  speaker: 田中 誠
+  text: 画面の設定変更で対応できます。10月8日までに修正版をお送りします。
+  kind: block
+  block: plc_alarm
+- id: 1121
+  speaker: 山田 隆
+  text: ありがとうございます。それでお願いします。
+  kind: block
+  block: plc_alarm
+- id: 1122
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が48.9、上部が15.7、B相が97.4です。
+  kind: filler
+  block: null
+- id: 1123
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1124
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が12.1、B相が42.7、1番端子が42.1です。
+  kind: filler
+  block: null
+- id: 1125
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1126
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が47.1、2番端子が55.6、入口側が49.7です。
+  kind: filler
+  block: null
+- id: 1127
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1128
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が87.0、中央が64.6、B相が67.4です。
+  kind: filler
+  block: null
+- id: 1129
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1130
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が48.9、C相が12.3、A相が42.7です。
+  kind: filler
+  block: null
+- id: 1131
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1132
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が76.8、A相が41.2、入口側が68.5です。
+  kind: filler
+  block: null
+- id: 1133
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1134
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が77.3、出口側が69.2、C相が82.7です。
+  kind: filler
+  block: null
+- id: 1135
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1136
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が35.9、B相が45.3、出口側が66.9です。
+  kind: filler
+  block: null
+- id: 1137
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1138
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が78.7、C相が60.7、2番端子が69.8です。
+  kind: filler
+  block: null
+- id: 1139
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1140
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が35.4、A相が76.6、中央が33.7です。
+  kind: filler
+  block: null
+- id: 1141
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1142
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が70.4、A相が62.0、C相が59.7です。
+  kind: filler
+  block: null
+- id: 1143
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1144
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が87.8、出口側が18.5、上部が42.0です。
+  kind: filler
+  block: null
+- id: 1145
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1146
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が95.1、B相が22.8、入口側が77.7です。
+  kind: filler
+  block: null
+- id: 1147
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1148
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が37.8、1番端子が85.4、A相が35.3です。
+  kind: filler
+  block: null
+- id: 1149
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1150
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が18.7、B相が15.4、1番端子が60.3です。
+  kind: filler
+  block: null
+- id: 1151
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1152
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が71.4、中央が53.0、B相が30.4です。
+  kind: filler
+  block: null
+- id: 1153
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1154
+  speaker: 山田 隆
+  text: トレンドデータの保存期間が30日になっていますが、水質の管理上、1年は残したいんです。
+  kind: block
+  block: plc_trend
+- id: 1155
+  speaker: 田中 誠
+  text: 1年分を保存するにはストレージの増設が必要になります。
+  kind: block
+  block: plc_trend
+- id: 1156
+  speaker: 山田 隆
+  text: 増設の費用と、外部に書き出す方法があるかも含めて検討したいので、継続協議でお願いします。
+  kind: block
+  block: plc_trend
+- id: 1157
+  speaker: 田中 誠
+  text: 承知しました。両方の案を比較してお示しします。
+  kind: block
+  block: plc_trend
+- id: 1158
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が48.3、A相が97.4、出口側が45.4です。
+  kind: filler
+  block: null
+- id: 1159
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1160
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が39.5、B相が90.1、下部が94.6です。
+  kind: filler
+  block: null
+- id: 1161
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1162
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が65.2、1番端子が91.8、A相が21.0です。
+  kind: filler
+  block: null
+- id: 1163
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1164
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が69.4、入口側が36.8、3番端子が87.4です。
+  kind: filler
+  block: null
+- id: 1165
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1166
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が78.0、3番端子が30.9、1番端子が30.8です。
+  kind: filler
+  block: null
+- id: 1167
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1168
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が51.6、B相が28.4、中央が42.4です。
+  kind: filler
+  block: null
+- id: 1169
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1170
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が31.4、入口側が88.3、A相が50.6です。
+  kind: filler
+  block: null
+- id: 1171
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1172
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が77.2、出口側が94.7、中央が65.6です。
+  kind: filler
+  block: null
+- id: 1173
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1174
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が47.0、2番端子が43.4、下部が86.2です。
+  kind: filler
+  block: null
+- id: 1175
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1176
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が10.4、B相が35.1、2番端子が82.1です。
+  kind: filler
+  block: null
+- id: 1177
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1178
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が12.6、入口側が15.5、上部が61.2です。
+  kind: filler
+  block: null
+- id: 1179
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1180
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が95.7、入口側が53.0、出口側が59.7です。
+  kind: filler
+  block: null
+- id: 1181
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1182
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が13.1、下部が86.9、3番端子が42.2です。
+  kind: filler
+  block: null
+- id: 1183
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1184
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が36.4、2番端子が46.7、B相が10.2です。
+  kind: filler
+  block: null
+- id: 1185
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1186
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が55.4、中央が91.7、下部が81.2です。
+  kind: filler
+  block: null
+- id: 1187
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1188
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が52.3、C相が61.2、3番端子が28.5です。
+  kind: filler
+  block: null
+- id: 1189
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1190
+  speaker: 田中 誠
+  text: 取水ポンプのインターロックです。水位低の信号を入れると、運転中のポンプが停止することを確認します。
+  kind: block
+  block: plc_pump_interlock
+- id: 1191
+  speaker: 田中 誠
+  text: 信号を入れました。ポンプが停止し、画面にも水位低の警報が出ています。
+  kind: block
+  block: plc_pump_interlock
+- id: 1192
+  speaker: 山田 隆
+  text: 復帰の手順も確認させてください。
+  kind: block
+  block: plc_pump_interlock
+- id: 1193
+  speaker: 田中 誠
+  text: 水位が戻った後、画面から復帰操作をしないと再起動しない仕様です。
+  kind: block
+  block: plc_pump_interlock
+- id: 1194
+  speaker: 山田 隆
+  text: 確認しました。問題ありません。
+  kind: block
+  block: plc_pump_interlock
+- id: 1195
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が65.1、1番端子が51.1、出口側が24.2です。
+  kind: filler
+  block: null
+- id: 1196
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1197
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が33.0、2番端子が97.3、下部が74.9です。
+  kind: filler
+  block: null
+- id: 1198
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1199
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が21.0、C相が77.4、下部が26.7です。
+  kind: filler
+  block: null
+- id: 1200
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1201
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が70.7、中央が59.4、出口側が67.7です。
+  kind: filler
+  block: null
+- id: 1202
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1203
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が78.5、B相が82.6、3番端子が80.3です。
+  kind: filler
+  block: null
+- id: 1204
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1205
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。中央が61.5、A相が95.6、B相が93.7です。
+  kind: filler
+  block: null
+- id: 1206
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1207
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が45.7、上部が22.4、入口側が94.8です。
+  kind: filler
+  block: null
+- id: 1208
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1209
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が90.2、A相が70.0、C相が24.0です。
+  kind: filler
+  block: null
+- id: 1210
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1211
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が23.6、C相が86.4、A相が57.4です。
+  kind: filler
+  block: null
+- id: 1212
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1213
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が52.5、1番端子が25.0、中央が50.7です。
+  kind: filler
+  block: null
+- id: 1214
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1215
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が52.5、中央が36.5、3番端子が88.1です。
+  kind: filler
+  block: null
+- id: 1216
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1217
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が90.0、中央が20.8、A相が67.5です。
+  kind: filler
+  block: null
+- id: 1218
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1219
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が36.0、下部が75.1、中央が47.9です。
+  kind: filler
+  block: null
+- id: 1220
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1221
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が36.2、2番端子が67.5、出口側が48.4です。
+  kind: filler
+  block: null
+- id: 1222
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1223
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が64.7、下部が51.5、出口側が82.6です。
+  kind: filler
+  block: null
+- id: 1224
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1225
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が27.6、A相が17.0、3番端子が11.8です。
+  kind: filler
+  block: null
+- id: 1226
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1227
+  speaker: 鈴木 舞
+  text: CPUの二重化切替試験です。稼働系の電源を切って、待機系に切り替わるまでの時間を測ります。
+  kind: block
+  block: plc_redundancy
+- id: 1228
+  speaker: 鈴木 舞
+  text: 切替時間は120ミリ秒でした。仕様は200ミリ秒以内です。
+  kind: block
+  block: plc_redundancy
+- id: 1229
+  speaker: 佐藤 健二
+  text: 切替のときに出力が変化しないことも確認できましたか。
+  kind: block
+  block: plc_redundancy
+- id: 1230
+  speaker: 鈴木 舞
+  text: はい、出力は保持されていました。
+  kind: block
+  block: plc_redundancy
+- id: 1231
+  speaker: 佐藤 健二
+  text: 合格です。
+  kind: block
+  block: plc_redundancy
+- id: 1232
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が69.4、B相が82.5、1番端子が34.2です。
+  kind: filler
+  block: null
+- id: 1233
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1234
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が46.0、入口側が98.4、A相が78.8です。
+  kind: filler
+  block: null
+- id: 1235
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1236
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が53.4、中央が83.5、上部が34.8です。
+  kind: filler
+  block: null
+- id: 1237
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1238
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が18.4、B相が13.7、3番端子が71.1です。
+  kind: filler
+  block: null
+- id: 1239
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1240
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が69.1、出口側が44.1、下部が13.3です。
+  kind: filler
+  block: null
+- id: 1241
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1242
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が74.9、C相が78.4、出口側が76.7です。
+  kind: filler
+  block: null
+- id: 1243
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1244
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が84.0、下部が48.2、1番端子が87.0です。
+  kind: filler
+  block: null
+- id: 1245
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1246
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が83.9、1番端子が96.5、2番端子が81.7です。
+  kind: filler
+  block: null
+- id: 1247
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1248
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が24.0、下部が49.8、B相が11.4です。
+  kind: filler
+  block: null
+- id: 1249
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1250
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が53.5、1番端子が81.6、3番端子が72.9です。
+  kind: filler
+  block: null
+- id: 1251
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1252
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が76.4、2番端子が60.3、中央が36.8です。
+  kind: filler
+  block: null
+- id: 1253
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1254
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が31.0、出口側が65.0、B相が23.1です。
+  kind: filler
+  block: null
+- id: 1255
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1256
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が80.6、2番端子が91.8、1番端子が52.5です。
+  kind: filler
+  block: null
+- id: 1257
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1258
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が40.7、下部が45.8、中央が16.5です。
+  kind: filler
+  block: null
+- id: 1259
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1260
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が79.0、2番端子が47.0、3番端子が35.0です。
+  kind: filler
+  block: null
+- id: 1261
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1262
+  speaker: 山田 隆
+  text: 上位の監視システムとの通信で、さっき一度タイムアウトが出ていましたね。
+  kind: block
+  block: plc_modbus
+- id: 1263
+  speaker: 田中 誠
+  text: はい、1回だけ発生しました。原因はまだ分かっていません。
+  kind: block
+  block: plc_modbus
+- id: 1264
+  speaker: 田中 誠
+  text: 10月15日までに原因を調査して報告します。
+  kind: block
+  block: plc_modbus
+- id: 1265
+  speaker: 山田 隆
+  text: 原因が分かるまで継続協議にします。
+  kind: block
+  block: plc_modbus
+- id: 1266
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が69.9、下部が50.6、出口側が12.7です。
+  kind: filler
+  block: null
+- id: 1267
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1268
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が84.8、B相が69.8、中央が20.9です。
+  kind: filler
+  block: null
+- id: 1269
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1270
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が41.9、C相が62.9、下部が96.6です。
+  kind: filler
+  block: null
+- id: 1271
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1272
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が37.5、1番端子が96.9、入口側が94.5です。
+  kind: filler
+  block: null
+- id: 1273
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1274
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が12.7、出口側が46.4、下部が75.0です。
+  kind: filler
+  block: null
+- id: 1275
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1276
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が54.1、B相が83.3、3番端子が36.8です。
+  kind: filler
+  block: null
+- id: 1277
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1278
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が50.9、入口側が53.2、下部が40.0です。
+  kind: filler
+  block: null
+- id: 1279
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1280
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が37.9、2番端子が58.5、3番端子が94.2です。
+  kind: filler
+  block: null
+- id: 1281
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1282
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が85.7、上部が52.5、3番端子が58.1です。
+  kind: filler
+  block: null
+- id: 1283
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1284
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が66.6、入口側が32.7、A相が38.6です。
+  kind: filler
+  block: null
+- id: 1285
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1286
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が25.9、B相が59.7、C相が94.4です。
+  kind: filler
+  block: null
+- id: 1287
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1288
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が58.3、入口側が10.8、上部が55.4です。
+  kind: filler
+  block: null
+- id: 1289
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1290
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が75.1、入口側が68.4、1番端子が32.7です。
+  kind: filler
+  block: null
+- id: 1291
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1292
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が93.4、入口側が15.6、上部が23.0です。
+  kind: filler
+  block: null
+- id: 1293
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1294
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が49.7、中央が18.7、上部が41.9です。
+  kind: filler
+  block: null
+- id: 1295
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1296
+  speaker: 田中 誠
+  text: 測定値を読み上げます。上部が89.2、下部が69.3、2番端子が73.2です。
+  kind: filler
+  block: null
+- id: 1297
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1298
+  speaker: 鈴木 舞
+  text: トレンドの保存期間の件、外付けのストレージで1年分を保存する案なら、追加費用は小さく済みます。
+  kind: resolve
+  block: plc_trend
+- id: 1299
+  speaker: 山田 隆
+  text: それなら外付けストレージの案で進めてください。トレンドの件は合意とします。
+  kind: resolve
+  block: plc_trend
+- id: 1300
+  speaker: 佐藤 健二
+  text: 操作権限がオペレーターと管理者の2段階ですが、保守員を加えて3段階にしたいです。
+  kind: block
+  block: plc_user_level
+- id: 1301
+  speaker: 鈴木 舞
+  text: 対応できます。保守員の権限でできる操作の一覧をいただけますか。
+  kind: block
+  block: plc_user_level
+- id: 1302
+  speaker: 佐藤 健二
+  text: 一覧は今週中に送ります。
+  kind: block
+  block: plc_user_level
+- id: 1303
+  speaker: 鈴木 舞
+  text: ありがとうございます。一覧をいただいてから、10月22日までに画面を改修します。
+  kind: block
+  block: plc_user_level
+- id: 1304
+  speaker: 佐藤 健二
+  text: それでお願いします。
+  kind: block
+  block: plc_user_level
+- id: 1305
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が58.4、上部が54.7、C相が53.9です。
+  kind: filler
+  block: null
+- id: 1306
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1307
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が49.7、3番端子が30.0、1番端子が53.5です。
+  kind: filler
+  block: null
+- id: 1308
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1309
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が67.9、中央が52.0、2番端子が84.3です。
+  kind: filler
+  block: null
+- id: 1310
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1311
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。出口側が21.3、A相が85.7、入口側が74.9です。
+  kind: filler
+  block: null
+- id: 1312
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1313
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が54.8、上部が86.1、A相が40.3です。
+  kind: filler
+  block: null
+- id: 1314
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1315
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が94.5、A相が57.9、出口側が47.4です。
+  kind: filler
+  block: null
+- id: 1316
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1317
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が47.4、入口側が86.5、上部が89.4です。
+  kind: filler
+  block: null
+- id: 1318
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1319
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が91.9、中央が51.9、出口側が33.2です。
+  kind: filler
+  block: null
+- id: 1320
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1321
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が32.7、入口側が58.1、上部が26.4です。
+  kind: filler
+  block: null
+- id: 1322
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1323
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が83.2、C相が56.2、1番端子が83.5です。
+  kind: filler
+  block: null
+- id: 1324
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1325
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が41.2、下部が17.9、1番端子が57.2です。
+  kind: filler
+  block: null
+- id: 1326
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1327
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が65.6、2番端子が74.9、B相が44.5です。
+  kind: filler
+  block: null
+- id: 1328
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1329
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が19.9、中央が93.5、2番端子が21.4です。
+  kind: filler
+  block: null
+- id: 1330
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1331
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が79.5、2番端子が98.7、出口側が63.2です。
+  kind: filler
+  block: null
+- id: 1332
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1333
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が90.4、出口側が70.9、3番端子が83.6です。
+  kind: filler
+  block: null
+- id: 1334
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1335
+  speaker: 山田 隆
+  text: 監視画面の時計が、上位システムと3秒ずれていますね。
+  kind: block
+  block: plc_time_sync
+- id: 1336
+  speaker: 鈴木 舞
+  text: 時刻同期の設定で、サーバーのアドレスが間違っていました。今修正しました。
+  kind: block
+  block: plc_time_sync
+- id: 1337
+  speaker: 山田 隆
+  text: 今は一致していますね。了解しました。
+  kind: block
+  block: plc_time_sync
+- id: 1338
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。B相が30.0、A相が25.5、C相が61.6です。
+  kind: filler
+  block: null
+- id: 1339
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1340
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が49.3、B相が12.1、上部が37.5です。
+  kind: filler
+  block: null
+- id: 1341
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1342
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が19.0、入口側が89.2、2番端子が75.6です。
+  kind: filler
+  block: null
+- id: 1343
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1344
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が56.9、3番端子が30.6、A相が47.8です。
+  kind: filler
+  block: null
+- id: 1345
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1346
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。C相が56.6、2番端子が32.7、1番端子が89.3です。
+  kind: filler
+  block: null
+- id: 1347
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1348
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が72.1、A相が83.0、上部が79.2です。
+  kind: filler
+  block: null
+- id: 1349
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1350
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が11.8、1番端子が62.6、出口側が85.3です。
+  kind: filler
+  block: null
+- id: 1351
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1352
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。入口側が82.7、中央が18.0、上部が31.9です。
+  kind: filler
+  block: null
+- id: 1353
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1354
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。A相が50.7、3番端子が85.7、C相が44.4です。
+  kind: filler
+  block: null
+- id: 1355
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1356
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。下部が88.1、B相が91.8、入口側が22.8です。
+  kind: filler
+  block: null
+- id: 1357
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1358
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が90.8、中央が64.4、2番端子が38.9です。
+  kind: filler
+  block: null
+- id: 1359
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1360
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。上部が11.7、3番端子が79.0、下部が62.0です。
+  kind: filler
+  block: null
+- id: 1361
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1362
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。1番端子が17.0、3番端子が26.6、A相が36.6です。
+  kind: filler
+  block: null
+- id: 1363
+  speaker: 鈴木 舞
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1364
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。2番端子が83.2、1番端子が70.4、入口側が15.4です。
+  kind: filler
+  block: null
+- id: 1365
+  speaker: 鈴木 舞
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1366
+  speaker: 鈴木 舞
+  text: 測定値を読み上げます。3番端子が68.3、下部が58.4、入口側が33.8です。
+  kind: filler
+  block: null
+- id: 1367
+  speaker: 鈴木 舞
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1368
+  speaker: 佐藤 健二
+  text: 取扱説明書ですが、画面操作の説明が全体的に不足していると思います。
+  kind: block
+  block: plc_manual
+- id: 1369
+  speaker: 鈴木 舞
+  text: 具体的にどの画面の説明を追記すればよいか、ご指示いただけますか。
+  kind: block
+  block: plc_manual
+- id: 1370
+  speaker: 佐藤 健二
+  text: 社内で運転員に聞いて一覧にします。それまでこの件は保留にしてください。
+  kind: block
+  block: plc_manual
+- id: 1371
+  speaker: 田中 誠
+  text: 測定値を読み上げます。A相が66.6、下部が80.4、3番端子が34.0です。
+  kind: filler
+  block: null
+- id: 1372
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1373
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が25.4、2番端子が30.1、A相が87.4です。
+  kind: filler
+  block: null
+- id: 1374
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1375
+  speaker: 田中 誠
+  text: 測定値を読み上げます。中央が45.4、C相が80.2、下部が63.1です。
+  kind: filler
+  block: null
+- id: 1376
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1377
+  speaker: 田中 誠
+  text: 測定値を読み上げます。入口側が43.9、B相が12.2、上部が41.2です。
+  kind: filler
+  block: null
+- id: 1378
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1379
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が59.8、1番端子が21.2、入口側が46.1です。
+  kind: filler
+  block: null
+- id: 1380
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1381
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が33.5、2番端子が21.2、C相が44.1です。
+  kind: filler
+  block: null
+- id: 1382
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1383
+  speaker: 田中 誠
+  text: 測定値を読み上げます。C相が86.8、3番端子が53.8、B相が47.8です。
+  kind: filler
+  block: null
+- id: 1384
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1385
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が21.4、上部が40.9、C相が44.7です。
+  kind: filler
+  block: null
+- id: 1386
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1387
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が19.0、A相が60.6、2番端子が62.4です。
+  kind: filler
+  block: null
+- id: 1388
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1389
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が52.5、中央が97.1、3番端子が41.5です。
+  kind: filler
+  block: null
+- id: 1390
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1391
+  speaker: 田中 誠
+  text: 測定値を読み上げます。出口側が76.1、上部が21.3、A相が14.3です。
+  kind: filler
+  block: null
+- id: 1392
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1393
+  speaker: 田中 誠
+  text: 測定値を読み上げます。1番端子が11.7、B相が80.8、上部が11.1です。
+  kind: filler
+  block: null
+- id: 1394
+  speaker: 田中 誠
+  text: はい、記録表に記入しました。
+  kind: filler
+  block: null
+- id: 1395
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が49.8、中央が62.5、出口側が87.8です。
+  kind: filler
+  block: null
+- id: 1396
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1397
+  speaker: 田中 誠
+  text: 測定値を読み上げます。下部が80.1、1番端子が61.8、入口側が82.4です。
+  kind: filler
+  block: null
+- id: 1398
+  speaker: 田中 誠
+  text: 控えました。次お願いします。
+  kind: filler
+  block: null
+- id: 1399
+  speaker: 田中 誠
+  text: 測定値を読み上げます。3番端子が97.9、入口側が30.9、中央が78.7です。
+  kind: filler
+  block: null
+- id: 1400
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1401
+  speaker: 田中 誠
+  text: 測定値を読み上げます。2番端子が72.5、A相が64.0、B相が85.7です。
+  kind: filler
+  block: null
+- id: 1402
+  speaker: 田中 誠
+  text: 記録しました。
+  kind: filler
+  block: null
+- id: 1403
+  speaker: 鈴木 舞
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 1404
+  speaker: 山田 隆
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null
