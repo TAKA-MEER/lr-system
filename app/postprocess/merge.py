@@ -48,6 +48,25 @@ def _longer(a: str, b: str) -> str:
     return b if len(b or "") > len(a or "") else (a or "")
 
 
+def _combine(a: str, b: str, limit: int = 400) -> str:
+    """同じ話題の要望・回答を統合する。一方が他方を含むなら長い方、違う内容ならつなげて残す
+    (長い方だけを残すと、もう一方にしか無い測定値が落ちた。比較実験 exp/prog-merge)"""
+    a, b = a or "", b or ""
+    na, nb = _norm(a), _norm(b)
+    if not nb or nb in na:
+        return a
+    if not na or na in nb:
+        return b
+    joined = f"{a}／{b}"
+    return joined if len(joined) <= limit else _longer(a, b)
+
+
+def _same_sentence(a: str, b: str) -> bool:
+    if _ids(a) != _ids(b):
+        return False
+    return SequenceMatcher(None, _norm(a), _norm(b)).ratio() >= 0.8
+
+
 def merge_discussions(items: list[dict]) -> list[dict]:
     """items は時系列順。同じ話題を1件にまとめる"""
     groups: list[dict] = []
@@ -61,8 +80,8 @@ def merge_discussions(items: list[dict]) -> list[dict]:
                            "_topics": [d["topic"]]})
             continue
         target["_topics"].append(d["topic"])
-        target["client_request"] = _longer(target["client_request"], d.get("client_request") or "")
-        target["our_response"] = _longer(target["our_response"], d.get("our_response") or "")
+        target["client_request"] = _combine(target["client_request"], d.get("client_request") or "")
+        target["our_response"] = _combine(target["our_response"], d.get("our_response") or "")
         if d.get("status"):
             target["status"] = d["status"]  # 時系列で後の記述を優先
     return [{k: v for k, v in g.items() if not k.startswith("_")} for g in groups]
@@ -73,7 +92,9 @@ def merge_actions(items: list[dict]) -> list[dict]:
     for a in items:
         if not isinstance(a, dict) or not a.get("content"):
             continue
-        prev = next((x for x in out if x.get("owner") == a.get("owner") and same_topic(x["content"], a["content"])), None)
+        # 対応内容は文章が長く共通の語句(「見積もりを提出」等)を含みやすいため、ほぼ同じ文だけをまとめる
+        # (話題名と同じ基準では別の対応まで統合してしまった。比較実験 exp/prog-merge)
+        prev = next((x for x in out if x.get("owner") == a.get("owner") and _same_sentence(x["content"], a["content"])), None)
         if prev is None:
             out.append(dict(a))
         else:
