@@ -143,7 +143,19 @@ async def build_minutes(full_text: str, meta: dict, llm_cfg: dict, ollama: Ollam
     t0 = time.time()
     minutes_json = None
     raw = ""
+    if llm_cfg.get("stage2_think", False):
+        # thinking(思考してから回答)で統合する。qwen3.5では thinking と JSONスキーマ(format)を併用すると
+        # 応答が空になるため、スキーマなしで生成し、解析できなければ下の通常の生成にやり直す
+        raw = await ollama.chat(model=model, prompt=stage2_prompt, max_tokens=llm_cfg.get("stage2_think_max_tokens", 16384),
+                                temperature=temperature, num_ctx=num_ctx, num_gpu=num_gpu, think=True, timeout=1800.0)
+        minutes_json = _try_parse(raw)
+        info["stage2_think_ok"] = minutes_json is not None
+        info["stage2_think_seconds"] = round(time.time() - t0, 1)
+        if minutes_json is None:
+            logger.warning(f"Stage2(thinking)で回答を得られず、通常の生成でやり直します。raw末尾={raw[-200:]!r}")
     for attempt in range(2):
+        if minutes_json is not None:
+            break
         raw = await call(stage2_prompt, STAGE2_SCHEMA, stage2_max_tokens)
         minutes_json = _try_parse(raw)
         if minutes_json is not None:

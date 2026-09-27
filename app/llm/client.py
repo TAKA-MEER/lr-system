@@ -9,14 +9,15 @@ class OllamaClient:
         self.base_url = base_url.rstrip("/")
 
     async def chat(self, model: str, prompt: str, max_tokens: int = 4096, temperature: float = 0.2, num_ctx: int = 32768,
-                   num_gpu: int | None = None, json_schema: dict | None = None, timeout: float = 600.0) -> str:
+                   num_gpu: int | None = None, json_schema: dict | None = None, timeout: float = 600.0,
+                   think: bool = False) -> str:
         """Ollama /api/generate を呼んでテキストを返す"""
         url = f"{self.base_url}/api/generate"
         payload = {
             "model": model,
             "prompt": prompt,
             "stream": False,
-            "think": False,  # thinking対応モデル(qwen3系等)でも思考ブロックを出力させず、
+            "think": think,  # 既定False: thinking対応モデル(qwen3系等)でも思考ブロックを出力させず、
                              # 素直にJSONだけを出力させる(トークン上限到達によるJSON途中切れを防ぐ)
             "options": {"num_predict": max_tokens, "temperature": temperature, "num_ctx": num_ctx},
             # num_ctx未指定時はOllamaの既定コンテキスト長が使われ、入力プロンプトだけで
