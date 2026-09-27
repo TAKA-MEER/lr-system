@@ -8,8 +8,9 @@ import re
 import time
 
 from llm.client import OllamaClient
-from llm.prompts import build_stage1_prompt, build_stage2_prompt
+from llm.prompts import build_cluster_prompt, build_stage1_prompt, build_stage2_prompt
 from postprocess.chunker import split_transcript
+from postprocess.merge import merge_actions, merge_discussions
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +39,14 @@ STAGE1_SCHEMA = {
     "properties": {"discussions": {"type": "array", "items": _DISCUSSION},
                    "action_items": {"type": "array", "items": _ACTION}},
     "required": ["discussions", "action_items"],
+}
+CLUSTER_SCHEMA = {
+    "type": "object",
+    "properties": {"groups": {"type": "array", "items": {
+        "type": "object",
+        "properties": {"topic": {"type": "string"}, "members": {"type": "array", "items": {"type": "integer"}}},
+        "required": ["topic", "members"]}}},
+    "required": ["groups"],
 }
 STAGE2_SCHEMA = {
     "type": "object",
@@ -136,9 +145,39 @@ async def build_minutes(full_text: str, meta: dict, llm_cfg: dict, ollama: Ollam
         logger.info(f"  Stage1 [{i+1}/{len(chunks)}] 完了")
     info["stage1_seconds"] = round(time.time() - t0, 1)
 
+    # 話題名だけをLLMに渡してグループ分けさせ、グループごとにプログラムで統合してからStage2に渡す
+    stage2_inputs = summaries_raw
+    if llm_cfg.get("topic_cluster", False) and summaries:
+        items = [d for sm in summaries for d in (sm.get("discussions") or []) if isinstance(d, dict) and d.get("topic")]
+        t1 = time.time()
+        raw_c = await call(build_cluster_prompt([d["topic"] for d in items]), CLUSTER_SCHEMA, max_tokens)
+        parsed_c = _try_parse(raw_c)
+        info["cluster_seconds"] = round(time.time() - t1, 1)
+        info["cluster_ok"] = parsed_c is not None
+        merged_ds = None
+        if parsed_c:
+            seen: set[int] = set()
+            merged_ds = []
+            for g in parsed_c.get("groups", []):
+                members = [m for m in g.get("members", []) if isinstance(m, int) and 0 <= m < len(items) and m not in seen]
+                seen.update(members)
+                if not members:
+                    continue
+                members.sort()  # 時系列順に統合する(状態は後の記述を優先)
+                d = merge_discussions([dict(items[m], topic=g.get("topic") or items[m]["topic"]) for m in members])
+                merged_ds += d[:1]
+            merged_ds += [dict(items[i]) for i in range(len(items)) if i not in seen]  # グループ漏れはそのまま
+        else:
+            merged_ds = merge_discussions(items)  # グループ分けに失敗したらプログラムの名寄せで代用
+        acts = merge_actions([a for sm in summaries for a in (sm.get("action_items") or [])])
+        info["stage1_topics_total"] = len(items)
+        info["merged_topics"] = len(merged_ds)
+        logger.info(f"話題のグループ分け: {len(items)}件 → {len(merged_ds)}件")
+        stage2_inputs = [json.dumps({"discussions": merged_ds, "action_items": acts}, ensure_ascii=False)]
+
     # Stage 2: 要点JSONを統合して最終議事録JSON生成(解析できなければ1回だけやり直す)
     logger.info("Stage2: 最終議事録を生成中...")
-    stage2_prompt = build_stage2_prompt(summaries_raw, meta)
+    stage2_prompt = build_stage2_prompt(stage2_inputs, meta)
     info["stage2_prompt_chars"] = len(stage2_prompt)
     t0 = time.time()
     minutes_json = None

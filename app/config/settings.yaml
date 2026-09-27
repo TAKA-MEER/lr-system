@@ -31,6 +31,7 @@ llm:
   model: qwen3.5:9b
   max_tokens: 4096
   stage2_max_tokens: 8192     # 最終議事録の出力上限。協議事項が多い試験で出力が途中で切れるのを防ぐ
+  topic_cluster: true         # 話題名をLLMでグループ分けしてからプログラムで統合する(比較実験 exp/topic-cluster)
   structured_output: true     # 出力をJSONスキーマで制約する(JSONの書式崩れで議事録が空になるのを防ぐ)
   num_gpu: 99                 # 全層をGPUに載せる。未指定だとOllamaが空きVRAMの余裕を多めに取り、
                               # 一部の層をCPUに逃がして生成が約3倍遅くなる(第2期試験で確認)。
