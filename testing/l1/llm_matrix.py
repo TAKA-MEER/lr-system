@@ -56,6 +56,10 @@ def scen(name: str) -> Path:
 ALL_DOMAINS = ["switchgear", "transformer", "motor", "plc"]
 
 
+TOPICS_N = [2, 3, 5, 8, 10]
+LONG_REPEATS = 1
+
+
 def condition_list(sets: list[str]) -> list[dict]:
     """各条件: {set, cond, scen_dir, labels, cer, flip, llm_overrides}"""
     conds = []
@@ -80,10 +84,14 @@ def condition_list(sets: list[str]) -> list[dict]:
         for fl in [0.0, 0.1, 0.3, 0.5]:
             add("flip", f"flip{fl:.1f}", scen("s_e2e_mix"), labels="oracle", flip=fl)
     if "topics" in sets:  # C-1 協議事項の数
-        for n in [2, 3, 5, 8, 10]:
+        for n in TOPICS_N:
             d = ensure_scenario({"name": f"dyn_topics_{n}", "seed": 100 + n, "domains": ALL_DOMAINS,
                                  "blocks_per_domain": n})
             add("topics", f"topics_x{n}", d)
+    if "long_single" in sets:  # 1題材だけの長時間試験(4題材を混ぜた台本は別機器の同名の話題が出やすく、実際の試験と異なるため)
+        for d in ALL_DOMAINS:
+            sc = ensure_scenario({"name": f"dyn_long1_{d}", "seed": 300, "domains": [d], "filler_chars": 20000})
+            add("long_single", f"long1_{d}", sc)
     if "long" in sets:  # C-2 試験時間(文字数)
         for chars in [10000, 30000, 60000, 100000]:
             d = ensure_scenario({"name": f"dyn_long_{chars}", "seed": 200, "domains": ALL_DOMAINS,
@@ -99,7 +107,7 @@ def build_jobs(conds: list[dict], repeats: int) -> list[dict]:
         m = script["meta"]
         meta = {"trial_name": m["trial_name"], "location": m["location"], "date": m["date"],
                 "attendees": {"client": m["client_attendees"], "our_side": m["our_attendees"]}}
-        reps = 1 if c["set"] == "long" else repeats
+        reps = LONG_REPEATS if c["set"] == "long" else repeats
         for r in range(reps):
             text = simulate(script, labels=c["labels"], cer=c["cer"], flip=c["flip"], seed=r)
             jobs.append({"job_id": f"{c['set']}/{c['cond']}/r{r}", "set": c["set"], "cond": c["cond"],
@@ -173,7 +181,13 @@ def main():
     ap.add_argument("--keep-app", action="store_true", help="minutes-appを止めない(デバッグ用)")
     ap.add_argument("--num-gpu", type=int, default=None,
                     help="全ジョブのOllama num_gpu。試験時間短縮用(品質は同じモデルなので変わらない想定)")
+    ap.add_argument("--topics-n", default=None, help="topicsセットの題材あたりブロック数(例: 5,8,10)")
+    ap.add_argument("--long-repeats", type=int, default=1, help="longセットの繰り返し回数")
     args = ap.parse_args()
+    global TOPICS_N, LONG_REPEATS
+    if args.topics_n:
+        TOPICS_N = [int(x) for x in args.topics_n.split(",")]
+    LONG_REPEATS = args.long_repeats
 
     work = TESTING_DIR / "results" / "v2" / "l1_llm" / args.tag
     work.mkdir(parents=True, exist_ok=True)
