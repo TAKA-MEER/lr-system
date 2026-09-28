@@ -68,12 +68,20 @@ def merge_discussions(items: list[dict]) -> list[dict]:
     return [{k: v for k, v in g.items() if not k.startswith("_")} for g in groups]
 
 
+def _same_sentence(a: str, b: str) -> bool:
+    if _ids(a) != _ids(b):
+        return False
+    return SequenceMatcher(None, _norm(a), _norm(b)).ratio() >= 0.8
+
+
 def merge_actions(items: list[dict]) -> list[dict]:
     out: list[dict] = []
     for a in items:
         if not isinstance(a, dict) or not a.get("content"):
             continue
-        prev = next((x for x in out if x.get("owner") == a.get("owner") and same_topic(x["content"], a["content"])), None)
+        # 対応内容は文章が長く共通の語句(「見積もりを提出」等)を含みやすいため、ほぼ同じ文だけをまとめる
+        # (話題名と同じ基準では別の対応まで統合してしまった。比較実験 exp/prog-merge)
+        prev = next((x for x in out if x.get("owner") == a.get("owner") and _same_sentence(x["content"], a["content"])), None)
         if prev is None:
             out.append(dict(a))
         else:
