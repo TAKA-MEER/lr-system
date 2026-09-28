@@ -1,0 +1,55 @@
+# script.yaml の正解データ(人手作成)。evaluate/v2_eval.py・l1/llm_matrix.py が読む。
+# 試験日は 2026年9月28日(月)。相対的な期限: 来週中=10月5〜9日、来週の水曜日=10月7日、今月中=9月30日まで。
+meta:
+  trial_name: 非常用ディーゼル発電設備(型式 EG-500) 工場立会試験
+  location: 発電機工場 負荷試験場
+  date: 2026年9月28日
+  client_attendees: [小野寺 恵子, 石川 雄一]
+  our_attendees: [田村 翔, 森 さやか]
+discussions:
+- {id: g_start, topic_keywords: [始動], request_keywords: [], response_keywords: ["9.4", "40秒"], expected_status: 合意済み, status_changed: false, values: ["9.4"]}
+- {id: g_load, topic_keywords: [負荷試験], request_keywords: [冷却水, 記録], response_keywords: ["82", ロガー], expected_status: 継続協議, status_changed: true, values: ["500", "82"],
+   note: 午前に合意済み → 記録の欠けにより合意取り消し(ターン49-50)。最終は継続協議}
+- {id: g_volt, topic_keywords: [電圧変動, 電圧低下], request_keywords: [ポンプ, 余裕], response_keywords: ["19", 換算], expected_status: 合意済み, status_changed: true, values: ["18", "19"],
+   note: 継続協議(ターン19) → 換算結果で合意済み(ターン48)}
+- {id: g_freq, topic_keywords: [周波数], request_keywords: [], response_keywords: ["50.02"], expected_status: 合意済み, status_changed: false, values: ["50.02"]}
+- {id: g_fuel, topic_keywords: [燃料消費], request_keywords: ["235", 保証], response_keywords: ["238", 許容差], expected_status: 保留, status_changed: false, values: ["238", "235"]}
+- {id: g_ats, topic_keywords: [切替, ATS], request_keywords: ["0.5"], response_keywords: ["0.6", リレー], expected_status: 合意済み, status_changed: false, values: ["0.6", "0.5"]}
+- {id: g_insul, topic_keywords: [断熱, 排気管], request_keywords: [隙間], response_keywords: [巻き直], expected_status: 合意済み, status_changed: false, values: []}
+- {id: g_overspeed, topic_keywords: [過速度, トリップ], request_keywords: [], response_keywords: ["1725"], expected_status: 合意済み, status_changed: false, values: ["1725"],
+   note: 1719回転と言い直している。議事録に1725が残るかを確認}
+- {id: g_display, topic_keywords: [英語, 表示], request_keywords: [英語], response_keywords: [見積], expected_status: 継続協議, status_changed: false, values: []}
+action_items:
+- {id: a_fuel, content_keywords: [契約, 許容差], owner: client, deadline_text: 来週中, deadline_accept: [来週]}
+- {id: a_ats, content_keywords: [切替, リレー, 設定], owner: our_side, deadline_text: 来週の水曜日, deadline_accept: [来週, 水曜, 10月7日, 10/7]}
+- {id: a_insul, content_keywords: [断熱, 巻き直], owner: our_side, deadline_text: 今月中, deadline_accept: [今月, 9月30日, 9/30, 月末]}
+- {id: a_display, content_keywords: [見積], owner: our_side, deadline_text: 10月14日, deadline_accept: [10月14日, 10/14]}
+- {id: a_load, content_keywords: [冷却水, 記録, ロガー], owner: our_side, deadline_text: 10月2日, deadline_accept: [10月2日, 10/2]}
+chitchat_keywords: [祭り, 屋台]
+terms:
+- {turn_id: 5, alts: ["9.4秒"]}
+- {turn_id: 6, alts: ["40秒"]}
+- {turn_id: 9, alts: ["500キロボルトアンペア", "500kVA", "500キロVA"]}
+- {turn_id: 10, alts: ["82度"]}
+- {turn_id: 10, alts: ["480度"]}
+- {turn_id: 14, alts: [電圧変動率]}
+- {turn_id: 15, alts: ["18パーセント", "18%"]}
+- {turn_id: 15, alts: ["1.2秒"]}
+- {turn_id: 19, alts: [継続協議]}
+- {turn_id: 21, alts: ["50.02ヘルツ", "50.02Hz"]}
+- {turn_id: 23, alts: [燃料消費率]}
+- {turn_id: 23, alts: ["238グラム", "238g"]}
+- {turn_id: 24, alts: ["235グラム", "235g"]}
+- {turn_id: 26, alts: [保留]}
+- {turn_id: 32, alts: [ATS]}
+- {turn_id: 33, alts: ["0.6秒"]}
+- {turn_id: 34, alts: ["0.5秒"]}
+- {turn_id: 35, alts: [水曜日]}
+- {turn_id: 37, alts: [断熱材]}
+- {turn_id: 38, alts: [今月中]}
+- {turn_id: 40, alts: [過速度トリップ]}
+- {turn_id: 40, alts: ["1500回転"]}
+- {turn_id: 41, alts: ["1725回転"]}
+- {turn_id: 44, alts: ["10月14日"]}
+- {turn_id: 46, alts: ["19パーセント", "19%"]}
+- {turn_id: 51, alts: ["10月2日"]}

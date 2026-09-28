@@ -88,6 +88,10 @@ def condition_list(sets: list[str]) -> list[dict]:
             d = ensure_scenario({"name": f"dyn_topics_{n}", "seed": 100 + n, "domains": ALL_DOMAINS,
                                  "blocks_per_domain": n})
             add("topics", f"topics_x{n}", d)
+    if "genset" in sets:  # 手書きの最終確認用台本(非常用ディーゼル発電設備)
+        d = SCEN_DIR / "handwritten" / "s_genset"
+        add("genset", "system_labels", d)
+        add("genset", "oracle_labels", d, labels="oracle")
     if "long_single" in sets:  # 1題材だけの長時間試験(4題材を混ぜた台本は別機器の同名の話題が出やすく、実際の試験と異なるため)
         for d in ALL_DOMAINS:
             sc = ensure_scenario({"name": f"dyn_long1_{d}", "seed": 300, "domains": [d], "filler_chars": 20000})
