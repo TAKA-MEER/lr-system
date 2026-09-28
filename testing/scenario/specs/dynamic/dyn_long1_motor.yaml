@@ -1,0 +1,5 @@
+domains:
+- motor
+filler_chars: 20000
+name: dyn_long1_motor
+seed: 300

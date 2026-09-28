@@ -1,0 +1,263 @@
+meta:
+  trial_name: 油入変圧器(型式 TR-5000 10MVA) 工場立会試験
+  location: 変圧器工場 大型試験場
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: tr_ratio
+  topic_keywords:
+  - 変圧比
+  request_keywords: []
+  response_keywords:
+  - '0.2'
+  - '0.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.2'
+- id: tr_noload
+  topic_keywords:
+  - 無負荷損
+  request_keywords:
+  - '8.4'
+  - 保証値
+  - 超過
+  response_keywords:
+  - 許容差
+  - JEC
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '8.4'
+  - '8.0'
+- id: tr_impedance
+  topic_keywords:
+  - インピーダンス
+  - 負荷損
+  request_keywords: []
+  response_keywords:
+  - '7.4'
+  - '7.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '7.4'
+- id: tr_temp
+  topic_keywords:
+  - 温度上昇
+  request_keywords:
+  - 余裕
+  - '63'
+  response_keywords:
+  - '52'
+  - '65'
+  expected_status: 保留
+  status_changed: false
+  values:
+  - '52'
+  - '63'
+- id: tr_oil_leak
+  topic_keywords:
+  - 油にじみ
+  - 油漏れ
+  - フランジ
+  - パッキン
+  request_keywords:
+  - にじみ
+  response_keywords:
+  - パッキン
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_noise
+  topic_keywords:
+  - 騒音
+  request_keywords: []
+  response_keywords:
+  - '68'
+  - '70'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '68'
+- id: tr_tap_counter
+  topic_keywords:
+  - タップ
+  - カウンター
+  - 動作回数
+  request_keywords:
+  - 表示
+  response_keywords:
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_dga
+  topic_keywords:
+  - 油中ガス
+  - 絶縁油
+  request_keywords:
+  - 分析
+  response_keywords:
+  - 外部
+  - 結果
+  expected_status: 保留
+  status_changed: false
+  values: []
+- id: tr_paint
+  topic_keywords:
+  - 膜厚
+  request_keywords:
+  - '72'
+  - 補修
+  response_keywords:
+  - 補修
+  - '85'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '85'
+  - '72'
+- id: tr_thermometer
+  topic_keywords:
+  - 温度計
+  - 目盛
+  request_keywords:
+  - 見にくい
+  - 大きい
+  response_keywords:
+  - 標準品
+  - 変更
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+action_items:
+- id: tr_oil_leak_action
+  content_keywords:
+  - パッキン
+  owner: our_side
+  deadline_text: 10月12日
+  deadline_accept:
+  - 10月12日
+- id: tr_tap_counter_action
+  content_keywords:
+  - カウンター
+  owner: our_side
+  deadline_text: 10月20日
+  deadline_accept:
+  - 10月20日
+- id: tr_dga_action
+  content_keywords:
+  - 油中ガス
+  - 分析
+  owner: our_side
+  deadline_text: 10月21日
+  deadline_accept:
+  - 10月21日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 変圧比
+- turn_id: 4
+  alts:
+  - 0.2パーセント
+  - 0.2%
+- turn_id: 4
+  alts:
+  - 66キロボルト
+  - 66kV
+- turn_id: 7
+  alts:
+  - 変圧比
+- turn_id: 88
+  alts:
+  - 無負荷損
+- turn_id: 88
+  alts:
+  - 8.4キロワット
+  - 8.4kW
+- turn_id: 89
+  alts:
+  - 8.0キロワット
+  - 8.0kW
+  - 8キロワット
+- turn_id: 90
+  alts:
+  - 無負荷損
+- turn_id: 173
+  alts:
+  - インピーダンス
+- turn_id: 173
+  alts:
+  - 7.4パーセント
+  - 7.4%
+- turn_id: 257
+  alts:
+  - 温度上昇
+- turn_id: 257
+  alts:
+  - 52ケルビン
+  - 52K
+- turn_id: 257
+  alts:
+  - 63ケルビン
+  - 63K
+- turn_id: 342
+  alts:
+  - 放熱器
+- turn_id: 343
+  alts:
+  - パッキン
+- turn_id: 344
+  alts:
+  - パッキン
+- turn_id: 426
+  alts:
+  - 68デシベル
+  - 68dB
+- turn_id: 427
+  alts:
+  - 70デシベル
+  - 70dB
+- turn_id: 513
+  alts:
+  - 負荷時タップ切換器
+- turn_id: 513
+  alts:
+  - カウンター
+- turn_id: 514
+  alts:
+  - カウンター
+- turn_id: 598
+  alts:
+  - 油中ガス分析
+- turn_id: 598
+  alts:
+  - 絶縁油
+- turn_id: 682
+  alts:
+  - 膜厚
+- turn_id: 682
+  alts:
+  - 85ミクロン
+  - 85μm
+- turn_id: 683
+  alts:
+  - 72ミクロン
+  - 72μm
+- turn_id: 766
+  alts:
+  - ダイヤル温度計
+- turn_id: 766
+  alts:
+  - 目盛り
+- turn_id: 767
+  alts:
+  - 目盛り
