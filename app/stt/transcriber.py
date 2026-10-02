@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import numpy as np
 import torch
 from faster_whisper import WhisperModel
+from faster_whisper.utils import download_model
 
 from stt.ebml_utils import find_first_cluster_offset
 
@@ -115,8 +116,19 @@ class Transcriber:
 
     def _load(self):
         logger.info(f"faster-whisper [{self._model_size}] をロード中...")
-        self.model = WhisperModel(self._model_size, device=self._device, compute_type=self._compute_type)
+        self.model = WhisperModel(self._resolve_model_path(), device=self._device, compute_type=self._compute_type)
         logger.info("faster-whisper ロード完了")
+
+    def _resolve_model_path(self) -> str:
+        """モデルはローカルキャッシュ(HF_HOME)から読む。無い場合(新しいPCの初回起動)だけダウンロードする。"""
+        try:
+            return download_model(self._model_size, local_files_only=True)
+        except Exception as e:
+            logger.warning(
+                f"faster-whisper [{self._model_size}] がローカルに無いためダウンロードします"
+                f"(初回のみ。large-v3は約3GB、要インターネット接続): {type(e).__name__}"
+            )
+            return download_model(self._model_size)
 
     def unload(self):
         """VRAMを解放する(LLM処理前に呼ぶ)。既に未ロードなら何もしない。"""

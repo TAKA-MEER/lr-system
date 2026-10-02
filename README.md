@@ -87,17 +87,13 @@ PowerShell またはコマンドプロンプトで実行します。
 
 ```powershell
 cd minutes-system
-docker compose build
-# 初回のみ: 文字起こしモデル(faster-whisper large-v3、約3GB)を ./models にダウンロードする
-docker compose run --rm --no-deps -e HF_HUB_OFFLINE=0 minutes-app python -c "from faster_whisper.utils import download_model; download_model('large-v3')"
-docker compose up
+docker compose up --build
 ```
 
 **初回起動時の注意**  
-`minutes-app` は意図しない外部通信を防ぐため `HF_HUB_OFFLINE=1` で動作し、起動時にモデルをダウンロードしません。
-`./models` はGitで管理していないため、新しいPCでは上記のダウンロードを先に行ってください
-（行わずに起動すると `LocalEntryNotFoundError` で起動に失敗します）。
-`app/config/settings.yaml` の `stt.model_size` を変えた場合は、`download_model('...')` の引数も合わせて実行し直してください。  
+文字起こしモデル(faster-whisper large-v3、約3GB)は `./models` に保存されます(Git管理外)。
+新しいPCの初回起動時は `minutes-app` が自動でダウンロードします(ログに「ローカルに無いためダウンロードします」と出ます)。
+2回目以降はローカルのモデルだけを読み、HuggingFaceへは通信しません。  
 
 Ollamaコンテナが `qwen3.5:9b`（約6.6GB）を自動ダウンロードします。  
 インターネット接続のある環境で実行してください。完了後はオフライン環境でも動作します。  
@@ -254,7 +250,8 @@ docker compose logs minutes-ollama
 ```
 
 `huggingface_hub.errors.LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder ...` が出る場合：
-文字起こしモデルが `./models` にまだありません。[2-3](#2-3-システムの起動) のダウンロードコマンドを実行してから起動し直してください。
+文字起こしモデルが `./models` に無く、ダウンロードもできない状態です。インターネットに接続した状態で起動し直してください
+（環境変数 `HF_HUB_OFFLINE=1` を設定している場合は外してください）。
 
 GPUが認識されていない場合：
 

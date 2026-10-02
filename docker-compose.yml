@@ -12,7 +12,9 @@ services:
       - OLLAMA_HOST=http://minutes-ollama:11434
       - HF_HOME=/models
       - CUDA_VISIBLE_DEVICES=0
-      - HF_HUB_OFFLINE=1
+      # STTモデルはキャッシュがあればローカルのみから読む(transcriber.py)。HF_HUB_OFFLINE=1 にすると
+      # 新しいPCの初回起動でダウンロードできず起動に失敗するため設定しない。
+      - HF_HUB_DISABLE_TELEMETRY=1
     depends_on:
       - minutes-ollama
     restart: unless-stopped
