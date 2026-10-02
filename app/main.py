@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from api.routes import router as api_router
+from api.websocket import configure as configure_sessions
 from api.websocket import router as ws_router
 from stt.transcriber import Transcriber
 
@@ -34,6 +35,8 @@ async def lifespan(app: FastAPI):
     )
     app.state.transcriber = transcriber
     app.state.config = cfg
+    app.state.generating = False
+    configure_sessions(cfg)
     logger.info("STTモデルの初期化完了")
     yield
     # 終了時: VRAMを解放

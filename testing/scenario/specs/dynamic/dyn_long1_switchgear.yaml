@@ -1,0 +1,5 @@
+domains:
+- switchgear
+filler_chars: 20000
+name: dyn_long1_switchgear
+seed: 300

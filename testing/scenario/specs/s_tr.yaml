@@ -1,0 +1,4 @@
+# C-8 題材の違い: 油入変圧器
+name: s_tr
+seed: 12
+domains: [transformer]

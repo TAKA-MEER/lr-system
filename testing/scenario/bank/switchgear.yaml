@@ -1,0 +1,176 @@
+# 協議ブロック集: 配電盤 工場立会試験
+#
+# 書式(全bank共通、scenario/generate_scenario.py が読む):
+#   blocks[].id                 ブロックID
+#   blocks[].name               発話中で話題を指すときの呼び方(再訪・撤回ターンで {name} に入る)
+#   blocks[].status             このブロック単体での最終状態(合意済み/継続協議/保留)
+#   blocks[].topic_keywords     議事録の協議事項と対応付けるキーワード(いずれか一致)
+#   blocks[].request_keywords / response_keywords  要望・回答欄の確認用キーワード
+#   blocks[].values             議事録に正しく転記されるべき数値(文字列、NFKC正規化後に部分一致で判定)
+#   blocks[].terms              文字起こしで正しく認識されるべき数値・型式・専門用語(「|」で表記ゆれを列挙)
+#   blocks[].action             期限付き対応がある場合 {content_keywords, owner, deadline_abs}
+#   blocks[].turns              [{r: client|our, t: 本文}]  本文中の {deadline} は期限表現に置換される
+#   blocks[].resolve_turns      status=継続協議 のブロックを後で「合意済み」に確定させるターン(任意)
+
+domain: switchgear
+meta:
+  trial_name: "閉鎖配電盤(型式 SWB-3300) 出荷前立会試験"
+  location: "第2工場 電気試験室"
+
+blocks:
+  - id: sg_appearance
+    name: "右側面の塗装"
+    status: 合意済み
+    topic_keywords: ["塗装", "外観"]
+    request_keywords: ["ムラ", "塗装"]
+    response_keywords: ["再塗装"]
+    values: []
+    terms: ["塗装", "ムラ"]
+    action: {content_keywords: ["塗装"], owner: our_side, deadline_abs: "10月9日"}
+    turns:
+      - {r: client, t: "まず外観ですが、右側面の下のあたりに塗装のムラがありますね。光の当たり方で目立ちます。"}
+      - {r: our, t: "ご指摘ありがとうございます。確かにムラがありますので、右側面は出荷前に再塗装いたします。"}
+      - {r: client, t: "お願いします。いつ頃になりますか。"}
+      - {r: our, t: "{deadline}までに再塗装を完了させて、写真でご報告します。"}
+      - {r: client, t: "分かりました。それで結構です。"}
+
+  - id: sg_dimension
+    name: "盤の寸法"
+    status: 合意済み
+    topic_keywords: ["寸法"]
+    request_keywords: ["寸法", "幅"]
+    response_keywords: ["801.5", "公差", "範囲"]
+    values: ["800", "801.5"]
+    terms: ["800ミリ|800mm", "801.5", "プラスマイナス2|±2"]
+    turns:
+      - {r: our, t: "続いて寸法の確認です。盤の幅は図面で800ミリ、公差はプラスマイナス2ミリです。"}
+      - {r: our, t: "実測は801.5ミリでした。公差の範囲に入っています。"}
+      - {r: client, t: "奥行きと高さも図面どおりでしたか。"}
+      - {r: our, t: "はい、奥行き、高さとも図面どおりです。記録表にも記入しています。"}
+      - {r: client, t: "了解です。寸法は問題ありません。"}
+
+  - id: sg_insulation
+    name: "絶縁抵抗"
+    status: 継続協議
+    topic_keywords: ["絶縁抵抗"]
+    request_keywords: ["3.2", "下限", "余裕"]
+    response_keywords: ["湿度", "再測定"]
+    values: ["3.2"]
+    terms: ["3.2メガオーム|3.2MΩ|3.2メグオーム", "絶縁抵抗"]
+    turns:
+      - {r: our, t: "次に絶縁抵抗試験の結果です。主回路と大地間で3.2メガオームでした。"}
+      - {r: client, t: "判定基準の下限は2メガオームですよね。合格ではありますが、余裕が少なくないですか。"}
+      - {r: our, t: "本日は湿度が68パーセントと高く、その影響が出ていると考えています。"}
+      - {r: client, t: "それなら乾燥させてから再測定してもらえますか。それまではこの項目は継続協議にしておきましょう。"}
+      - {r: our, t: "承知しました。除湿してから再測定します。"}
+    resolve_turns:
+      - {r: our, t: "先ほど継続協議になっていた絶縁抵抗の件ですが、除湿後に再測定したところ、45メガオームでした。"}
+      - {r: client, t: "45メガオームなら十分ですね。絶縁抵抗は合格で合意とします。"}
+
+  - id: sg_withstand
+    name: "耐電圧試験"
+    status: 合意済み
+    topic_keywords: ["耐電圧"]
+    request_keywords: []
+    response_keywords: ["2000", "異常"]
+    values: ["2000"]
+    terms: ["2000ボルト|2000V|2,000ボルト", "耐電圧"]
+    turns:
+      - {r: our, t: "耐電圧試験を行います。交流2000ボルトを1分間印加します。"}
+      - {r: our, t: "1分間経過しました。絶縁破壊やフラッシュオーバーなどの異常はありませんでした。"}
+      - {r: client, t: "漏れ電流の値はどうでしたか。"}
+      - {r: our, t: "漏れ電流は3.5ミリアンペアで、安定していました。"}
+      - {r: client, t: "問題ないですね。耐電圧試験は合格とします。"}
+
+  - id: sg_sequence
+    name: "遮断器の投入時間"
+    status: 保留
+    topic_keywords: ["シーケンス", "投入", "表示灯の点灯"]
+    request_keywords: ["0.5"]
+    response_keywords: ["0.8", "リレー"]
+    values: ["0.8", "0.5"]
+    terms: ["0.8秒", "0.5秒", "遮断器"]
+    turns:
+      - {r: our, t: "シーケンス動作試験です。遮断器の投入指令から表示灯の点灯まで0.8秒でした。"}
+      - {r: client, t: "当社の運用では0.5秒以内が望ましいと考えているんですが。"}
+      - {r: our, t: "仕様書には時間の規定がありませんが、補助リレーの設定変更で短くすることは可能です。"}
+      - {r: client, t: "要求値が仕様書に入っているか、社内で確認させてください。この件は保留でお願いします。"}
+      - {r: our, t: "承知しました。ご確認の結果をお待ちします。"}
+
+  - id: sg_interlock
+    name: "インターロック"
+    status: 合意済み
+    topic_keywords: ["インターロック"]
+    request_keywords: []
+    response_keywords: ["断路器", "遮断器"]
+    values: []
+    terms: ["インターロック", "断路器"]
+    turns:
+      - {r: our, t: "インターロックの確認です。遮断器が投入状態のときに、断路器を操作できないことを確認します。"}
+      - {r: our, t: "ご覧のとおり、断路器のハンドルはロックされて動きません。"}
+      - {r: client, t: "逆の条件、断路器が中間位置のときに遮断器が投入できないことも見せてください。"}
+      - {r: our, t: "はい。中間位置では投入指令を出しても遮断器は動作しません。"}
+      - {r: client, t: "確認しました。インターロックは問題ありません。"}
+
+  - id: sg_nameplate
+    name: "銘板の誤記"
+    status: 合意済み
+    topic_keywords: ["銘板"]
+    request_keywords: ["1200", "1250", "定格電流"]
+    response_keywords: ["再発行", "作り直"]
+    values: ["1250"]
+    terms: ["1200アンペア|1200A", "1250アンペア|1250A", "銘板"]
+    action: {content_keywords: ["銘板"], owner: our_side, deadline_abs: "10月16日"}
+    turns:
+      - {r: client, t: "銘板を見ると定格電流が1200アンペアになっていますが、仕様は1250アンペアですよね。"}
+      - {r: our, t: "申し訳ありません、銘板の誤記です。1250アンペアで作り直します。"}
+      - {r: client, t: "出荷までに間に合いますか。"}
+      - {r: our, t: "{deadline}までに再発行して取り付けます。取り付け後の写真もお送りします。"}
+      - {r: client, t: "それでお願いします。"}
+
+  - id: sg_lamp
+    name: "故障表示灯の色"
+    status: 合意済み
+    topic_keywords: ["表示灯", "色"]
+    request_keywords: ["黄色", "故障"]
+    response_keywords: ["交換", "費用"]
+    values: []
+    terms: ["表示灯", "黄色"]
+    action: {content_keywords: ["表示灯"], owner: our_side, deadline_abs: "10月23日"}
+    turns:
+      - {r: client, t: "表示灯について一つ要望があります。軽故障の表示灯を赤から黄色に変えてもらえませんか。"}
+      - {r: client, t: "既設の盤と色を合わせたいんです。"}
+      - {r: our, t: "レンズの交換だけで対応できますので、追加費用なしで変更いたします。"}
+      - {r: our, t: "{deadline}までに交換を済ませます。"}
+      - {r: client, t: "助かります。よろしくお願いします。"}
+
+  - id: sg_docs
+    name: "完成図書の英語版"
+    status: 継続協議
+    topic_keywords: ["完成図書", "英語"]
+    request_keywords: ["英語"]
+    response_keywords: ["見積", "費用"]
+    values: []
+    terms: ["完成図書", "英語版"]
+    action: {content_keywords: ["見積"], owner: our_side, deadline_abs: "10月14日"}
+    turns:
+      - {r: client, t: "完成図書ですが、海外の関連会社でも使うので英語版もいただけますか。"}
+      - {r: our, t: "英語版は契約範囲外になりますので、翻訳費用が別途かかります。"}
+      - {r: client, t: "費用次第ですね。まず見積もりをいただけますか。"}
+      - {r: our, t: "{deadline}までにお見積もりを提出します。"}
+      - {r: client, t: "それを見てから決めます。この件は継続協議でお願いします。"}
+
+  - id: sg_relay
+    name: "過電流継電器の動作試験"
+    status: 合意済み
+    topic_keywords: ["継電器", "過電流"]
+    request_keywords: []
+    response_keywords: ["0.31", "0.3"]
+    values: ["0.31"]
+    terms: ["過電流継電器", "5アンペア|5A", "0.31秒"]
+    turns:
+      - {r: our, t: "保護継電器の動作試験です。過電流継電器の整定は5アンペア、動作時間0.3秒です。"}
+      - {r: our, t: "試験電流を流したところ、動作時間は0.31秒でした。許容差はプラスマイナス5パーセントなので範囲内です。"}
+      - {r: client, t: "3回測定した値ですか。"}
+      - {r: our, t: "はい、3回の平均です。ばらつきは0.01秒以内でした。"}
+      - {r: client, t: "分かりました。継電器の動作試験は合格です。"}

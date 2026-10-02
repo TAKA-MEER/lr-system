@@ -1,0 +1,281 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: sg_dimension
+  topic_keywords:
+  - 寸法
+  request_keywords:
+  - 寸法
+  - 幅
+  response_keywords:
+  - '801.5'
+  - 公差
+  - 範囲
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '800'
+  - '801.5'
+- id: sg_insulation
+  topic_keywords:
+  - 絶縁抵抗
+  request_keywords:
+  - '3.2'
+  - 下限
+  - 余裕
+  response_keywords:
+  - 湿度
+  - 再測定
+  expected_status: 継続協議
+  status_changed: false
+  values:
+  - '3.2'
+- id: sg_sequence
+  topic_keywords:
+  - シーケンス
+  - 投入
+  - 表示灯の点灯
+  request_keywords:
+  - '0.5'
+  response_keywords:
+  - '0.8'
+  - リレー
+  expected_status: 保留
+  status_changed: false
+  values:
+  - '0.8'
+  - '0.5'
+- id: tr_ratio
+  topic_keywords:
+  - 変圧比
+  request_keywords: []
+  response_keywords:
+  - '0.2'
+  - '0.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.2'
+- id: tr_impedance
+  topic_keywords:
+  - インピーダンス
+  - 負荷損
+  request_keywords: []
+  response_keywords:
+  - '7.4'
+  - '7.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '7.4'
+- id: tr_noise
+  topic_keywords:
+  - 騒音
+  request_keywords: []
+  response_keywords:
+  - '68'
+  - '70'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '68'
+- id: mt_noise
+  topic_keywords:
+  - 騒音
+  request_keywords:
+  - '82'
+  - '80'
+  - 超
+  response_keywords:
+  - 防音カバー
+  expected_status: 継続協議
+  status_changed: false
+  values:
+  - '82'
+  - '80'
+- id: mt_terminal_box
+  topic_keywords:
+  - 端子箱
+  request_keywords:
+  - 左側
+  - 変更
+  response_keywords:
+  - 設計変更
+  - 2週間
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: mt_spare
+  topic_keywords:
+  - 予備品
+  request_keywords:
+  - 軸受
+  - 追加
+  response_keywords:
+  - 見積
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_alarm
+  topic_keywords:
+  - 警報
+  - 重故障
+  request_keywords:
+  - 点滅
+  - 赤
+  response_keywords:
+  - 変更
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_trend
+  topic_keywords:
+  - トレンド
+  - 保存期間
+  request_keywords:
+  - 1年
+  response_keywords:
+  - 30日
+  - ストレージ
+  - 増設
+  expected_status: 継続協議
+  status_changed: false
+  values:
+  - '30'
+- id: plc_time_sync
+  topic_keywords:
+  - 時刻
+  request_keywords:
+  - ずれ
+  - 3秒
+  response_keywords:
+  - 修正
+  - 設定
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+action_items:
+- id: mt_spare_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 10月16日
+  deadline_accept:
+  - 10月16日
+- id: plc_alarm_action
+  content_keywords:
+  - 警報
+  - 重故障
+  owner: our_side
+  deadline_text: 10月8日
+  deadline_accept:
+  - 10月8日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 800ミリ
+  - 800mm
+- turn_id: 4
+  alts:
+  - プラスマイナス2
+  - ±2
+- turn_id: 5
+  alts:
+  - '801.5'
+- turn_id: 9
+  alts:
+  - 3.2メガオーム
+  - 3.2MΩ
+  - 3.2メグオーム
+- turn_id: 9
+  alts:
+  - 絶縁抵抗
+- turn_id: 14
+  alts:
+  - 0.8秒
+- turn_id: 14
+  alts:
+  - 遮断器
+- turn_id: 15
+  alts:
+  - 0.5秒
+- turn_id: 19
+  alts:
+  - 変圧比
+- turn_id: 19
+  alts:
+  - 0.2パーセント
+  - 0.2%
+- turn_id: 19
+  alts:
+  - 66キロボルト
+  - 66kV
+- turn_id: 22
+  alts:
+  - 変圧比
+- turn_id: 23
+  alts:
+  - インピーダンス
+- turn_id: 23
+  alts:
+  - 7.4パーセント
+  - 7.4%
+- turn_id: 27
+  alts:
+  - 68デシベル
+  - 68dB
+- turn_id: 28
+  alts:
+  - 70デシベル
+  - 70dB
+- turn_id: 31
+  alts:
+  - 82デシベル
+  - 82dB
+- turn_id: 32
+  alts:
+  - 80デシベル
+  - 80dB
+- turn_id: 33
+  alts:
+  - 防音カバー
+- turn_id: 36
+  alts:
+  - 端子箱
+- turn_id: 39
+  alts:
+  - 予備品
+- turn_id: 42
+  alts:
+  - 重故障
+- turn_id: 42
+  alts:
+  - 点滅
+- turn_id: 45
+  alts:
+  - トレンド
+- turn_id: 45
+  alts:
+  - 30日
+- turn_id: 45
+  alts:
+  - 1年
+- turn_id: 46
+  alts:
+  - 1年
+- turn_id: 49
+  alts:
+  - 3秒
+- turn_id: 50
+  alts:
+  - 時刻同期

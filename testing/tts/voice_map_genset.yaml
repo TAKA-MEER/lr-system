@@ -1,0 +1,7 @@
+# 手書き台本 scenario/handwritten/s_genset 用の声の割り当て(これまでの台本とは別の組み合わせ)。
+# クレジット表記は ../CREDITS.md を参照。
+voices:
+  "小野寺 恵子": {speaker_id: 2,  speed: 1.05}   # 四国めたん (client)
+  "石川 雄一":   {speaker_id: 53, speed: 1.0}    # 麒ヶ島宗麟 (client)
+  "田村 翔":     {speaker_id: 12, speed: 1.1}    # 白上虎太郎 (our_side, BT装着)
+  "森 さやか":   {speaker_id: 14, speed: 1.0}    # 冥鳴ひまり (our_side, BT装着)

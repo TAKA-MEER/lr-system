@@ -1,0 +1,156 @@
+# 協議ブロック集: 油入変圧器 工場立会試験(書式は switchgear.yaml の冒頭を参照)
+domain: transformer
+meta:
+  trial_name: "油入変圧器(型式 TR-5000 10MVA) 工場立会試験"
+  location: "変圧器工場 大型試験場"
+
+blocks:
+  - id: tr_ratio
+    name: "変圧比試験"
+    status: 合意済み
+    topic_keywords: ["変圧比"]
+    request_keywords: []
+    response_keywords: ["0.2", "0.5"]
+    values: ["0.2"]
+    terms: ["変圧比", "0.2パーセント|0.2%", "66キロボルト|66kV"]
+    turns:
+      - {r: our, t: "変圧比試験の結果です。一次66キロボルト、二次6.6キロボルトで、全タップの比誤差は最大0.2パーセントでした。"}
+      - {r: client, t: "規格の許容差はプラスマイナス0.5パーセントでしたね。"}
+      - {r: our, t: "はい、すべてのタップで許容差内です。極性と角変位も確認済みです。"}
+      - {r: client, t: "了解しました。変圧比試験は合格とします。"}
+
+  - id: tr_noload
+    name: "無負荷損"
+    status: 継続協議
+    topic_keywords: ["無負荷損"]
+    request_keywords: ["8.4", "保証値", "超過"]
+    response_keywords: ["許容差", "JEC"]
+    values: ["8.4", "8.0"]
+    terms: ["無負荷損", "8.4キロワット|8.4kW", "8.0キロワット|8.0kW|8キロワット"]
+    turns:
+      - {r: our, t: "無負荷損の測定値は8.4キロワットでした。"}
+      - {r: client, t: "保証値は8.0キロワットですよね。5パーセント超えています。"}
+      - {r: our, t: "JECの規格では無負荷損の許容差はプラス15パーセントですので、規格上は合格です。"}
+      - {r: client, t: "ただ、契約上は保証値で評価することになっているはずです。契約書を確認するまで継続協議にさせてください。"}
+      - {r: our, t: "承知しました。こちらでも契約の条項を確認します。"}
+    resolve_turns:
+      - {r: client, t: "先ほどの無負荷損の件、本社に確認したところ、契約書に規格の許容差を適用すると書いてありました。"}
+      - {r: client, t: "なので8.4キロワットで問題ありません。無負荷損は合意とします。"}
+      - {r: our, t: "ありがとうございます。記録にもそのように残します。"}
+
+  - id: tr_impedance
+    name: "短絡インピーダンス"
+    status: 合意済み
+    topic_keywords: ["インピーダンス", "負荷損"]
+    request_keywords: []
+    response_keywords: ["7.4", "7.5"]
+    values: ["7.4"]
+    terms: ["インピーダンス", "7.4パーセント|7.4%"]
+    turns:
+      - {r: our, t: "負荷損と短絡インピーダンスの測定です。インピーダンスは7.4パーセントで、仕様の7.5パーセントに対して許容差内です。"}
+      - {r: client, t: "負荷損の方は保証値以内ですか。"}
+      - {r: our, t: "はい、保証値62キロワットに対して59.8キロワットでした。"}
+      - {r: client, t: "問題ないですね。合格です。"}
+
+  - id: tr_temp
+    name: "温度上昇試験"
+    status: 保留
+    topic_keywords: ["温度上昇"]
+    request_keywords: ["余裕", "63"]
+    response_keywords: ["52", "65"]
+    values: ["52", "63"]
+    terms: ["温度上昇", "52ケルビン|52K", "63ケルビン|63K"]
+    turns:
+      - {r: our, t: "温度上昇試験の結果です。油の温度上昇は52ケルビン、巻線は63ケルビンでした。限度はそれぞれ55と65ケルビンです。"}
+      - {r: client, t: "巻線の余裕が2ケルビンしかないですね。夏場の運転が心配です。"}
+      - {r: our, t: "設置場所の周囲温度の条件は仕様に織り込み済みですので、夏季でも限度は超えない設計です。"}
+      - {r: client, t: "運転部門の意見も聞きたいので、この項目は判断を保留させてください。"}
+      - {r: our, t: "承知しました。計算書を追加でお送りします。"}
+
+  - id: tr_oil_leak
+    name: "放熱器フランジの油にじみ"
+    status: 合意済み
+    topic_keywords: ["油にじみ", "油漏れ", "フランジ", "パッキン"]
+    request_keywords: ["にじみ"]
+    response_keywords: ["パッキン", "交換"]
+    values: []
+    terms: ["放熱器", "パッキン"]
+    action: {content_keywords: ["パッキン"], owner: our_side, deadline_abs: "10月12日"}
+    turns:
+      - {r: client, t: "放熱器の下側のフランジから、少し油がにじんでいませんか。"}
+      - {r: our, t: "確認しました。パッキンの締め付け不足のようです。"}
+      - {r: our, t: "パッキンを交換したうえで、{deadline}までに油漏れ試験をやり直します。"}
+      - {r: client, t: "やり直しの結果は書面でください。それで了承します。"}
+
+  - id: tr_noise
+    name: "騒音測定"
+    status: 合意済み
+    topic_keywords: ["騒音"]
+    request_keywords: []
+    response_keywords: ["68", "70"]
+    values: ["68"]
+    terms: ["68デシベル|68dB", "70デシベル|70dB"]
+    turns:
+      - {r: our, t: "騒音測定の結果は、変圧器から0.3メートルの位置の平均で68デシベルでした。"}
+      - {r: client, t: "仕様は70デシベル以下ですから問題ないですね。暗騒音はどのくらいでしたか。"}
+      - {r: our, t: "暗騒音は45デシベルで、補正は不要でした。"}
+      - {r: client, t: "分かりました。騒音は合格です。"}
+
+  - id: tr_tap_counter
+    name: "タップ切換器の動作回数計"
+    status: 合意済み
+    topic_keywords: ["タップ", "カウンター", "動作回数"]
+    request_keywords: ["表示"]
+    response_keywords: ["交換"]
+    values: []
+    terms: ["負荷時タップ切換器", "カウンター"]
+    action: {content_keywords: ["カウンター"], owner: our_side, deadline_abs: "10月20日"}
+    turns:
+      - {r: client, t: "負荷時タップ切換器の動作回数カウンターですが、数字が一桁欠けて表示されていますね。"}
+      - {r: our, t: "表示部の不良です。カウンターを新品に交換します。"}
+      - {r: client, t: "交換はいつになりますか。"}
+      - {r: our, t: "部品の入手に時間がかかるので、{deadline}までに交換します。"}
+      - {r: client, t: "了解です。"}
+
+  - id: tr_dga
+    name: "油中ガス分析"
+    status: 保留
+    topic_keywords: ["油中ガス", "絶縁油"]
+    request_keywords: ["分析"]
+    response_keywords: ["外部", "結果"]
+    values: []
+    terms: ["油中ガス分析", "絶縁油"]
+    action: {content_keywords: ["油中ガス", "分析"], owner: our_side, deadline_abs: "10月21日"}
+    turns:
+      - {r: client, t: "温度上昇試験の前後で、絶縁油の油中ガス分析はやっていますか。"}
+      - {r: our, t: "はい、サンプルは採取済みです。外部の分析機関に出していますので、結果はまだです。"}
+      - {r: our, t: "{deadline}までに分析結果をお送りします。"}
+      - {r: client, t: "では結果を見るまで、この項目は保留にしておきます。"}
+
+  - id: tr_paint
+    name: "塗装膜厚"
+    status: 合意済み
+    topic_keywords: ["膜厚"]
+    request_keywords: ["72", "補修"]
+    response_keywords: ["補修", "85"]
+    values: ["85", "72"]
+    terms: ["膜厚", "85ミクロン|85μm", "72ミクロン|72μm"]
+    turns:
+      - {r: our, t: "外装の塗装膜厚は平均85ミクロンで、仕様の80ミクロン以上を満たしています。"}
+      - {r: client, t: "記録を見ると、タンクの角の1点だけ72ミクロンになっていますね。"}
+      - {r: our, t: "その箇所は出荷前に補修塗装して、再測定します。"}
+      - {r: client, t: "それで結構です。"}
+
+  - id: tr_thermometer
+    name: "ダイヤル温度計の目盛り"
+    status: 継続協議
+    topic_keywords: ["温度計", "目盛"]
+    request_keywords: ["見にくい", "大きい"]
+    response_keywords: ["標準品", "変更"]
+    values: []
+    terms: ["ダイヤル温度計", "目盛り"]
+    turns:
+      - {r: client, t: "付属品のダイヤル温度計ですが、目盛りが細かくて離れた位置から読みにくいです。"}
+      - {r: our, t: "標準品を使っていますが、目盛り板の大きいタイプに変更することはできます。"}
+      - {r: client, t: "変更した場合の納期への影響を教えてください。それを聞いてから決めたいので継続協議でお願いします。"}
+      - {r: our, t: "分かりました。メーカーに確認します。"}

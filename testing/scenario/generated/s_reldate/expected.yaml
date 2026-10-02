@@ -1,0 +1,325 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: sg_dimension
+  topic_keywords:
+  - 寸法
+  request_keywords:
+  - 寸法
+  - 幅
+  response_keywords:
+  - '801.5'
+  - 公差
+  - 範囲
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '800'
+  - '801.5'
+- id: sg_insulation
+  topic_keywords:
+  - 絶縁抵抗
+  request_keywords:
+  - '3.2'
+  - 下限
+  - 余裕
+  response_keywords:
+  - 湿度
+  - 再測定
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '3.2'
+- id: sg_sequence
+  topic_keywords:
+  - シーケンス
+  - 投入
+  - 表示灯の点灯
+  request_keywords:
+  - '0.5'
+  response_keywords:
+  - '0.8'
+  - リレー
+  expected_status: 保留
+  status_changed: false
+  values:
+  - '0.8'
+  - '0.5'
+- id: sg_nameplate
+  topic_keywords:
+  - 銘板
+  request_keywords:
+  - '1200'
+  - '1250'
+  - 定格電流
+  response_keywords:
+  - 再発行
+  - 作り直
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '1250'
+- id: sg_docs
+  topic_keywords:
+  - 完成図書
+  - 英語
+  request_keywords:
+  - 英語
+  response_keywords:
+  - 見積
+  - 費用
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: sg_relay
+  topic_keywords:
+  - 継電器
+  - 過電流
+  request_keywords: []
+  response_keywords:
+  - '0.31'
+  - '0.3'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.31'
+- id: plc_io
+  topic_keywords:
+  - 入出力
+  - I/O
+  - IO
+  - 配線
+  request_keywords: []
+  response_keywords:
+  - '37'
+  - '38'
+  - 入れ替
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '256'
+  - '128'
+- id: plc_alarm
+  topic_keywords:
+  - 警報
+  - 重故障
+  request_keywords:
+  - 点滅
+  - 赤
+  response_keywords:
+  - 変更
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_pump_interlock
+  topic_keywords:
+  - インターロック
+  - ポンプ
+  request_keywords: []
+  response_keywords:
+  - 水位
+  - 停止
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_redundancy
+  topic_keywords:
+  - 二重化
+  - 切替
+  - CPU
+  request_keywords: []
+  response_keywords:
+  - '120'
+  - '200'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '120'
+  - '200'
+- id: plc_user_level
+  topic_keywords:
+  - 権限
+  request_keywords:
+  - 3段階
+  - 保守
+  response_keywords:
+  - 追加
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_manual
+  topic_keywords:
+  - 取扱説明書
+  - 説明書
+  request_keywords:
+  - 不足
+  response_keywords:
+  - 追記
+  expected_status: 保留
+  status_changed: false
+  values: []
+action_items:
+- id: sg_nameplate_action
+  content_keywords:
+  - 銘板
+  owner: our_side
+  deadline_text: 来週の金曜日
+  deadline_accept:
+  - 来週
+  - 金曜
+  - 10月9日
+  - 10/9
+- id: sg_docs_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 今月末
+  deadline_accept:
+  - 月末
+  - 10月31日
+  - 10/31
+- id: plc_alarm_action
+  content_keywords:
+  - 警報
+  - 重故障
+  owner: our_side
+  deadline_text: 2週間後
+  deadline_accept:
+  - 2週間
+  - 二週間
+  - 10月15日
+  - 10/15
+- id: plc_user_level_action
+  content_keywords:
+  - 権限
+  owner: our_side
+  deadline_text: 次回の立会試験
+  deadline_accept:
+  - 次回
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 800ミリ
+  - 800mm
+- turn_id: 4
+  alts:
+  - プラスマイナス2
+  - ±2
+- turn_id: 5
+  alts:
+  - '801.5'
+- turn_id: 9
+  alts:
+  - 3.2メガオーム
+  - 3.2MΩ
+  - 3.2メグオーム
+- turn_id: 9
+  alts:
+  - 絶縁抵抗
+- turn_id: 14
+  alts:
+  - 0.8秒
+- turn_id: 14
+  alts:
+  - 遮断器
+- turn_id: 15
+  alts:
+  - 0.5秒
+- turn_id: 19
+  alts:
+  - 1200アンペア
+  - 1200A
+- turn_id: 19
+  alts:
+  - 1250アンペア
+  - 1250A
+- turn_id: 19
+  alts:
+  - 銘板
+- turn_id: 20
+  alts:
+  - 1250アンペア
+  - 1250A
+- turn_id: 20
+  alts:
+  - 銘板
+- turn_id: 26
+  alts:
+  - 完成図書
+- turn_id: 26
+  alts:
+  - 英語版
+- turn_id: 27
+  alts:
+  - 英語版
+- turn_id: 31
+  alts:
+  - 過電流継電器
+- turn_id: 31
+  alts:
+  - 5アンペア
+  - 5A
+- turn_id: 32
+  alts:
+  - 0.31秒
+- turn_id: 36
+  alts:
+  - 256点
+- turn_id: 36
+  alts:
+  - 128点
+- turn_id: 37
+  alts:
+  - 37番
+  - '37'
+- turn_id: 39
+  alts:
+  - 37番
+  - '37'
+- turn_id: 41
+  alts:
+  - 重故障
+- turn_id: 41
+  alts:
+  - 点滅
+- turn_id: 44
+  alts:
+  - インターロック
+- turn_id: 44
+  alts:
+  - 水位低
+- turn_id: 45
+  alts:
+  - 水位低
+- turn_id: 49
+  alts:
+  - 二重化
+- turn_id: 50
+  alts:
+  - 120ミリ秒
+- turn_id: 50
+  alts:
+  - 200ミリ秒
+- turn_id: 54
+  alts:
+  - 権限
+- turn_id: 54
+  alts:
+  - 3段階
+- turn_id: 55
+  alts:
+  - 権限
+- turn_id: 59
+  alts:
+  - 取扱説明書

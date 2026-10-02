@@ -1,0 +1,8 @@
+# S-MULTI: 8名参加(相手方4・自社4、BT装着は自社2名)
+name: s_multi
+seed: 18
+domains: [motor]
+speakers:
+  client: ["山田 隆", "佐藤 健二", "高橋 浩", "伊藤 恵"]
+  our_side: ["田中 誠", "鈴木 舞", "渡辺 大輔", "小林 彩"]
+  bt_wearers: ["田中 誠", "渡辺 大輔"]

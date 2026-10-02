@@ -1,0 +1,147 @@
+# 協議ブロック集: 高圧電動機 工場立会試験(書式は switchgear.yaml の冒頭を参照)
+domain: motor
+meta:
+  trial_name: "高圧三相誘導電動機(型式 MX-750 750kW) 工場立会試験"
+  location: "回転機工場 第3試験台"
+
+blocks:
+  - id: mt_vibration
+    name: "振動測定"
+    status: 合意済み
+    topic_keywords: ["振動"]
+    request_keywords: []
+    response_keywords: ["1.8", "2.8"]
+    values: ["1.8"]
+    terms: ["1.8ミリメートル毎秒|1.8mm/s", "2.8"]
+    turns:
+      - {r: our, t: "振動測定の結果です。軸受部の振動速度は最大で1.8ミリメートル毎秒でした。"}
+      - {r: client, t: "判定値はいくつでしたか。"}
+      - {r: our, t: "2.8ミリメートル毎秒以下です。負荷側、反負荷側とも判定値以内です。"}
+      - {r: client, t: "問題ありませんね。振動は合格です。"}
+
+  - id: mt_noise
+    name: "無負荷騒音"
+    status: 継続協議
+    topic_keywords: ["騒音"]
+    request_keywords: ["82", "80", "超"]
+    response_keywords: ["防音カバー"]
+    values: ["82", "80"]
+    terms: ["82デシベル|82dB", "80デシベル|80dB", "防音カバー"]
+    turns:
+      - {r: our, t: "無負荷での騒音は82デシベルでした。"}
+      - {r: client, t: "仕様では80デシベル以下ですよね。2デシベル超えています。"}
+      - {r: our, t: "冷却ファンの風切り音が主な原因です。防音カバーを追加すれば仕様内に収まる見込みです。"}
+      - {r: client, t: "カバーを付けると保守がやりにくくなりますし、費用の負担も決めないといけません。継続協議にしましょう。"}
+      - {r: our, t: "承知しました。カバーの構造案と費用を整理してご提案します。"}
+    resolve_turns:
+      - {r: our, t: "先ほどの騒音の件ですが、防音カバーは当社負担で、点検口付きの構造にするということでいかがでしょうか。"}
+      - {r: client, t: "点検口があるなら保守も問題ないですね。騒音の件はそれで合意とします。"}
+
+  - id: mt_efficiency
+    name: "効率"
+    status: 合意済み
+    topic_keywords: ["効率"]
+    request_keywords: []
+    response_keywords: ["96.2", "96.0"]
+    values: ["96.2"]
+    terms: ["96.2パーセント|96.2%", "IE3"]
+    turns:
+      - {r: our, t: "損失の測定から算出した効率は96.2パーセントでした。保証値は96.0パーセントです。"}
+      - {r: client, t: "IE3相当という条件も満たしていますか。"}
+      - {r: our, t: "はい、IE3の効率値を上回っています。"}
+      - {r: client, t: "了解しました。効率は合格です。"}
+
+  - id: mt_winding_temp
+    name: "巻線の温度上昇"
+    status: 合意済み
+    topic_keywords: ["温度上昇", "巻線"]
+    request_keywords: []
+    response_keywords: ["75", "80"]
+    values: ["75"]
+    terms: ["75ケルビン|75K", "80ケルビン|80K"]
+    turns:
+      - {r: our, t: "温度上昇試験です。固定子巻線の温度上昇は抵抗法で75ケルビンでした。"}
+      - {r: our, t: "F種絶縁をB種の温度上昇で使う条件ですので、限度は80ケルビンです。"}
+      - {r: client, t: "5ケルビンの余裕ですね。了解しました。合格とします。"}
+
+  - id: mt_bearing
+    name: "反負荷側の軸受温度"
+    status: 保留
+    topic_keywords: ["軸受"]
+    request_keywords: ["8度", "高い"]
+    response_keywords: ["グリース"]
+    values: []
+    terms: ["軸受", "グリース"]
+    turns:
+      - {r: client, t: "反負荷側の軸受温度が、負荷側より8度ほど高いのが気になります。"}
+      - {r: our, t: "グリースの封入量が多めだった可能性があります。量を確認して、明日もう一度運転してみます。"}
+      - {r: client, t: "では明日の再試験の結果を見るまで、この件は保留にします。"}
+
+  - id: mt_starting
+    name: "始動電流"
+    status: 合意済み
+    topic_keywords: ["始動電流"]
+    request_keywords: []
+    response_keywords: ["6.2", "6.5"]
+    values: ["6.2"]
+    terms: ["始動電流", "6.2倍"]
+    turns:
+      - {r: our, t: "拘束試験から求めた始動電流は、定格電流の6.2倍でした。仕様は6.5倍以下です。"}
+      - {r: client, t: "始動トルクも仕様を満たしていますか。"}
+      - {r: our, t: "はい、始動トルクは定格の85パーセントで、仕様の80パーセント以上を満たしています。"}
+      - {r: client, t: "分かりました。合格です。"}
+
+  - id: mt_terminal_box
+    name: "端子箱の向き"
+    status: 継続協議
+    topic_keywords: ["端子箱"]
+    request_keywords: ["左側", "変更"]
+    response_keywords: ["設計変更", "2週間"]
+    values: []
+    terms: ["端子箱"]
+    turns:
+      - {r: client, t: "現地のケーブルの取り回しを考えると、端子箱を右側から左側に変更してほしいのですが。"}
+      - {r: our, t: "設計変更は可能ですが、フレームの加工が必要になり、納期が2週間ほど延びます。"}
+      - {r: client, t: "納期が延びるのは困りますね。工事の工程と調整してみますので、継続協議にさせてください。"}
+
+  - id: mt_insulation
+    name: "成極指数"
+    status: 合意済み
+    topic_keywords: ["成極指数", "絶縁"]
+    request_keywords: []
+    response_keywords: ["3.1"]
+    values: ["3.1"]
+    terms: ["成極指数", "3.1"]
+    turns:
+      - {r: our, t: "巻線の絶縁抵抗と成極指数です。成極指数は3.1で、判定基準の2.0以上です。"}
+      - {r: client, t: "良好ですね。耐電圧試験も異常なしでしたか。"}
+      - {r: our, t: "はい、耐電圧も異常ありませんでした。"}
+      - {r: client, t: "了解です。"}
+
+  - id: mt_nameplate
+    name: "銘板の製造番号"
+    status: 合意済み
+    topic_keywords: ["銘板", "製造番号"]
+    request_keywords: ["製造番号", "違"]
+    response_keywords: ["再発行"]
+    values: []
+    terms: ["製造番号", "銘板"]
+    action: {content_keywords: ["銘板"], owner: our_side, deadline_abs: "10月13日"}
+    turns:
+      - {r: client, t: "銘板の製造番号が、試験成績書の番号と一桁違っています。"}
+      - {r: our, t: "確認しました。銘板の方が間違っています。{deadline}までに再発行して交換します。"}
+      - {r: client, t: "お願いします。"}
+
+  - id: mt_spare
+    name: "予備品の追加"
+    status: 継続協議
+    topic_keywords: ["予備品"]
+    request_keywords: ["軸受", "追加"]
+    response_keywords: ["見積"]
+    values: []
+    terms: ["予備品"]
+    action: {content_keywords: ["見積"], owner: our_side, deadline_abs: "10月16日"}
+    turns:
+      - {r: client, t: "予備品として、軸受を1セット追加で購入したいと考えています。"}
+      - {r: our, t: "承知しました。{deadline}までにお見積もりをお出しします。"}
+      - {r: client, t: "見積もりを見てから発注するか決めます。継続協議でお願いします。"}

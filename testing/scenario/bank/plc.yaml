@@ -1,0 +1,139 @@
+# 協議ブロック集: 監視制御盤 ソフトウェア工場試験(FAT)(書式は switchgear.yaml の冒頭を参照)
+domain: plc
+meta:
+  trial_name: "浄水場 監視制御盤(型式 CP-400) 工場試験 FAT"
+  location: "制御システム工場 試験室"
+
+blocks:
+  - id: plc_io
+    name: "入出力チェック"
+    status: 合意済み
+    topic_keywords: ["入出力", "I/O", "IO", "配線"]
+    request_keywords: []
+    response_keywords: ["37", "38", "入れ替"]
+    values: ["256", "128"]
+    terms: ["256点", "128点", "37番|37"]
+    turns:
+      - {r: our, t: "入出力チェックの結果です。入力256点、出力128点をすべて確認しました。"}
+      - {r: our, t: "そのうち入力の37番と38番の配線が入れ替わっていたので、修正して再確認済みです。"}
+      - {r: client, t: "修正後の確認は、私たちが立ち会った状態でもう一度見せてもらえますか。"}
+      - {r: our, t: "はい、今から37番と38番を順に入れますので、画面をご覧ください。"}
+      - {r: client, t: "確認できました。入出力チェックは合格です。"}
+
+  - id: plc_alarm
+    name: "重故障警報の表示"
+    status: 合意済み
+    topic_keywords: ["警報", "重故障"]
+    request_keywords: ["点滅", "赤"]
+    response_keywords: ["変更", "対応"]
+    values: []
+    terms: ["重故障", "点滅"]
+    action: {content_keywords: ["警報", "重故障"], owner: our_side, deadline_abs: "10月8日"}
+    turns:
+      - {r: client, t: "警報一覧の画面ですが、重故障は赤の点滅にしてもらえますか。今は軽故障と同じ表示で区別がつきにくいです。"}
+      - {r: our, t: "画面の設定変更で対応できます。{deadline}までに修正版をお送りします。"}
+      - {r: client, t: "ありがとうございます。それでお願いします。"}
+
+  - id: plc_trend
+    name: "トレンドデータの保存期間"
+    status: 継続協議
+    topic_keywords: ["トレンド", "保存期間"]
+    request_keywords: ["1年"]
+    response_keywords: ["30日", "ストレージ", "増設"]
+    values: ["30"]
+    terms: ["トレンド", "30日", "1年"]
+    turns:
+      - {r: client, t: "トレンドデータの保存期間が30日になっていますが、水質の管理上、1年は残したいんです。"}
+      - {r: our, t: "1年分を保存するにはストレージの増設が必要になります。"}
+      - {r: client, t: "増設の費用と、外部に書き出す方法があるかも含めて検討したいので、継続協議でお願いします。"}
+      - {r: our, t: "承知しました。両方の案を比較してお示しします。"}
+    resolve_turns:
+      - {r: our, t: "トレンドの保存期間の件、外付けのストレージで1年分を保存する案なら、追加費用は小さく済みます。"}
+      - {r: client, t: "それなら外付けストレージの案で進めてください。トレンドの件は合意とします。"}
+
+  - id: plc_pump_interlock
+    name: "ポンプのインターロック"
+    status: 合意済み
+    topic_keywords: ["インターロック", "ポンプ"]
+    request_keywords: []
+    response_keywords: ["水位", "停止"]
+    values: []
+    terms: ["インターロック", "水位低"]
+    turns:
+      - {r: our, t: "取水ポンプのインターロックです。水位低の信号を入れると、運転中のポンプが停止することを確認します。"}
+      - {r: our, t: "信号を入れました。ポンプが停止し、画面にも水位低の警報が出ています。"}
+      - {r: client, t: "復帰の手順も確認させてください。"}
+      - {r: our, t: "水位が戻った後、画面から復帰操作をしないと再起動しない仕様です。"}
+      - {r: client, t: "確認しました。問題ありません。"}
+
+  - id: plc_redundancy
+    name: "CPUの二重化切替"
+    status: 合意済み
+    topic_keywords: ["二重化", "切替", "CPU"]
+    request_keywords: []
+    response_keywords: ["120", "200"]
+    values: ["120", "200"]
+    terms: ["二重化", "120ミリ秒", "200ミリ秒"]
+    turns:
+      - {r: our, t: "CPUの二重化切替試験です。稼働系の電源を切って、待機系に切り替わるまでの時間を測ります。"}
+      - {r: our, t: "切替時間は120ミリ秒でした。仕様は200ミリ秒以内です。"}
+      - {r: client, t: "切替のときに出力が変化しないことも確認できましたか。"}
+      - {r: our, t: "はい、出力は保持されていました。"}
+      - {r: client, t: "合格です。"}
+
+  - id: plc_modbus
+    name: "上位システムとの通信タイムアウト"
+    status: 継続協議
+    topic_keywords: ["通信", "タイムアウト", "Modbus", "モドバス"]
+    request_keywords: ["タイムアウト"]
+    response_keywords: ["原因", "調査"]
+    values: []
+    terms: ["タイムアウト"]
+    action: {content_keywords: ["通信", "タイムアウト", "調査"], owner: our_side, deadline_abs: "10月15日"}
+    turns:
+      - {r: client, t: "上位の監視システムとの通信で、さっき一度タイムアウトが出ていましたね。"}
+      - {r: our, t: "はい、1回だけ発生しました。原因はまだ分かっていません。"}
+      - {r: our, t: "{deadline}までに原因を調査して報告します。"}
+      - {r: client, t: "原因が分かるまで継続協議にします。"}
+
+  - id: plc_user_level
+    name: "操作権限の段階"
+    status: 合意済み
+    topic_keywords: ["権限"]
+    request_keywords: ["3段階", "保守"]
+    response_keywords: ["追加", "対応"]
+    values: []
+    terms: ["権限", "3段階"]
+    action: {content_keywords: ["権限"], owner: our_side, deadline_abs: "10月22日"}
+    turns:
+      - {r: client, t: "操作権限がオペレーターと管理者の2段階ですが、保守員を加えて3段階にしたいです。"}
+      - {r: our, t: "対応できます。保守員の権限でできる操作の一覧をいただけますか。"}
+      - {r: client, t: "一覧は今週中に送ります。"}
+      - {r: our, t: "ありがとうございます。一覧をいただいてから、{deadline}までに画面を改修します。"}
+      - {r: client, t: "それでお願いします。"}
+
+  - id: plc_time_sync
+    name: "時刻同期"
+    status: 合意済み
+    topic_keywords: ["時刻"]
+    request_keywords: ["ずれ", "3秒"]
+    response_keywords: ["修正", "設定"]
+    values: []
+    terms: ["時刻同期", "3秒"]
+    turns:
+      - {r: client, t: "監視画面の時計が、上位システムと3秒ずれていますね。"}
+      - {r: our, t: "時刻同期の設定で、サーバーのアドレスが間違っていました。今修正しました。"}
+      - {r: client, t: "今は一致していますね。了解しました。"}
+
+  - id: plc_manual
+    name: "取扱説明書"
+    status: 保留
+    topic_keywords: ["取扱説明書", "説明書"]
+    request_keywords: ["不足"]
+    response_keywords: ["追記"]
+    values: []
+    terms: ["取扱説明書"]
+    turns:
+      - {r: client, t: "取扱説明書ですが、画面操作の説明が全体的に不足していると思います。"}
+      - {r: our, t: "具体的にどの画面の説明を追記すればよいか、ご指示いただけますか。"}
+      - {r: client, t: "社内で運転員に聞いて一覧にします。それまでこの件は保留にしてください。"}

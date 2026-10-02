@@ -1,0 +1,324 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  bt_wearers:
+  - 田中 誠
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+turns:
+- id: 1
+  speaker: 田中 誠
+  text: それでは時間になりましたので、閉鎖配電盤(型式 SWB-3300) 出荷前立会試験を始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 佐藤 健二
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 田中 誠
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 鈴木 舞
+  text: 続いて寸法の確認です。盤の幅は図面で800ミリ、公差はプラスマイナス2ミリです。
+  kind: block
+  block: sg_dimension
+- id: 5
+  speaker: 鈴木 舞
+  text: 実測は801.5ミリでした。公差の範囲に入っています。
+  kind: block
+  block: sg_dimension
+- id: 6
+  speaker: 佐藤 健二
+  text: 奥行きと高さも図面どおりでしたか。
+  kind: block
+  block: sg_dimension
+- id: 7
+  speaker: 鈴木 舞
+  text: はい、奥行き、高さとも図面どおりです。記録表にも記入しています。
+  kind: block
+  block: sg_dimension
+- id: 8
+  speaker: 佐藤 健二
+  text: 了解です。寸法は問題ありません。
+  kind: block
+  block: sg_dimension
+- id: 9
+  speaker: 田中 誠
+  text: 耐電圧試験を行います。交流2000ボルトを1分間印加します。
+  kind: block
+  block: sg_withstand
+- id: 10
+  speaker: 田中 誠
+  text: 1分間経過しました。絶縁破壊やフラッシュオーバーなどの異常はありませんでした。
+  kind: block
+  block: sg_withstand
+- id: 11
+  speaker: 山田 隆
+  text: 漏れ電流の値はどうでしたか。
+  kind: block
+  block: sg_withstand
+- id: 12
+  speaker: 田中 誠
+  text: 漏れ電流は3.5ミリアンペアで、安定していました。
+  kind: block
+  block: sg_withstand
+- id: 13
+  speaker: 山田 隆
+  text: 問題ないですね。耐電圧試験は合格とします。
+  kind: block
+  block: sg_withstand
+- id: 14
+  speaker: 山田 隆
+  text: 表示灯について一つ要望があります。軽故障の表示灯を赤から黄色に変えてもらえませんか。
+  kind: block
+  block: sg_lamp
+- id: 15
+  speaker: 山田 隆
+  text: 既設の盤と色を合わせたいんです。
+  kind: block
+  block: sg_lamp
+- id: 16
+  speaker: 鈴木 舞
+  text: レンズの交換だけで対応できますので、追加費用なしで変更いたします。
+  kind: block
+  block: sg_lamp
+- id: 17
+  speaker: 鈴木 舞
+  text: 10月23日までに交換を済ませます。
+  kind: block
+  block: sg_lamp
+- id: 18
+  speaker: 山田 隆
+  text: 助かります。よろしくお願いします。
+  kind: block
+  block: sg_lamp
+- id: 19
+  speaker: 田中 誠
+  text: 無負荷損の測定値は8.4キロワットでした。
+  kind: block
+  block: tr_noload
+- id: 20
+  speaker: 山田 隆
+  text: 保証値は8.0キロワットですよね。5パーセント超えています。
+  kind: block
+  block: tr_noload
+- id: 21
+  speaker: 田中 誠
+  text: JECの規格では無負荷損の許容差はプラス15パーセントですので、規格上は合格です。
+  kind: block
+  block: tr_noload
+- id: 22
+  speaker: 山田 隆
+  text: ただ、契約上は保証値で評価することになっているはずです。契約書を確認するまで継続協議にさせてください。
+  kind: block
+  block: tr_noload
+- id: 23
+  speaker: 田中 誠
+  text: 承知しました。こちらでも契約の条項を確認します。
+  kind: block
+  block: tr_noload
+- id: 24
+  speaker: 佐藤 健二
+  text: 負荷時タップ切換器の動作回数カウンターですが、数字が一桁欠けて表示されていますね。
+  kind: block
+  block: tr_tap_counter
+- id: 25
+  speaker: 鈴木 舞
+  text: 表示部の不良です。カウンターを新品に交換します。
+  kind: block
+  block: tr_tap_counter
+- id: 26
+  speaker: 佐藤 健二
+  text: 交換はいつになりますか。
+  kind: block
+  block: tr_tap_counter
+- id: 27
+  speaker: 鈴木 舞
+  text: 部品の入手に時間がかかるので、10月20日までに交換します。
+  kind: block
+  block: tr_tap_counter
+- id: 28
+  speaker: 佐藤 健二
+  text: 了解です。
+  kind: block
+  block: tr_tap_counter
+- id: 29
+  speaker: 佐藤 健二
+  text: 付属品のダイヤル温度計ですが、目盛りが細かくて離れた位置から読みにくいです。
+  kind: block
+  block: tr_thermometer
+- id: 30
+  speaker: 田中 誠
+  text: 標準品を使っていますが、目盛り板の大きいタイプに変更することはできます。
+  kind: block
+  block: tr_thermometer
+- id: 31
+  speaker: 佐藤 健二
+  text: 変更した場合の納期への影響を教えてください。それを聞いてから決めたいので継続協議でお願いします。
+  kind: block
+  block: tr_thermometer
+- id: 32
+  speaker: 田中 誠
+  text: 分かりました。メーカーに確認します。
+  kind: block
+  block: tr_thermometer
+- id: 33
+  speaker: 田中 誠
+  text: 無負荷での騒音は82デシベルでした。
+  kind: block
+  block: mt_noise
+- id: 34
+  speaker: 佐藤 健二
+  text: 仕様では80デシベル以下ですよね。2デシベル超えています。
+  kind: block
+  block: mt_noise
+- id: 35
+  speaker: 田中 誠
+  text: 冷却ファンの風切り音が主な原因です。防音カバーを追加すれば仕様内に収まる見込みです。
+  kind: block
+  block: mt_noise
+- id: 36
+  speaker: 佐藤 健二
+  text: カバーを付けると保守がやりにくくなりますし、費用の負担も決めないといけません。継続協議にしましょう。
+  kind: block
+  block: mt_noise
+- id: 37
+  speaker: 田中 誠
+  text: 承知しました。カバーの構造案と費用を整理してご提案します。
+  kind: block
+  block: mt_noise
+- id: 38
+  speaker: 田中 誠
+  text: 拘束試験から求めた始動電流は、定格電流の6.2倍でした。仕様は6.5倍以下です。
+  kind: block
+  block: mt_starting
+- id: 39
+  speaker: 佐藤 健二
+  text: 始動トルクも仕様を満たしていますか。
+  kind: block
+  block: mt_starting
+- id: 40
+  speaker: 田中 誠
+  text: はい、始動トルクは定格の85パーセントで、仕様の80パーセント以上を満たしています。
+  kind: block
+  block: mt_starting
+- id: 41
+  speaker: 佐藤 健二
+  text: 分かりました。合格です。
+  kind: block
+  block: mt_starting
+- id: 42
+  speaker: 佐藤 健二
+  text: 先ほどの無負荷損の件、本社に確認したところ、契約書に規格の許容差を適用すると書いてありました。
+  kind: resolve
+  block: tr_noload
+- id: 43
+  speaker: 佐藤 健二
+  text: なので8.4キロワットで問題ありません。無負荷損は合意とします。
+  kind: resolve
+  block: tr_noload
+- id: 44
+  speaker: 田中 誠
+  text: ありがとうございます。記録にもそのように残します。
+  kind: resolve
+  block: tr_noload
+- id: 45
+  speaker: 鈴木 舞
+  text: 巻線の絶縁抵抗と成極指数です。成極指数は3.1で、判定基準の2.0以上です。
+  kind: block
+  block: mt_insulation
+- id: 46
+  speaker: 山田 隆
+  text: 良好ですね。耐電圧試験も異常なしでしたか。
+  kind: block
+  block: mt_insulation
+- id: 47
+  speaker: 鈴木 舞
+  text: はい、耐電圧も異常ありませんでした。
+  kind: block
+  block: mt_insulation
+- id: 48
+  speaker: 山田 隆
+  text: 了解です。
+  kind: block
+  block: mt_insulation
+- id: 49
+  speaker: 佐藤 健二
+  text: 警報一覧の画面ですが、重故障は赤の点滅にしてもらえますか。今は軽故障と同じ表示で区別がつきにくいです。
+  kind: block
+  block: plc_alarm
+- id: 50
+  speaker: 田中 誠
+  text: 画面の設定変更で対応できます。10月8日までに修正版をお送りします。
+  kind: block
+  block: plc_alarm
+- id: 51
+  speaker: 佐藤 健二
+  text: ありがとうございます。それでお願いします。
+  kind: block
+  block: plc_alarm
+- id: 52
+  speaker: 佐藤 健二
+  text: 監視画面の時計が、上位システムと3秒ずれていますね。
+  kind: block
+  block: plc_time_sync
+- id: 53
+  speaker: 鈴木 舞
+  text: 時刻同期の設定で、サーバーのアドレスが間違っていました。今修正しました。
+  kind: block
+  block: plc_time_sync
+- id: 54
+  speaker: 佐藤 健二
+  text: 今は一致していますね。了解しました。
+  kind: block
+  block: plc_time_sync
+- id: 55
+  speaker: 田中 誠
+  text: 先ほどの騒音の件ですが、防音カバーは当社負担で、点検口付きの構造にするということでいかがでしょうか。
+  kind: resolve
+  block: mt_noise
+- id: 56
+  speaker: 山田 隆
+  text: 点検口があるなら保守も問題ないですね。騒音の件はそれで合意とします。
+  kind: resolve
+  block: mt_noise
+- id: 57
+  speaker: 佐藤 健二
+  text: 取扱説明書ですが、画面操作の説明が全体的に不足していると思います。
+  kind: block
+  block: plc_manual
+- id: 58
+  speaker: 鈴木 舞
+  text: 具体的にどの画面の説明を追記すればよいか、ご指示いただけますか。
+  kind: block
+  block: plc_manual
+- id: 59
+  speaker: 佐藤 健二
+  text: 社内で運転員に聞いて一覧にします。それまでこの件は保留にしてください。
+  kind: block
+  block: plc_manual
+- id: 60
+  speaker: 田中 誠
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 61
+  speaker: 山田 隆
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null

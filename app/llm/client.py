@@ -8,7 +8,8 @@ class OllamaClient:
     def __init__(self, base_url: str = "http://localhost:11434"):
         self.base_url = base_url.rstrip("/")
 
-    async def chat(self, model: str, prompt: str, max_tokens: int = 4096, temperature: float = 0.2, num_ctx: int = 32768) -> str:
+    async def chat(self, model: str, prompt: str, max_tokens: int = 4096, temperature: float = 0.2, num_ctx: int = 32768,
+                   num_gpu: int | None = None, json_schema: dict | None = None, timeout: float = 600.0) -> str:
         """Ollama /api/generate を呼んでテキストを返す"""
         url = f"{self.base_url}/api/generate"
         payload = {
@@ -22,14 +23,29 @@ class OllamaClient:
             # それを超過すると出力がほぼ生成されない(JSON解析失敗)不具合が3時間耐久試験で
             # 判明したため、明示的に大きめの値を指定する(testing/CHANGELOG.md参照)。
         }
-        async with httpx.AsyncClient(timeout=300.0) as client:
+        if json_schema is not None:
+            # 構造化出力: 出力をJSONスキーマに沿う形に制約する。引用符の抜けなどで
+            # JSONが壊れて議事録全体が空になる不具合への対策(第2期試験)
+            payload["format"] = json_schema
+        if num_gpu is not None:
+            # GPUに載せる層数。未指定だとOllamaが空きVRAMに余裕を残そうとして一部の層をCPUに
+            # 逃がすことがあり、生成が数倍遅くなる(testing/CHANGELOG.md 第2期試験参照)
+            payload["options"]["num_gpu"] = num_gpu
+        async with httpx.AsyncClient(timeout=timeout) as client:
             try:
                 resp = await client.post(url, json=payload)
                 resp.raise_for_status()
                 return resp.json().get("response", "")
             except httpx.HTTPError as e:
-                logger.error(f"Ollama APIエラー: {e}")
-                raise
+                if num_gpu is None:
+                    logger.error(f"Ollama APIエラー: {e}")
+                    raise
+                # VRAMが足りずに全層をGPUに載せられなかった場合など。Ollamaの自動配置でやり直す
+                logger.warning(f"Ollama APIエラー(num_gpu={num_gpu})。GPU層数の指定なしで再試行します: {e}")
+                payload["options"].pop("num_gpu")
+                resp = await client.post(url, json=payload)
+                resp.raise_for_status()
+                return resp.json().get("response", "")
 
     async def unload_model(self, model: str):
         """モデルをVRAMからアンロードする"""

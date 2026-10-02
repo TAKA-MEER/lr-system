@@ -1,0 +1,286 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: sg_dimension
+  topic_keywords:
+  - 寸法
+  request_keywords:
+  - 寸法
+  - 幅
+  response_keywords:
+  - '801.5'
+  - 公差
+  - 範囲
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '800'
+  - '801.5'
+- id: sg_withstand
+  topic_keywords:
+  - 耐電圧
+  request_keywords: []
+  response_keywords:
+  - '2000'
+  - 異常
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '2000'
+- id: sg_lamp
+  topic_keywords:
+  - 表示灯
+  - 色
+  request_keywords:
+  - 黄色
+  - 故障
+  response_keywords:
+  - 交換
+  - 費用
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_noload
+  topic_keywords:
+  - 無負荷損
+  request_keywords:
+  - '8.4'
+  - 保証値
+  - 超過
+  response_keywords:
+  - 許容差
+  - JEC
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '8.4'
+  - '8.0'
+- id: tr_tap_counter
+  topic_keywords:
+  - タップ
+  - カウンター
+  - 動作回数
+  request_keywords:
+  - 表示
+  response_keywords:
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_thermometer
+  topic_keywords:
+  - 温度計
+  - 目盛
+  request_keywords:
+  - 見にくい
+  - 大きい
+  response_keywords:
+  - 標準品
+  - 変更
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: mt_noise
+  topic_keywords:
+  - 騒音
+  request_keywords:
+  - '82'
+  - '80'
+  - 超
+  response_keywords:
+  - 防音カバー
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '82'
+  - '80'
+- id: mt_starting
+  topic_keywords:
+  - 始動電流
+  request_keywords: []
+  response_keywords:
+  - '6.2'
+  - '6.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '6.2'
+- id: mt_insulation
+  topic_keywords:
+  - 成極指数
+  - 絶縁
+  request_keywords: []
+  response_keywords:
+  - '3.1'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '3.1'
+- id: plc_alarm
+  topic_keywords:
+  - 警報
+  - 重故障
+  request_keywords:
+  - 点滅
+  - 赤
+  response_keywords:
+  - 変更
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_time_sync
+  topic_keywords:
+  - 時刻
+  request_keywords:
+  - ずれ
+  - 3秒
+  response_keywords:
+  - 修正
+  - 設定
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_manual
+  topic_keywords:
+  - 取扱説明書
+  - 説明書
+  request_keywords:
+  - 不足
+  response_keywords:
+  - 追記
+  expected_status: 保留
+  status_changed: false
+  values: []
+action_items:
+- id: sg_lamp_action
+  content_keywords:
+  - 表示灯
+  owner: our_side
+  deadline_text: 10月23日
+  deadline_accept:
+  - 10月23日
+- id: tr_tap_counter_action
+  content_keywords:
+  - カウンター
+  owner: our_side
+  deadline_text: 10月20日
+  deadline_accept:
+  - 10月20日
+- id: plc_alarm_action
+  content_keywords:
+  - 警報
+  - 重故障
+  owner: our_side
+  deadline_text: 10月8日
+  deadline_accept:
+  - 10月8日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 800ミリ
+  - 800mm
+- turn_id: 4
+  alts:
+  - プラスマイナス2
+  - ±2
+- turn_id: 5
+  alts:
+  - '801.5'
+- turn_id: 9
+  alts:
+  - 2000ボルト
+  - 2000V
+  - 2,000ボルト
+- turn_id: 9
+  alts:
+  - 耐電圧
+- turn_id: 13
+  alts:
+  - 耐電圧
+- turn_id: 14
+  alts:
+  - 表示灯
+- turn_id: 14
+  alts:
+  - 黄色
+- turn_id: 19
+  alts:
+  - 無負荷損
+- turn_id: 19
+  alts:
+  - 8.4キロワット
+  - 8.4kW
+- turn_id: 20
+  alts:
+  - 8.0キロワット
+  - 8.0kW
+  - 8キロワット
+- turn_id: 21
+  alts:
+  - 無負荷損
+- turn_id: 24
+  alts:
+  - 負荷時タップ切換器
+- turn_id: 24
+  alts:
+  - カウンター
+- turn_id: 25
+  alts:
+  - カウンター
+- turn_id: 29
+  alts:
+  - ダイヤル温度計
+- turn_id: 29
+  alts:
+  - 目盛り
+- turn_id: 30
+  alts:
+  - 目盛り
+- turn_id: 33
+  alts:
+  - 82デシベル
+  - 82dB
+- turn_id: 34
+  alts:
+  - 80デシベル
+  - 80dB
+- turn_id: 35
+  alts:
+  - 防音カバー
+- turn_id: 38
+  alts:
+  - 始動電流
+- turn_id: 38
+  alts:
+  - 6.2倍
+- turn_id: 45
+  alts:
+  - 成極指数
+- turn_id: 45
+  alts:
+  - '3.1'
+- turn_id: 49
+  alts:
+  - 重故障
+- turn_id: 49
+  alts:
+  - 点滅
+- turn_id: 52
+  alts:
+  - 3秒
+- turn_id: 53
+  alts:
+  - 時刻同期
+- turn_id: 57
+  alts:
+  - 取扱説明書

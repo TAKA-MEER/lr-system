@@ -1,0 +1,379 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  bt_wearers:
+  - 田中 誠
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+turns:
+- id: 1
+  speaker: 田中 誠
+  text: それでは時間になりましたので、閉鎖配電盤(型式 SWB-3300) 出荷前立会試験を始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 佐藤 健二
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 田中 誠
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 佐藤 健二
+  text: まず外観ですが、右側面の下のあたりに塗装のムラがありますね。光の当たり方で目立ちます。
+  kind: block
+  block: sg_appearance
+- id: 5
+  speaker: 鈴木 舞
+  text: ご指摘ありがとうございます。確かにムラがありますので、右側面は出荷前に再塗装いたします。
+  kind: block
+  block: sg_appearance
+- id: 6
+  speaker: 佐藤 健二
+  text: お願いします。いつ頃になりますか。
+  kind: block
+  block: sg_appearance
+- id: 7
+  speaker: 鈴木 舞
+  text: 10月9日までに再塗装を完了させて、写真でご報告します。
+  kind: block
+  block: sg_appearance
+- id: 8
+  speaker: 佐藤 健二
+  text: 分かりました。それで結構です。
+  kind: block
+  block: sg_appearance
+- id: 9
+  speaker: 田中 誠
+  text: 続いて寸法の確認です。盤の幅は図面で800ミリ、公差はプラスマイナス2ミリです。
+  kind: block
+  block: sg_dimension
+- id: 10
+  speaker: 田中 誠
+  text: 実測は801.5ミリでした。公差の範囲に入っています。
+  kind: block
+  block: sg_dimension
+- id: 11
+  speaker: 佐藤 健二
+  text: 奥行きと高さも図面どおりでしたか。
+  kind: block
+  block: sg_dimension
+- id: 12
+  speaker: 田中 誠
+  text: はい、奥行き、高さとも図面どおりです。記録表にも記入しています。
+  kind: block
+  block: sg_dimension
+- id: 13
+  speaker: 佐藤 健二
+  text: 了解です。寸法は問題ありません。
+  kind: block
+  block: sg_dimension
+- id: 14
+  speaker: 鈴木 舞
+  text: 耐電圧試験を行います。交流2000ボルトを1分間印加します。
+  kind: block
+  block: sg_withstand
+- id: 15
+  speaker: 鈴木 舞
+  text: 1分間経過しました。絶縁破壊やフラッシュオーバーなどの異常はありませんでした。
+  kind: block
+  block: sg_withstand
+- id: 16
+  speaker: 佐藤 健二
+  text: 漏れ電流の値はどうでしたか。
+  kind: block
+  block: sg_withstand
+- id: 17
+  speaker: 鈴木 舞
+  text: 漏れ電流は3.5ミリアンペアで、安定していました。
+  kind: block
+  block: sg_withstand
+- id: 18
+  speaker: 佐藤 健二
+  text: 問題ないですね。耐電圧試験は合格とします。
+  kind: block
+  block: sg_withstand
+- id: 19
+  speaker: 佐藤 健二
+  text: 銘板を見ると定格電流が1200アンペアになっていますが、仕様は1250アンペアですよね。
+  kind: block
+  block: sg_nameplate
+- id: 20
+  speaker: 鈴木 舞
+  text: 申し訳ありません、銘板の誤記です。1250アンペアで作り直します。
+  kind: block
+  block: sg_nameplate
+- id: 21
+  speaker: 佐藤 健二
+  text: 出荷までに間に合いますか。
+  kind: block
+  block: sg_nameplate
+- id: 22
+  speaker: 鈴木 舞
+  text: 10月16日までに再発行して取り付けます。取り付け後の写真もお送りします。
+  kind: block
+  block: sg_nameplate
+- id: 23
+  speaker: 佐藤 健二
+  text: それでお願いします。
+  kind: block
+  block: sg_nameplate
+- id: 24
+  speaker: 佐藤 健二
+  text: 表示灯について一つ要望があります。軽故障の表示灯を赤から黄色に変えてもらえませんか。
+  kind: block
+  block: sg_lamp
+- id: 25
+  speaker: 佐藤 健二
+  text: 既設の盤と色を合わせたいんです。
+  kind: block
+  block: sg_lamp
+- id: 26
+  speaker: 鈴木 舞
+  text: レンズの交換だけで対応できますので、追加費用なしで変更いたします。
+  kind: block
+  block: sg_lamp
+- id: 27
+  speaker: 鈴木 舞
+  text: 10月23日までに交換を済ませます。
+  kind: block
+  block: sg_lamp
+- id: 28
+  speaker: 佐藤 健二
+  text: 助かります。よろしくお願いします。
+  kind: block
+  block: sg_lamp
+- id: 29
+  speaker: 山田 隆
+  text: すみません、先ほど合意とした耐電圧試験の件ですが、社内で確認したところ条件を見直したいという話になりました。
+  kind: retract
+  block: sg_withstand
+- id: 30
+  speaker: 山田 隆
+  text: 申し訳ないですが、耐電圧試験は合意を取り消して、継続協議に戻させてください。
+  kind: retract
+  block: sg_withstand
+- id: 31
+  speaker: 鈴木 舞
+  text: 承知しました。耐電圧試験は継続協議に戻して、改めてご相談させてください。
+  kind: retract
+  block: sg_withstand
+- id: 32
+  speaker: 山田 隆
+  text: 完成図書ですが、海外の関連会社でも使うので英語版もいただけますか。
+  kind: block
+  block: sg_docs
+- id: 33
+  speaker: 田中 誠
+  text: 英語版は契約範囲外になりますので、翻訳費用が別途かかります。
+  kind: block
+  block: sg_docs
+- id: 34
+  speaker: 山田 隆
+  text: 費用次第ですね。まず見積もりをいただけますか。
+  kind: block
+  block: sg_docs
+- id: 35
+  speaker: 田中 誠
+  text: 10月14日までにお見積もりを提出します。
+  kind: block
+  block: sg_docs
+- id: 36
+  speaker: 山田 隆
+  text: それを見てから決めます。この件は継続協議でお願いします。
+  kind: block
+  block: sg_docs
+- id: 37
+  speaker: 田中 誠
+  text: 変圧比試験の結果です。一次66キロボルト、二次6.6キロボルトで、全タップの比誤差は最大0.2パーセントでした。
+  kind: block
+  block: tr_ratio
+- id: 38
+  speaker: 山田 隆
+  text: 規格の許容差はプラスマイナス0.5パーセントでしたね。
+  kind: block
+  block: tr_ratio
+- id: 39
+  speaker: 田中 誠
+  text: はい、すべてのタップで許容差内です。極性と角変位も確認済みです。
+  kind: block
+  block: tr_ratio
+- id: 40
+  speaker: 山田 隆
+  text: 了解しました。変圧比試験は合格とします。
+  kind: block
+  block: tr_ratio
+- id: 41
+  speaker: 鈴木 舞
+  text: 無負荷損の測定値は8.4キロワットでした。
+  kind: block
+  block: tr_noload
+- id: 42
+  speaker: 山田 隆
+  text: 保証値は8.0キロワットですよね。5パーセント超えています。
+  kind: block
+  block: tr_noload
+- id: 43
+  speaker: 鈴木 舞
+  text: JECの規格では無負荷損の許容差はプラス15パーセントですので、規格上は合格です。
+  kind: block
+  block: tr_noload
+- id: 44
+  speaker: 山田 隆
+  text: ただ、契約上は保証値で評価することになっているはずです。契約書を確認するまで継続協議にさせてください。
+  kind: block
+  block: tr_noload
+- id: 45
+  speaker: 鈴木 舞
+  text: 承知しました。こちらでも契約の条項を確認します。
+  kind: block
+  block: tr_noload
+- id: 46
+  speaker: 田中 誠
+  text: 負荷損と短絡インピーダンスの測定です。インピーダンスは7.4パーセントで、仕様の7.5パーセントに対して許容差内です。
+  kind: block
+  block: tr_impedance
+- id: 47
+  speaker: 佐藤 健二
+  text: 負荷損の方は保証値以内ですか。
+  kind: block
+  block: tr_impedance
+- id: 48
+  speaker: 田中 誠
+  text: はい、保証値62キロワットに対して59.8キロワットでした。
+  kind: block
+  block: tr_impedance
+- id: 49
+  speaker: 佐藤 健二
+  text: 問題ないですね。合格です。
+  kind: block
+  block: tr_impedance
+- id: 50
+  speaker: 田中 誠
+  text: 騒音測定の結果は、変圧器から0.3メートルの位置の平均で68デシベルでした。
+  kind: block
+  block: tr_noise
+- id: 51
+  speaker: 山田 隆
+  text: 仕様は70デシベル以下ですから問題ないですね。暗騒音はどのくらいでしたか。
+  kind: block
+  block: tr_noise
+- id: 52
+  speaker: 田中 誠
+  text: 暗騒音は45デシベルで、補正は不要でした。
+  kind: block
+  block: tr_noise
+- id: 53
+  speaker: 山田 隆
+  text: 分かりました。騒音は合格です。
+  kind: block
+  block: tr_noise
+- id: 54
+  speaker: 佐藤 健二
+  text: すみません、先ほど合意とした変圧比試験の件ですが、社内で確認したところ条件を見直したいという話になりました。
+  kind: retract
+  block: tr_ratio
+- id: 55
+  speaker: 佐藤 健二
+  text: 申し訳ないですが、変圧比試験は合意を取り消して、継続協議に戻させてください。
+  kind: retract
+  block: tr_ratio
+- id: 56
+  speaker: 田中 誠
+  text: 承知しました。変圧比試験は継続協議に戻して、改めてご相談させてください。
+  kind: retract
+  block: tr_ratio
+- id: 57
+  speaker: 鈴木 舞
+  text: 外装の塗装膜厚は平均85ミクロンで、仕様の80ミクロン以上を満たしています。
+  kind: block
+  block: tr_paint
+- id: 58
+  speaker: 山田 隆
+  text: 記録を見ると、タンクの角の1点だけ72ミクロンになっていますね。
+  kind: block
+  block: tr_paint
+- id: 59
+  speaker: 鈴木 舞
+  text: その箇所は出荷前に補修塗装して、再測定します。
+  kind: block
+  block: tr_paint
+- id: 60
+  speaker: 山田 隆
+  text: それで結構です。
+  kind: block
+  block: tr_paint
+- id: 61
+  speaker: 佐藤 健二
+  text: 付属品のダイヤル温度計ですが、目盛りが細かくて離れた位置から読みにくいです。
+  kind: block
+  block: tr_thermometer
+- id: 62
+  speaker: 鈴木 舞
+  text: 標準品を使っていますが、目盛り板の大きいタイプに変更することはできます。
+  kind: block
+  block: tr_thermometer
+- id: 63
+  speaker: 佐藤 健二
+  text: 変更した場合の納期への影響を教えてください。それを聞いてから決めたいので継続協議でお願いします。
+  kind: block
+  block: tr_thermometer
+- id: 64
+  speaker: 鈴木 舞
+  text: 分かりました。メーカーに確認します。
+  kind: block
+  block: tr_thermometer
+- id: 65
+  speaker: 山田 隆
+  text: 先ほどの無負荷損の件、本社に確認したところ、契約書に規格の許容差を適用すると書いてありました。
+  kind: resolve
+  block: tr_noload
+- id: 66
+  speaker: 山田 隆
+  text: なので8.4キロワットで問題ありません。無負荷損は合意とします。
+  kind: resolve
+  block: tr_noload
+- id: 67
+  speaker: 田中 誠
+  text: ありがとうございます。記録にもそのように残します。
+  kind: resolve
+  block: tr_noload
+- id: 68
+  speaker: 佐藤 健二
+  text: すみません、先ほど合意とした騒音測定の件ですが、社内で確認したところ条件を見直したいという話になりました。
+  kind: retract
+  block: tr_noise
+- id: 69
+  speaker: 佐藤 健二
+  text: 申し訳ないですが、騒音測定は合意を取り消して、継続協議に戻させてください。
+  kind: retract
+  block: tr_noise
+- id: 70
+  speaker: 田中 誠
+  text: 承知しました。騒音測定は継続協議に戻して、改めてご相談させてください。
+  kind: retract
+  block: tr_noise
+- id: 71
+  speaker: 鈴木 舞
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 72
+  speaker: 山田 隆
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null

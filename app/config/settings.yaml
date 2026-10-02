@@ -15,15 +15,29 @@ stt:
   vad_threshold: 0.05
   vad_min_silence_ms: 300
   vad_speech_pad_ms: 300
+  initial_prompt: ""          # Whisperへの文脈ヒント({trial_name}で試験名を差し込める)。第2期試験で専門用語を並べた
+                              # ヒントを与えるとCERが0.161→0.268に悪化したため、既定では使わない(空欄)
 
 speaker:
-  bt_rms_threshold: 800.0     # BTマイク有音判定閾値（実測でチューニング）
+  method: adaptive            # adaptive: 50msフレームの発話判定+自動閾値+セグメント単位の判定(既定)
+                              # legacy: 5秒チャンクのRMSを bt_rms_threshold と比較する旧方式
+  history_seconds: 60.0       # adaptive: 自動閾値を決めるために見る直近のBT音声の長さ
+  margin_db: 16.0             # adaptive: 装着者の発話の大きさから何dB下までを「発話」とみなすか
+  segment_active_ratio: 0.3   # adaptive: セグメントの時間のうちBT装着者の発話がこの割合を超えれば our_side
+  bt_rms_threshold: 800.0     # legacy方式の閾値(画面のスライダーで変更できるのはこの値のみ)
   history_window_seconds: 10.0
 
 llm:
   model: qwen3.5:9b
-  max_tokens: 4096
-  chunk_chars: 2000           # Stage1チャンクの文字数
+  max_tokens: 8192            # Stage1の出力上限。チャンクを6000文字にしたため、測定値の読み上げが多いチャンクで
+                              # 出力が途中で切れないよう広げた(4096では約1〜2%のチャンクで切れた)
+  stage2_max_tokens: 8192     # 最終議事録の出力上限。協議事項が多い試験で出力が途中で切れるのを防ぐ
+  structured_output: true     # 出力をJSONスキーマで制約する(JSONの書式崩れで議事録が空になるのを防ぐ)
+  num_gpu: 99                 # 全層をGPUに載せる。未指定だとOllamaが空きVRAMの余裕を多めに取り、
+                              # 一部の層をCPUに逃がして生成が約3倍遅くなる(第2期試験で確認)。
+                              # VRAMが足りずに失敗した場合は自動で指定なしに切り替えて再試行する
+  chunk_chars: 6000           # Stage1チャンクの文字数。1つの協議が複数チャンクに分かれにくいよう2000から拡大(第2期 比較実験)
+  prog_merge: true            # Stage2の前にプログラムで同じ話題を名寄せする(長時間試験での重複・出力の打ち切り対策)
   temperature: 0.2            # 低めにしてJSON出力のフォーマット逸脱・解析失敗を減らす
   num_ctx: 32768               # Ollamaへの明示的なコンテキスト長指定。未指定だとOllamaの既定値
                                 # (数千トークン程度)が使われ、3時間耐久試験でStage2プロンプトが

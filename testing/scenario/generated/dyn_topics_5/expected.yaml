@@ -1,0 +1,493 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: sg_appearance
+  topic_keywords:
+  - 塗装
+  - 外観
+  request_keywords:
+  - ムラ
+  - 塗装
+  response_keywords:
+  - 再塗装
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_dimension
+  topic_keywords:
+  - 寸法
+  request_keywords:
+  - 寸法
+  - 幅
+  response_keywords:
+  - '801.5'
+  - 公差
+  - 範囲
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '800'
+  - '801.5'
+- id: sg_insulation
+  topic_keywords:
+  - 絶縁抵抗
+  request_keywords:
+  - '3.2'
+  - 下限
+  - 余裕
+  response_keywords:
+  - 湿度
+  - 再測定
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '3.2'
+- id: sg_interlock
+  topic_keywords:
+  - インターロック
+  request_keywords: []
+  response_keywords:
+  - 断路器
+  - 遮断器
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_relay
+  topic_keywords:
+  - 継電器
+  - 過電流
+  request_keywords: []
+  response_keywords:
+  - '0.31'
+  - '0.3'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.31'
+- id: tr_noload
+  topic_keywords:
+  - 無負荷損
+  request_keywords:
+  - '8.4'
+  - 保証値
+  - 超過
+  response_keywords:
+  - 許容差
+  - JEC
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '8.4'
+  - '8.0'
+- id: tr_impedance
+  topic_keywords:
+  - インピーダンス
+  - 負荷損
+  request_keywords: []
+  response_keywords:
+  - '7.4'
+  - '7.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '7.4'
+- id: tr_oil_leak
+  topic_keywords:
+  - 油にじみ
+  - 油漏れ
+  - フランジ
+  - パッキン
+  request_keywords:
+  - にじみ
+  response_keywords:
+  - パッキン
+  - 交換
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: tr_noise
+  topic_keywords:
+  - 騒音
+  request_keywords: []
+  response_keywords:
+  - '68'
+  - '70'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '68'
+- id: tr_paint
+  topic_keywords:
+  - 膜厚
+  request_keywords:
+  - '72'
+  - 補修
+  response_keywords:
+  - 補修
+  - '85'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '85'
+  - '72'
+- id: mt_noise
+  topic_keywords:
+  - 騒音
+  request_keywords:
+  - '82'
+  - '80'
+  - 超
+  response_keywords:
+  - 防音カバー
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '82'
+  - '80'
+- id: mt_efficiency
+  topic_keywords:
+  - 効率
+  request_keywords: []
+  response_keywords:
+  - '96.2'
+  - '96.0'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '96.2'
+- id: mt_winding_temp
+  topic_keywords:
+  - 温度上昇
+  - 巻線
+  request_keywords: []
+  response_keywords:
+  - '75'
+  - '80'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '75'
+- id: mt_starting
+  topic_keywords:
+  - 始動電流
+  request_keywords: []
+  response_keywords:
+  - '6.2'
+  - '6.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '6.2'
+- id: mt_spare
+  topic_keywords:
+  - 予備品
+  request_keywords:
+  - 軸受
+  - 追加
+  response_keywords:
+  - 見積
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_trend
+  topic_keywords:
+  - トレンド
+  - 保存期間
+  request_keywords:
+  - 1年
+  response_keywords:
+  - 30日
+  - ストレージ
+  - 増設
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '30'
+- id: plc_pump_interlock
+  topic_keywords:
+  - インターロック
+  - ポンプ
+  request_keywords: []
+  response_keywords:
+  - 水位
+  - 停止
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_redundancy
+  topic_keywords:
+  - 二重化
+  - 切替
+  - CPU
+  request_keywords: []
+  response_keywords:
+  - '120'
+  - '200'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '120'
+  - '200'
+- id: plc_modbus
+  topic_keywords:
+  - 通信
+  - タイムアウト
+  - Modbus
+  - モドバス
+  request_keywords:
+  - タイムアウト
+  response_keywords:
+  - 原因
+  - 調査
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_user_level
+  topic_keywords:
+  - 権限
+  request_keywords:
+  - 3段階
+  - 保守
+  response_keywords:
+  - 追加
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+action_items:
+- id: sg_appearance_action
+  content_keywords:
+  - 塗装
+  owner: our_side
+  deadline_text: 10月9日
+  deadline_accept:
+  - 10月9日
+- id: tr_oil_leak_action
+  content_keywords:
+  - パッキン
+  owner: our_side
+  deadline_text: 10月12日
+  deadline_accept:
+  - 10月12日
+- id: mt_spare_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 10月16日
+  deadline_accept:
+  - 10月16日
+- id: plc_modbus_action
+  content_keywords:
+  - 通信
+  - タイムアウト
+  - 調査
+  owner: our_side
+  deadline_text: 10月15日
+  deadline_accept:
+  - 10月15日
+- id: plc_user_level_action
+  content_keywords:
+  - 権限
+  owner: our_side
+  deadline_text: 10月22日
+  deadline_accept:
+  - 10月22日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 塗装
+- turn_id: 4
+  alts:
+  - ムラ
+- turn_id: 5
+  alts:
+  - 塗装
+- turn_id: 5
+  alts:
+  - ムラ
+- turn_id: 7
+  alts:
+  - 塗装
+- turn_id: 9
+  alts:
+  - 800ミリ
+  - 800mm
+- turn_id: 9
+  alts:
+  - プラスマイナス2
+  - ±2
+- turn_id: 10
+  alts:
+  - '801.5'
+- turn_id: 14
+  alts:
+  - 3.2メガオーム
+  - 3.2MΩ
+  - 3.2メグオーム
+- turn_id: 14
+  alts:
+  - 絶縁抵抗
+- turn_id: 19
+  alts:
+  - インターロック
+- turn_id: 19
+  alts:
+  - 断路器
+- turn_id: 20
+  alts:
+  - 断路器
+- turn_id: 21
+  alts:
+  - 断路器
+- turn_id: 23
+  alts:
+  - インターロック
+- turn_id: 24
+  alts:
+  - 過電流継電器
+- turn_id: 24
+  alts:
+  - 5アンペア
+  - 5A
+- turn_id: 25
+  alts:
+  - 0.31秒
+- turn_id: 29
+  alts:
+  - 無負荷損
+- turn_id: 29
+  alts:
+  - 8.4キロワット
+  - 8.4kW
+- turn_id: 30
+  alts:
+  - 8.0キロワット
+  - 8.0kW
+  - 8キロワット
+- turn_id: 31
+  alts:
+  - 無負荷損
+- turn_id: 34
+  alts:
+  - インピーダンス
+- turn_id: 34
+  alts:
+  - 7.4パーセント
+  - 7.4%
+- turn_id: 40
+  alts:
+  - 放熱器
+- turn_id: 41
+  alts:
+  - パッキン
+- turn_id: 42
+  alts:
+  - パッキン
+- turn_id: 44
+  alts:
+  - 68デシベル
+  - 68dB
+- turn_id: 45
+  alts:
+  - 70デシベル
+  - 70dB
+- turn_id: 51
+  alts:
+  - 膜厚
+- turn_id: 51
+  alts:
+  - 85ミクロン
+  - 85μm
+- turn_id: 52
+  alts:
+  - 72ミクロン
+  - 72μm
+- turn_id: 55
+  alts:
+  - 82デシベル
+  - 82dB
+- turn_id: 56
+  alts:
+  - 80デシベル
+  - 80dB
+- turn_id: 57
+  alts:
+  - 防音カバー
+- turn_id: 60
+  alts:
+  - 96.2パーセント
+  - 96.2%
+- turn_id: 61
+  alts:
+  - IE3
+- turn_id: 62
+  alts:
+  - IE3
+- turn_id: 64
+  alts:
+  - 75ケルビン
+  - 75K
+- turn_id: 65
+  alts:
+  - 80ケルビン
+  - 80K
+- turn_id: 67
+  alts:
+  - 始動電流
+- turn_id: 67
+  alts:
+  - 6.2倍
+- turn_id: 71
+  alts:
+  - 予備品
+- turn_id: 76
+  alts:
+  - トレンド
+- turn_id: 76
+  alts:
+  - 30日
+- turn_id: 76
+  alts:
+  - 1年
+- turn_id: 77
+  alts:
+  - 1年
+- turn_id: 80
+  alts:
+  - インターロック
+- turn_id: 80
+  alts:
+  - 水位低
+- turn_id: 81
+  alts:
+  - 水位低
+- turn_id: 85
+  alts:
+  - 二重化
+- turn_id: 86
+  alts:
+  - 120ミリ秒
+- turn_id: 86
+  alts:
+  - 200ミリ秒
+- turn_id: 90
+  alts:
+  - タイムアウト
+- turn_id: 96
+  alts:
+  - 権限
+- turn_id: 96
+  alts:
+  - 3段階
+- turn_id: 97
+  alts:
+  - 権限

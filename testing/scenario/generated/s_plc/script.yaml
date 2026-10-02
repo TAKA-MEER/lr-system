@@ -1,0 +1,239 @@
+meta:
+  trial_name: 浄水場 監視制御盤(型式 CP-400) 工場試験 FAT
+  location: 制御システム工場 試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+  bt_wearers:
+  - 田中 誠
+  bt_wearer: 田中 誠
+speakers:
+  山田 隆: client
+  佐藤 健二: client
+  田中 誠: our_side
+  鈴木 舞: our_side
+turns:
+- id: 1
+  speaker: 鈴木 舞
+  text: それでは時間になりましたので、浄水場 監視制御盤(型式 CP-400) 工場試験 FATを始めさせていただきます。本日はよろしくお願いいたします。
+  kind: opening
+  block: null
+- id: 2
+  speaker: 山田 隆
+  text: よろしくお願いします。
+  kind: opening
+  block: null
+- id: 3
+  speaker: 鈴木 舞
+  text: 本日の試験項目は、お配りした試験要領書のとおりです。順番に進めてまいります。
+  kind: opening
+  block: null
+- id: 4
+  speaker: 鈴木 舞
+  text: 入出力チェックの結果です。入力256点、出力128点をすべて確認しました。
+  kind: block
+  block: plc_io
+- id: 5
+  speaker: 鈴木 舞
+  text: そのうち入力の37番と38番の配線が入れ替わっていたので、修正して再確認済みです。
+  kind: block
+  block: plc_io
+- id: 6
+  speaker: 佐藤 健二
+  text: 修正後の確認は、私たちが立ち会った状態でもう一度見せてもらえますか。
+  kind: block
+  block: plc_io
+- id: 7
+  speaker: 鈴木 舞
+  text: はい、今から37番と38番を順に入れますので、画面をご覧ください。
+  kind: block
+  block: plc_io
+- id: 8
+  speaker: 佐藤 健二
+  text: 確認できました。入出力チェックは合格です。
+  kind: block
+  block: plc_io
+- id: 9
+  speaker: 佐藤 健二
+  text: 警報一覧の画面ですが、重故障は赤の点滅にしてもらえますか。今は軽故障と同じ表示で区別がつきにくいです。
+  kind: block
+  block: plc_alarm
+- id: 10
+  speaker: 鈴木 舞
+  text: 画面の設定変更で対応できます。10月8日までに修正版をお送りします。
+  kind: block
+  block: plc_alarm
+- id: 11
+  speaker: 佐藤 健二
+  text: ありがとうございます。それでお願いします。
+  kind: block
+  block: plc_alarm
+- id: 12
+  speaker: 山田 隆
+  text: トレンドデータの保存期間が30日になっていますが、水質の管理上、1年は残したいんです。
+  kind: block
+  block: plc_trend
+- id: 13
+  speaker: 鈴木 舞
+  text: 1年分を保存するにはストレージの増設が必要になります。
+  kind: block
+  block: plc_trend
+- id: 14
+  speaker: 山田 隆
+  text: 増設の費用と、外部に書き出す方法があるかも含めて検討したいので、継続協議でお願いします。
+  kind: block
+  block: plc_trend
+- id: 15
+  speaker: 鈴木 舞
+  text: 承知しました。両方の案を比較してお示しします。
+  kind: block
+  block: plc_trend
+- id: 16
+  speaker: 鈴木 舞
+  text: 取水ポンプのインターロックです。水位低の信号を入れると、運転中のポンプが停止することを確認します。
+  kind: block
+  block: plc_pump_interlock
+- id: 17
+  speaker: 鈴木 舞
+  text: 信号を入れました。ポンプが停止し、画面にも水位低の警報が出ています。
+  kind: block
+  block: plc_pump_interlock
+- id: 18
+  speaker: 山田 隆
+  text: 復帰の手順も確認させてください。
+  kind: block
+  block: plc_pump_interlock
+- id: 19
+  speaker: 鈴木 舞
+  text: 水位が戻った後、画面から復帰操作をしないと再起動しない仕様です。
+  kind: block
+  block: plc_pump_interlock
+- id: 20
+  speaker: 山田 隆
+  text: 確認しました。問題ありません。
+  kind: block
+  block: plc_pump_interlock
+- id: 21
+  speaker: 鈴木 舞
+  text: CPUの二重化切替試験です。稼働系の電源を切って、待機系に切り替わるまでの時間を測ります。
+  kind: block
+  block: plc_redundancy
+- id: 22
+  speaker: 鈴木 舞
+  text: 切替時間は120ミリ秒でした。仕様は200ミリ秒以内です。
+  kind: block
+  block: plc_redundancy
+- id: 23
+  speaker: 佐藤 健二
+  text: 切替のときに出力が変化しないことも確認できましたか。
+  kind: block
+  block: plc_redundancy
+- id: 24
+  speaker: 鈴木 舞
+  text: はい、出力は保持されていました。
+  kind: block
+  block: plc_redundancy
+- id: 25
+  speaker: 佐藤 健二
+  text: 合格です。
+  kind: block
+  block: plc_redundancy
+- id: 26
+  speaker: 佐藤 健二
+  text: 上位の監視システムとの通信で、さっき一度タイムアウトが出ていましたね。
+  kind: block
+  block: plc_modbus
+- id: 27
+  speaker: 田中 誠
+  text: はい、1回だけ発生しました。原因はまだ分かっていません。
+  kind: block
+  block: plc_modbus
+- id: 28
+  speaker: 田中 誠
+  text: 10月15日までに原因を調査して報告します。
+  kind: block
+  block: plc_modbus
+- id: 29
+  speaker: 佐藤 健二
+  text: 原因が分かるまで継続協議にします。
+  kind: block
+  block: plc_modbus
+- id: 30
+  speaker: 鈴木 舞
+  text: トレンドの保存期間の件、外付けのストレージで1年分を保存する案なら、追加費用は小さく済みます。
+  kind: resolve
+  block: plc_trend
+- id: 31
+  speaker: 山田 隆
+  text: それなら外付けストレージの案で進めてください。トレンドの件は合意とします。
+  kind: resolve
+  block: plc_trend
+- id: 32
+  speaker: 山田 隆
+  text: 操作権限がオペレーターと管理者の2段階ですが、保守員を加えて3段階にしたいです。
+  kind: block
+  block: plc_user_level
+- id: 33
+  speaker: 田中 誠
+  text: 対応できます。保守員の権限でできる操作の一覧をいただけますか。
+  kind: block
+  block: plc_user_level
+- id: 34
+  speaker: 山田 隆
+  text: 一覧は今週中に送ります。
+  kind: block
+  block: plc_user_level
+- id: 35
+  speaker: 田中 誠
+  text: ありがとうございます。一覧をいただいてから、10月22日までに画面を改修します。
+  kind: block
+  block: plc_user_level
+- id: 36
+  speaker: 山田 隆
+  text: それでお願いします。
+  kind: block
+  block: plc_user_level
+- id: 37
+  speaker: 山田 隆
+  text: 監視画面の時計が、上位システムと3秒ずれていますね。
+  kind: block
+  block: plc_time_sync
+- id: 38
+  speaker: 田中 誠
+  text: 時刻同期の設定で、サーバーのアドレスが間違っていました。今修正しました。
+  kind: block
+  block: plc_time_sync
+- id: 39
+  speaker: 山田 隆
+  text: 今は一致していますね。了解しました。
+  kind: block
+  block: plc_time_sync
+- id: 40
+  speaker: 佐藤 健二
+  text: 取扱説明書ですが、画面操作の説明が全体的に不足していると思います。
+  kind: block
+  block: plc_manual
+- id: 41
+  speaker: 田中 誠
+  text: 具体的にどの画面の説明を追記すればよいか、ご指示いただけますか。
+  kind: block
+  block: plc_manual
+- id: 42
+  speaker: 佐藤 健二
+  text: 社内で運転員に聞いて一覧にします。それまでこの件は保留にしてください。
+  kind: block
+  block: plc_manual
+- id: 43
+  speaker: 鈴木 舞
+  text: 本日予定していた項目は以上です。残った課題は議事録にまとめて送付いたします。
+  kind: closing
+  block: null
+- id: 44
+  speaker: 山田 隆
+  text: ありがとうございました。お疲れさまでした。
+  kind: closing
+  block: null

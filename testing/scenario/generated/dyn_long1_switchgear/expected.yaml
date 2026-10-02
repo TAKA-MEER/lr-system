@@ -1,0 +1,282 @@
+meta:
+  trial_name: 閉鎖配電盤(型式 SWB-3300) 出荷前立会試験
+  location: 第2工場 電気試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: sg_appearance
+  topic_keywords:
+  - 塗装
+  - 外観
+  request_keywords:
+  - ムラ
+  - 塗装
+  response_keywords:
+  - 再塗装
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_dimension
+  topic_keywords:
+  - 寸法
+  request_keywords:
+  - 寸法
+  - 幅
+  response_keywords:
+  - '801.5'
+  - 公差
+  - 範囲
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '800'
+  - '801.5'
+- id: sg_insulation
+  topic_keywords:
+  - 絶縁抵抗
+  request_keywords:
+  - '3.2'
+  - 下限
+  - 余裕
+  response_keywords:
+  - 湿度
+  - 再測定
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '3.2'
+- id: sg_withstand
+  topic_keywords:
+  - 耐電圧
+  request_keywords: []
+  response_keywords:
+  - '2000'
+  - 異常
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '2000'
+- id: sg_sequence
+  topic_keywords:
+  - シーケンス
+  - 投入
+  - 表示灯の点灯
+  request_keywords:
+  - '0.5'
+  response_keywords:
+  - '0.8'
+  - リレー
+  expected_status: 保留
+  status_changed: false
+  values:
+  - '0.8'
+  - '0.5'
+- id: sg_interlock
+  topic_keywords:
+  - インターロック
+  request_keywords: []
+  response_keywords:
+  - 断路器
+  - 遮断器
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_nameplate
+  topic_keywords:
+  - 銘板
+  request_keywords:
+  - '1200'
+  - '1250'
+  - 定格電流
+  response_keywords:
+  - 再発行
+  - 作り直
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '1250'
+- id: sg_lamp
+  topic_keywords:
+  - 表示灯
+  - 色
+  request_keywords:
+  - 黄色
+  - 故障
+  response_keywords:
+  - 交換
+  - 費用
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: sg_docs
+  topic_keywords:
+  - 完成図書
+  - 英語
+  request_keywords:
+  - 英語
+  response_keywords:
+  - 見積
+  - 費用
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: sg_relay
+  topic_keywords:
+  - 継電器
+  - 過電流
+  request_keywords: []
+  response_keywords:
+  - '0.31'
+  - '0.3'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '0.31'
+action_items:
+- id: sg_appearance_action
+  content_keywords:
+  - 塗装
+  owner: our_side
+  deadline_text: 10月9日
+  deadline_accept:
+  - 10月9日
+- id: sg_nameplate_action
+  content_keywords:
+  - 銘板
+  owner: our_side
+  deadline_text: 10月16日
+  deadline_accept:
+  - 10月16日
+- id: sg_lamp_action
+  content_keywords:
+  - 表示灯
+  owner: our_side
+  deadline_text: 10月23日
+  deadline_accept:
+  - 10月23日
+- id: sg_docs_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 10月14日
+  deadline_accept:
+  - 10月14日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 塗装
+- turn_id: 4
+  alts:
+  - ムラ
+- turn_id: 5
+  alts:
+  - 塗装
+- turn_id: 5
+  alts:
+  - ムラ
+- turn_id: 7
+  alts:
+  - 塗装
+- turn_id: 89
+  alts:
+  - 800ミリ
+  - 800mm
+- turn_id: 89
+  alts:
+  - プラスマイナス2
+  - ±2
+- turn_id: 90
+  alts:
+  - '801.5'
+- turn_id: 174
+  alts:
+  - 3.2メガオーム
+  - 3.2MΩ
+  - 3.2メグオーム
+- turn_id: 174
+  alts:
+  - 絶縁抵抗
+- turn_id: 259
+  alts:
+  - 2000ボルト
+  - 2000V
+  - 2,000ボルト
+- turn_id: 259
+  alts:
+  - 耐電圧
+- turn_id: 263
+  alts:
+  - 耐電圧
+- turn_id: 344
+  alts:
+  - 0.8秒
+- turn_id: 344
+  alts:
+  - 遮断器
+- turn_id: 345
+  alts:
+  - 0.5秒
+- turn_id: 429
+  alts:
+  - インターロック
+- turn_id: 429
+  alts:
+  - 断路器
+- turn_id: 430
+  alts:
+  - 断路器
+- turn_id: 431
+  alts:
+  - 断路器
+- turn_id: 433
+  alts:
+  - インターロック
+- turn_id: 514
+  alts:
+  - 1200アンペア
+  - 1200A
+- turn_id: 514
+  alts:
+  - 1250アンペア
+  - 1250A
+- turn_id: 514
+  alts:
+  - 銘板
+- turn_id: 515
+  alts:
+  - 1250アンペア
+  - 1250A
+- turn_id: 515
+  alts:
+  - 銘板
+- turn_id: 601
+  alts:
+  - 表示灯
+- turn_id: 601
+  alts:
+  - 黄色
+- turn_id: 686
+  alts:
+  - 完成図書
+- turn_id: 686
+  alts:
+  - 英語版
+- turn_id: 687
+  alts:
+  - 英語版
+- turn_id: 771
+  alts:
+  - 過電流継電器
+- turn_id: 771
+  alts:
+  - 5アンペア
+  - 5A
+- turn_id: 772
+  alts:
+  - 0.31秒

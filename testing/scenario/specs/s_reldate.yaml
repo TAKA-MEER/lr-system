@@ -1,0 +1,6 @@
+# C-6 期限の相対表現(来週の金曜日・今月末・2週間後・次回の立会試験)
+name: s_reldate
+seed: 17
+domains: [switchgear, plc]
+blocks_per_domain: 6
+deadline_mode: rel

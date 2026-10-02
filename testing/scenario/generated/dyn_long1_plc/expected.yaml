@@ -1,0 +1,226 @@
+meta:
+  trial_name: 浄水場 監視制御盤(型式 CP-400) 工場試験 FAT
+  location: 制御システム工場 試験室
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: plc_io
+  topic_keywords:
+  - 入出力
+  - I/O
+  - IO
+  - 配線
+  request_keywords: []
+  response_keywords:
+  - '37'
+  - '38'
+  - 入れ替
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '256'
+  - '128'
+- id: plc_alarm
+  topic_keywords:
+  - 警報
+  - 重故障
+  request_keywords:
+  - 点滅
+  - 赤
+  response_keywords:
+  - 変更
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_trend
+  topic_keywords:
+  - トレンド
+  - 保存期間
+  request_keywords:
+  - 1年
+  response_keywords:
+  - 30日
+  - ストレージ
+  - 増設
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '30'
+- id: plc_pump_interlock
+  topic_keywords:
+  - インターロック
+  - ポンプ
+  request_keywords: []
+  response_keywords:
+  - 水位
+  - 停止
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_redundancy
+  topic_keywords:
+  - 二重化
+  - 切替
+  - CPU
+  request_keywords: []
+  response_keywords:
+  - '120'
+  - '200'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '120'
+  - '200'
+- id: plc_modbus
+  topic_keywords:
+  - 通信
+  - タイムアウト
+  - Modbus
+  - モドバス
+  request_keywords:
+  - タイムアウト
+  response_keywords:
+  - 原因
+  - 調査
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: plc_user_level
+  topic_keywords:
+  - 権限
+  request_keywords:
+  - 3段階
+  - 保守
+  response_keywords:
+  - 追加
+  - 対応
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_time_sync
+  topic_keywords:
+  - 時刻
+  request_keywords:
+  - ずれ
+  - 3秒
+  response_keywords:
+  - 修正
+  - 設定
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: plc_manual
+  topic_keywords:
+  - 取扱説明書
+  - 説明書
+  request_keywords:
+  - 不足
+  response_keywords:
+  - 追記
+  expected_status: 保留
+  status_changed: false
+  values: []
+action_items:
+- id: plc_alarm_action
+  content_keywords:
+  - 警報
+  - 重故障
+  owner: our_side
+  deadline_text: 10月8日
+  deadline_accept:
+  - 10月8日
+- id: plc_modbus_action
+  content_keywords:
+  - 通信
+  - タイムアウト
+  - 調査
+  owner: our_side
+  deadline_text: 10月15日
+  deadline_accept:
+  - 10月15日
+- id: plc_user_level_action
+  content_keywords:
+  - 権限
+  owner: our_side
+  deadline_text: 10月22日
+  deadline_accept:
+  - 10月22日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 256点
+- turn_id: 4
+  alts:
+  - 128点
+- turn_id: 5
+  alts:
+  - 37番
+  - '37'
+- turn_id: 7
+  alts:
+  - 37番
+  - '37'
+- turn_id: 99
+  alts:
+  - 重故障
+- turn_id: 99
+  alts:
+  - 点滅
+- turn_id: 190
+  alts:
+  - トレンド
+- turn_id: 190
+  alts:
+  - 30日
+- turn_id: 190
+  alts:
+  - 1年
+- turn_id: 191
+  alts:
+  - 1年
+- turn_id: 282
+  alts:
+  - インターロック
+- turn_id: 282
+  alts:
+  - 水位低
+- turn_id: 283
+  alts:
+  - 水位低
+- turn_id: 375
+  alts:
+  - 二重化
+- turn_id: 376
+  alts:
+  - 120ミリ秒
+- turn_id: 376
+  alts:
+  - 200ミリ秒
+- turn_id: 468
+  alts:
+  - タイムアウト
+- turn_id: 564
+  alts:
+  - 権限
+- turn_id: 564
+  alts:
+  - 3段階
+- turn_id: 565
+  alts:
+  - 権限
+- turn_id: 657
+  alts:
+  - 3秒
+- turn_id: 658
+  alts:
+  - 時刻同期
+- turn_id: 748
+  alts:
+  - 取扱説明書

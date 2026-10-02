@@ -1,0 +1,213 @@
+meta:
+  trial_name: 高圧三相誘導電動機(型式 MX-750 750kW) 工場立会試験
+  location: 回転機工場 第3試験台
+  date: 2026年10月1日
+  client_attendees:
+  - 山田 隆
+  - 佐藤 健二
+  our_attendees:
+  - 田中 誠
+  - 鈴木 舞
+discussions:
+- id: mt_vibration
+  topic_keywords:
+  - 振動
+  request_keywords: []
+  response_keywords:
+  - '1.8'
+  - '2.8'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '1.8'
+- id: mt_noise
+  topic_keywords:
+  - 騒音
+  request_keywords:
+  - '82'
+  - '80'
+  - 超
+  response_keywords:
+  - 防音カバー
+  expected_status: 合意済み
+  status_changed: true
+  values:
+  - '82'
+  - '80'
+- id: mt_efficiency
+  topic_keywords:
+  - 効率
+  request_keywords: []
+  response_keywords:
+  - '96.2'
+  - '96.0'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '96.2'
+- id: mt_winding_temp
+  topic_keywords:
+  - 温度上昇
+  - 巻線
+  request_keywords: []
+  response_keywords:
+  - '75'
+  - '80'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '75'
+- id: mt_bearing
+  topic_keywords:
+  - 軸受
+  request_keywords:
+  - 8度
+  - 高い
+  response_keywords:
+  - グリース
+  expected_status: 保留
+  status_changed: false
+  values: []
+- id: mt_starting
+  topic_keywords:
+  - 始動電流
+  request_keywords: []
+  response_keywords:
+  - '6.2'
+  - '6.5'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '6.2'
+- id: mt_terminal_box
+  topic_keywords:
+  - 端子箱
+  request_keywords:
+  - 左側
+  - 変更
+  response_keywords:
+  - 設計変更
+  - 2週間
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+- id: mt_insulation
+  topic_keywords:
+  - 成極指数
+  - 絶縁
+  request_keywords: []
+  response_keywords:
+  - '3.1'
+  expected_status: 合意済み
+  status_changed: false
+  values:
+  - '3.1'
+- id: mt_nameplate
+  topic_keywords:
+  - 銘板
+  - 製造番号
+  request_keywords:
+  - 製造番号
+  - 違
+  response_keywords:
+  - 再発行
+  expected_status: 合意済み
+  status_changed: false
+  values: []
+- id: mt_spare
+  topic_keywords:
+  - 予備品
+  request_keywords:
+  - 軸受
+  - 追加
+  response_keywords:
+  - 見積
+  expected_status: 継続協議
+  status_changed: false
+  values: []
+action_items:
+- id: mt_nameplate_action
+  content_keywords:
+  - 銘板
+  owner: our_side
+  deadline_text: 10月13日
+  deadline_accept:
+  - 10月13日
+- id: mt_spare_action
+  content_keywords:
+  - 見積
+  owner: our_side
+  deadline_text: 10月16日
+  deadline_accept:
+  - 10月16日
+chitchat_keywords: []
+terms:
+- turn_id: 4
+  alts:
+  - 1.8ミリメートル毎秒
+  - 1.8mm/s
+- turn_id: 6
+  alts:
+  - '2.8'
+- turn_id: 8
+  alts:
+  - 82デシベル
+  - 82dB
+- turn_id: 9
+  alts:
+  - 80デシベル
+  - 80dB
+- turn_id: 10
+  alts:
+  - 防音カバー
+- turn_id: 13
+  alts:
+  - 96.2パーセント
+  - 96.2%
+- turn_id: 14
+  alts:
+  - IE3
+- turn_id: 15
+  alts:
+  - IE3
+- turn_id: 17
+  alts:
+  - 75ケルビン
+  - 75K
+- turn_id: 18
+  alts:
+  - 80ケルビン
+  - 80K
+- turn_id: 22
+  alts:
+  - 軸受
+- turn_id: 23
+  alts:
+  - グリース
+- turn_id: 25
+  alts:
+  - 始動電流
+- turn_id: 25
+  alts:
+  - 6.2倍
+- turn_id: 29
+  alts:
+  - 端子箱
+- turn_id: 32
+  alts:
+  - 成極指数
+- turn_id: 32
+  alts:
+  - '3.1'
+- turn_id: 36
+  alts:
+  - 製造番号
+- turn_id: 36
+  alts:
+  - 銘板
+- turn_id: 37
+  alts:
+  - 銘板
+- turn_id: 39
+  alts:
+  - 予備品
