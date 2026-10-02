@@ -13,7 +13,12 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
 
 WORKDIR /app
 
+# 不安定な回線でも大きなwheelのダウンロードが途切れにくいよう、タイムアウトと再試行を増やす
+ENV PIP_DEFAULT_TIMEOUT=300 PIP_RETRIES=10
+
 COPY requirements.txt constraints.txt ./
+# torch(約780MB)は別レイヤーで先に入れる。成功後はビルドキャッシュに残り、再ビルド時に再ダウンロードしない
+RUN pip3 install --no-cache-dir torch -c constraints.txt
 RUN pip3 install --no-cache-dir -r requirements.txt -c constraints.txt
 
 COPY . .
